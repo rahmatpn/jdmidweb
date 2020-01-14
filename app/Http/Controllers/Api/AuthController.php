@@ -12,11 +12,12 @@ class AuthController extends Controller
         $data = $request->validate([
            'name'=>'required|max:55',
             'email'=>'email|required|unique:users',
-            'password'=>'required|confirmed'
+            'password'=>'required|confirmed',
+            'role'=>''
         ]);
 
         $data['password'] = bcrypt($request->password);
-
+        $data['role'] = '1';
         $user = User::create($data);
 
         $accessToken = $user->createToken('authToken')->accessToken;
