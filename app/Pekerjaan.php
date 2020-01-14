@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pekerjaan extends Model
 {
+    protected $table = "pekerjaan";
+    protected $guarded = [];
+
     public function dikerjakan(){
         return $this->belongsToMany(User::class);
     }
