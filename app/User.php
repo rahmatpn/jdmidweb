@@ -44,4 +44,8 @@ class User extends Authenticatable
     public function mengerjakan(){
         return $this->belongsToMany(Pekerjaan::class);
     }
+
+    public function posisi(){
+        return $this->belongsToMany(Posisi::class);
+    }
 }

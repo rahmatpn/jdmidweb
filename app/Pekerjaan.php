@@ -13,4 +13,8 @@ class Pekerjaan extends Model
     public function hotel(){
         return $this->belongsTo(Hotel::class);
     }
+
+    public function todolist(){
+        return $this->hasMany(ToDoList::class);
+    }
 }
