@@ -46,6 +46,14 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'hotel'=>[
+            'driver'=>'session',
+            'provider'=>'hotels',
+        ],
+        'user'=>[
+            'driver'=>'session',
+            'provider'=>'users',
+        ],
     ],
 
     /*
@@ -70,7 +78,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-
+        'hotels'=> [
+            'driver'=>'eloquent',
+            'model' => App\Hotel::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

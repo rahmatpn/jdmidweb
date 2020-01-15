@@ -16,5 +16,17 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::get('/login/hotel', 'Auth\LoginController@showHotelLoginForm');
+Route::get('/login/user', 'Auth\LoginController@showUserLoginForm');
+Route::get('/register/hotel', 'Auth\RegisterController@showHotelRegisterForm');
+Route::get('/register/user', 'Auth\RegisterController@showUserRegisterForm');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/login/hotel', 'Auth\LoginController@hotelLogin');
+Route::post('/login/user', 'Auth\LoginController@userLogin');
+Route::post('/register/hotel', 'Auth\RegisterController@createHotel');
+Route::post('/register/user', 'Auth\RegisterController@createUser');
+
+Route::view('/home', 'home')->middleware('auth');
+Route::view('/hotel', 'hotel');
+Route::view('/user', 'user');
+
