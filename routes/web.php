@@ -27,6 +27,6 @@ Route::post('/register/hotel', 'Auth\RegisterController@createHotel');
 Route::post('/register/user', 'Auth\RegisterController@createUser');
 
 Route::view('/home', 'home')->middleware('auth');
-Route::view('/hotel', 'hotel');
-Route::view('/user', 'user');
+Route::get('/hotel', 'ProfileHotelController@indexHotel');
+Route::get('/user', 'ProfileUserController@indexUser');
 
