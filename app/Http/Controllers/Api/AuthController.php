@@ -13,15 +13,12 @@ class AuthController extends Controller
            'name'=>'required|max:55',
             'email'=>'email|required|unique:users',
             'password'=>'required|confirmed',
-            'role'=>''
         ]);
 
         $data['password'] = bcrypt($request->password);
-        $data['role'] = '1';
-        $user = User::create($data);
+        User::create($data);
 
-        $accessToken = $user->createToken('authToken')->accessToken;
-        return response(['user'=> $user, 'access_token'=> $accessToken]);
+        return $this->login($request);
     }
 
     public function login(Request $request)
