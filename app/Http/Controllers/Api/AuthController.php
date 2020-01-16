@@ -13,11 +13,9 @@ class AuthController extends Controller
            'name'=>'required|max:55',
             'email'=>'email|required|unique:users',
             'password'=>'required|confirmed',
-            'role'=>''
         ]);
 
         $data['password'] = bcrypt($request->password);
-        $data['role'] = '1';
         User::create($data);
 
         return $this->login($request);
