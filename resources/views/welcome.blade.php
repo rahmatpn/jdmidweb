@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pegawai Managing</title>
+    <title>Kolega Hotel</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -92,16 +92,39 @@
             background-color: #000000;
             padding: 25px;
         }
-        .span4 img {
-            margin-right: 10px;
+        /*.span4 img {*/
+        /*    margin-right: 10px;*/
+        /*}*/
+        /*.span4 .img-left {*/
+        /*    float: left;*/
+        /*}*/
+        /*.span4 .img-right {*/
+        /*    float: right;*/
+        /*}*/
+        .how-section1{
+            margin-top:-15%;
+            padding: 10%;
         }
-        .span4 .img-left {
-            float: left;
+        .how-section1 h4{
+            color: #ffa500;
+            font-weight: bold;
+            font-size: 30px;
         }
-        .span4 .img-right {
-            float: right;
+        .how-section1 .subheading{
+            color: #3931af;
+            font-size: 20px;
         }
-
+        .how-section1 .row
+        {
+            margin-top: 10%;
+        }
+        .how-img
+        {
+            text-align: center;
+        }
+        .how-img img{
+            width: 40%;
+        }
 
     </style>
 </head>
@@ -122,7 +145,6 @@
                     <a class="nav-link" href="#">Tentang</a>
                 </li>
             </ul>
-
             @if (Route::has('login'))
                 <ul class="nav navbar-nav navbar-right">
                     @auth
@@ -217,45 +239,53 @@
 
 <div class="content">
     <div class="title m-b-md">
-        Bruuhhhh Moment
-    </div>
-
-    <div class="links">
-        <a href="https://laravel.com/docs">Docs</a>
-        <a href="https://laracasts.com">Laracasts</a>
-        <a href="https://laravel-news.com">News</a>
-        <a href="https://blog.laravel.com">Blog</a>
-        <a href="https://nova.laravel.com">Nova</a>
-        <a href="https://forge.laravel.com">Forge</a>
-        <a href="https://vapor.laravel.com">Vapor</a>
-        <a href="https://github.com/laravel/laravel">GitHub</a>
+        Welcome
     </div>
 </div>
-
-<div class="container-md">
+<div class="how-section1">
     <div class="row">
-        <h2>Some Title</h2>
-    </div>
-
-    <div class="block">
-        <div class="row">
-            <div class="span4">
-                <img class="img-left" src="http://assets.barcroftmedia.com.s3-website-eu-west-1.amazonaws.com/assets/images/recent-images-11.jpg"/>
-                <div class="content-heading"><h3>Experience &nbsp </h3></div>
-                <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-            </div>
+        <div class="col-md-6 how-img">
+            <img src="https://images.pexels.com/photos/244133/pexels-photo-244133.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="rounded-bottom rounded-top img-fluid" alt=""/>
         </div>
-        <br/>
-        <div class="row">
-            <div class="span4">
-                <img class="img-right" src="http://www.prelovac.com/vladimir/wp-content/uploads/2008/03/example.jpg"/>
-                <div class="content-heading"><h3>Experience &nbsp </h3></div>
-                <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-                <p>Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-            </div>
+        <div class="col-md-6">
+            <h4>Testing</h4>
+            <h4 class="subheading">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum tellus tortor, sed eleifend tortor gravida sed. Etiam non ipsum quis ligula laoreet consectetur. Morbi aliquet nulla id metus efficitur maximus. </h4>
+            <p class="text-muted">Fusce ullamcorper erat eu libero scelerisque, condimentum gravida mauris semper. Suspendisse sed pellentesque quam. Mauris fermentum sem libero, bibendum consequat lacus vulputate consequat.
+                Nam a viverra arcu. Sed ac ipsum consectetur, tempus libero id, vehicula felis.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Testing</h4>
+            <h4 class="subheading">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum tellus tortor, sed eleifend tortor gravida sed. Etiam non ipsum quis ligula laoreet consectetur. Morbi aliquet nulla id metus efficitur maximus. </h4>
+            <p class="text-muted">Fusce ullamcorper erat eu libero scelerisque, condimentum gravida mauris semper. Suspendisse sed pellentesque quam. Mauris fermentum sem libero, bibendum consequat lacus vulputate consequat.
+                Nam a viverra arcu. Sed ac ipsum consectetur, tempus libero id, vehicula felis.</p>
+        </div>
+        <div class="col-md-6 how-img">
+            <img src="https://images.pexels.com/photos/2096983/pexels-photo-2096983.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="rounded-bottom rounded-top img-fluid" alt=""/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 how-img">
+            <img src="https://images.pexels.com/photos/3225531/pexels-photo-3225531.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="rounded-bottom rounded-top img-fluid" alt=""/>
+        </div>
+        <div class="col-md-6">
+            <h4>Testing.</h4>
+            <h4 class="subheading">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum tellus tortor, sed eleifend tortor gravida sed. Etiam non ipsum quis ligula laoreet consectetur. Morbi aliquet nulla id metus efficitur maximus. </h4>
+            <p class="text-muted">Fusce ullamcorper erat eu libero scelerisque, condimentum gravida mauris semper. Suspendisse sed pellentesque quam. Mauris fermentum sem libero, bibendum consequat lacus vulputate consequat.
+                Nam a viverra arcu. Sed ac ipsum consectetur, tempus libero id, vehicula felis.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Get paid on time</h4>
+            <h4 class="subheading">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum tellus tortor, sed eleifend tortor gravida sed. Etiam non ipsum quis ligula laoreet consectetur. Morbi aliquet nulla id metus efficitur maximus. </h4>
+            <p class="text-muted">Fusce ullamcorper erat eu libero scelerisque, condimentum gravida mauris semper. Suspendisse sed pellentesque quam. Mauris fermentum sem libero, bibendum consequat lacus vulputate consequat.
+                Nam a viverra arcu. Sed ac ipsum consectetur, tempus libero id, vehicula felis.</p>
+                Nam a viverra arcu. Sed ac ipsum consectetur, tempus libero id, vehicula felis.</p>
+        </div>
+        <div class="col-md-6 how-img">
+            <img src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="rounded-bottom rounded-top img-fluid" alt=""/>
         </div>
     </div>
 </div>
