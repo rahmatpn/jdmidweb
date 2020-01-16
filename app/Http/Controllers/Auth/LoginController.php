@@ -45,7 +45,7 @@ class LoginController extends Controller
 
     public function showHotelLoginForm()
     {
-        return view('auth.login', ['url' => 'hotel']);
+        return view('auth.loginHotel', ['url' => 'hotel']);
     }
 
     public function hotelLogin(Request $request)
@@ -64,7 +64,7 @@ class LoginController extends Controller
 
     public function showUserLoginForm()
     {
-        return view('auth.login', ['url' => 'user']);
+        return view('auth.loginUser', ['url' => 'user']);
     }
 
     public function userLogin(Request $request)
