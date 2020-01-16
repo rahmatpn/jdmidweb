@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', '') }}</title>
+    <title>Halaman Masuk Part Timer</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -24,13 +24,19 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body{
+            background-image: url("https://images.pexels.com/photos/1267473/pexels-photo-1267473.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+            background-size:cover;
+            box-shadow:inset 0 0 0 2000px rgba(255, 0, 150, 0.3);
+        }
+    </style>
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow p-3 mb-5">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+            <a class="navbar-brand" href="{{ url('/') }}"> Kolega Hotel
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -47,14 +53,8 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             <button type="button" class="btn btn-primary" data-toogle="modal" data-toggle="modal" data-target="#loginmodal">MASUK</button>
                         </li>
-                        @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            </li>
-                        @endif
                     @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -127,7 +127,6 @@
     </div>
 </div>
 
-<div class="jumbotron">
     <div class="page-content">
         <div class="form-v5-content">
             @isset($url)
@@ -186,64 +185,6 @@
                 </form>
         </div>
     </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <h3>Column 1</h3>
-            <p>Lorem ipsum dolor..</p>
-        </div>
-        <div class="col-sm-4">
-            <h3>Column 2</h3>
-            <p>Lorem ipsum dolor..</p>
-        </div>
-        <div class="col-sm-4">
-            <h3>Column 3</h3>
-            <p>Lorem ipsum dolor..</p>
-        </div>
-        <div class="col-sm-4">
-            <h3>Column 1</h3>
-            <p>Lorem ipsum dolor..</p>
-        </div>
-        <div class="col-sm-4">
-            <h3>Column 2</h3>
-            <p>Lorem ipsum dolor..</p>
-        </div>
-        <div class="col-sm-4">
-            <h3>Column 3</h3>
-            <p>Lorem ipsum dolor..</p>
-        </div>
-        <div class="col-sm-4">
-            <h3>Column 1</h3>
-            <p>Lorem ipsum dolor..</p>
-        </div>
-        <div class="col-sm-4">
-            <h3>Column 2</h3>
-            <p>Lorem ipsum dolor..</p>
-        </div>
-        <div class="col-sm-4">
-            <h3>Column 3</h3>
-            <p>Lorem ipsum dolor..</p>
-        </div>
-    </div>
-    <div class="col-sm-4">
-        <h3>Column 1</h3>
-        <p>Lorem ipsum dolor..</p>
-    </div>
-    <div class="col-sm-4">
-        <h3>Column 2</h3>
-        <p>Lorem ipsum dolor..</p>
-    </div>
-    <div class="col-sm-4">
-        <h3>Column 3</h3>
-        <p>Lorem ipsum dolor..</p>
-    </div>
-</div>
-
-<div class="jumbotron text-center" style="margin-bottom:0">
-    <p>Footer</p>
-</div>
-
 
 </body>
 </html>
