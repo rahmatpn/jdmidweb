@@ -125,8 +125,13 @@
 <div class="jumbotron">
     <div class="page-content">
         <div class="form-v5-content">
-            <form class ="form-detail" method="POST" action="{{ route('register') }}">
+            <div class="form-v5-content" > {{ isset($url) ? ucwords($url) : ""}} {{ __('Register') }}
+                @isset($url)
+                <form class ="form-detail" method="POST" action='{{ url("register/$url") }}'>
+                @else
+                <form class="form-detail" method="POST" action="{{route('register')}}">
                 <h2>Registrasi Akun User</h2>
+                @endisset
                 @csrf
                 <div class="form-row">
                     <label for="name">{{ __('Nama User') }}</label>
@@ -173,7 +178,8 @@
 
                 </div>
             </form>
-        </div>
+                </form>
+            </div>
     </div>
 </div>
 <div class="container">
@@ -234,5 +240,6 @@
 </div>
 
 
+</div>
 </body>
 </html>

@@ -88,7 +88,11 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ route('login') }}">
+                @isset($url)
+                    <form method="POST" action='{{ url("login/$url")}}'>
+                    @else
+                    <form method="POST" action="{{route('login')}}">
+                    @endisset
                     @csrf
                     <div class="form-group">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -116,6 +120,7 @@
                         <input type="submit" class="btn btn-primary btn-block btn-lg" value="Sign in">
                     </div>
                 </form>
+                    </form>
             </div>
             <div class="modal-footer">Don't have an account? <a href="">Sign up</a></div>
         </div>
@@ -124,14 +129,15 @@
 
 <div class="jumbotron">
     <div class="page-content">
-        <div class="form-v5-content" > {{ isset($url) ? ucwords($url) : ""}} {{ __('Register') }}
+        <div class="form-v5-content">
             @isset($url)
-            <form class ="form-detail" method="POST" action='{{ url("register/$url") }}'>
-                @else
-                <form class="form-detail" method="POST" action="{{route('register')}}">
-                <h2>Registrasi Akun Hotel</h2>
+                <form method="POST" class="form-detail" action='{{ url("register/$url") }}'>
+                    @else
+                <form method="POST" class="form-detail" action="{{ route('register') }}" >
                 @endisset
+                <h2>Registrasi Akun Hotel</h2>
                 @csrf
+
                 <div class="form-row">
                     <label for="name">{{ __('Nama Hotel') }}</label>
                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -176,8 +182,8 @@
                     <input type="submit" class="register">
 
                 </div>
-            </form>
-            </form>
+                </form>
+                </form>
         </div>
     </div>
 </div>
