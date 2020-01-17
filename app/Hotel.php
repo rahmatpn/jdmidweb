@@ -29,6 +29,20 @@ class Hotel extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($hotel) {
+            ProfileHotel::create([
+                'nama' => $hotel->name,
+                'id_hotel' => $hotel->id,
+                'email' => $hotel->email
+            ]);
+
+        });
+    }
+
     public function profile(){
         return $this->belongsTo(ProfileHotel::class);
     }

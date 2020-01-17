@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
@@ -57,7 +58,7 @@ class LoginController extends Controller
 
         if (Auth::guard('hotel')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
-            return redirect()->intended('/hotel');
+            return redirect()->intended('/hotel/{hotel}');
         }
         return back()->withInput($request->only('email', 'remember'));
     }
@@ -75,8 +76,8 @@ class LoginController extends Controller
         ]);
 
         if (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-
-            return redirect()->intended('/user');
+            $user = Auth::user();
+            return Redirect::to('/user/{$user}');
         }
         return back()->withInput($request->only('email', 'remember'));
     }
