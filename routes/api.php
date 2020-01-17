@@ -24,3 +24,5 @@ Route::post('/login','Api\AuthController@login');
 Route::get('/positions', 'Api\PositionController@getAllPositions');
 
 Route::get('/profile/{id}','Api\ProfileController@getUserProfile');
+
+Route::put('/profile/{id}/update', 'Api\ProfileController@updateProfile');
