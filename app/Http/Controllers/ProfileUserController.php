@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 
 class ProfileUserController extends Controller
 {
-        public function indexUser($user){
-            $user = User::find($user);
-            return view('user',[
-                'user' => $user,
-            ]);
-}
+        public function indexUser(User $user){
+            return view('profile.user', compact('user'));
+        }
+
+        public function edit (User $user){
+            return view('profile.editUser', compact('user'));
+        }
 }

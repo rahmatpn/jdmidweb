@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -68,7 +69,7 @@ class LoginController extends Controller
         return view('auth.loginUser', ['url' => 'user']);
     }
 
-    public function userLogin(Request $request)
+    public function userLogin(Request $request, User $user)
     {
         $this->validate($request, [
             'email'   => 'required|email',
@@ -76,8 +77,8 @@ class LoginController extends Controller
         ]);
 
         if (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-            $user = Auth::user();
-            return Redirect::to('/user/{$user}');
+
+            return redirect('/user/1');
         }
         return back()->withInput($request->only('email', 'remember'));
     }

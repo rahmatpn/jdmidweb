@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ProfileHotelController extends Controller
 {
     public function indexHotel($hotel){
-        $hotel = Hotel::find($hotel);
+        $hotel = Hotel::findOrFail($hotel);
         return view('hotel',[
             'hotel' => $hotel,
         ]);

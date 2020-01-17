@@ -11,21 +11,17 @@
                 <div class="d-flex align-items-center pb-3">
                     <div class="h4">{{$user->name}}</div>
 
-
                 </div>
 
-
             </div>
-
-
+            <a href="/user/{{$user->id}}/edit">Edit Profile</a>
             <div class="d-flex">
                 <div class="pr-4"><strong>1111</strong> posts</div>
                 <div class="pr-4"><strong>2222</strong> followers</div>
                 <div class="pr-4"><strong>3333</strong> following</div>
             </div>
             <div class="pt-4 font-weight-bold" >{{$user->email}}</div>
-            <div class="text-justify">BBBB</div>
-            <div><a href="#">CCCC</a> </div>
+
         </div>
     </div>
 
