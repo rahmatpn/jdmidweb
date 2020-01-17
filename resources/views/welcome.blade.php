@@ -12,6 +12,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Proxima Nova:200,600" rel="stylesheet">
     <!-- Styles -->
+    <link href="{{ asset('css/style.css')}}" rel="stylesheet">
     <style>
         html, body {
             background-color: #fff;
@@ -145,6 +146,7 @@
                     <a class="nav-link" href="#">Tentang</a>
                 </li>
             </ul>
+
             @if (Route::has('login'))
                 <ul class="nav navbar-nav navbar-right">
                     @auth
@@ -173,14 +175,7 @@
                                 <a class="dropdown-item" href="/register/user">Part Timer</a>
                                 <a class="dropdown-item" href="/register/hotel">Hotel</a>
                             </div>
-
                         </li>
-
-
-{{--                        <li><a href="{{ route('login') }}" class="btn btn-outline-success mr-2">Login</a></li>--}}
-{{--                        @if (Route::has('register'))--}}
-{{--                            <li><a href="{{ route('register') }}" class="btn btn-outline-danger">Daftar</a></li>--}}
-{{--                        @endif--}}
                     @endauth
                 </ul>
 
@@ -281,7 +276,6 @@
             <h4>Get paid on time</h4>
             <h4 class="subheading">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum tellus tortor, sed eleifend tortor gravida sed. Etiam non ipsum quis ligula laoreet consectetur. Morbi aliquet nulla id metus efficitur maximus. </h4>
             <p class="text-muted">Fusce ullamcorper erat eu libero scelerisque, condimentum gravida mauris semper. Suspendisse sed pellentesque quam. Mauris fermentum sem libero, bibendum consequat lacus vulputate consequat.
-                Nam a viverra arcu. Sed ac ipsum consectetur, tempus libero id, vehicula felis.</p>
                 Nam a viverra arcu. Sed ac ipsum consectetur, tempus libero id, vehicula felis.</p>
         </div>
         <div class="col-md-6 how-img">
