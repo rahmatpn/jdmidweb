@@ -21,6 +21,6 @@ Route::post('/register','Api\AuthController@register');
 
 Route::post('/login','Api\AuthController@login');
 
-Route::get('/positions', function (){
-    return \App\Posisi::all();
-});
+Route::get('/positions', 'Api\PositionController@getAllPositions');
+
+Route::get('/profile/{id}','Api\ProfileController@getUserProfile');

@@ -25,6 +25,7 @@ class CreateUserProfilesTable extends Migration
             $table->string('social_media')->nullable();
             $table->enum('pendidikan_terakhir', ['SD', 'SMP', 'SMA', 'Diploma', 'S1', 'S2', 'S3'])->nullable();
             $table->string('foto')->nullable();
+            $table->string('cover')->nullable();
             $table->timestamps();
 
             $table->index('id_user');
