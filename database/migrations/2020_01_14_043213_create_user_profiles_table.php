@@ -15,7 +15,7 @@ class CreateUserProfilesTable extends Migration
     {
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('user_id');
             $table->string('nama');
             $table->string('nama_lengkap')->nullable();
             $table->string('nomor_telepon')->nullable();
@@ -28,7 +28,7 @@ class CreateUserProfilesTable extends Migration
             $table->string('cover')->nullable();
             $table->timestamps();
 
-            $table->index('id_user');
+            $table->index('user_id');
             $table->index('nama');
             $table->index('email');
         });

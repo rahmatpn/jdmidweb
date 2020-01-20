@@ -15,7 +15,7 @@ class CreateHotelProfilesTable extends Migration
     {
         Schema::create('hotel_profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('id_hotel');
+            $table->unsignedBigInteger('hotel_id');
             $table->string('nama');
             $table->text('alamat')->nullable();
             $table->string('email');
@@ -25,7 +25,7 @@ class CreateHotelProfilesTable extends Migration
             $table->string('website')->nullable();
             $table->timestamps();
 
-            $table->index('id_hotel');
+            $table->index('hotel_id');
             $table->index('email');
             $table->index('nama');
         });
