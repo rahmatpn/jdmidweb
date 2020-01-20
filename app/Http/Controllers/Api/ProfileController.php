@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\ProfileUser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
@@ -15,8 +16,9 @@ class ProfileController extends Controller
         return response(["profile"=>\App\ProfileUser::firstOrFail()->where('id_user', $id)->get()]);
     }
 
-    function updateProfile(Request $request, $id)
+    function updateProfile(Request $request)
     {
+        $id = \auth()->id();
         $profile = ProfileUser::findOrFail($id);
         $newProfile = Validator::make($request->all(),[
             'id' => 'required',

@@ -25,4 +25,8 @@ Route::get('/positions', 'Api\PositionController@getAllPositions');
 
 Route::get('/profile/{id}','Api\ProfileController@getUserProfile');
 
-Route::put('/profile/{id}/update', 'Api\ProfileController@updateProfile');
+Route::group([
+   'middleware'=>'auth:api'
+], function (){
+    Route::put('/profile/{id}/update', 'Api\ProfileController@updateProfile');
+});
