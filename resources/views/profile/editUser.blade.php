@@ -2,10 +2,8 @@
 
 @section('content')
     <div class="container">
-            <form action="/user/{{$user->id}}" enctype="multipart/form-data" method="post">
+            <form action="/p" enctype="multipart/form-data" method="post">
                 @csrf
-                @method('PATCH')
-
                 <div class="row">
                     <div class="col-8 offset-2">
 
@@ -19,63 +17,63 @@
                                    type="text"
                                    class="form-control @error('nama') is-invalid @enderror"
                                    name="nama"
-                                   value="{{ old('nama') ?? $user->profile->nama}}"
+                                   value="{{ old('nama') }}"
                                    autocomplete="nama" autofocus>
 
                             @if($errors->has('nama'))
                                 <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('nama') }}</strong>
+                            <strong>{{ $errors->first('name') }}</strong>
                         </span>
                             @endif
                         </div>
                         <div class="form-group row">
-                            <label for="nama_lengkap" class="col-md-4 col-form-label">Nama Lengkap</label>
+                            <label for="nama lengkap" class="col-md-4 col-form-label">Nama lengkap</label>
 
-                            <input id="nama_lengkap"
+                            <input id="nama lengkap"
                                    type="text"
-                                   class="form-control @error('nama_lengkap') is-invalid @enderror"
-                                   name="nama_lengkap"
-                                   value="{{ old('nama_lengkap') ?? $user->profile->nama_lengkap }}"
-                                   autocomplete="nama_lengkap" autofocus>
+                                   class="form-control @error('nama lengkap') is-invalid @enderror"
+                                   name="nama lengkap"
+                                   value="{{ old('nama lengkap') }}"
+                                   autocomplete="nama lengkap" autofocus>
 
-                            @if($errors->has('nama_lengkap'))
+                            @if($errors->has('nama lengkap'))
                                 <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('nama_lengkap') }}</strong>
+                            <strong>{{ $errors->first('name') }}</strong>
                         </span>
                             @endif
                         </div>
                         <div class="form-group row">
-                            <label for="nomor_telepon" class="col-md-4 col-form-label">Nomor Telepon</label>
+                            <label for="noTelp" class="col-md-4 col-form-label">Nomor Telepon</label>
 
-                            <input id="nomor_telepon"
+                            <input id="noTelp"
                                    type="text"
-                                   class="form-control @error('nomor_telepon') is-invalid @enderror"
-                                   name="nomor_telepon"
-                                   value="{{ old('nomor_telepon') ?? $user->profile->nomor_telepon}}"
-                                   autocomplete="nomor_telepon" autofocus>
+                                   class="form-control @error('noTelp') is-invalid @enderror"
+                                   name="noTelp"
+                                   value="{{ old('noTelp') }}"
+                                   autocomplete="noTelp" autofocus>
 
-                            @if($errors->has('nomor_telepon'))
+                            @if($errors->has('noTelp'))
                                 <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('nomor_telepon') }}</strong>
+                            <strong>{{ $errors->first('name') }}</strong>
                         </span>
                             @endif
                         </div>
-{{--                        <div class="form-group row">--}}
-{{--                            <label for="jenis kelamin" class="col-md-4 col-form-label">Jenis Kelamin</label>--}}
+                        <div class="form-group row">
+                            <label for="jenis kelamin" class="col-md-4 col-form-label">Jenis Kelamin</label>
 
-{{--                            <input id="jenis kelamin"--}}
-{{--                                   type="text"--}}
-{{--                                   class="form-control @error('jenis kelamin') is-invalid @enderror"--}}
-{{--                                   name="jenis kelamin"--}}
-{{--                                   value="{{ old('jenis kelamin') }}"--}}
-{{--                                   autocomplete="jenis kelamin" autofocus>--}}
+                            <input id="jenis kelamin"
+                                   type="text"
+                                   class="form-control @error('jenis kelamin') is-invalid @enderror"
+                                   name="jenis kelamin"
+                                   value="{{ old('jenis kelamin') }}"
+                                   autocomplete="jenis kelamin" autofocus>
 
-{{--                            @if($errors->has('jenis kelamin'))--}}
-{{--                                <span class="invalid-feedback" role="alert">--}}
-{{--                            <strong>{{ $errors->first('name') }}</strong>--}}
-{{--                        </span>--}}
-{{--                            @endif--}}
-{{--                        </div>--}}
+                            @if($errors->has('jenis kelamin'))
+                                <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('name') }}</strong>
+                        </span>
+                            @endif
+                        </div>
                         <div class="form-group row">
                             <label for="alamat" class="col-md-4 col-form-label">Alamat</label>
 
@@ -83,78 +81,78 @@
                                    type="text"
                                    class="form-control @error('alamat') is-invalid @enderror"
                                    name="alamat"
-                                   value="{{ old('alamat') ?? $user->profile->alamat}}"
+                                   value="{{ old('alamat') }}"
                                    autocomplete="alamat" autofocus>
 
                             @if($errors->has('alamat'))
                                 <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('alamat') }}</strong>
+                            <strong>{{ $errors->first('name') }}</strong>
                         </span>
                             @endif
                         </div>
-{{--                        <div class="form-group row">--}}
-{{--                            <label for="email" class="col-md-4 col-form-label">E-mail</label>--}}
-
-{{--                            <input id="email"--}}
-{{--                                   type="text"--}}
-{{--                                   class="form-control @error('email') is-invalid @enderror"--}}
-{{--                                   name="email"--}}
-{{--                                   value="{{ old('email') }}"--}}
-{{--                                   autocomplete="email" autofocus>--}}
-
-{{--                            @if($errors->has('email'))--}}
-{{--                                <span class="invalid-feedback" role="alert">--}}
-{{--                            <strong>{{ $errors->first('name') }}</strong>--}}
-{{--                        </span>--}}
-{{--                            @endif--}}
-{{--                        </div>--}}
                         <div class="form-group row">
-                            <label for="social_media" class="col-md-4 col-form-label">Social Media</label>
+                            <label for="email" class="col-md-4 col-form-label">E-mail</label>
 
-                            <input id="social_media"
+                            <input id="email"
                                    type="text"
-                                   class="form-control @error('social_media') is-invalid @enderror"
-                                   name="social_media"
-                                   value="{{ old('social_media') }}"
-                                   autocomplete="social_media" autofocus>
+                                   class="form-control @error('email') is-invalid @enderror"
+                                   name="email"
+                                   value="{{ old('email') }}"
+                                   autocomplete="email" autofocus>
 
-                            @if($errors->has('social_media'))
+                            @if($errors->has('email'))
                                 <span class="invalid-feedback" role="alert">
-                            <strong>{{ $errors->first('social_media') }}</strong>
+                            <strong>{{ $errors->first('name') }}</strong>
                         </span>
                             @endif
                         </div>
-{{--                        <div class="form-group row">--}}
-{{--                            <label for="pendidikanTerakhir" class="col-md-4 col-form-label">Pendidikan terakhir</label>--}}
+                        <div class="form-group row">
+                            <label for="socialMedia" class="col-md-4 col-form-label">Social Media</label>
 
-{{--                            <input id="pendidikanTerakhir"--}}
-{{--                                   type="text"--}}
-{{--                                   class="form-control @error('pendidikanTerakhir') is-invalid @enderror"--}}
-{{--                                   name="pendidikanTerakhir"--}}
-{{--                                   value="{{ old('pendidikanTerakhir') }}"--}}
-{{--                                   autocomplete="pendidikanTerakhir" autofocus>--}}
+                            <input id="socialMedia"
+                                   type="text"
+                                   class="form-control @error('socialMedia') is-invalid @enderror"
+                                   name="socialMedia"
+                                   value="{{ old('socialMedia') }}"
+                                   autocomplete="socialMedia" autofocus>
 
-{{--                            @if($errors->has('pendidikanTerakhir'))--}}
-{{--                                <span class="invalid-feedback" role="alert">--}}
-{{--                            <strong>{{ $errors->first('name') }}</strong>--}}
-{{--                        </span>--}}
-{{--                            @endif--}}
-{{--                        </div>--}}
+                            @if($errors->has('socialMedia'))
+                                <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('name') }}</strong>
+                        </span>
+                            @endif
+                        </div>
+                        <div class="form-group row">
+                            <label for="pendidikanTerakhir" class="col-md-4 col-form-label">Pendidikan terakhir</label>
+
+                            <input id="pendidikanTerakhir"
+                                   type="text"
+                                   class="form-control @error('pendidikanTerakhir') is-invalid @enderror"
+                                   name="pendidikanTerakhir"
+                                   value="{{ old('pendidikanTerakhir') }}"
+                                   autocomplete="pendidikanTerakhir" autofocus>
+
+                            @if($errors->has('pendidikanTerakhir'))
+                                <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('name') }}</strong>
+                        </span>
+                            @endif
+                        </div>
 
 
                         <div class="row">
-                            <label for="foto" class="col-md-4 col-form-label">Foto</label>
+                            <label for="image" class="col-md-4 col-form-label">Foto</label>
 
-                            <input type="file" class="form-control-file" id="foto" name="foto">
-                            @if($errors->has('foto'))
+                            <input type="file" class="form-control-file" id="image" name="image">
+                            @if($errors->has('image'))
 
-                                <strong>{{ $errors->first('foto') }}</strong>
+                                <strong>{{ $errors->first('image') }}</strong>
 
                             @endif
                         </div>
 
                         <div class="row pt-4">
-                            <button class="btn btn-primary">Simpan</button>
+                            <button class="btn btn-primary">Add New Post</button>
                         </div>
                     </div>
                 </div>

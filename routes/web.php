@@ -28,7 +28,6 @@ Route::post('/register/user', 'Auth\RegisterController@createUser');
 
 Route::view('/home', 'home')->middleware('auth');
 Route::get('/hotel/{hotel}', 'ProfileHotelController@indexHotel')->name('hotel.show');
-
 Route::get('/user/{user}', 'ProfileUserController@indexUser')->name('user.show');
-Route::get('/user/{user}/edit', 'ProfileUserController@edit')->name('user.edit');
-Route::patch('/user/{user}', 'ProfileUserController@update')->name('user.update');
+route::get('/user/{user}/edit', 'ProfileUserController@edit')->name('user.edit');
+

@@ -89,7 +89,6 @@
                     @csrf
                     <div class="form-group">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
                         @error('email')
                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -106,7 +105,10 @@
                         @enderror
                     </div>
                     <div class="form-group small clearfix">
-                        <label class="checkbox-inline"><input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}> Remember me</label>
+                        <label class="checkbox-inline"><input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <div style="margin-left: 20px">
+                            Remember me</div>
+                        </label>
                         <a href="{{ route('password.request') }}" class="forgot-link">Forgot Password?</a>
                     </div>
                     <div class="form-group">
@@ -115,7 +117,7 @@
                 </form>
                     </form>
             </div>
-            <div class="modal-footer">Don't have an account? <a href="">Sign up</a></div>
+            <div class="modal-footer">Tidak Punya Akun? Silahkan Registrasi Terlebih Dahulu</div>
         </div>
     </div>
 </div>
@@ -173,8 +175,8 @@
 
                 <div class="form-row-last">
                     <input type="submit" class="register">
-
                 </div>
+
                 </form>
                 </form>
         </div>

@@ -28,13 +28,17 @@
         body{
             background-image: url("https://images.pexels.com/photos/1267473/pexels-photo-1267473.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
             background-size:cover;
-            box-shadow:inset 0 0 0 2000px rgba(255, 0, 150, 0.3);
+
+        }
+        .backgroundimg{
+
+            opacity: 0.5;
         }
     </style>
 </head>
 <body>
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow p-3 mb-5">
+    <nav class="navbar navbar-expand-md navbar-light shadow-md bg-white">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}"> Kolega Hotel
             </a>
@@ -113,7 +117,9 @@
                                     @enderror
                                 </div>
                                 <div class="form-group small clearfix">
-                                    <label class="checkbox-inline"><input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}> Remember me</label>
+                                    <label class="checkbox-inline"><input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                        <div style="margin-left: 20px">
+                                            Remember me</div></label>
                                     <a href="{{ route('password.request') }}" class="forgot-link">Forgot Password?</a>
                                 </div>
                                 <div class="form-group">
@@ -122,7 +128,7 @@
                             </form>
                     </form>
             </div>
-            <div class="modal-footer">Don't have an account? <a href="">Sign up</a></div>
+            <div class="modal-footer">Tidak Punya Akun? Silahkan Registrasi Terlebih Dahulu</div>
         </div>
     </div>
 </div>

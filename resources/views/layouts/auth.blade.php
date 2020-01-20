@@ -20,7 +20,19 @@
 
 
     <style>
-
+        .imghotel{
+            position:relative;
+            overflow:hidden;
+            padding-bottom:100%;
+        }
+        .imghotel img{
+            position: absolute;
+            max-width: 100%;
+            max-height: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
 
     </style>
 </head>
@@ -42,32 +54,32 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="#">
                             <i class="fa fa-user-circle"></i>
                             Profil
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item ">
                         <a class="nav-link" href="#">
                             <i class="fa fa-home"></i>
                             Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="#">
                             <i class="fa fa-angellist"></i>
                             Job-List
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <i class="fa "></i>
+                            <i class="fa fa-whatsapp "></i>
                             Chat
-                            <span class="sr-only">(current)</span>
+                            <span class="badge badge-danger">11</span>
                         </a>
                     </li>
 

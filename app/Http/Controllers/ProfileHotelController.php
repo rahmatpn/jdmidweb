@@ -9,7 +9,7 @@ class ProfileHotelController extends Controller
 {
     public function indexHotel($hotel){
         $hotel = Hotel::findOrFail($hotel);
-        return view('hotel',[
+        return view('profile.hotel',[
             'hotel' => $hotel,
         ]);
     }
