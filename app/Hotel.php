@@ -36,7 +36,7 @@ class Hotel extends Authenticatable
         static::created(function ($hotel) {
             ProfileHotel::create([
                 'nama' => $hotel->name,
-                'id_hotel' => $hotel->id,
+                'hotel_id' => $hotel->id,
                 'email' => $hotel->email
             ]);
 

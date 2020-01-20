@@ -30,7 +30,7 @@
             </li>
             <li class="list-group-item fa fa-globe d-flex">
                 <div class="pl-2">
-                    www.hotel1.com
+{{--                    {{$hotel->profile->website}}--}}
                 </div>
             </li>
 

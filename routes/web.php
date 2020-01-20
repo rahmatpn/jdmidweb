@@ -28,6 +28,10 @@ Route::post('/register/user', 'Auth\RegisterController@createUser');
 
 Route::view('/home', 'home')->middleware('auth');
 Route::get('/hotel/{hotel}', 'ProfileHotelController@indexHotel')->name('hotel.show');
+Route::get('/hotel/{hotel}/edit', 'ProfileUserController@edit')->name('hotel.edit');
+Route::patch('/hotel/{hotel}', 'ProfileUserController@update')->name('hotel.update');
+
 Route::get('/user/{user}', 'ProfileUserController@indexUser')->name('user.show');
-route::get('/user/{user}/edit', 'ProfileUserController@edit')->name('user.edit');
+Route::get('/user/{user}/edit', 'ProfileUserController@edit')->name('user.edit');
+Route::patch('/user/{user}', 'ProfileUserController@update')->name('user.update');
 
