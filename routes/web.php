@@ -35,3 +35,6 @@ Route::get('/user/{user}', 'ProfileUserController@indexUser')->name('user.show')
 Route::get('/user/{user}/edit', 'ProfileUserController@edit')->name('user.edit');
 Route::patch('/user/{user}', 'ProfileUserController@update')->name('user.update');
 
+
+
+

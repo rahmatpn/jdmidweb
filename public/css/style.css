@@ -310,6 +310,7 @@ body {
     }
 }
 
+
 @media (min-width: 1200px) {
     .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link {
         text-align: center;
@@ -332,6 +333,8 @@ body {
         top: -7px;
     }
 }
+
+
 
 input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #999;
