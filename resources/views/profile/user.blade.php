@@ -21,6 +21,9 @@
                 <div class="pr-4"><strong>3333</strong> following</div>
             </div>
             <div class="pt-4 font-weight-bold" >{{$user->email}}</div>
+            <div class="pt-4 font-weight-bold" >{{$user->email}}</div>
+            <div class="pt-4 font-weight-bold" >{{$user->email}}</div>
+            <div class="pt-4 font-weight-bold" >{{$user->email}}</div>
 
         </div>
     </div>
