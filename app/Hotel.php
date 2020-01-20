@@ -44,7 +44,7 @@ class Hotel extends Authenticatable
     }
 
     public function profile(){
-        return $this->belongsTo(ProfileHotel::class);
+        return $this->hasOne(ProfileHotel::class);
     }
 
     public function pekerjaan(){

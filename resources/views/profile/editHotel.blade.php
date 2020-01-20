@@ -18,7 +18,7 @@
                                type="text"
                                class="form-control @error('nama') is-invalid @enderror"
                                name="nama"
-                               value="{{ old('nama') ?? $hotel->profile->nama}}"
+                               value="{{ old('nama')?? $hotel->profile->nama}}"
                                autocomplete="nama" autofocus>
 
                         @if($errors->has('nama'))
@@ -34,7 +34,7 @@
                                type="text"
                                class="form-control @error('alamat') is-invalid @enderror"
                                name="alamat"
-                               value="{{ old('alamat') ?? $hotel->profile->alamat }}"
+                               value="{{ old('alamat') ?? $hotel->profile->alamat}}"
                                autocomplete="alamat" autofocus>
 
                         @if($errors->has('alamat'))
@@ -50,7 +50,7 @@
                                type="text"
                                class="form-control @error('nomor_telepon') is-invalid @enderror"
                                name="nomor_telepon"
-                               value="{{ old('nomor_telepon') ?? $hotel->profile->nomor_telepon}}"
+                               value="{{ old('nomor_telepon')?? $hotel->profile->nomor_telepon }}"
                                autocomplete="nomor_telepon" autofocus>
 
                         @if($errors->has('nomor_telepon'))
@@ -67,7 +67,7 @@
                                type="text"
                                class="form-control @error('website') is-invalid @enderror"
                                name="website"
-                               value="{{ old('website') ?? $hotel->profile->website}}"
+                               value="{{ old('website' ) ?? $hotel->profile->website}}"
                                autocomplete="website" autofocus>
 
                         @if($errors->has('website'))

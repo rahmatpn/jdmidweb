@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Hotel;
+use App\ProfileHotel;
 use Illuminate\Http\Request;
 
 class ProfileHotelController extends Controller

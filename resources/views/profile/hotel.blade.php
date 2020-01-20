@@ -5,7 +5,7 @@
     <div class="card shadow" style="width: 18rem">
         <img class="card-img-top img-fluid" src="https://origin.pegipegi.com/jalan/images/pict1L/Y4/Y979784/X979784001.jpg" alt="card hotel image">
         <div class="card-body">
-            <h4 title="card-title" >{{$hotel->name}}</h4>
+            <h4 title="card-title" >{{$hotel->profile->nama}}</h4>
             <span class="fa fa-home d-flex">
                 <div class="pl-2">
                     Kartasura
@@ -20,22 +20,20 @@
             </li>
             <li class="list-group-item fa fa-whatsapp d-flex">
                 <div class="pl-2">
-                    0891263132213
+                    {{$hotel->profile->nomor_telepon}}
                 </div>
             </li>
             <li class="list-group-item fa fa-instagram d-flex">
                 <div class="pl-2">
-                    @hotelabc
+                    {{$hotel->profile->social_media}}
                 </div>
             </li>
             <li class="list-group-item fa fa-globe d-flex">
-                <div class="pl-2">
-{{--                    {{$hotel->profile->website}}--}}
-                </div>
+                <div class="pl-2">{{$hotel->profile->website}}</div>
             </li>
 
         </ul>
-        <a href="#" class="btn btn-info my-3">Edit Profile</a>
+        <a href="/hotel/{{$hotel->id}}/edit" class="btn btn-info my-3">Edit Profile</a>
 
     </div>
 
