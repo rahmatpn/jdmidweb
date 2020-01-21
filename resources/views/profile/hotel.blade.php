@@ -37,11 +37,11 @@
             </li>
 
         </ul>
-        <a href="/hotel/{{$hotel->id}}/edit" class="btn btn-info my-3">Edit Profile</a>
+        <a href="/hotel/{{$hotel->id}}/edit" class="btn btn-info">Edit Profile</a>
 
     </div>
 
-
+        <button href="/hotel/{hotel}/postjob" type="button" class="btn-danger">Post A Job</button>
 {{--    <div class="row">--}}
 {{--        <div class="card card-img-bottomcol-sm-5">--}}
 {{--            <div class="imghotel shadow">--}}
