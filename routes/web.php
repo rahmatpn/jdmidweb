@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('jobvacancy',function (){
+    return view('jobvacancy');
+});
+
 Auth::routes();
 Route::get('/login/hotel', 'Auth\LoginController@showHotelLoginForm');
 Route::get('/login/user', 'Auth\LoginController@showUserLoginForm');
@@ -33,6 +37,10 @@ Route::get('/hotel/{hotel}/edit', 'ProfileHotelController@edit')->name('hotel.ed
 Route::patch('/hotel/{hotel}', 'ProfileHotelController@update')->name('hotel.update');
 Route::get('/hotel/{hotel}', 'ProfileHotelController@indexHotel')->name('hotel.show');
 Route::get('/user/{user}', 'ProfileUserController@indexUser')->name('user.show');
+
+Route::get('/hotel/{hotel}/postjob', 'PekerjaanController@add')->name('hotel.add');
+Route::post('/hotel/{hotel}/store', 'PekerjaanController@store')->name('hotel.store');
+
 
 
 Route::group([

@@ -3,19 +3,23 @@
 @section('content')
 <div class="container float-left" style="margin-left:50px">
     <div class="card shadow" style="width: 18rem">
-        <img class="card-img-top img-fluid" src="https://origin.pegipegi.com/jalan/images/pict1L/Y4/Y979784/X979784001.jpg" alt="card hotel image">
+        <img class="card-img-top img-fluid" src="/storage/{{$hotel->profile->foto}}" alt="card hotel image">
         <div class="card-body">
             <h4 title="card-title" >{{$hotel->profile->nama}}</h4>
+
             <span class="fa fa-home d-flex">
                 <div class="pl-2">
-                    Kartasura
+                     <p class="card-text">
+                    {{$hotel->profile->alamat}}
+                      </p>
                 </div>
             </span>
+
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item fa fa-envelope d-flex">
                 <div class="pl-2">
-                    {{ $hotel->email}}
+                    {{ $hotel->profile->email}}
                 </div>
             </li>
             <li class="list-group-item fa fa-whatsapp d-flex">
@@ -37,13 +41,7 @@
 
     </div>
 
-    <div class ="col-md-8 mb30">
-        <div class="card">
 
-        </div>
-
-
-    </div>
 {{--    <div class="row">--}}
 {{--        <div class="card card-img-bottomcol-sm-5">--}}
 {{--            <div class="imghotel shadow">--}}

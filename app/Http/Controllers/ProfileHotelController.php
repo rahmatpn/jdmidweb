@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Hotel;
 use App\ProfileHotel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class ProfileHotelController extends Controller
 {
@@ -33,6 +35,19 @@ class ProfileHotelController extends Controller
         ]);
         $profile->update($data);
 
-        return redirect("/hotel/{$hotel->id}");
+        if(request('foto')){
+            $fotoPath = request('foto')->store('profile','public');
+
+            $foto = Image::make(public_path("storage/{$fotoPath}"))->fit(1000,1000);
+            $foto->save();
+        }
+
+
+        auth()->user()->profile->update(array_merge(
+            $data,
+            ['foto'=> $fotoPath]
+        ));
+
+        return redirect("/hotel/{$hotel->id}")->with("Data Has Been Updated Successfully");
     }
 }
