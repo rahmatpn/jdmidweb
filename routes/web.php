@@ -27,14 +27,27 @@ Route::post('/register/hotel', 'Auth\RegisterController@createHotel');
 Route::post('/register/user', 'Auth\RegisterController@createUser');
 
 Route::view('/home', 'home')->middleware('auth');
+
 Route::get('/hotel/{hotel}', 'ProfileHotelController@indexHotel')->name('hotel.show');
 Route::get('/hotel/{hotel}/edit', 'ProfileHotelController@edit')->name('hotel.edit');
 Route::patch('/hotel/{hotel}', 'ProfileHotelController@update')->name('hotel.update');
-
+Route::get('/hotel/{hotel}', 'ProfileHotelController@indexHotel')->name('hotel.show');
 Route::get('/user/{user}', 'ProfileUserController@indexUser')->name('user.show');
-Route::get('/user/{user}/edit', 'ProfileUserController@edit')->name('user.edit');
-Route::patch('/user/{user}', 'ProfileUserController@update')->name('user.update');
 
+
+Route::group([
+    'middleware'=>'auth:user'
+], function (){
+    Route::get('/user/{user}/edit', 'ProfileUserController@edit');
+    Route::patch('/user/{user}', 'ProfileUserController@update');
+});
+
+Route::group([
+    'middleware'=>'auth:hotel'
+], function (){
+    Route::patch('/hotel/{hotel}', 'ProfileHotelController@update');
+    Route::get('/hotel/{hotel}/edit', 'ProfileHotelController@edit');
+});
 
 
 

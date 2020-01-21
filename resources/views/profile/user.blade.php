@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-3 p-5">
-            <img src="{{$user->profile->foto}}" class="rounded-circle w-100">
+            <img src="/storage/{{$user->profile->foto}}" class="rounded-circle w-100">
         </div>
         <div class="col-9 pt-5">
             <div class="d-flex justify-content-between align-items-baseline">
@@ -14,7 +14,9 @@
                 </div>
 
             </div>
+
             <a href="/user/{{$user->id}}/edit">Edit Profile</a>
+
             <div class="d-flex">
                 <div class="pr-4"><strong>1111</strong> posts</div>
                 <div class="pr-4"><strong>2222</strong> followers</div>

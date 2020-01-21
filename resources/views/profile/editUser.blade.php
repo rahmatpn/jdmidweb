@@ -2,6 +2,9 @@
 
 @section('content')
     <div class="container">
+        <form action="/user/{{$user->id}}" enctype="multipart/form-data" method="post">
+            @csrf
+            @method('PATCH')
         <div class="container">
             <div class="row  flex-lg-nowrap float-left">
                 <div class="col-md-12 col-lg-auto mb-auto" style="width: 250px;">
@@ -28,9 +31,7 @@
                         <div class="e-profile">
                             <div class="tab-content pt-3">
                                 <div class="tab-pane active">
-                                    <form action="/user/{{$user->id}}" enctype="multipart/form-data" method="post">
-                                        @csrf
-                                        @method('PATCH')
+
                                         <h2>Edit Profil</h2>
                                         <div class="row">
                                             <div class="col">
@@ -167,7 +168,7 @@
                                                 <button class="btn btn-primary" type="submit">Save Changes</button>
                                             </div>
                                         </div>
-                                    </form>
+
 
                                 </div>
                             </div>
@@ -176,6 +177,7 @@
                 </div>
             </div>
         </div>
+        </form>
     </div>
 
 @endsection

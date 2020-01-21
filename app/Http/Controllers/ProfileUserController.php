@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\ProfileUser;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class ProfileUserController extends Controller
 {
@@ -13,22 +15,36 @@ class ProfileUserController extends Controller
         }
 
         public function edit (User $user){
+            $this->authorize('update', $user->profile);
             return view('profile.editUser', compact('user'));
         }
 
 
         public function update(User $user){
+            $this->authorize('update', $user->profile);
 
-            $profile= ProfileUser::findOrFail($user->id);
             $data = request()->validate([
                 'nama' => 'required',
                 'nama_lengkap' => 'required',
                 'nomor_telepon' => '',
                 'alamat' => '',
                 'social_media'=> '',
-                'foto'=>''
+                'foto'=>'',
             ]);
-            $profile->update($data);
+
+
+            if(request('foto')){
+                $fotoPath = request('foto')->store('profile','public');
+
+                $foto = Image::make(public_path("storage/{$fotoPath}"))->fit(1000,1000);
+                $foto->save();
+            }
+
+
+            auth()->user()->profile->update(array_merge(
+                $data,
+                ['foto'=> $fotoPath]
+            ));
 
             return redirect("/user/{$user->id}");
         }
