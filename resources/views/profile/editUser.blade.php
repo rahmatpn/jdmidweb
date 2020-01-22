@@ -21,6 +21,21 @@
                     </div>
                 </div>
             </div>
+            <div class="row  flex-lg-nowrap float-left">
+                <div class="col-md-12 col-lg-auto mb-auto" style="width: 250px;">
+                    <div class="card rounded-right shadow p-4">
+                        <div class="text-center">
+                            <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                            <h6>Upload Cover</h6>
+                            <input type="file" class="form-control-file" id="cover" name="cover">
+                            @if($errors->has('cover'))
+                                <strong>{{ $errors->first('cover') }}</strong>
+                            @endif
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
@@ -73,7 +88,7 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col">
-                                                        <div class="form-check">
+                                                        <div class="form-group">
                                                             <label for="jenis_kelamin">Jenis Kelamin</label>
                                                             <div class="form-check">
                                                                 <label class="form-check-label" for="jenis_kelamin">
@@ -85,7 +100,25 @@
                                                                     <input type="radio"  id="L" name="jenis_kelamin" value="L" {{($user->jenis_kelamin=="L")?  "checked" : "" }}>Laki-laki
                                                                 </label>
                                                             </div>
-
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="form-group">
+                                                            <label for="pendidikan_terakhir">Pendidikan terakhir</label>
+                                                            <div class="input-group mb-3">
+                                                                <select class="custom-select" id="pendidikan_terakhir" name="pendidikan_terakhir">
+                                                                    <option selected>{{old('pendidikan_terakhir')?? $user->profile->pendidikan_terakhir}}</option>
+                                                                    <option value="SD" {{($user->pendidikan_terakhir=="SD")}}>SD</option>
+                                                                    <option value="SMP"{{($user->pendidikan_terakhir=="SMP")}}>SMP</option>
+                                                                    <option value="SMA"{{($user->pendidikan_terakhir=="SMA")}}>SMA</option>
+                                                                    <option value="Diploma"{{($user->pendidikan_terakhir=="Diploma")}}>Diploma</option>
+                                                                    <option value="S1"{{($user->pendidikan_terakhir=="S1")}}>S1</option>
+                                                                    <option value="S2"{{($user->pendidikan_terakhir=="S2")}}>S2</option>
+                                                                    <option value="S3"{{($user->pendidikan_terakhir=="S3")}}>S3</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -132,7 +165,7 @@
                                                 <div class="row">
                                                     <div class="col mb-3">
                                                         <div class="form-group">
-                                                            <label>Alabamat</label>
+                                                            <label>Alamat</label>
                                                             {{--                                                            <textarea class="form-control" rows="5" placeholder="Alamat"></textarea>--}}
                                                             <textarea id="alamat"
                                                                       type="text"

@@ -27,10 +27,12 @@ class ProfileUserController extends Controller
                 'nama' => 'required',
                 'nama_lengkap' => 'required',
                 'jenis_kelamin'=> '',
+                'pendidikan_terakhir'=> '',
                 'nomor_telepon' => '',
                 'alamat' => '',
                 'social_media'=> '',
                 'foto'=>'',
+                'cover' => '',
 
             ]);
 
@@ -39,14 +41,25 @@ class ProfileUserController extends Controller
                 $fotoPath = request('foto')->store('profile','public');
 
                 $foto = Image::make(public_path("storage/{$fotoPath}"))->fit(1000,1000);
-                $foto->save();
+                $foto -> save();
+
+                $fotoArray = ['foto'=> $fotoPath];
             }
 
+            if(request('cover')){
+                $coverPath = request('cover')->store('profile','public');
+
+                $cover = Image::make(public_path("storage/{$coverPath}"));
+                $cover->save();
+
+                $coverArray = ['cover'=> $coverPath];
+            }
 
 
             auth()->user()->profile->update(array_merge(
                 $data,
-                ['foto'=> $fotoPath]
+                $fotoArray ?? [],
+                $coverArray ?? []
             ));
 
             return redirect("/user/{$user->id}");
