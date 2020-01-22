@@ -29,4 +29,5 @@ Route::group([
    'middleware'=>'auth:api'
 ], function (){
     Route::put('/profile/{id}/update', 'Api\ProfileController@updateProfile');
+    Route::post('profile/{id}/upload', 'Api\ProfileController@uploadImage');
 });

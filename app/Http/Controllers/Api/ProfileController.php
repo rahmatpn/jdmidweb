@@ -7,6 +7,7 @@ use App\ProfileUser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
 {
@@ -30,5 +31,29 @@ class ProfileController extends Controller
             $profile->update($request->all());
             return response()->json(['profile' => $profile], Response::HTTP_OK);
         }
+    }
+
+    public function uploadImage(Request $request) {
+        $id = \auth()->id();
+        $profile = ProfileUser::findOrFail($id);
+
+        if(!$request->hasFile('image')) {
+            return response()->json(['upload_file_not_found'], 400);
+        }
+        $file = $request->file('image');
+        if(!$file->isValid()) {
+            return response()->json(['invalid_file_upload'], 400);
+        }
+
+        $name = time().'.'.$file->getClientOriginalExtension();
+        $path = "profile/";
+        $destinationPath = public_path($path);
+        $file->move($destinationPath, $name);
+        $realPath = $path.$name;
+
+        $profile->foto = $realPath;
+        $profile->save();
+
+        return response()->json(['profile' => $profile], Response::HTTP_OK);
     }
 }
