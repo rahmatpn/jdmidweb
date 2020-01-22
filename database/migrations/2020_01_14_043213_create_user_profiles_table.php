@@ -19,7 +19,7 @@ class CreateUserProfilesTable extends Migration
             $table->string('nama');
             $table->string('nama_lengkap')->nullable();
             $table->string('nomor_telepon')->nullable();
-            $table->enum('jenis_kelamin', ['L', 'P'])->nullable();
+            $table->enum('jenis_kelamin',['L', 'P'])->nullable();
             $table->text('alamat')->nullable();
             $table->string('email');
             $table->string('social_media')->nullable();

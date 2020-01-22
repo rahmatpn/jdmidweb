@@ -26,10 +26,12 @@ class ProfileUserController extends Controller
             $data = request()->validate([
                 'nama' => 'required',
                 'nama_lengkap' => 'required',
+                'jenis_kelamin'=> '',
                 'nomor_telepon' => '',
                 'alamat' => '',
                 'social_media'=> '',
                 'foto'=>'',
+
             ]);
 
 
@@ -39,6 +41,7 @@ class ProfileUserController extends Controller
                 $foto = Image::make(public_path("storage/{$fotoPath}"))->fit(1000,1000);
                 $foto->save();
             }
+
 
 
             auth()->user()->profile->update(array_merge(
