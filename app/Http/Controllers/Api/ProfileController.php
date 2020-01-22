@@ -7,7 +7,6 @@ use App\ProfileUser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
-use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
 {
@@ -51,8 +50,7 @@ class ProfileController extends Controller
         $file->move($destinationPath, $name);
         $realPath = $path.$name;
 
-        $profile->foto = $realPath;
-        $profile->save();
+        $profile->update(['foto'=>$realPath]);
 
         return response()->json(['profile' => $profile], Response::HTTP_OK);
     }
