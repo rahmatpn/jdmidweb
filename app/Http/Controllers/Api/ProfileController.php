@@ -7,6 +7,7 @@ use App\ProfileUser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
+use function auth;
 
 class ProfileController extends Controller
 {
@@ -17,7 +18,7 @@ class ProfileController extends Controller
 
     function updateProfile(Request $request)
     {
-        $id = \auth()->id();
+        $id = auth()->id();
         $profile = ProfileUser::findOrFail($id);
         $newProfile = Validator::make($request->all(),[
             'id' => 'required',
@@ -33,7 +34,7 @@ class ProfileController extends Controller
     }
 
     public function uploadImage(Request $request) {
-        $id = \auth()->id();
+        $id = auth()->id();
         $profile = ProfileUser::findOrFail($id);
 
         if(!$request->hasFile('image')) {
@@ -52,6 +53,29 @@ class ProfileController extends Controller
 
         $profile->update(['foto'=>$realPath]);
 
-        return response()->json(['profile' => $profile], Response::HTTP_OK);
+        return response()->json($profile, Response::HTTP_OK);
+    }
+
+    public function uploadCover(Request $request) {
+        $id = auth()->id();
+        $profile = ProfileUser::findOrFail($id);
+
+        if(!$request->hasFile('image')) {
+            return response()->json(['upload_file_not_found'], 400);
+        }
+        $file = $request->file('image');
+        if(!$file->isValid()) {
+            return response()->json(['invalid_file_upload'], 400);
+        }
+
+        $name = time().'.'.$file->getClientOriginalExtension();
+        $path = "cover/";
+        $destinationPath = public_path($path);
+        $file->move($destinationPath, $name);
+        $realPath = $path.$name;
+
+        $profile->update(['cover'=>$realPath]);
+
+        return response()->json($profile, Response::HTTP_OK);
     }
 }
