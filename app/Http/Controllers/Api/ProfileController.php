@@ -50,7 +50,10 @@ class ProfileController extends Controller
         $destinationPath = public_path($path);
         $file->move($destinationPath, $name);
         $realPath = $path.$name;
-
+        $oldPath = public_path($profile['foto']);
+        if(file_exists($oldPath)){ //If it exits, delete it from folder
+            unlink($oldPath);
+        }
         $profile->update(['foto'=>$realPath]);
 
         return response()->json($profile, Response::HTTP_OK);
@@ -73,7 +76,10 @@ class ProfileController extends Controller
         $destinationPath = public_path($path);
         $file->move($destinationPath, $name);
         $realPath = $path.$name;
-
+        $oldPath = public_path($profile['cover']);
+        if(file_exists($oldPath)){ //If it exits, delete it from folder
+            unlink($oldPath);
+        }
         $profile->update(['cover'=>$realPath]);
 
         return response()->json($profile, Response::HTTP_OK);
