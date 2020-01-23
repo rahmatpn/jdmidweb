@@ -16,7 +16,7 @@ class ProfileUser extends Model
 
 
     public function profileCover(){
-        $coverPath = ($this -> cover) ?  $this->cover : 'profile/UAR7eKcW474ycXcmueWKrxs290hUwWHXxuzHKAW2.jpeg';
+        $coverPath = ($this -> cover) ?  $this->cover : 'https://rodewayinnmuskogee.com/image/146793-full_sunnn-1366x768-wallpaper-in-2019-aesthetic-desktop.png';
         return '/storage/' . $coverPath;
     }
 
