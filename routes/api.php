@@ -30,5 +30,5 @@ Route::group([
 ], function (){
     Route::put('/profile/{id}/update', 'Api\ProfileController@updateProfile');
     Route::post('profile/{id}/upload/profile', 'Api\ProfileController@uploadImage');
-    Route::post('profile/{id}/upload/covermi', 'Api\ProfileController@uploadCover');
+    Route::post('profile/{id}/upload/cover', 'Api\ProfileController@uploadCover');
 });
