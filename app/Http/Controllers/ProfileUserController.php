@@ -51,7 +51,7 @@ class ProfileUserController extends Controller
 
                 $cover = Image::make(public_path("storage/{$coverPath}"));
                 $cover->save();
-h
+
                 $coverArray = ['cover'=> $coverPath];
             }
 
