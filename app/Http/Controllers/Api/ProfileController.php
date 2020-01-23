@@ -51,7 +51,7 @@ class ProfileController extends Controller
         $file->move($destinationPath, $name);
         $realPath = $path.$name;
         $oldPath = public_path($profile['foto']);
-        if(file_exists($oldPath)){ //If it exits, delete it from folder
+        if(file_exists($oldPath)){
             unlink($oldPath);
         }
         $profile->update(['foto'=>$realPath]);
