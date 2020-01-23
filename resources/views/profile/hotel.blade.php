@@ -1,6 +1,7 @@
 @extends('layouts.auth')
 
 @section('content')
+    <div class="container d-flex float-left">
 <div class="container float-left" style="margin-left:50px">
     <div class="card shadow" style="width: 18rem">
         <img class="card-img-top img-fluid" src="/storage/{{$hotel->profile->foto}}" alt="card hotel image">
@@ -41,7 +42,7 @@
 
     </div>
 
-        <button href="/hotel/{hotel}/postjob" type="button" class="btn-danger">Post A Job</button>
+        <a href="/job/postjob" type="button" class="btn-danger">Post A Job</a>
 {{--    <div class="row">--}}
 {{--        <div class="card card-img-bottomcol-sm-5">--}}
 {{--            <div class="imghotel shadow">--}}
@@ -51,22 +52,24 @@
 
 {{--    </div>--}}
 
-</div>
 
-<div class="row pt-5">
-{{--    @foreach($hotel->posts as $post)--}}
-        <div class="col-4 pb-4">
-{{--            <a href="/p/{{ $post->id }}">--}}
-{{--                <img src="/storage/{{ $post->image }}" class="w-100">--}}
-            <img src="https://vignette.wikia.nocookie.net/jjba/images/9/99/KujoAnime.png/revision/latest/scale-to-width-down/340?cb=20161029182608" class="w-100">
-            <img src="https://vignette.wikia.nocookie.net/jjba/images/9/99/KujoAnime.png/revision/latest/scale-to-width-down/340?cb=20161029182608" class="w-100">
-            <img src="https://vignette.wikia.nocookie.net/jjba/images/9/99/KujoAnime.png/revision/latest/scale-to-width-down/340?cb=20161029182608" class="w-100">
-            <img src="https://vignette.wikia.nocookie.net/jjba/images/9/99/KujoAnime.png/revision/latest/scale-to-width-down/340?cb=20161029182608" class="w-100">
 
-{{--            </a>--}}
+    </div>
+
+        <div class="container float-left" style="margin-left:50px">
+            <div class="col pt-5">
+                @foreach($hotel->pekerjaan as $pekerjaan)
+                    <div class="col-12 bg-primary ">
+                        <div class="pb-4">
+                            <div>{{$pekerjaan->kuota}}</div>
+                            <div>{{$pekerjaan->deskripsi}}</div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
-{{--    @endforeach--}}
-</div>
+
+    </div>
 
 {{--    --}}
 {{--    <div class="row">--}}

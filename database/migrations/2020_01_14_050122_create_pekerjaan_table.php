@@ -15,7 +15,7 @@ class CreatePekerjaanTable extends Migration
     {
         Schema::create('pekerjaan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('id_hotel');
+            $table->unsignedBigInteger('hotel_id');
             $table->unsignedBigInteger('posisi');
             $table->dateTime('waktu_mulai');
             $table->dateTime('waktu_selesai');
@@ -24,7 +24,7 @@ class CreatePekerjaanTable extends Migration
             $table->text('deskripsi');
             $table->timestamps();
 
-            $table->index('id_hotel');
+            $table->index('hotel_id');
             $table->index('posisi');
         });
     }

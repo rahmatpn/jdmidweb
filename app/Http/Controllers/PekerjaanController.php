@@ -8,26 +8,28 @@ use Illuminate\Http\Request;
 class PekerjaanController extends Controller
 {
     //
-    public function add()
-    {
 
-        return view('postjob');
+
+    public function create()
+    {
+        return view('jobs.postjob');
     }
 
-    public function store(Request $request)
+    public function store()
     {
-        $pekerjaan= Pekerjaan::findOrFail($request->id);
-        // insert data ke table pegawai
-        DB::table('pekerjaan')->insert([
-            'posisi' => $request->posisi,
-            'waktu_mulai' => $request->waktu_mulai,
-            'waktu_selesai' => $request->waktu_selesai,
-            'kuota' => $request->kuota,
-            'bayaran' => $request->bayaran,
-            'deskripsi' => $request->deskripsi
+        $data = request()->validate([
+            'posisi'=>'required',
+            'waktu_mulai' => 'required',
+            'waktu_selesai' => 'required',
+            'kuota' => 'required',
+            'bayaran' => 'required',
+            'deskripsi' => ''
         ]);
-        // alihkan halaman ke halaman pegawai
-        return redirect('/hotel/{hotel}');
+
+        auth()->user()->pekerjaan()->create($data);
+
+        return redirect('/hotel/'.auth()->user()->id);
+
 
     }
 }

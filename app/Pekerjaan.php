@@ -9,13 +9,12 @@ class Pekerjaan extends Model
     protected $table = "pekerjaan";
     protected $guarded = [];
 
+    public function hotel(){
+        return $this->belongsTo(Hotel::class);
+    }
 
     public function dikerjakan(){
         return $this->belongsToMany(User::class);
-    }
-
-    public function hotel(){
-        return $this->belongsTo(Hotel::class);
     }
 
     public function todolist(){

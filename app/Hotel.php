@@ -48,6 +48,6 @@ class Hotel extends Authenticatable
     }
 
     public function pekerjaan(){
-        return $this->hasMany(Pekerjaan::class);
+        return $this->hasMany(Pekerjaan::class)->orderBy('created_at','DESC');
     }
 }
