@@ -62,6 +62,6 @@ class ProfileUserController extends Controller
                 $coverArray ?? []
             ));
 
-            return redirect("/user/{$user->id}");
+            return redirect("/user/{$user->id}");//redirect to user's profile
         }
 }
