@@ -5,20 +5,37 @@
 <div class="row">
     <div class="col-sm-8 offset-sm-2">
         <div class="container">
+            <form action="/hotel/" enctype="multipart/form-data" method="post">
             <a href="/hotel/{hotel}" class="btn btn-info" role="button"> Kembali</a>
             <br/>
             <br/>
 
-            <form action="/hotel/store" method="POST">
                 {{ csrf_field() }}
-                <div class="form-group">
-                    <label for="posisi">Posisi:</label>
-                    <select name="posisi" class="form-control" id="posisi" multiple="multiple">
-                        <option value="1">A</option>
-                        <option value="2">B</option>
-                        <option value="3">C</option>
-                        <option value="4">D</option>
-                    </select>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="pendidikan_terakhir">Posisi</label>
+                            <div class="input-group mb-3">
+                                <select class="custom-select" id="pendidikan_terakhir" name="pendidikan_terakhir">
+                                    <option selected>Test</option>
+                                    <option value="SD" >Laundry</option>
+                                    <option value="SMP">Pool Maintenance</option>
+                                    <option value="SMA">Equipment Maintenance</option>
+                                    <option value="Diploma">Receptionist</option>
+                                    <option value="S1">Porter</option>
+                                    <option value="S2">Sequrity</option>
+                                    <option value="S3">Valet</option>
+                                    <option value="S1">Concierge</option>
+                                    <option value="S2">House Keeping</option>
+                                    <option value="S3">Room Service</option>
+                                    <option value="S1">Waiter/Waitress</option>
+                                    <option value="S2">Crew Restaurant</option>
+                                    <option value="S3">Barista</option>
+                                    <option value="S1">Photographer</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="waktu_mulai">Waktu Mulai:</label>

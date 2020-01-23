@@ -53,6 +53,21 @@
 
 </div>
 
+<div class="row pt-5">
+{{--    @foreach($hotel->posts as $post)--}}
+        <div class="col-4 pb-4">
+{{--            <a href="/p/{{ $post->id }}">--}}
+{{--                <img src="/storage/{{ $post->image }}" class="w-100">--}}
+            <img src="https://vignette.wikia.nocookie.net/jjba/images/9/99/KujoAnime.png/revision/latest/scale-to-width-down/340?cb=20161029182608" class="w-100">
+            <img src="https://vignette.wikia.nocookie.net/jjba/images/9/99/KujoAnime.png/revision/latest/scale-to-width-down/340?cb=20161029182608" class="w-100">
+            <img src="https://vignette.wikia.nocookie.net/jjba/images/9/99/KujoAnime.png/revision/latest/scale-to-width-down/340?cb=20161029182608" class="w-100">
+            <img src="https://vignette.wikia.nocookie.net/jjba/images/9/99/KujoAnime.png/revision/latest/scale-to-width-down/340?cb=20161029182608" class="w-100">
+
+{{--            </a>--}}
+        </div>
+{{--    @endforeach--}}
+</div>
+
 {{--    --}}
 {{--    <div class="row">--}}
 {{--        <div class="col-3 p-5">--}}

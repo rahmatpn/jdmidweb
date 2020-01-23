@@ -11,4 +11,8 @@ class Posisi extends Model
     public function user(){
         return $this->belongsToMany(User::class);
     }
+
+    public function pekerjaan(){
+        return $this->belongsToMany(Pekerjaan::class);
+    }
 }

@@ -20,8 +20,8 @@ class PekerjaanController extends Controller
         // insert data ke table pegawai
         DB::table('pekerjaan')->insert([
             'posisi' => $request->posisi,
-            'waktu_mulai' => $request->mulai,
-            'waktu_selesai' => $request->selesai,
+            'waktu_mulai' => $request->waktu_mulai,
+            'waktu_selesai' => $request->waktu_selesai,
             'kuota' => $request->kuota,
             'bayaran' => $request->bayaran,
             'deskripsi' => $request->deskripsi
