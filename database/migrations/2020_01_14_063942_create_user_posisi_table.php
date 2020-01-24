@@ -13,7 +13,7 @@ class CreateUserPosisiTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_posisi', function (Blueprint $table) {
+        Schema::create('posisi_user', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('posisi_id');
@@ -31,6 +31,6 @@ class CreateUserPosisiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_posisi');
+        Schema::dropIfExists('posisi_user');
     }
 }
