@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Posisi;
 use App\ProfileUser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -51,8 +52,10 @@ class ProfileController extends Controller
         $file->move($destinationPath, $name);
         $realPath = $path.$name;
         $oldPath = public_path($profile['foto']);
-        if(file_exists($oldPath)){ //If it exits, delete it from folder
-            unlink($oldPath);
+        if ($profile['foto'] != null) {
+            if (file_exists($oldPath)) { //If it exits, delete it from folder
+                unlink($oldPath);
+            }
         }
         $profile->update(['foto'=>$realPath]);
 
@@ -76,12 +79,21 @@ class ProfileController extends Controller
         $destinationPath = public_path($path);
         $file->move($destinationPath, $name);
         $realPath = $path.$name;
-        $oldPath = public_path($profile['cover']);
-        if(file_exists($oldPath)){ //If it exits, delete it from folder
-            unlink($oldPath);
+        if ($profile['cover'] != null) {
+            $oldPath = public_path($profile['cover']);
+            if (file_exists($oldPath)) { //If it exits, delete it from folder
+                unlink($oldPath);
+            }
         }
+
         $profile->update(['cover'=>$realPath]);
 
         return response()->json($profile, Response::HTTP_OK);
+    }
+
+    public function selectPosition(Request $request){
+        $currentUser = auth()->user();
+        $position = Posisi::findOrFail($request['id']);
+        return \response()->json($currentUser->posisi()->toggle($position));
     }
 }
