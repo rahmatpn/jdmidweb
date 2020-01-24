@@ -15,13 +15,13 @@ class CreateUserPekerjaanTable extends Migration
     {
         Schema::create('user_pekerjaan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('id_pekerjaan');
-            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('pekerjaan_id');
+            $table->unsignedBigInteger('user_id');
             $table->enum('status', [0,1]); //0 = belum selesai, 1 = selesai
             $table->timestamps();
 
-            $table->index('id_pekerjaan');
-            $table->index('id_user');
+            $table->index('pekerjaan_id');
+            $table->index('user_id');
         });
     }
 

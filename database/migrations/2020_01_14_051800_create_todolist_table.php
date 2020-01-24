@@ -15,12 +15,12 @@ class CreateTodolistTable extends Migration
     {
         Schema::create('todolist', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('id_pekerjaan');
+            $table->unsignedBigInteger('pekerjaan_id');
             $table->string('nama_pekerjaan');
             $table->enum('status',[0,1]);//0 = belum selesai, 1 = selesai
             $table->timestamps();
 
-            $table->index('id_pekerjaan');
+            $table->index('pekerjaan_id');
         });
     }
 

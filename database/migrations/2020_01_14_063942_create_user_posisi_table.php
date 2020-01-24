@@ -15,12 +15,12 @@ class CreateUserPosisiTable extends Migration
     {
         Schema::create('user_posisi', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('id_user');
-            $table->unsignedBigInteger('id_posisi');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('posisi_id');
             $table->timestamps();
 
-            $table->index('id_user');
-            $table->index('id_posisi');
+            $table->index('user_id');
+            $table->index('posisi_id');
         });
     }
 
