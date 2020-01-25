@@ -36,9 +36,9 @@ class ProfileHotelController extends Controller
         $profile->update($data);
 
         if(request('foto')){
-            $fotoPath = request('foto')->store('profile','public');
+            $fotoPath = request('foto')->store('hotel/photo','public');
 
-            $foto = Image::make(public_path("storage/{$fotoPath}"))->fit(1000,1000);
+            $foto = Image::make(public_path("image/{$fotoPath}"))->fit(1000,1000);
             $foto->save();
         }
 

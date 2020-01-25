@@ -9,6 +9,11 @@ class ProfileHotel extends Model
     protected $table = "hotel_profiles";
     protected $guarded = [];
 
+    public function hotelPhoto(){
+        $fotoPath = ($this->foto) ? $this->foto : 'hotel/photo/SoT63YrEf7pfluOCxALtvyz9XMELNpGJACIBdtJ9.png';
+        return '/image/' . $fotoPath;
+    }
+
     public function hotel(){
         return $this->belongsTo(Hotel::class);
     }

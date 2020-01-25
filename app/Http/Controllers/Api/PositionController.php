@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class PositionController extends Controller
 {
     function getAllPositions(){
-        return \App\Posisi::all();
+        return Posisi::all();
     }
 
     function getUserPositions(){

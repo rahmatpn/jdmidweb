@@ -4,7 +4,7 @@
     <div class="container d-flex float-left">
 <div class="container float-left" style="margin-left:50px">
     <div class="card shadow" style="width: 18rem">
-        <img class="card-img-top img-fluid" src="/storage/{{$hotel->profile->foto}}" alt="card hotel image">
+        <img class="card-img-top img-fluid" src="{{$hotel->profile->hotelPhoto()}}" alt="card hotel image">
         <div class="card-body">
             <h4 title="card-title" >{{$hotel->profile->nama}}</h4>
 

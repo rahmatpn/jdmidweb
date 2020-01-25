@@ -38,18 +38,18 @@ class ProfileUserController extends Controller
 
 
             if(request('foto')){
-                $fotoPath = request('foto')->store('profile','public');
+                $fotoPath = request('foto')->store('user/profile','public');
 
-                $foto = Image::make(public_path("uploads/{$fotoPath}"))->fit(1000,1000);
+                $foto = Image::make(public_path("image/{$fotoPath}"))->fit(1000,1000);
                 $foto -> save();
 
                 $fotoArray = ['foto'=> $fotoPath];
             }
 
             if(request('cover')){
-                $coverPath = request('cover')->store('cover','public');
+                $coverPath = request('cover')->store('user/cover','public');
 
-                $cover = Image::make(public_path("uploads/{$coverPath}"));
+                $cover = Image::make(public_path("image/{$coverPath}"));
                 $cover->save();
 
                 $coverArray = ['cover'=> $coverPath];
