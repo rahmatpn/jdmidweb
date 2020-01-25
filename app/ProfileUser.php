@@ -10,14 +10,14 @@ class ProfileUser extends Model
     protected $guarded = [];
 
     public function profileFoto(){
-        $fotoPath = ($this->foto) ? $this->foto : 'profile/l2NM4Fkhl7zQnzhTaCZOwZgqiFEYKTjQOH44JoJp.jpeg';
-        return '/storage/' . $fotoPath;
+        $fotoPath = ($this->foto) ? $this->foto : 'profile/sySLPMyFaPvrI1q1J66MkszEf93I0KU0hpRGWKEl.jpeg';
+        return '/uploads/' . $fotoPath;
     }
 
 
     public function profileCover(){
-        $coverPath = ($this -> cover) ?  $this->cover : 'https://rodewayinnmuskogee.com/image/146793-full_sunnn-1366x768-wallpaper-in-2019-aesthetic-desktop.png';
-        return '/storage/' . $coverPath;
+        $coverPath = ($this -> cover) ?  $this->cover : 'cover/13tmaSkei38pPXsjvcHDOWMGHAoXkEXDtBdD6ROt.jpeg';
+        return '/uploads/' . $coverPath;
     }
 
     public function user(){

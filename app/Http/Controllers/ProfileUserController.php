@@ -40,7 +40,7 @@ class ProfileUserController extends Controller
             if(request('foto')){
                 $fotoPath = request('foto')->store('profile','public');
 
-                $foto = Image::make(public_path("storage/{$fotoPath}"))->fit(1000,1000);
+                $foto = Image::make(public_path("uploads/{$fotoPath}"))->fit(1000,1000);
                 $foto -> save();
 
                 $fotoArray = ['foto'=> $fotoPath];
@@ -49,7 +49,7 @@ class ProfileUserController extends Controller
             if(request('cover')){
                 $coverPath = request('cover')->store('cover','public');
 
-                $cover = Image::make(public_path("storage/{$coverPath}"));
+                $cover = Image::make(public_path("uploads/{$coverPath}"));
                 $cover->save();
 
                 $coverArray = ['cover'=> $coverPath];
