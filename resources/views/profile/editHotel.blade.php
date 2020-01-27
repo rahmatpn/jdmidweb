@@ -1,6 +1,9 @@
 @extends('layouts.auth')
 
 @section('content')
+
+
+
     <div class="container">
         <form action="/hotel/{{$hotel->id}}" enctype="multipart/form-data" method="post">
             @csrf
@@ -10,7 +13,7 @@
                     <div class="col-md-12 col-lg-auto mb-auto" style="width: 250px;">
                         <div class="card rounded-right shadow p-4">
                             <div class="text-center">
-                                <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                                <img src="{{$hotel->profile->hotelPhoto()}}" class="card-img-top img-fluid" alt="avatar">
                                 <h6>Upload Foto</h6>
                                 <input type="file" class="form-control-file" id="foto" name="foto">
                                 @if($errors->has('foto'))
@@ -120,7 +123,7 @@
                                                                class="form-control @error('alamat') is-invalid @enderror"
                                                                name="alamat"
                                                                value="{{ old('alamat') ?? $hotel->profile->alamat}}"
-                                                               autocomplete="alamat" autofocus>
+                                                               autocomplete="alamat" placeholder="Alamat" autofocus>
                                                         </textarea>
                                                         @if($errors->has('alamat'))
                                                             <span class="invalid-feedback" role="alert">
