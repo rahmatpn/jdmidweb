@@ -28,63 +28,22 @@
 </head>
 
 <body class="form-v8 ">
-
 <div class="page-content">
     <div class="form-v8-content  shadow-lg">
-        <div class="form-left">
-            <img src="https://i.dlpng.com/static/png/6384908_preview.png" class="img-fluid justify-content-end" alt="form">
+        <div class="form-left ">
+            <img src="/image/hotel1.jpg"  alt="form">
         </div>
 
         <div class="form-right">
             <div class="tab">
                 <div class="tab-inner">
-                    <button class="tablinks" onclick="openCity(event, 'sign-up')" id="defaultOpen">Sign Up</button>
+                    <button class="tablinks" onclick="openCity(event, 'sign-in')" id="defaultOpen"  >Sign In</button>
                 </div>
                 <div class="tab-inner">
-                    <button class="tablinks" onclick="openCity(event, 'sign-in')">Sign In</button>
+                    <button class="tablinks" onclick="openCity(event, 'sign-up')">Sign Up</button>
                 </div>
+
             </div>
-            @isset($url)
-                <form method="POST" class="form-detail" action='{{ url("register/$url") }}'>
-                    @else
-                        <form method="POST" class="form-detail" action="{{ route('register') }}" >
-                            @endisset
-                            @csrf
-                            <div class="tabcontent" id="sign-up">
-                    <div class="form-row">
-                        <label class="form-row-inner">
-                            <input type="text" name="name" id="name" class="input-text" required>
-                            <span class="label">Nama Hotel</span>
-                            <span class="border"></span>
-                        </label>
-                    </div>
-                    <div class="form-row">
-                        <label class="form-row-inner">
-                            <input type="text" name="email" id="email" class="input-text" required>
-                            <span class="label">E-Mail</span>
-                            <span class="border"></span>
-                        </label>
-                    </div>
-                    <div class="form-row">
-                        <label class="form-row-inner">
-                            <input type="password" name="password" id="password" class="input-text" required>
-                            <span class="label">Password</span>
-                            <span class="border"></span>
-                        </label>
-                    </div>
-                    <div class="form-row">
-                        <label class="form-row-inner">
-                            <input type="password" name="password_confirmation" id="password-confirm" class="input-text" required autocomplete="new-password">
-                            <span class="label">Comfirm Password</span>
-                            <span class="border"></span>
-                        </label>
-                    </div>
-                    <div class="form-row-last">
-                        <input type="submit" name="register" class="register" value="Register">
-                    </div>
-                </div>
-                        </form>
-            </form>
                                 @isset($url)
                                     <form method="POST" class="form-detail" action='{{ url("login/$url")}}'>
                                     @else
@@ -110,9 +69,51 @@
                     <div class="form-row-last">
                         <input type="submit" name="register" class="register" value="Sign In">
                     </div>
+                    <p style="font-size: 14px">Tidak Punya Akun? Silahkan Registrasi Terlebih Dahulu</p>
                 </div>
             </form>
                                     </form>
+                @isset($url)
+                    <form method="POST" class="form-detail" action='{{ url("register/$url") }}'>
+                        @else
+                            <form method="POST" class="form-detail" action="{{ route('register') }}" >
+                                @endisset
+                                @csrf
+                                <div class="tabcontent" id="sign-up">
+                                    <div class="form-row">
+                                        <label class="form-row-inner">
+                                            <input type="text" name="name" id="name" class="input-text" required>
+                                            <span class="label">Nama Hotel</span>
+                                            <span class="border"></span>
+                                        </label>
+                                    </div>
+                                    <div class="form-row">
+                                        <label class="form-row-inner">
+                                            <input type="text" name="email" id="email" class="input-text" required>
+                                            <span class="label">E-Mail</span>
+                                            <span class="border"></span>
+                                        </label>
+                                    </div>
+                                    <div class="form-row">
+                                        <label class="form-row-inner">
+                                            <input type="password" name="password" id="password" class="input-text" required>
+                                            <span class="label">Password</span>
+                                            <span class="border"></span>
+                                        </label>
+                                    </div>
+                                    <div class="form-row">
+                                        <label class="form-row-inner">
+                                            <input type="password" name="password_confirmation" id="password-confirm" class="input-text" required autocomplete="new-password">
+                                            <span class="label">Confirm Password</span>
+                                            <span class="border"></span>
+                                        </label>
+                                    </div>
+                                    <div class="form-row-last">
+                                        <input type="submit" name="register" class="register" value="Register">
+                                    </div>
+                                </div>
+                            </form>
+                    </form>
 
         </div>
     </div>

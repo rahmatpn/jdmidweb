@@ -23,7 +23,7 @@ body {
 }
 .form-v8-content  {
 	background: #fff;
-	width: 900px;
+	width: 937px;
 	border-radius: 8px;
 	-o-border-radius: 8px;
 	-ms-border-radius: 8px;
@@ -35,17 +35,20 @@ body {
 	-moz-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
 	-webkit-box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
 	margin: 177px 0;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Roboto Medium';
 	color: #fff;
 	position: relative;
 	display: flex;
 	display: -webkit-flex;
 }
 .form-v8-content .form-left {
-    padding-top: 100px;
+
+    /*padding-top: 100px;*/
 	margin-bottom: -4px;
 }
 .form-v8-content .form-left img {
+
+    width: auto;
 	border-top-left-radius: 8px;
 	border-bottom-left-radius: 8px;
 }
@@ -85,7 +88,7 @@ body {
 	color: #ffffff;
 	padding-bottom: 22px;
 	border-bottom: 3px solid;
-	border-bottom-color: rgba(255, 255, 255, 0.2);
+	border-bottom-color: rgba(0, 109, 125, 0.2);
 	width: 100%;
 }
 .form-v8-content .tab .tablinks.active {
@@ -144,8 +147,8 @@ body {
 	width: 100%;
     padding: 0px 10px 15px 10px;
     border: 1px solid transparent;
-    border-bottom: 2px solid;
-    border-bottom-color: rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid;
+    border-bottom-color: rgb(255, 255, 255);
     background: transparent;
     appearance: unset;
     -moz-appearance: unset;
@@ -202,13 +205,13 @@ body {
 	font-family: 'Roboto', sans-serif;
 	color: #333;
 	font-weight: 700;
-	font-size: 16px;
+	font-size: 18px;
 }
 .form-v8-content .form-detail .register:hover {
 	background: #ff9f1a;
 }
 .form-v8-content .form-detail .form-row-last input {
-	padding: 10px;
+	padding: 11px;
 }
 /* Responsive */
 @media screen and (max-width: 991px) {
@@ -226,8 +229,8 @@ body {
 
 	}
 	.form-v8-content .form-left img {
-
-		border-bottom-left-radius: 10px;
+        width: 100%;
+		border-bottom-left-radius: 0px;
 	    border-top-right-radius: 8px;
 	}
 	.form-v8-content .form-right {
