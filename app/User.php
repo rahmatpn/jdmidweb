@@ -64,4 +64,8 @@ class User extends Authenticatable
     public function posisi(){
         return $this->belongsToMany(Posisi::class);
     }
+
+    public function AauthAcessToken(){
+        return $this->hasMany(OauthAccessToken::class);
+    }
 }

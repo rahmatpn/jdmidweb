@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class AuthController extends Controller
 {
@@ -33,5 +34,13 @@ class AuthController extends Controller
         }
         $accessToken = auth()->user()->createToken('authToken')->accessToken;
         return response(['user' => auth()->user(), 'access_token' => $accessToken]);
+    }
+
+    public function logout()
+    {
+        if (auth()->check()) {
+            auth()->user()->token()->revoke();
+            return response(Response::HTTP_OK);
+        }
     }
 }

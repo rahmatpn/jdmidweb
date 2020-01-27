@@ -33,4 +33,5 @@ Route::group([
     Route::post('profile/{id}/upload/cover', 'Api\ProfileController@uploadCover');
     Route::post('profile/positions/update','Api\ProfileController@selectPosition');
     Route::get('profile/{id}/positions', 'Api\PositionController@getUserPositions');
+    Route::post('logout','Api\AuthController@logout');
 });

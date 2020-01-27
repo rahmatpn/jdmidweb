@@ -47,7 +47,7 @@ class ProfileController extends Controller
         }
 
         $name = time().'.'.$file->getClientOriginalExtension();
-        $path = "profile/";
+        $path = "image/user/profile/";
         $destinationPath = public_path($path);
         $file->move($destinationPath, $name);
         $realPath = $path.$name;
@@ -75,7 +75,7 @@ class ProfileController extends Controller
         }
 
         $name = time().'.'.$file->getClientOriginalExtension();
-        $path = "cover/";
+        $path = "image/user/cover/";
         $destinationPath = public_path($path);
         $file->move($destinationPath, $name);
         $realPath = $path.$name;
