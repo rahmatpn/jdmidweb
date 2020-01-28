@@ -25,7 +25,7 @@ class PekerjaanController extends Controller
             'bayaran' => 'required',
             'deskripsi' => ''
         ]);
-        Pekerjaan::find($data)->with('posisi')->get();
+//        Pekerjaan::find($data)->with('posisi')->get();
         auth()->user()->pekerjaan()->create($data);
 
         return redirect('/hotel/'.auth()->user()->id);
