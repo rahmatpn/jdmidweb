@@ -62,7 +62,7 @@
 
                             <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
 
-                            <button type="button" href="/jobs/job" class="btn  btn-primary">Selengkapnya</button>
+                            <a  href="/job/{{$pekerjaan->id}}" class="btn  btn-primary">Selengkapnya</a>
                         </div>
 
                     </div>

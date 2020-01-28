@@ -53,6 +53,7 @@ Route::group([
 ], function (){
     Route::get('/job/postjob', 'PekerjaanController@create');
     Route::post('/job', 'PekerjaanController@store');
+    Route::get('/job/{pekerjaan}', 'PekerjaanController@show');
     Route::patch('/hotel/{hotel}', 'ProfileHotelController@update');
     Route::get('/hotel/{hotel}/edit', 'ProfileHotelController@edit');
 });

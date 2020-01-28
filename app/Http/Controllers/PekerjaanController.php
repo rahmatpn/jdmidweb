@@ -32,5 +32,8 @@ class PekerjaanController extends Controller
 
 
     }
+    public function show(\App\Pekerjaan $pekerjaan){
+        return view('jobs.job', compact('pekerjaan'));
+    }
 
 }
