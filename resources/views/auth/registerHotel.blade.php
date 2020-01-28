@@ -16,6 +16,7 @@
 
 
     <link rel="stylesheet" type="text/css" href="css/roboto.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 {{--    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">--}}
 
     <!-- Styles -->
