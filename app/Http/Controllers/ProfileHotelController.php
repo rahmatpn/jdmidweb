@@ -40,12 +40,13 @@ class ProfileHotelController extends Controller
 
             $foto = Image::make(public_path("image/{$fotoPath}"))->fit(1000,1000);
             $foto->save();
+            $fotoArray = ['foto'=> $fotoPath];
         }
 
 
         auth()->user()->profile->update(array_merge(
             $data,
-            ['foto'=> $fotoPath]
+            $fotoArray ?? []
         ));
 
         return redirect("/hotel/{$hotel->id}")->with("Data Has Been Updated Successfully");

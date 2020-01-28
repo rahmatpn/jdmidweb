@@ -1,7 +1,8 @@
 @extends('layouts.auth')
 
 @section('content')
-    <div class="container d-flex float-left">
+
+
 <div class="container float-left" style="margin-left:50px">
     <div class="card shadow" style="width: 18rem">
         <img class="card-img-top img-fluid" src="{{$hotel->profile->hotelPhoto()}}" alt="card hotel image">
@@ -56,20 +57,37 @@
 
     </div>
 
-        <div class="container float-left" style="margin-left:50px">
-            <div class="col pt-5">
+        <div class="row">
+            <div class="container float-left" >
+            <div class="col mb-3">
+
+            <div class="tab-content">
                 @foreach($hotel->pekerjaan as $pekerjaan)
-                    <div class="col-12 bg-primary ">
-                        <div class="pb-4">
-                            <div>{{$pekerjaan->kuota}}</div>
-                            <div>{{$pekerjaan->deskripsi}}</div>
+                    <div class="col mb-3">
+                        <div class="card shadow-sm">
+                               <h4>{{$pekerjaan->nama_posisi}}</h4>
+                            <div class="card-body">
+                                <h4>{{$hotel->profile->nama}}</h4>
+                                <h6>{{$hotel->profile->alamat}}</h6>
+                                <p>{{$pekerjaan->deskripsi}}</p>
+                            </div>
                         </div>
                     </div>
+
+
+{{--                    <div class="col-10 bg-primary ">--}}
+{{--                        <div class="pb-4">--}}
+{{--                            <div>{{$hotel->profile->nama}}</div>--}}
+{{--                            <div>{{$pekerjaan->kuota}}</div>--}}
+{{--                            <div>{{$pekerjaan->deskripsi}}</div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 @endforeach
             </div>
         </div>
+         </div>
 
-    </div>
+        </div>
 
 {{--    --}}
 {{--    <div class="row">--}}
