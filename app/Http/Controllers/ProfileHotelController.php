@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Hotel;
+use App\Pekerjaan;
 use App\ProfileHotel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,11 +11,9 @@ use Intervention\Image\Facades\Image;
 
 class ProfileHotelController extends Controller
 {
-    public function indexHotel($hotel){
-        $hotel = Hotel::findOrFail($hotel);
-        return view('profile.hotel',[
-            'hotel' => $hotel,
-        ]);
+    public function indexHotel(Hotel $hotel){
+//        $job = Pekerjaan::with('posisi')->get();
+        return view('profile.hotel', compact('hotel'));
     }
 
     public function edit (Hotel $hotel){

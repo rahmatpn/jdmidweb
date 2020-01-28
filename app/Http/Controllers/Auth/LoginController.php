@@ -59,7 +59,7 @@ class LoginController extends Controller
 
         if (Auth::guard('hotel')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
 
-            return redirect()->intended('/hotel/{hotel}');
+            return redirect()->intended('/hotel/1');
         }
         return back()->withInput($request->only('email', 'remember'));
     }

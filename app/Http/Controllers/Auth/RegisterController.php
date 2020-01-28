@@ -92,7 +92,7 @@ class RegisterController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
-        return redirect()->intended('hotel');
+        return redirect()->intended('register/hotel');
     }
 
     protected function createUser(Request $request)
@@ -103,7 +103,7 @@ class RegisterController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
-        return redirect()->intended('user');
+        return redirect()->intended('register/user');
     }
 
 

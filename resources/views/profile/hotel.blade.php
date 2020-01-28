@@ -51,6 +51,10 @@
                     <div class="col mb-3">
 
                     <div class="card shadow">
+                            <tr>
+                                <td>bisanya cuma ambil id/masih belum selesai   {{$pekerjaan->posisi}}</td>
+                            </tr>
+                        @endforeach
                         <div class="card-body">
                             <h2>{{$hotel->profile->nama}}</h2>
                             <h5>Rp:{{$pekerjaan->bayaran}}</h5>
