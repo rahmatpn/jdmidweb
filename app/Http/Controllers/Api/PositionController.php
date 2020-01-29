@@ -16,7 +16,7 @@ class PositionController extends Controller
     function getUserPositions($id){
         $user = User::find($id)->first();
         $positions = $user->posisi()->get();
-        return response($positions);
+        return response()->json(["positions" => $positions]);
     }
 
     public function selectPosition(Request $request){
