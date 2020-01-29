@@ -5,7 +5,7 @@
     <div class="col-sm-8 offset-sm-2">
         <div class="container">
             <form action="/job" enctype="multipart/form-data" method="post">
-            <a href="/hotel/{hotel}" class="btn btn-info" role="button"> Kembali</a>
+            <a href="/hotel/{{auth()->user()->id}}" class="btn btn-info" role="button"> Kembali</a>
             <br/>
             <br/>
                 {{ csrf_field() }}
