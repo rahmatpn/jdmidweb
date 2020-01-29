@@ -59,7 +59,7 @@
                             <h5>Rp:{{$pekerjaan->bayaran}}</h5>
                             <p>{{$pekerjaan->waktu_mulai}}</p>
 
-                            <p>$pekerjaan->deskripsi</p>
+                            <p>{{$pekerjaan->deskripsi}}</p>
 
                             <a  href="/job/{{$pekerjaan->id}}" class="btn  btn-primary">Selengkapnya</a>
                         </div>

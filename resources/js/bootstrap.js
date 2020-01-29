@@ -11,6 +11,8 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+    require('./../../node_modules/@jkryszto/mdb-for-laravel/js/bootstrap.js');
+    require('./../../node_modules/@jkryszto/mdb-for-laravel/js/mdb.js');
 } catch (e) {}
 
 /**
