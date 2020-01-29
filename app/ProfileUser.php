@@ -10,7 +10,7 @@ class ProfileUser extends Model
     protected $guarded = [];
 
     public function profileFoto(){
-        return ($this->foto) ? $this->foto : 'image/user/profile/Q8QsrapijI7Y4TdaKMO08tnvcvH0p1Z8Ni9BaLdr.jpeg';
+        return ($this->foto) ? $this->foto : '/image/user/profile/Q8QsrapijI7Y4TdaKMO08tnvcvH0p1Z8Ni9BaLdr.jpeg';
     }
 
 
