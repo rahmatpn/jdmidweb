@@ -14,6 +14,17 @@ class Pekerjaan extends Model
         return $posisi->nama_posisi;
     }
 
+    public function getAlamat(){
+        $hotel = ProfileHotel::whereId($this->hotel_id)->first();
+        return $hotel->alamat;
+    }
+
+    public function getNama(){
+        $hotel = ProfileHotel::whereId($this->hotel_id)->first();
+        return $hotel->nama;
+    }
+
+
     public function hotel(){
         return $this->belongsTo(Hotel::class);
     }
