@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Posisi;
+use App\User;
 use Illuminate\Http\Request;
 
 class PositionController extends Controller
@@ -12,8 +13,8 @@ class PositionController extends Controller
         return Posisi::all();
     }
 
-    function getUserPositions(){
-        $user = auth()->user();
+    function getUserPositions($id){
+        $user = User::find($id)->first();
         $positions = $user->posisi()->get();
         return response($positions);
     }
