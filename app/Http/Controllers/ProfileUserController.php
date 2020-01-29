@@ -44,6 +44,12 @@ class ProfileUserController extends Controller
                 $foto -> save();
                 $path = "/image/{$fotoPath}";
                 $fotoArray = ['foto'=> $path];
+                if ($user->profile->foto != null) {
+                    $oldPath = public_path($user->profile->foto);
+                    if (file_exists($oldPath)) { //If it exits, delete it from folder
+                        unlink($oldPath);
+                    }
+                }
             }
 
             if(request('cover')){
@@ -53,8 +59,13 @@ class ProfileUserController extends Controller
                 $cover->save();
                 $cPath = "/image/{$coverPath}";
                 $coverArray = ['cover'=> $cPath];
+                if ($user->profile->cover != null) {
+                    $oldPath = public_path($user->profile->cover);
+                    if (file_exists($oldPath)) { //If it exits, delete it from folder
+                        unlink($oldPath);
+                    }
+                }
             }
-
 
             auth()->user()->profile->update(array_merge(
                 $data,

@@ -17,4 +17,10 @@ class PositionController extends Controller
         $positions = $user->posisi()->get();
         return response($positions);
     }
+
+    public function selectPosition(Request $request){
+        $currentUser = auth()->user();
+        $position = Posisi::findOrFail($request['id']);
+        return \response()->json($currentUser->posisi()->toggle($position));
+    }
 }

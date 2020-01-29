@@ -8,6 +8,7 @@ use App\ProfileUser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Facades\Image;
 use function auth;
 
 class ProfileController extends Controller
@@ -46,18 +47,24 @@ class ProfileController extends Controller
             return response()->json(['invalid_file_upload'], 400);
         }
 
-        $name = time().'.'.$file->getClientOriginalExtension();
-        $path = "image/user/profile/";
-        $destinationPath = public_path($path);
-        $file->move($destinationPath, $name);
-        $realPath = $path.$name;
-        $oldPath = public_path($profile['foto']);
+        $fotoPath = $file->store('user/cover','public');
+
+        $foto = Image::make(public_path("image/{$fotoPath}"));
+        $foto -> save();
+        $path = "/image/{$fotoPath}";
+//
+//        $name = time().'.'.$file->getClientOriginalExtension();
+//        $path = "/image/user/profile/";
+//        $destinationPath = public_path($path);
+//        $file->move($destinationPath, $name);
+//        $realPath = $path.$name;
         if ($profile['foto'] != null) {
+            $oldPath = public_path($profile['foto']);
             if (file_exists($oldPath)) { //If it exits, delete it from folder
                 unlink($oldPath);
             }
         }
-        $profile->update(['foto'=>$realPath]);
+        $profile->update(['foto'=>$path]);
 
         return response()->json($profile, Response::HTTP_OK);
     }
@@ -74,11 +81,12 @@ class ProfileController extends Controller
             return response()->json(['invalid_file_upload'], 400);
         }
 
-        $name = time().'.'.$file->getClientOriginalExtension();
-        $path = "image/user/cover/";
-        $destinationPath = public_path($path);
-        $file->move($destinationPath, $name);
-        $realPath = $path.$name;
+        $fotoPath = $file->store('user/profile','public');
+
+        $foto = Image::make(public_path("image/{$fotoPath}"));
+        $foto -> save();
+        $path = "/image/{$fotoPath}";
+
         if ($profile['cover'] != null) {
             $oldPath = public_path($profile['cover']);
             if (file_exists($oldPath)) { //If it exits, delete it from folder
@@ -86,14 +94,8 @@ class ProfileController extends Controller
             }
         }
 
-        $profile->update(['cover'=>$realPath]);
+        $profile->update(['cover'=>$path]);
 
         return response()->json($profile, Response::HTTP_OK);
-    }
-
-    public function selectPosition(Request $request){
-        $currentUser = auth()->user();
-        $position = Posisi::findOrFail($request['id']);
-        return \response()->json($currentUser->posisi()->toggle($position));
     }
 }

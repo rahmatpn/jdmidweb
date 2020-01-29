@@ -173,9 +173,8 @@
                                                                       class="form-control @error('alamat') is-invalid @enderror"
                                                                       rows="5"
                                                                       name="alamat"
-                                                                      value="{{ old('alamat') ?? $user->profile->alamat}}"
                                                                       autocomplete="alamat" autofocus>
-
+                                                                {{ old('alamat') ?? $user->profile->alamat}}
                                                             </textarea>
                                                             @if($errors->has('alamat'))
                                                                 <span class="invalid-feedback" role="alert">
