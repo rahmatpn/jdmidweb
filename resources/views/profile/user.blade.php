@@ -51,7 +51,7 @@
         }
         .image-section img{
             width: 100%;
-            height:350px;
+            height:450px;
             position: relative;
         }
         .user-image{
