@@ -92,12 +92,12 @@
                                                             <label for="jenis_kelamin">Jenis Kelamin</label>
                                                             <div class="form-check">
                                                                 <label class="form-check-label" for="jenis_kelamin">
-                                                                    <input type="radio"  id="P" name="jenis_kelamin" value="P" {{($user->jenis_kelamin=="P")?  "checked" : "" }} >Perempuan
+                                                                    <input type="radio"  id="P" name="jenis_kelamin" value="P" {{($user->jenis_kelamin==1)?  "checked" : "" }} >Perempuan
                                                                 </label>
                                                             </div>
                                                             <div class="form-check">
                                                                 <label class="form-check-label" for="jenis_kelamin">
-                                                                    <input type="radio"  id="L" name="jenis_kelamin" value="L" {{($user->jenis_kelamin=="L")?  "checked" : "" }}>Laki-laki
+                                                                    <input type="radio"  id="L" name="jenis_kelamin" value="L" {{($user->jenis_kelamin==0)?  "checked" : "" }}>Laki-laki
                                                                 </label>
                                                             </div>
                                                         </div>
