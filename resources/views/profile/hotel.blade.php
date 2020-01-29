@@ -51,16 +51,15 @@
                     <div class="col mb-3">
 
                     <div class="card shadow">
-                            <tr>
-                                <td>bisanya cuma ambil id/masih belum selesai   {{$pekerjaan->posisi}}</td>
-                            </tr>
-                        @endforeach
+
+
                         <div class="card-body">
+                            <h4>{{$pekerjaan->getPosisi()}}</h4>
                             <h2>{{$hotel->profile->nama}}</h2>
                             <h5>Rp:{{$pekerjaan->bayaran}}</h5>
                             <p>{{$pekerjaan->waktu_mulai}}</p>
 
-                            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                            <p>$pekerjaan->deskripsi</p>
 
                             <a  href="/job/{{$pekerjaan->id}}" class="btn  btn-primary">Selengkapnya</a>
                         </div>

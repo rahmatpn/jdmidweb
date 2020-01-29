@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Pekerjaan;
+use App\Posisi;
 use Illuminate\Http\Request;
 
 class PekerjaanController extends Controller
@@ -25,7 +26,7 @@ class PekerjaanController extends Controller
             'bayaran' => 'required',
             'deskripsi' => ''
         ]);
-//        Pekerjaan::find($data)->with('posisi')->get();
+
         auth()->user()->pekerjaan()->create($data);
 
         return redirect('/hotel/'.auth()->user()->id);

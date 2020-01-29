@@ -10,14 +10,12 @@ class ProfileUser extends Model
     protected $guarded = [];
 
     public function profileFoto(){
-        $fotoPath = ($this->foto) ? $this->foto : 'user/profile/Q8QsrapijI7Y4TdaKMO08tnvcvH0p1Z8Ni9BaLdr.jpeg';
-        return '/image/' . $fotoPath;
+        return ($this->foto) ? $this->foto : 'image/user/profile/Q8QsrapijI7Y4TdaKMO08tnvcvH0p1Z8Ni9BaLdr.jpeg';
     }
 
 
     public function profileCover(){
-        $coverPath = ($this -> cover) ?  $this->cover : 'user/cover/qj8MLkgRDV8E8WFk86txcFQ9guFZOZyEfRafS77D.webp';
-        return '/image/' . $coverPath;
+        return ($this -> cover) ?  $this->cover : '/image/user/cover/qj8MLkgRDV8E8WFk86txcFQ9guFZOZyEfRafS77D.webp';
     }
 
     public function user(){

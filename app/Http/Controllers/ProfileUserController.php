@@ -42,8 +42,8 @@ class ProfileUserController extends Controller
 
                 $foto = Image::make(public_path("image/{$fotoPath}"))->fit(1000,1000);
                 $foto -> save();
-
-                $fotoArray = ['foto'=> $fotoPath];
+                $path = "/image/{$fotoPath}";
+                $fotoArray = ['foto'=> $path];
             }
 
             if(request('cover')){
@@ -51,8 +51,8 @@ class ProfileUserController extends Controller
 
                 $cover = Image::make(public_path("image/{$coverPath}"));
                 $cover->save();
-
-                $coverArray = ['cover'=> $coverPath];
+                $cPath = "/image/{$coverPath}";
+                $coverArray = ['cover'=> $cPath];
             }
 
 

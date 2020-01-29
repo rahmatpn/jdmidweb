@@ -9,6 +9,11 @@ class Pekerjaan extends Model
     protected $table = "pekerjaan";
     protected $guarded = [];
 
+    public function getPosisi(){
+        $posisi = Posisi::whereId($this->posisi)->first();
+        return $posisi->nama_posisi;
+    }
+
     public function hotel(){
         return $this->belongsTo(Hotel::class);
     }

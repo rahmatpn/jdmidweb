@@ -268,13 +268,19 @@
                         </div>
                         <div class="col-md-12 user-detail-section2 fa-pull-left">
                             <div class="border"></div>
-                            <p>Nomor telepon</p>
-                            <span>{{$user->profile->nomor_telepon}}</span>
+                            <p>Jenis Kelamin</p>
+                            @if($user->profile->jenis_kelamin === 'L')
+                            <span>Laki-laki</span>
+                            @elseif($user->profile->jenis_kelamin === 'P')
+                            <span>Perempuan</span>
+                            @else
+                            <span></span>
+                            @endif
                         </div>
                         <div class="col-md-12 user-detail-section2 pull-right">
                             <div class="border"></div>
-                            <p>Nomor telepon</p>
-                            <span>{{$user->profile->nomor_telepon}}</span>
+                            <p>Social Media</p>
+                            <span>{{$user->profile->social_media}}</span>
                         </div>
                         <div class="col-md-12 user-detail-section2 pull-right">
                             <div class="border"></div>
