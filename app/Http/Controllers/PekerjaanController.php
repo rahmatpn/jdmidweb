@@ -20,9 +20,16 @@ class PekerjaanController extends Controller
     public function store()
     {
         $data = request()->validate([
+            'judul' => 'required',
+            'area' => 'required',
             'posisi'=>'required',
+            'tanggal_mulai' => 'required',
             'waktu_mulai' => 'required',
             'waktu_selesai' => 'required',
+            'tingi_minimal' => '',
+            'tingi_maksimal' => '',
+            'berat_minimal' => '',
+            'berat_maksimal' => '',
             'kuota' => 'required',
             'bayaran' => 'required',
             'deskripsi' => ''
@@ -34,9 +41,9 @@ class PekerjaanController extends Controller
 
 
     }
-    public function show(\App\Pekerjaan $pekerjaan){
-        $hotel = Hotel::find('');
+    public function show(Pekerjaan $pekerjaan){
         return view('jobs.job', compact('pekerjaan'));
     }
+
 
 }

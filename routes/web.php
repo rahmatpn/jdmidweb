@@ -30,7 +30,7 @@ Route::post('/login/user', 'Auth\LoginController@userLogin');
 Route::post('/register/hotel', 'Auth\RegisterController@createHotel');
 Route::post('/register/user', 'Auth\RegisterController@createUser');
 
-Route::view('/home', 'home')->middleware('auth');
+Route::get('/home', 'HomeController@index');
 
 Route::get('/hotel/{hotel}', 'ProfileHotelController@indexHotel')->name('hotel.show');
 Route::get('/hotel/{hotel}/edit', 'ProfileHotelController@edit')->name('hotel.edit');

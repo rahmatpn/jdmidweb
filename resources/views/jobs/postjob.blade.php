@@ -12,6 +12,20 @@
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
+                            <div class="form-group">
+                                <label for="judul">Judul:</label>
+                                <input type="text"
+                                       class="form-control"
+                                       name="judul"
+                                       required="required"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="area">Area:</label>
+                                <input type="text"
+                                       class="form-control"
+                                       name="area"
+                                       required="required"/>
+                            </div>
                             <label for="posisi">Posisi</label>
                             <div class="input-group mb-3">
                                 <select class="custom-select" id="posisi" name="posisi">
@@ -36,17 +50,52 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="waktu_mulai">Waktu Mulai:</label>
+                    <label for="tanggal_mulai">Tanggal Mulai:</label>
                     <input type="date"
+                           class="form-control"
+                           name="tanggal_mulai"
+                           required="required">
+                </div>
+                <div class="form-group">
+                    <label for="waktu_mulai">Waktu Mulai:</label>
+                    <input type="time"
                            class="form-control"
                            name="waktu_mulai"
                            required="required">
                 </div>
                 <div class="form-group">
                     <label for="waktu_selesai">Waktu Selesai:</label>
-                    <input type="date"
+                    <input type="time"
                            class="form-control"
                            name="waktu_selesai"
+                           required="required">
+                </div>
+                <div class="form-group">
+                    <label for="tinggi_minimal">Tinggi Minimal:</label>
+                    <input type="number"
+                           class="form-control"
+                           name="tinggi_minimal"
+                           required="required">
+                </div>
+                <div class="form-group">
+                    <label for="tinggi_maksimal">Tinggi Maksimal:</label>
+                    <input type="number"
+                           class="form-control"
+                           name="tinggi_maksimal"
+                           required="required">
+                </div>
+                <div class="form-group">
+                    <label for="berat_minimal">Berat Minimal:</label>
+                    <input type="number"
+                           class="form-control"
+                           name="berat_minimal"
+                           required="required">
+                </div>
+                <div class="form-group">
+                    <label for="berat_maksimal">Berat Maksimal:</label>
+                    <input type="number"
+                           class="form-control"
+                           name="berat_maksimal"
                            required="required">
                 </div>
                 <div class="form-group">

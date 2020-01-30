@@ -24,6 +24,11 @@ class Pekerjaan extends Model
         return $hotel->nama;
     }
 
+    public function getPekerjaan(){
+        $pekerjaan = Pekerjaan::all();
+        return $pekerjaan;
+    }
+
 
     public function hotel(){
         return $this->belongsTo(Hotel::class);

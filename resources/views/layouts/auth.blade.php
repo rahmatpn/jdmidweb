@@ -61,17 +61,27 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
+                    @if(\Illuminate\Support\Facades\Auth::guard('hotel'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="/hotel/{{\Illuminate\Support\Facades\Auth::id()}}">
                             <i class="fa fa-user-circle"></i>
                             Profil
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
+                        @elseif(\Illuminate\Support\Facades\Auth::guard('user'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="/hotel/{{\Illuminate\Support\Facades\Auth::id()}}">
+                                <i class="fa fa-user-circle"></i>
+                                Profil
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                    @endif
                     <li class="nav-item ">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/home">
                             <i class="fa fa-home"></i>
-                            Home
+                            Homes
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Pekerjaan;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:user');
     }
 
     /**
@@ -21,8 +22,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index()
     {
-        return view('home');
+        $pekerjaan = Pekerjaan::orderBy('tanggal_mulai')->get();
+        return view('home', compact('pekerjaan'));
     }
 }
