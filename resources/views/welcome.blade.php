@@ -207,8 +207,7 @@
                         </li>
                     @endauth
 
-                        @guest('hotel')
-                            @guest('user')
+                        @guest('hotel') @guest('user')
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Masuk</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -216,8 +215,7 @@
                                 <a class="dropdown-item" href="/register/hotel">Hotel</a>
                             </div>
                         </li>
-                                @endguest
-                        @endguest
+                        @endguest @endguest
 
 
 
