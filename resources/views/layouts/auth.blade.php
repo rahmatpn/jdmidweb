@@ -12,7 +12,7 @@
 
     <!-- Scripts -->
 {{--    <link href="{{ asset('css/style.css')}}" rel="stylesheet">--}}
-    <link href="{{ asset('css/app.css')}}" rel="stylesheet">
+{{--    <link href="{{ asset('css/app.css')}}" rel="stylesheet">--}}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -55,14 +55,14 @@
                 <ul class="navbar-nav mr-auto">
                     <form action ="#" method="GET" class="form-inline my-2 my-lg-0">
                         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                        <button class="btn btn-primary btn-rounded" type="submit">Search</button>
                     </form>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/hotel/{hotel}">
+                        <a class="nav-link" href="#">
                             <i class="fa fa-user-circle"></i>
                             Profil
                             <span class="sr-only">(current)</span>

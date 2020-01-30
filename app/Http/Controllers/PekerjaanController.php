@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Hotel;
 use App\Pekerjaan;
 use App\Posisi;
 use Illuminate\Http\Request;
@@ -34,6 +35,7 @@ class PekerjaanController extends Controller
 
     }
     public function show(\App\Pekerjaan $pekerjaan){
+        $hotel = Hotel::find('');
         return view('jobs.job', compact('pekerjaan'));
     }
 
