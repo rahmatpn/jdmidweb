@@ -150,27 +150,65 @@
             </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    @auth
+{{--                    @auth--}}
+{{--                        <li class="nav-item dropdown">--}}
+{{--                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>--}}
+{{--                                @if(Auth::guard('user')->check())--}}
+{{--                               Hello {{Auth::guard('user')->user()->name}} <span class="caret"></span>--}}
+{{--                            @elseif(Auth::guard('hotel')->check())--}}
+{{--                                Hello {{ Auth::guard('hotel')->user()->name}} <span class="caret"></span></a>--}}
+{{--                            @endif--}}
+{{--                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">--}}
+{{--                                <a class="dropdown-item" href="{{ route('logout') }}"--}}
+{{--                                   onclick="event.preventDefault();--}}
+{{--                    document.getElementById('logout-form').submit();">--}}
+{{--                                    {{ __('Logout') }}--}}
+{{--                                </a>--}}
+{{--                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
+{{--                                    @csrf--}}
+{{--                                </form>--}}
+{{--                            </div>--}}
+{{--                        </li>--}}
+{{--                    @endauth--}}
+                    @auth('hotel')
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                @if(Auth::guard('user')->check())
-                               Hello {{Auth::guard('user')->user()->name}} <span class="caret"></span>
-                            @elseif(Auth::guard('hotel')->check())
-                                Hello {{ Auth::guard('hotel')->user()->name}} <span class="caret"></span></a>
-                            @endif
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle nav-item active" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Akun <span class="sr-only">(current)</span>
+                            </a>
+
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
+
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                        @endauth
+                    @auth('user')
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle nav-item active" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Akun <span class="sr-only">(current)</span>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
                             </div>
                         </li>
                     @endauth
-                        @guest('user') @guest('hotel')
+
+                        @guest('hotel')
+                            @guest('user')
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Masuk</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -178,8 +216,16 @@
                                 <a class="dropdown-item" href="/register/hotel">Hotel</a>
                             </div>
                         </li>
-                        @endguest @endguest
+                                @endguest
+                        @endguest
+
+
+
+{{--                        @guest('user') @guest('hotel')--}}
+
+{{--                        @endguest @endguest--}}
                 </ul>
+
 
         </div>
     </nav>
