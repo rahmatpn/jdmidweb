@@ -149,13 +149,12 @@
                 </li>
             </ul>
 
-            @if (Route::has('login'))
                 <ul class="nav navbar-nav navbar-right">
                     @auth
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 @if(Auth::guard('user')->check())
-                               Hello {{ Auth::guard('user')->user()->name}} <span class="caret"></span>
+                               Hello {{Auth::guard('user')->user()->name}} <span class="caret"></span>
                             @elseif(Auth::guard('hotel')->check())
                                 Hello {{ Auth::guard('hotel')->user()->name}} <span class="caret"></span></a>
                             @endif
@@ -170,7 +169,8 @@
                                 </form>
                             </div>
                         </li>
-                    @else
+                    @endauth
+                        @guest('user') @guest('hotel')
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Masuk</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -178,10 +178,8 @@
                                 <a class="dropdown-item" href="/register/hotel">Hotel</a>
                             </div>
                         </li>
-                    @endauth
+                        @endguest @endguest
                 </ul>
-
-            @endif
 
         </div>
     </nav>
