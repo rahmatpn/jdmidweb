@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class PositionController extends Controller
 {
     function getAllPositions(){
-        return Posisi::all();
+        return response()->json(["positions"=>Posisi::all()]);
     }
 
     function getUserPositions($id){
