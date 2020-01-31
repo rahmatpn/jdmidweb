@@ -36,8 +36,6 @@ class PekerjaanController extends Controller
 
         auth()->user()->pekerjaan()->create($data);
 
-        $taglessBody = strip_tags($data->deskripsi);
-
         return redirect('/hotel/'.auth()->user()->id);
 
 

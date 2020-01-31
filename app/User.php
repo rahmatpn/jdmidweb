@@ -46,6 +46,7 @@ class User extends Authenticatable
         static::created(function ($user){
             ProfileUser::create([
                 'nama'=> $user->name,
+                'nama_lengkap' => $user->name,
                 'user_id'=>$user->id,
                 'email'=>$user->email
             ]);
