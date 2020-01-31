@@ -36,7 +36,7 @@
                                     </div>
                                 </li>
                                 <li class="list-group-item fa fa-globe d-flex">
-                                    <div class="pl-2">{{$hotel->profile->website}}</div>
+                                    <div href="http:{{$hotel->profile->website   }}" class="pl-2">{{$hotel->profile->website}}</div>
                                 </li>
 
                             </ul>
