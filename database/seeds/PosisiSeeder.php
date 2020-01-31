@@ -54,6 +54,8 @@ class PosisiSeeder extends Seeder
         DB::table('posisi')->insert([
             'nama_posisi'=>'Photographer'
         ]);
-
+        DB::table('posisi')->insert([
+            'nama_posisi'=>'Cleaning Service'
+        ]);
     }
 }
