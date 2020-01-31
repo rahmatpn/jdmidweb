@@ -17,7 +17,6 @@ class CreatePekerjaanTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('hotel_id');
             $table->unsignedBigInteger('posisi');
-            $table->string('judul');
             $table->string('area');
             $table->date('tanggal_mulai');
             $table->time('waktu_mulai');
