@@ -61,15 +61,28 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
-                    @if(\Illuminate\Support\Facades\Auth::guard('hotel'))
+                   @auth('user')
+                        @if(\Illuminate\Support\Facades\Request::is('home'))
                         <li class="nav-item">
-                            <a class="nav-link" href="/hotel/{{\Illuminate\Support\Facades\Auth::id()}}">
+
+                            <a class="nav-link" href="/user/{{\Illuminate\Support\Facades\Auth::id()}}">
+
                             <i class="fa fa-user-circle"></i>
                             Profil
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                        @elseif(\Illuminate\Support\Facades\Auth::guard('user'))
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" >
+                                    <i class="fa fa-user-circle"></i>
+                                    Profil
+                                    <span class="sr-only"></span>
+                                </a>
+                            </li>
+                        @endif
+                       @endauth
+                     @auth('hotel')
                         <li class="nav-item">
                             <a class="nav-link" href="/hotel/{{\Illuminate\Support\Facades\Auth::id()}}">
                                 <i class="fa fa-user-circle"></i>
@@ -77,11 +90,11 @@
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
-                    @endif
+                    @endauth
                     <li class="nav-item ">
                         <a class="nav-link" href="/home">
                             <i class="fa fa-home"></i>
-                            Homes
+                            Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
