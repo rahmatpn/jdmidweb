@@ -61,7 +61,7 @@
                             <h5>Rp:{{$pekerjaan->bayaran}}</h5>
                             <p>{{$pekerjaan->waktu_mulai}}</p>
 
-                        <div>{{strip_tags($pekerjaan->deskripsi)}}</div>
+                        <div>{{clean($pekerjaan->deskripsi)}}</div>
 
                             <a href="/job/{{$pekerjaan->id}}" class="btn aqua-gradient">Selengkapnya</a>
                         </div>
