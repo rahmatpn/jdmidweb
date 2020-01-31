@@ -118,13 +118,13 @@
                                                     <div class="form-group">
                                                         <label>Alamat</label>
                                                         {{--                                                            <textarea class="form-control" rows="5" placeholder="Alamat"></textarea>--}}
-                                                        <textarea id="alamat"
+                                                        <input id="alamat"
                                                                type="text"
                                                                class="form-control @error('alamat') is-invalid @enderror"
                                                                name="alamat"
                                                                value="{{ old('alamat') ?? $hotel->profile->alamat}}"
                                                                autocomplete="alamat" placeholder="Alamat" autofocus>
-                                                        </textarea>
+
                                                         @if($errors->has('alamat'))
                                                             <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('alamat') }}</strong>

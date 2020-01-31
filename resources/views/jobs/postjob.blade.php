@@ -13,13 +13,6 @@
                     <div class="col">
                         <div class="form-group">
                             <div class="form-group">
-                                <label for="judul">Judul:</label>
-                                <input type="text"
-                                       class="form-control"
-                                       name="judul"
-                                       required="required"/>
-                            </div>
-                            <div class="form-group">
                                 <label for="area">Area:</label>
                                 <input type="text"
                                        class="form-control"
@@ -29,13 +22,13 @@
                             <label for="posisi">Posisi</label>
                             <div class="input-group mb-3">
                                 <select class="custom-select" id="posisi" name="posisi">
-                                    <option selected>Test</option>
+                                    <option selected>Posisi</option>
                                     <option value="1">Laundry</option>
                                     <option value="2">Pool Maintenance</option>
                                     <option value="3">Equipment Maintenance</option>
                                     <option value="4">Receptionist</option>
                                     <option value="5">Porter</option>
-                                    <option value="6">Sequrity</option>
+                                    <option value="6">Security</option>
                                     <option value="7">Valet</option>
                                     <option value="8">Concierge</option>
                                     <option value="9">House Keeping</option>
@@ -44,6 +37,7 @@
                                     <option value="12">Crew Restaurant</option>
                                     <option value="13">Barista</option>
                                     <option value="14">Photographer</option>
+                                    <option value="15">Cleaning Service</option>
                                 </select>
                             </div>
                         </div>
@@ -74,29 +68,26 @@
                     <label for="tinggi_minimal">Tinggi Minimal:</label>
                     <input type="number"
                            class="form-control"
-                           name="tinggi_minimal"
-                           required="required">
+                           name="tinggi_minimal">
                 </div>
                 <div class="form-group">
                     <label for="tinggi_maksimal">Tinggi Maksimal:</label>
                     <input type="number"
                            class="form-control"
-                           name="tinggi_maksimal"
-                           required="required">
+                           name="tinggi_maksimal">
                 </div>
                 <div class="form-group">
                     <label for="berat_minimal">Berat Minimal:</label>
                     <input type="number"
                            class="form-control"
-                           name="berat_minimal"
-                           required="required">
+                           name="berat_minimal">
                 </div>
                 <div class="form-group">
                     <label for="berat_maksimal">Berat Maksimal:</label>
                     <input type="number"
                            class="form-control"
                            name="berat_maksimal"
-                           required="required">
+                           >
                 </div>
                 <div class="form-group">
                     <label for="kuota">Kuota: </label>
@@ -113,11 +104,13 @@
                            required="required"/>
                 </div>
                 <div class="form-group">
-                    <label for="desktripsi">Deskripsi:</label>
-                    <textarea type="text"
-                              class="form-control"
-                              name="deskripsi"
-                              required="required"></textarea>
+                    <label for="deskripsi">Deskripsi:</label>
+{{--                    <textarea type="text"--}}
+{{--                              class="form-control"--}}
+{{--                              name="deskripsi"--}}
+{{--                              required="required"></textarea>--}}
+                    <textarea id="my-summernote" name="deskripsi" type="text"></textarea>
+
                 </div>
                 <input type="submit" class="btn btn-primary" value="Simpan Data">
             </form>

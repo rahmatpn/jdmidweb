@@ -1,5 +1,7 @@
 @extends('layouts.auth')
 
+
+
 @section('content')
 
     <div class="container" style="margin-top:30px;">
@@ -42,7 +44,7 @@
 
                         </div>
 
-                        <a href="/job/postjob" type="button" class="btn-danger">Post A Job</a>
+                        <a href="/job/postjob" type="button" class="btn aqua-gradient">Post A Job</a>
 
             </div>
 
@@ -59,9 +61,9 @@
                             <h5>Rp:{{$pekerjaan->bayaran}}</h5>
                             <p>{{$pekerjaan->waktu_mulai}}</p>
 
-                            <p>{{$pekerjaan->deskripsi}}</p>
+                        <div>{{strip_tags($pekerjaan->deskripsi)}}</div>
 
-                            <a  href="/job/{{$pekerjaan->id}}" class="btn  btn-primary">Selengkapnya</a>
+                            <a href="/job/{{$pekerjaan->id}}" class="btn aqua-gradient">Selengkapnya</a>
                         </div>
 
                     </div>

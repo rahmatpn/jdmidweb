@@ -20,7 +20,6 @@ class PekerjaanController extends Controller
     public function store()
     {
         $data = request()->validate([
-            'judul' => 'required',
             'area' => 'required',
             'posisi'=>'required',
             'tanggal_mulai' => 'required',
@@ -36,6 +35,8 @@ class PekerjaanController extends Controller
         ]);
 
         auth()->user()->pekerjaan()->create($data);
+
+        $taglessBody = strip_tags($data->deskripsi);
 
         return redirect('/hotel/'.auth()->user()->id);
 

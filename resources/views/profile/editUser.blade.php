@@ -168,14 +168,14 @@
                                                         <div class="form-group">
                                                             <label>Alamat</label>
                                                             {{--                                                            <textarea class="form-control" rows="5" placeholder="Alamat"></textarea>--}}
-                                                            <textarea id="alamat"
+                                                            <input id="alamat"
                                                                       type="text"
                                                                       class="form-control @error('alamat') is-invalid @enderror"
                                                                       rows="5"
                                                                       name="alamat"
-                                                                      autocomplete="alamat" autofocus>
-                                                                {{ old('alamat') ?? $user->profile->alamat}}
-                                                            </textarea>
+                                                                      autocomplete="alamat" autofocus
+                                                                   value="  {{ old('alamat') ?? $user->profile->alamat}} ">
+
                                                             @if($errors->has('alamat'))
                                                                 <span class="invalid-feedback" role="alert">
                                                                      <strong>{{ $errors->first('alamat') }}</strong>
