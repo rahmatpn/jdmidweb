@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Posisi;
 use App\ProfileUser;
 use App\User;
 use Illuminate\Http\Request;
@@ -16,7 +17,8 @@ class ProfileUserController extends Controller
 
         public function edit (User $user){
             $this->authorize('update', $user->profile);
-            return view('profile.editUser', compact('user'));
+            $posisi = Posisi::all();
+            return view('profile.editUser', compact('user', 'posisi'));
         }
 
 

@@ -164,6 +164,22 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
+                                                    <div class="col">
+                                                        <div class="form-group">
+
+                                                            <label>Minat Posisi</label>
+                                                            @foreach($posisi as $posisi)
+                                                                <div class="form-check">
+                                                                    <label class="form-check-label">
+                                                                        <input type="checkbox" id="{{$posisi->id}}" name="{{$posisi->nama_posisi}}"  value="{{$posisi->id}}" {{$user->posisi->contains($posisi->id) ? 'checked' : '' }}>{{$posisi->nama_posisi}}
+                                                                    </label>
+                                                                </div>
+                                                            @endforeach
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
                                                     <div class="col mb-3">
                                                         <div class="form-group">
                                                             <label>Alamat</label>
@@ -173,8 +189,8 @@
                                                                       class="form-control @error('alamat') is-invalid @enderror"
                                                                       rows="5"
                                                                       name="alamat"
-                                                                      autocomplete="alamat" autofocus
-                                                                   value="  {{ old('alamat') ?? $user->profile->alamat}} ">
+                                                                      value = "{{ old('alamat') ?? $user->profile->alamat}}"
+                                                                      autocomplete="alamat" autofocus>
 
                                                             @if($errors->has('alamat'))
                                                                 <span class="invalid-feedback" role="alert">
