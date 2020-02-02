@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\PosisiUser;
 use App\Posisi;
 use App\ProfileUser;
 use App\User;
+use App\Http\Controllers\PosisiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
@@ -18,11 +20,28 @@ class ProfileUserController extends Controller
         public function edit (User $user){
             $this->authorize('update', $user->profile);
             $posisi = Posisi::all();
+
+            $posisiUser = PosisiUser::where('user_id','=',$user->id)->get();
+
+            foreach ($posisi as $pos)
+            {
+                foreach ($posisiUser as $posU)
+                {
+                    //dd($posU->posisi_id);
+                    if ($pos->id == $posU->posisi_id)
+                    {
+                    $pos->posisi = 1;
+                    }
+
+
+                }
+            }
+
             return view('profile.editUser', compact('user', 'posisi'));
         }
 
 
-        public function update(User $user){
+        public function update(User $user, Request $req){
             $this->authorize('update', $user->profile);
 
             $data = request()->validate([
@@ -37,6 +56,16 @@ class ProfileUserController extends Controller
                 'cover' => '',
 
             ]);
+
+            $posisi = $req->posisi_user;
+            $posisiUser = PosisiUser::where('user_id','=',$user->id)->delete();
+            foreach ($posisi as $pos)
+            {
+                $posisiUser = new PosisiUser;
+                $posisiUser->user_id = $user->id;
+                $posisiUser->posisi_id = $pos;
+                $posisiUser->save();
+            }
 
 
             if(request('foto')){

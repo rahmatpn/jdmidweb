@@ -5,47 +5,47 @@
         <form action="/user/{{$user->id}}" enctype="multipart/form-data" method="post">
             @csrf
             @method('PATCH')
-        <div class="container">
-            <div class="row  flex-lg-nowrap float-left">
-                <div class="col-md-12 col-lg-auto mb-auto" style="width: 250px;">
-                    <div class="card rounded-right shadow p-4">
-                        <div class="text-center">
-                            <img src="{{$user->profile->profileFoto()}}" class="avatar img-circle img-thumbnail" alt="avatar">
-                            <h6>Upload Foto</h6>
-                            <input type="file" class="form-control-file" id="foto" name="foto">
-                            @if($errors->has('foto'))
-                                <strong>{{ $errors->first('foto') }}</strong>
-                            @endif
+            <div class="container">
+                <div class="row  flex-lg-nowrap float-left">
+                    <div class="col-md-12 col-lg-auto mb-auto" style="width: 250px;">
+                        <div class="card rounded-right shadow p-4">
+                            <div class="text-center">
+                                <img src="{{$user->profile->profileFoto()}}" class="avatar img-circle img-thumbnail" alt="avatar">
+                                <h6>Upload Foto</h6>
+                                <input type="file" class="form-control-file" id="foto" name="foto">
+                                @if($errors->has('foto'))
+                                    <strong>{{ $errors->first('foto') }}</strong>
+                                @endif
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row  flex-lg-nowrap float-left">
+                    <div class="col-md-12 col-lg-auto mb-auto" style="width: 250px;">
+                        <div class="card rounded-right shadow p-4">
+                            <div class="text-center">
+                                <img src="{{$user->profile->profileCover()}}" class="avatar img-circle img-thumbnail" alt="avatar">
+                                <h6>Upload Cover</h6>
+                                <input type="file" class="form-control-file" id="cover" name="cover">
+                                @if($errors->has('cover'))
+                                    <strong>{{ $errors->first('cover') }}</strong>
+                                @endif
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row  flex-lg-nowrap float-left">
-                <div class="col-md-12 col-lg-auto mb-auto" style="width: 250px;">
-                    <div class="card rounded-right shadow p-4">
-                        <div class="text-center">
-                            <img src="{{$user->profile->profileCover()}}" class="avatar img-circle img-thumbnail" alt="avatar">
-                            <h6>Upload Cover</h6>
-                            <input type="file" class="form-control-file" id="cover" name="cover">
-                            @if($errors->has('cover'))
-                                <strong>{{ $errors->first('cover') }}</strong>
-                            @endif
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
-        <div class="row">
-            <div class="col mb-3">
-                <div class="card shadow">
-                    <div class="card-body">
-                        <div class="e-profile">
-                            <div class="tab-content pt-3">
-                                <div class="tab-pane active">
+            <div class="row">
+                <div class="col mb-3">
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="e-profile">
+                                <div class="tab-content pt-3">
+                                    <div class="tab-pane active">
 
                                         <h2>Edit Profil</h2>
                                         <div class="row">
@@ -163,34 +163,34 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
                                                 <div class="row">
                                                     <div class="col">
                                                         <div class="form-group">
-
-                                                            <label>Minat Posisi</label>
+                                                            <label>Social Media</label>
                                                             @foreach($posisi as $posisi)
                                                                 <div class="form-check">
                                                                     <label class="form-check-label">
-                                                                        <input type="checkbox" id="{{$posisi->id}}" name="{{$posisi->nama_posisi}}"  value="{{$posisi->id}}" {{$user->posisi->contains($posisi->id) ? 'checked' : '' }}>{{$posisi->nama_posisi}}
+                                                                        <input type="checkbox" id="posisi_user" name="posisi_user[]"  value="{{$posisi->id}}" {{($posisi->posisi==1)?  "checked" : "" }}>{{$posisi->nama_posisi}}
                                                                     </label>
                                                                 </div>
                                                             @endforeach
-                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
+
                                                 <div class="row">
                                                     <div class="col mb-3">
                                                         <div class="form-group">
                                                             <label>Alamat</label>
                                                             {{--                                                            <textarea class="form-control" rows="5" placeholder="Alamat"></textarea>--}}
                                                             <input id="alamat"
-                                                                      type="text"
-                                                                      class="form-control @error('alamat') is-invalid @enderror"
-                                                                      rows="5"
-                                                                      name="alamat"
-                                                                      value = "{{ old('alamat') ?? $user->profile->alamat}}"
-                                                                      autocomplete="alamat" autofocus>
+                                                                   type="text"
+                                                                   class="form-control @error('alamat') is-invalid @enderror"
+                                                                   rows="5"
+                                                                   name="alamat"
+                                                                   autocomplete="alamat" autofocus
+                                                                   value="  {{ old('alamat') ?? $user->profile->alamat}} ">
 
                                                             @if($errors->has('alamat'))
                                                                 <span class="invalid-feedback" role="alert">
@@ -237,13 +237,13 @@
                                         </div>
 
 
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </form>
     </div>
 

@@ -306,7 +306,7 @@
                                 <p>{{$user->email}}</p>
                             </div>
                             <div class="col-md-4 col-sm-6 col-xs-6 profile-header-section1 text-right pull-right">
-                                <a class="btn btn-info req-btn" href="/user/{{$user->id}}/edit" > Edit Profil</a>
+                                <a class="btn btn-info req-btn" style="height: 40px;" href="/user/{{$user->id}}/edit" > Edit Profil</a>
                             </div>
                         </div>
                     </div>
