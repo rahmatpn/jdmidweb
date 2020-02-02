@@ -47,7 +47,7 @@ class ProfileController extends Controller
             return response()->json(['invalid_file_upload'], 400);
         }
 
-        $fotoPath = $file->store('user/cover','public');
+        $fotoPath = $file->store('user/profile','public');
 
         $foto = Image::make(public_path("image/{$fotoPath}"));
         $foto -> save();
@@ -81,7 +81,7 @@ class ProfileController extends Controller
             return response()->json(['invalid_file_upload'], 400);
         }
 
-        $fotoPath = $file->store('user/profile','public');
+        $fotoPath = $file->store('user/cover','public');
 
         $foto = Image::make(public_path("image/{$fotoPath}"));
         $foto -> save();

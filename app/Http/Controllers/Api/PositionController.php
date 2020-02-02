@@ -14,7 +14,7 @@ class PositionController extends Controller
     }
 
     function getUserPositions($id){
-        $user = User::find($id)->first();
+        $user = User::find($id);
         $positions = $user->posisi()->get();
         return response()->json(["positions" => $positions]);
     }
