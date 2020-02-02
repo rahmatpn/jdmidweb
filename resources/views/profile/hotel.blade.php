@@ -5,6 +5,11 @@
 @section('content')
 
     <div class="container" style="margin-top:30px;">
+        @if(session()->get('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+        @endif
         <div class="row">
             <div class="col-sm-4">
                 <div class="card shadow" style="width: 20rem">
@@ -36,7 +41,7 @@
                                     </div>
                                 </li>
                                 <li class="list-group-item fa fa-globe d-flex">
-                                    <div class="pl-2">{{$hotel->profile->website}}</div>
+                                    <div href="http:{{$hotel->profile->website   }}" class="pl-2">{{$hotel->profile->website}}</div>
                                 </li>
 
                             </ul>
@@ -61,9 +66,11 @@
                             <h5>Rp:{{$pekerjaan->bayaran}}</h5>
                             <p>{{$pekerjaan->waktu_mulai}}</p>
 
-                         {!!html_entity_decode($pekerjaan->deskripsi)!!}
+                         <div class="desc">  {!!html_entity_decode($pekerjaan->deskripsi)!!}</div>
 
                             <a href="/job/{{$pekerjaan->id}}" class="btn aqua-gradient">Selengkapnya</a>
+                            <a href="/job/delete/{{ $pekerjaan->id}}" class="btn aqua-gradient">Hapus</a>
+                            <a href="/job/edit/{{ $pekerjaan->id}}" class="btn aqua-gradient">Edit</a>
                         </div>
 
                     </div>
