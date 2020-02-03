@@ -28,7 +28,7 @@ class CreatePekerjaanTable extends Migration
             $table->integer('kuota');
             $table->bigInteger('bayaran');
             $table->text('deskripsi');
-            $table->string('url_slug');
+            $table->string('url_slug')->unique();
             $table->timestamps();
 
             $table->index('hotel_id');
