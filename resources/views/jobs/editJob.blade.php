@@ -52,6 +52,7 @@
                         <input type="date"
                                class="form-control"
                                name="tanggal_mulai"
+
                                 value="{{$p->tanggal_mulai}}"
                                 >
                     </div>
@@ -72,7 +73,7 @@
                         <label for="tinggi_minimal">Tinggi Minimal:</label>
                         <input type="number"
                                class="form-control"
-                               name="tinggi_minimal" value="{{$p->tinggi_minimal}}">
+                               name="tinggi_minimal" value="{{$p->tinggi_minimal}} Cm">
                     </div>
                     <div class="form-group">
                         <label for="tinggi_maksimal">Tinggi Maksimal:</label>
@@ -104,16 +105,13 @@
                     <div class="form-group">
                         <label for="bayaran">Bayaran:</label>
                         <input type="text"
-                               class="form-control"
+                               id="currencyField"
+                               class="form-control currency"
                                name="bayaran"
                                value="{{$p->bayaran}}">
                     </div>
                     <div class="form-group">
                         <label for="deskripsi">Deskripsi:</label>
-                        {{--                    <textarea type="text"--}}
-                        {{--                              class="form-control"--}}
-                        {{--                              name="deskripsi"--}}
-                        {{--                              required="required"></textarea>--}}
                         <textarea id="my-summernote" name="deskripsi" type="text">{{$p->deskripsi}}</textarea>
 
                     </div>
@@ -123,4 +121,14 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+
+        $(document).ready(function()
+        {
+            $('.currency').blur(function()
+            {
+                $('.currency').formatCurrency();
+            });
+        });
+    </script>
 @endsection

@@ -58,6 +58,10 @@
                                                 <div class="col">
                                                     <div class="form-group">
                                                         <label for="website">Website</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">https://</span>
+                                                            </div>
                                                         <input id="website"
                                                                type="text"
                                                                class="form-control @error('website') is-invalid @enderror"
@@ -70,6 +74,7 @@
                             <strong>{{ $errors->first('website') }}</strong>
                         </span>
                                                         @endif
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -98,18 +103,24 @@
                                                 <div class="col">
                                                     <div class="form-group">
                                                         <label>Social Media</label>
-                                                        <input id="social_media"
-                                                               type="text"
-                                                               class="form-control @error('social_media') is-invalid @enderror"
-                                                               name="social_media"
-                                                               value="{{ old('social_media') ?? $hotel->profile->social_media}}"
-                                                               autocomplete="social_media" placeholder="Instagram" autofocus>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">Instagram</span>
+                                                            </div>
+                                                            <input id="social_media"
+                                                                   type="text"
+                                                                   class="form-control @error('social_media') is-invalid @enderror"
+                                                                   name="social_media"
+                                                                   value="{{ old('social_media') ?? $hotel->profile->social_media}}"
+                                                                   autocomplete="social_media" placeholder="Instagram" autofocus>
 
-                                                        @if($errors->has('social_media'))
-                                                            <span class="invalid-feedback" role="alert">
+                                                            @if($errors->has('social_media'))
+                                                                <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $errors->first('social_media') }}</strong>
                                                                 </span>
-                                                        @endif
+                                                            @endif
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>

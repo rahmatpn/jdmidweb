@@ -242,13 +242,13 @@
 <div class="container main-secction">
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12 image-section">
-            <img src="{{$user->profile->profileCover()}}">
+            <img src="{{asset($user->profile->profileCover())}}">
         </div>
         <div class="row py-lg px-2 user-left-part">
             <div class="col-md-3 col-sm-3 col-xs-11 user-profil-part pull-left">
                 <div class="row user-detail-section2">
                     <div class="col-md-12 col-md-12-sm-12 col-xs-12 user-image text-center">
-                        <img src="{{$user->profile->profileFoto()}}" class="img-thumbnail">
+                        <img src="{{asset($user->profile->profileFoto())}}" class="img-thumbnail">
                     </div>
                     <br/>
                     <br/>
