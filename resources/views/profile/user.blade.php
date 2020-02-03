@@ -264,7 +264,7 @@
                         <div class="col-md-12 col-sm-12 user-detail-section2 pull-right">
                             <div class="border"></div>
                             <p>Username</p>
-                            <span>{{$user->name}}</span>
+                            <span>{{$user->profile->nama}}</span>
                         </div>
                         <div class="col-md-12 user-detail-section2 fa-pull-left">
                             <div class="border"></div>
