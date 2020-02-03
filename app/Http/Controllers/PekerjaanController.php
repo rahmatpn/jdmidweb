@@ -7,6 +7,7 @@ use App\Pekerjaan;
 use App\Posisi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class PekerjaanController extends Controller
 {
@@ -35,10 +36,11 @@ class PekerjaanController extends Controller
             'deskripsi' => ''
         ]);
 
+        $data['url_slug'] = Str::slug($data['area'].' '.time(), "-");
+
         auth()->user()->pekerjaan()->create($data);
 
-        return redirect('/hotel/'.auth()->user()->id);
-
+        return redirect('/hotel/'.Str::slug(auth()->user()->profile->nama, '').'/'.$data['url_slug']);
 
     }
     public function show(Pekerjaan $pekerjaan){
