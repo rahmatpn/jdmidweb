@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Hotel;
 use App\Pekerjaan;
 use App\Posisi;
+use App\ProfileHotel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -43,7 +44,8 @@ class PekerjaanController extends Controller
         return redirect('/hotel/'.Str::slug(auth()->user()->profile->nama, '').'/'.$data['url_slug']);
 
     }
-    public function show(Pekerjaan $pekerjaan){
+    public function show($url_slug){
+        $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
         return view('jobs.job', compact('pekerjaan'));
     }
     public function edit($id){
