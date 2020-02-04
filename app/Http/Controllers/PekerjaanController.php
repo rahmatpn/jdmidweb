@@ -48,9 +48,9 @@ class PekerjaanController extends Controller
         $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
         return view('jobs.job', compact('pekerjaan'));
     }
-    public function edit($id){
-        // mengambil data pegawai berdasarkan id yang dipilih
-        $pekerjaan = DB::table('pekerjaan')->where('id',$id)->get();
+    public function edit($url_slug){
+        // mengambil data pegawai berdasarkan url_slug yang dipilih
+        $pekerjaan = DB::table('pekerjaan')->where('url_slug',$url_slug)->get();
         // passing data pegawai yang didapat ke view edit.blade.php
         return view('jobs.editJob',['pekerjaan' => $pekerjaan]);
     }
@@ -72,8 +72,8 @@ class PekerjaanController extends Controller
         return redirect('/hotel/'.auth()->user()->id)->with('success','Data Telah Diupdate!');
 
     }
-    public function delete($id){
-        DB::table('pekerjaan')->where('id', $id)->delete();
+    public function delete($url_slug){
+        DB::table('pekerjaan')->where('url_slug', $url_slug)->delete();
         return redirect('/hotel/'.auth()->user()->id)->with('success','Data Telah Dihapus');
     }
 

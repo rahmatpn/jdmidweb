@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Str;
 
 class Hotel extends Authenticatable
 {
@@ -37,7 +38,8 @@ class Hotel extends Authenticatable
             ProfileHotel::create([
                 'nama' => $hotel->name,
                 'hotel_id' => $hotel->id,
-                'email' => $hotel->email
+                'email' => $hotel->email,
+                'url_slug' => Str::slug($hotel->name,''),
             ]);
 
         });

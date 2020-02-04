@@ -29,6 +29,7 @@ class CreateUserProfilesTable extends Migration
             $table->enum('pendidikan_terakhir', ['SD', 'SMP', 'SMA', 'Diploma', 'S1', 'S2', 'S3'])->nullable();
             $table->string('foto')->nullable();
             $table->string('cover')->nullable();
+            $table->string('url_slug')->unique();
             $table->timestamps();
 
             $table->index('user_id');

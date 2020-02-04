@@ -23,6 +23,7 @@ class CreateHotelProfilesTable extends Migration
             $table->string('social_media')->nullable();
             $table->string('foto')->nullable();
             $table->string('website')->nullable();
+            $table->string('url_slug')->unique();
             $table->timestamps();
 
             $table->index('hotel_id');

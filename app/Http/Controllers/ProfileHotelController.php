@@ -8,13 +8,13 @@ use App\Posisi;
 use App\ProfileHotel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
 class ProfileHotelController extends Controller
 {
     public function indexHotel(Hotel $hotel){
-//        dd(auth()->user());
-//        $posisi = Posisi::find($hotel->posisi)->get();
+
         return view('profile.hotel', compact('hotel'));
     }
 
@@ -34,6 +34,7 @@ class ProfileHotelController extends Controller
             'website' => '',
             'foto'=>''
         ]);
+
         $profile->update($data);
 
         if(request('foto')){

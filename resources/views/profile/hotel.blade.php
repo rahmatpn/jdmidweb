@@ -69,8 +69,8 @@
                          <div class="desc">  {!!html_entity_decode($pekerjaan->deskripsi)!!}</div>
 
                             <a href="/job/{{$pekerjaan->url_slug}}" class="btn aqua-gradient">Selengkapnya</a>
-                            <a href="/job/delete/{{ $pekerjaan->id}}" class="btn aqua-gradient">Hapus</a>
-                            <a href="/job/edit/{{ $pekerjaan->id}}" class="btn aqua-gradient">Edit</a>
+                            <a href="/job/{{ $pekerjaan->url_slug}}/delete" class="btn aqua-gradient">Hapus</a>
+                            <a href="/job/{{ $pekerjaan->url_slug}}/edit" class="btn aqua-gradient">Edit</a>
                         </div>
 
                     </div>
