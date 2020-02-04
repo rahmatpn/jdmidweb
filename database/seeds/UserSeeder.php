@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
             'updated_at'=> Carbon::now()->toDateTimeString()
         ]);
         DB::table('user_profiles')->insert([
-            'user_id'=>1,
+            'user_id'=>2,
             'nama'=>'user2',
             'email'=>'user2@user.com',
             'url_slug'=>'user2',
