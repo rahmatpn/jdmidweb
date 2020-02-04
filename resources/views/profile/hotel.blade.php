@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="container" style="margin-top:30px;">
+    <div class="container" >
         @if(session()->get('success'))
             <div class="alert alert-success">
                 {{ session()->get('success') }}
@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="card shadow" style="width: 20rem">
-                <img class="card-img-top img-fluid" src="{{$hotel->profile->hotelPhoto()}}" alt="card hotel image">
+                <img class="card-img-top img-fluid" src="{{asset($hotel->profile->hotelPhoto())}}" alt="card hotel image">
                             <div class="card-body">
                                 <h4 title="card-title" >{{$hotel->profile->nama}}</h4>
                                 <span class="fa fa-home d-flex">

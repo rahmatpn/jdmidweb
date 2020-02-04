@@ -10,9 +10,11 @@ try {
     window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
 
+    require('node-waves');
     require('bootstrap');
     require('./../../node_modules/@jkryszto/mdb-for-laravel/js/bootstrap.js');
     require('./../../node_modules/@jkryszto/mdb-for-laravel/js/mdb.js');
+
 } catch (e) {}
 
 /**

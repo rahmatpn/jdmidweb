@@ -71,9 +71,17 @@
                     </div>
                     <div class="form-group">
                         <label for="tinggi_minimal">Tinggi Minimal:</label>
-                        <input type="number"
-                               class="form-control"
-                               name="tinggi_minimal" value="{{$p->tinggi_minimal}} Cm">
+                        <div class="input-group">
+                            <input type="number"
+                                   class="form-control"
+                                   name="tinggi_minimal" value="{{$p->tinggi_minimal}} Cm">
+                        </div>
+                        <div class="input-group-append">
+                            <span class="input-group-text">
+                                Cm
+                            </span>
+                        </div>
+
                     </div>
                     <div class="form-group">
                         <label for="tinggi_maksimal">Tinggi Maksimal:</label>
@@ -121,14 +129,5 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
 
-        $(document).ready(function()
-        {
-            $('.currency').blur(function()
-            {
-                $('.currency').formatCurrency();
-            });
-        });
-    </script>
 @endsection

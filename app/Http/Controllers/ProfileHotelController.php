@@ -61,6 +61,6 @@ class ProfileHotelController extends Controller
         ));
 
 
-        return redirect("/hotel/{$profile->url_slug}")->with("Data Has Been Updated Successfully");
+        return redirect("/hotel/{$profile->url_slug}")->with("success","Data Has Been Updated Successfully");
     }
 }
