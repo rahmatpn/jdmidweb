@@ -33,9 +33,7 @@ Route::post('/register/user', 'Auth\RegisterController@createUser');
 Route::get('/home', 'HomeController@index');
 
 Route::get('/hotel/{profile}', 'ProfileHotelController@indexHotel')->name('hotel.show');
-//Route::get('/hotel/{profile}/edit', 'ProfileHotelController@edit')->name('hotel.edit');
-//Route::patch('/hotel/{profile}', 'ProfileHotelController@update')->name('hotel.update');
-//Route::get('/hotel/{hotel}', 'ProfileHotelController@indexHotel')->name('hotel.show');
+
 Route::get('/user/{user}', 'ProfileUserController@indexUser')->name('user.show');
 
 

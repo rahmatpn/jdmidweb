@@ -166,7 +166,7 @@
                        @endauth
                      @auth('hotel')
                         <li class="nav-item">
-                            <a class="nav-link" href="/hotel/{{\Illuminate\Support\Facades\Auth::id()}}">
+                            <a class="nav-link" href="/hotel/{{\Illuminate\Support\Str::slug(auth()->guard('hotel')->user()->name)}}">
                                 <i class="fa fa-user-circle"></i>
                                 Profil
                                 <span class="sr-only">(current)</span>
