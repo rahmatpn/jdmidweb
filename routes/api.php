@@ -27,6 +27,10 @@ Route::get('/profile/{id}','Api\ProfileController@getUserProfile');
 
 Route::get('profile/{id}/positions', 'Api\PositionController@getUserPositions');
 
+Route::get('jobs','Api\JobController@getAllJobs');
+Route::get('jobs/{query}','Api\JobController@getJobs');
+Route::get('jobs/position/{position}','Api\JobController@getJobsWithPosition');
+
 Route::group([
    'middleware'=>'auth:api'
 ], function (){
