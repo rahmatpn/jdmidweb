@@ -24,7 +24,7 @@ class ProfileHotelController extends Controller
     }
 
     public function edit ($url_slug){
-        $profil = ProfileHotel::where('url_slug', '=', $url_slug)->first();
+        $profil = ProfileHotel::where('url_slug', '=', $url_slug)->with('hotel')->first();
         $hotel = Hotel::find($profil->hotel_id);
         return view('profile.editHotel', compact('hotel'));
     }

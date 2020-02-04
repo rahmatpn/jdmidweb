@@ -41,15 +41,17 @@
                                     </div>
                                 </li>
                                 <li class="list-group-item fa fa-globe d-flex">
-                                    <div href="http:{{$hotel->profile->website   }}" class="pl-2">{{$hotel->profile->website}}</div>
+
+                                    <div href="{{url('http:'.$hotel->profile->website)}}" class="pl-2">{{$hotel->profile->website}}</div>
+
                                 </li>
 
                             </ul>
-                            <a href="/hotel/{{$hotel->profile->url_slug}}/edit" class="btn btn-info">Edit Profile</a>
+                            <a href="{{url('/hotel/'.$hotel->profile->url_slug.'/edit')}}" class="btn btn-info">Edit Profile</a>
 
                         </div>
 
-                        <a href="/job/postjob" type="button" class="btn aqua-gradient">Post A Job</a>
+                        <a href={{url('/job/postjob')}} type="button" class="btn aqua-gradient">Post A Job</a>
 
             </div>
 
@@ -68,9 +70,9 @@
 
                          <div class="desc">  {!!html_entity_decode($pekerjaan->deskripsi)!!}</div>
 
-                            <a href="/job/{{$pekerjaan->url_slug}}" class="btn aqua-gradient">Selengkapnya</a>
-                            <a href="/job/{{ $pekerjaan->url_slug}}/delete" class="btn aqua-gradient">Hapus</a>
-                            <a href="/job/{{ $pekerjaan->url_slug}}/edit" class="btn aqua-gradient">Edit</a>
+                            <a href="{{url("/job/$pekerjaan->url_slug")}}" class="btn aqua-gradient">Selengkapnya</a>
+                            <a href="{{url("/job/$pekerjaan->url_slug/delete")}}" class="btn aqua-gradient">Hapus</a>
+                            <a href="{{url("/job/$pekerjaan->url_slug/edit")}}" class="btn aqua-gradient">Edit</a>
                         </div>
 
                     </div>

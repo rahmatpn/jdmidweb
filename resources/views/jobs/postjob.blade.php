@@ -5,7 +5,7 @@
     <div class="col-sm-8 offset-sm-2">
         <div class="container">
             <form action="/job" enctype="multipart/form-data" method="post" data-toggle="validator" novalidate="true">
-            <a href="/hotel/{{auth()->user()->id}}" class="btn btn-info" role="button"> Kembali</a>
+            <a href="/hotel/{{\Illuminate\Support\Str::slug(auth()->user()->name)}}" class="btn btn-info" role="button"> Kembali</a>
             <br/>
             <br/>
                 {{ csrf_field() }}
@@ -157,7 +157,7 @@
                 </div>
                 <div class="form-group">
                     <label for="deskripsi">Deskripsi:</label>
-                    <textarea id="my-summernote" name="deskripsi" type="text"></textarea>
+                    <textarea id="my-summernote" name="deskripsi" type="text" required="required"></textarea>
 
                 </div>
                 <input type="submit" class="btn btn-primary" value="Simpan Data">
