@@ -13,6 +13,7 @@ use Intervention\Image\Facades\Image;
 class ProfileHotelController extends Controller
 {
     public function indexHotel(Hotel $hotel){
+//        dd(auth()->user());
 //        $posisi = Posisi::find($hotel->posisi)->get();
         return view('profile.hotel', compact('hotel'));
     }

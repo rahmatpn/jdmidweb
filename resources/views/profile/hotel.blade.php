@@ -63,7 +63,7 @@
                         <div class="card-body">
                             <h4>{{$pekerjaan->getPosisi()}}</h4>
                             <h2>{{$hotel->profile->nama}}</h2>
-                            <h5>Rp:{{$pekerjaan->bayaran}}</h5>
+                            <h5>@currency($pekerjaan->bayaran)</h5>
                             <p>{{$pekerjaan->waktu_mulai}}</p>
 
                          <div class="desc">  {!!html_entity_decode($pekerjaan->deskripsi)!!}</div>

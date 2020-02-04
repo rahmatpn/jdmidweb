@@ -18,9 +18,11 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.formatCurrency.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
     <script src="{{ asset('js/mdb.js') }}"></script>
 
     @yield('css')
@@ -115,6 +117,9 @@
 
         .note-editor.note-frame .note-editing-area .note-editable {
             padding-top: 1rem;
+        }
+        .has-error input[type="text"], .has-error input[type="email"], .has-error input[type="number"], .has-error input[type="time"], .has-error input[type="date"] .has-error select {
+            border: 1px solid #ff6162;
         }
     </style>
 </head>
@@ -219,7 +224,7 @@
 <script>
     $('#my-summernote').summernote({
         minHeight: 200,
-        placeholder: 'Write here ...',
+        placeholder: 'Tulis Deskripsi Pekerjaan...',
         focus: false,
         airMode: false,
         fontNames: ['Roboto', 'Calibri', 'Times New Roman', 'Arial'],
@@ -247,6 +252,31 @@
         }
     });
     $('#my-summernote').cleanHtml()
+
+    var rupiah = document.getElementById("rupiah");
+    rupiah.addEventListener("keyup", function(e) {
+        // tambahkan 'Rp.' pada saat form di ketik
+        // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+        rupiah.value = formatRupiah(this.value, "Rp. ");
+    });
+
+    /* Fungsi formatRupiah */
+    function formatRupiah(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, "").toString(),
+            split = number_string.split(","),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+        // tambahkan titik jika yang di input sudah menjadi angka ribuan
+        if (ribuan) {
+            separator = sisa ? "." : "";
+            rupiah += separator + ribuan.join(".");
+        }
+
+        rupiah = split[1] != undefined ? rupiah + "," + split[1] : rupiah;
+        return prefix == undefined ? rupiah : rupiah ? "Rp. " + rupiah : "";
+    }
 </script>
 
 </body>
