@@ -13,7 +13,7 @@ class CreateUserPekerjaanTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_pekerjaan', function (Blueprint $table) {
+        Schema::create('pekerjaan_user', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('pekerjaan_id');
             $table->unsignedBigInteger('user_id');
@@ -32,6 +32,6 @@ class CreateUserPekerjaanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_pekerjaan');
+        Schema::dropIfExists('pekerjaan_user');
     }
 }

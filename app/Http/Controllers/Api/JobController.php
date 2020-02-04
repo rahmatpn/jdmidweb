@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Pekerjaan;
 use App\ProfileHotel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
@@ -24,5 +25,10 @@ class JobController extends Controller
 
     function getJobsWithPosition($position){
         return response()->json(['jobs'=>Pekerjaan::where('posisi',$position)->get()]);
+    }
+
+    function applyJob($job){
+        $user = Auth::user();
+        return response()->json($user->mengerjakan()->toggle(Pekerjaan::findOrFail($job)));
     }
 }
