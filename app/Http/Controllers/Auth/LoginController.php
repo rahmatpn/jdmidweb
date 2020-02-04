@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\ProfileHotel;
 use App\Providers\RouteServiceProvider;
 use App\User;
 
@@ -59,8 +60,9 @@ class LoginController extends Controller
         ]);
 
         if (Auth::guard('hotel')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+            $profile = ProfileHotel::where('hotel_id',Auth::guard('hotel')->user()->id)->first();
+            return redirect('/hotel/'.$profile->url_slug);
 
-            return redirect('/hotel/'.Auth::guard('hotel')->user()->id);
         }
         return back()->withInput($request->only('email', 'remember'));
     }

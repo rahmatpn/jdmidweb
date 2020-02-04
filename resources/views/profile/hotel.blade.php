@@ -45,7 +45,7 @@
                                 </li>
 
                             </ul>
-                            <a href="/hotel/{{$hotel->id}}/edit" class="btn btn-info">Edit Profile</a>
+                            <a href="/hotel/{{$hotel->profile->url_slug}}/edit" class="btn btn-info">Edit Profile</a>
 
                         </div>
 

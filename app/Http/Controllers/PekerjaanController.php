@@ -41,7 +41,7 @@ class PekerjaanController extends Controller
 
         auth()->user()->pekerjaan()->create($data);
 
-        return redirect('/hotel/'.Str::slug(auth()->user()->profile->nama, '').'/'.$data['url_slug']);
+        return redirect('/hotel/'.Str::slug(auth()->user()->name, ''));
 
     }
     public function show($url_slug){
@@ -55,6 +55,7 @@ class PekerjaanController extends Controller
         return view('jobs.editJob',['pekerjaan' => $pekerjaan]);
     }
     public function update(Request $request){
+
         DB::table('pekerjaan')->where('id',$request->id)->update([
             'area' => $request->area,
             'posisi'=>$request->posisi,
@@ -69,12 +70,12 @@ class PekerjaanController extends Controller
             'bayaran' => $request->bayaran,
             'deskripsi' => $request->deskripsi
         ]);
-        return redirect('/hotel/'.auth()->user()->id)->with('success','Data Telah Diupdate!');
+        return redirect('/hotel/'.Str::slug(auth()->user()->name))->with('success','Data Telah Diupdate!');
 
     }
     public function delete($url_slug){
         DB::table('pekerjaan')->where('url_slug', $url_slug)->delete();
-        return redirect('/hotel/'.auth()->user()->id)->with('success','Data Telah Dihapus');
+        return redirect('/hotel/'.Str::slug(auth()->user()->name))->with('success','Data Telah Dihapus');
     }
 
 

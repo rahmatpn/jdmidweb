@@ -32,10 +32,10 @@ Route::post('/register/user', 'Auth\RegisterController@createUser');
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/hotel/{hotel}', 'ProfileHotelController@indexHotel')->name('hotel.show');
-Route::get('/hotel/{hotel}/edit', 'ProfileHotelController@edit')->name('hotel.edit');
-Route::patch('/hotel/{hotel}', 'ProfileHotelController@update')->name('hotel.update');
-Route::get('/hotel/{hotel}', 'ProfileHotelController@indexHotel')->name('hotel.show');
+Route::get('/hotel/{profile}', 'ProfileHotelController@indexHotel')->name('hotel.show');
+//Route::get('/hotel/{profile}/edit', 'ProfileHotelController@edit')->name('hotel.edit');
+//Route::patch('/hotel/{profile}', 'ProfileHotelController@update')->name('hotel.update');
+//Route::get('/hotel/{hotel}', 'ProfileHotelController@indexHotel')->name('hotel.show');
 Route::get('/user/{user}', 'ProfileUserController@indexUser')->name('user.show');
 
 
@@ -57,8 +57,8 @@ Route::group([
     Route::get('/job/{url_slug}/edit','PekerjaanController@edit');
     Route::post('/job/update','PekerjaanController@update');
     Route::get('/job/{url_slug}/delete','PekerjaanController@delete');
-    Route::patch('/hotel/{hotel}', 'ProfileHotelController@update');
-    Route::get('/hotel/{hotel}/edit', 'ProfileHotelController@edit');
+    Route::patch('/hotel/{profile}', 'ProfileHotelController@update');
+    Route::get('/hotel/{profile}/edit', 'ProfileHotelController@edit');
 });
 
 

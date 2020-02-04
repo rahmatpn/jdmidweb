@@ -13,19 +13,27 @@ use Intervention\Image\Facades\Image;
 
 class ProfileHotelController extends Controller
 {
-    public function indexHotel(Hotel $hotel){
-
-        return view('profile.hotel', compact('hotel'));
+    public function indexHotel($url_slug){
+        $profil = ProfileHotel::where('url_slug', '=', $url_slug)->first();
+        if ($profil != null) {
+            $hotel = Hotel::findOrFail($profil->hotel_id);
+            return view('profile.hotel', compact('hotel'));
+        } else {
+            abort(404);
+        }
     }
 
-    public function edit (Hotel $hotel){
+    public function edit ($url_slug){
+        $profil = ProfileHotel::where('url_slug', '=', $url_slug)->first();
+        $hotel = Hotel::find($profil->hotel_id);
         return view('profile.editHotel', compact('hotel'));
     }
 
 
-    public function update(Hotel $hotel){
+    public function update($url_slug){
+        $profile = ProfileHotel::where('url_slug', '=', $url_slug)->with('hotel')->first();
+//        dd($profil);
 
-        $profile= ProfileHotel::findOrFail($hotel->id);
         $data = request()->validate([
             'nama' => 'required',
             'nomor_telepon' => '',
@@ -46,11 +54,13 @@ class ProfileHotelController extends Controller
         }
 
 
+
         auth()->user()->profile->update(array_merge(
             $data,
             $fotoArray ?? []
         ));
 
-        return redirect("/hotel/{$hotel->id}")->with("Data Has Been Updated Successfully");
+
+        return redirect("/hotel/{$profile->url_slug}")->with("Data Has Been Updated Successfully");
     }
 }

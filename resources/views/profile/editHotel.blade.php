@@ -5,7 +5,7 @@
 
 
     <div class="container">
-        <form action="/hotel/{{$hotel->id}}" enctype="multipart/form-data" method="post">
+        <form action="/hotel/{{$hotel->profile->url_slug}}" enctype="multipart/form-data" method="post">
             @csrf
             @method('PATCH')
             <div class="container">
@@ -179,8 +179,6 @@
                                             <button class="btn btn-primary" type="submit">Save Changes</button>
                                         </div>
                                     </div>
-
-
                             </div>
                         </div>
                     </div>
