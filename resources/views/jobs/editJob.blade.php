@@ -12,7 +12,6 @@
                     <br/>
                         <input type="hidden" name="id" value="{{ $p->id}}">
                         <div class="row">
-
                         <div class="col">
                             <div class="form-group">
                                 <a href="/hotel/{{auth()->user()->id}}" class="btn btn-info" role="button"> Kembali</a>
@@ -74,34 +73,58 @@
                         <div class="input-group">
                             <input type="number"
                                    class="form-control"
-                                   name="tinggi_minimal" value="{{$p->tinggi_minimal}} Cm">
-                        </div>
-                        <div class="input-group-append">
+                                   name="tinggi_minimal" value="{{$p->tinggi_minimal}}">
+                            <div class="input-group-append">
                             <span class="input-group-text">
                                 Cm
                             </span>
+                            </div>
                         </div>
+
 
                     </div>
                     <div class="form-group">
                         <label for="tinggi_maksimal">Tinggi Maksimal:</label>
-                        <input type="number"
-                               class="form-control"
-                               name="tinggi_maksimal" value="{{$p->tinggi_maksimal}}">
+                        <div class="input-group">
+                            <input type="number"
+                                   class="form-control"
+                                   name="tinggi_maksimal" value="{{$p->tinggi_maksimal}}">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        Cm
+                                    </span>
+                                </div>
+                        </div>
+
                     </div>
                     <div class="form-group">
                         <label for="berat_minimal">Berat Minimal:</label>
-                        <input type="number"
-                               class="form-control"
-                               name="berat_minimal" value="{{$p->berat_minimal}}">
+                        <div class="input-group">
+                            <input type="number"
+                                   class="form-control"
+                                   name="berat_minimal" value="{{$p->berat_minimal}}">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    Kg
+                                </span>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="form-group">
                         <label for="berat_maksimal">Berat Maksimal:</label>
-                        <input type="number"
-                               class="form-control"
-                               name="berat_maksimal"
-                               value="{{$p->berat_maksimal}}"
-                        >
+                        <div class="input-group">
+                            <input type="number"
+                                   class="form-control"
+                                   name="berat_maksimal"
+                                   value="{{$p->berat_maksimal}}">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    Kg
+                                </span>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="form-group">
                         <label for="kuota">Kuota: </label>
@@ -112,11 +135,20 @@
                     </div>
                     <div class="form-group">
                         <label for="bayaran">Bayaran:</label>
-                        <input type="text"
-                               id="currencyField"
-                               class="form-control currency"
-                               name="bayaran"
-                               value="{{$p->bayaran}}">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    Rp
+                                </span>
+                            </div>
+                            <input type="text"
+                                   id="currencyField"
+                                   class="form-control currency"
+                                   name="bayaran"
+                                   value="{{$p->bayaran}}">
+
+                        </div>
+
                     </div>
                     <div class="form-group">
                         <label for="deskripsi">Deskripsi:</label>
