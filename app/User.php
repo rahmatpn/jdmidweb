@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
@@ -48,7 +49,8 @@ class User extends Authenticatable
                 'nama'=> $user->name,
                 'nama_lengkap' => $user->name,
                 'user_id'=>$user->id,
-                'email'=>$user->email
+                'email'=>$user->email,
+                'url_slug' => Str::slug($user->name,''),
             ]);
 
         });
