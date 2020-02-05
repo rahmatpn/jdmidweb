@@ -37,7 +37,7 @@ Route::group([
     'middleware'=>'auth:user'
 ], function (){
     Route::get('/user/{profileUser}/edit', 'ProfileUserController@edit');
-    Route::patch('/user/{user}', 'ProfileUserController@update');
+    Route::patch('/user/{profileUser}', 'ProfileUserController@update');
 });
 
 Route::group([
