@@ -50,20 +50,4 @@ class Pekerjaan extends Model
     public function posisi(){
         return $this->hasOne(Posisi::class);
     }
-
-    public function countPekerja()
-    {
-        return $this->belongsToMany(User::class)
-            ->selectRaw('count(users.id) as aggregate')
-            ->groupBy('pivot_pekerjaan_id');
-    }
-
-    public function getOrdersCountAttribute()
-    {
-        if ( ! array_key_exists('countPekerja', $this->relations)) $this->load('countPekerja');
-
-        $related = $this->getRelation('countPekerja')->first();
-
-        return ($related) ? $related->aggregate : 0;
-    }
 }
