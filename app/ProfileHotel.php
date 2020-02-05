@@ -11,7 +11,7 @@ class ProfileHotel extends Model
 
     public function hotelPhoto(){
         $fotoPath = ($this->foto) ? $this->foto : 'hotel/photo/SoT63YrEf7pfluOCxALtvyz9XMELNpGJACIBdtJ9.png';
-        return '/image/' . $fotoPath;
+        return $fotoPath;
     }
 
     public function hotel(){

@@ -26,6 +26,7 @@ class HotelSeeder extends Seeder
             'nama'=>'hotel1',
             'email'=>'hotel1@hotel.com',
             'url_slug'=>'hotel1',
+            'foto'=>'/image/hotel/photo/sZUNIKmjB4Ao5FuILY14BOq6WVd1HAN8m7fn4J01.jpeg',
             'created_at'=> Carbon::now()->toDateTimeString(),
             'updated_at'=> Carbon::now()->toDateTimeString()
         ]);
@@ -41,6 +42,7 @@ class HotelSeeder extends Seeder
             'nama'=>'hotel2',
             'email'=>'hotel2@hotel.com',
             'url_slug'=>'hotel2',
+            'foto'=>"/image/hotel/photo/sZUNIKmjB4Ao5FuILY14BOq6WVd1HAN8m7fn4J01.jpeg",
             'created_at'=> Carbon::now()->toDateTimeString(),
             'updated_at'=> Carbon::now()->toDateTimeString()
         ]);
