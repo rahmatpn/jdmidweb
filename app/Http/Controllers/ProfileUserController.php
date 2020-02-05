@@ -13,11 +13,21 @@ use Intervention\Image\Facades\Image;
 
 class ProfileUserController extends Controller
 {
-        public function indexUser(User $user){
-            return view('profile.user', compact('user'));
+        public function indexUser($url_slug){
+            $profil = ProfileUser::where('url_slug', '=', $url_slug)->first();
+            if ($profil != null) {
+                $user = User::findOrFail($profil->user_id);
+                return view('profile.user', compact('user'));
+            } else {
+                abort(404);
+            }
+            //            return view('profile.user', compact('user'));
         }
 
-        public function edit (User $user){
+        public function edit ($url_slug){
+            $profil = ProfileUser::where('url_slug', '=', $url_slug)->with('user')->first();
+            $user = User::find($profil->user_id);
+
             $this->authorize('update', $user->profile);
             $posisi = Posisi::all();
 
@@ -41,7 +51,10 @@ class ProfileUserController extends Controller
         }
 
 
-        public function update(User $user, Request $req){
+        public function update($url_slug, Request $req){
+            $profile = ProfileUser::where('url_slug', '=', $url_slug)->with('user')->first();
+            $user = User::find($profile->user_id);
+
             $this->authorize('update', $user->profile);
 
             $data = request()->validate([
@@ -56,6 +69,7 @@ class ProfileUserController extends Controller
                 'cover' => '',
 
             ]);
+
 
             $posisi = $req->posisi_user;
             $posisiUser = PosisiUser::where('user_id','=',$user->id)->delete();
@@ -104,6 +118,6 @@ class ProfileUserController extends Controller
                 $coverArray ?? []
             ));
 
-            return redirect("/user/{$user->id}");//redirect to user's profile
+            return redirect("/user/{$profile->url_slug}");//redirect to user's profile
         }
 }

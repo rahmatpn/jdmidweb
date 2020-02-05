@@ -29,20 +29,14 @@ Route::post('/login/hotel', 'Auth\LoginController@hotelLogin');
 Route::post('/login/user', 'Auth\LoginController@userLogin');
 Route::post('/register/hotel', 'Auth\RegisterController@createHotel');
 Route::post('/register/user', 'Auth\RegisterController@createUser');
-
 Route::get('/home', 'HomeController@index');
-
 Route::get('/hotel/{profile}', 'ProfileHotelController@indexHotel')->name('hotel.show');
-
-Route::get('/user/{user}', 'ProfileUserController@indexUser')->name('user.show');
-
-
-
+Route::get('/user/{profile}', 'ProfileUserController@indexUser')->name('user.show');
 
 Route::group([
     'middleware'=>'auth:user'
 ], function (){
-    Route::get('/user/{user}/edit', 'ProfileUserController@edit');
+    Route::get('/user/{profileUser}/edit', 'ProfileUserController@edit');
     Route::patch('/user/{user}', 'ProfileUserController@update');
 });
 

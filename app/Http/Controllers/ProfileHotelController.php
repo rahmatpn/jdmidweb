@@ -32,7 +32,7 @@ class ProfileHotelController extends Controller
 
     public function update($url_slug){
         $profile = ProfileHotel::where('url_slug', '=', $url_slug)->with('hotel')->first();
-//        dd($profil);
+
 
         $data = request()->validate([
             'nama' => 'required',

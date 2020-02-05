@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\ProfileHotel;
+use App\ProfileUser;
 use App\Providers\RouteServiceProvider;
 use App\User;
 
@@ -80,8 +81,8 @@ class LoginController extends Controller
         ]);
 
         if (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
-
-            return redirect('/user/'.Auth::guard('user')->user()->id);
+            $profile = ProfileUser::where('user_id',Auth::guard('user')->user()->id)->first();
+            return redirect('/user/'.$profile->url_slug);
         }
         return back()->withInput($request->only('email', 'remember'));
     }

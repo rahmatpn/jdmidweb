@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <form action="/user/{{$user->id}}" enctype="multipart/form-data" method="post">
+        <form action="/user/{{$user->profile->url_slug}}" enctype="multipart/form-data" method="post">
             @csrf
             @method('PATCH')
             <div class="container">
@@ -10,7 +10,7 @@
                     <div class="col-md-12 col-lg-auto mb-auto" style="width: 250px;">
                         <div class="card rounded-right shadow p-4">
                             <div class="text-center">
-                                <img src="{{$user->profile->profileFoto()}}" class="avatar img-circle img-thumbnail" alt="avatar">
+                                <img src="{{asset($user->profile->profileFoto())}}" class="avatar img-circle img-thumbnail" alt="avatar">
                                 <h6>Upload Foto</h6>
                                 <input type="file" class="form-control-file" id="foto" name="foto">
                                 @if($errors->has('foto'))
@@ -25,7 +25,7 @@
                     <div class="col-md-12 col-lg-auto mb-auto" style="width: 250px;">
                         <div class="card rounded-right shadow p-4">
                             <div class="text-center">
-                                <img src="{{$user->profile->profileCover()}}" class="avatar img-circle img-thumbnail" alt="avatar">
+                                <img src="{{asset($user->profile->profileCover())}}" class="avatar img-circle img-thumbnail" alt="avatar">
                                 <h6>Upload Cover</h6>
                                 <input type="file" class="form-control-file" id="cover" name="cover">
                                 @if($errors->has('cover'))
