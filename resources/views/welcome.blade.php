@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
     <script src="{{ asset('js/mdb.js') }}"></script>
 
@@ -69,10 +70,122 @@
     h6 {
         line-height: 1.7;
     }
+
+    section{
+        padding: 60px 0;
+    }
+    section .section-title{
+        text-align:center;
+        color:#17C0EB;
+        margin-bottom:50px;
+        text-transform:uppercase;
+    }
+    #what-we-do{
+        background:#ffffff;
+    }
+    #what-we-do .card{
+        padding: 1rem!important;
+        border: none;
+        margin-bottom:2rem;
+        -webkit-transition: .5s all ease;
+        -moz-transition: .5s all ease;
+        transition: .5s all ease;
+    }
+    #what-we-do .card:hover{
+        -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+        -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+        box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+    }
+    #what-we-do .card .card-block{
+        padding-left: 50px;
+        position: relative;
+    }
+    #what-we-do .card .card-block a{
+        color: #17C0EB !important;
+        font-weight:700;
+        text-decoration:none;
+    }
+    #what-we-do .card .card-block a i{
+        display:none;
+
+    }
+    #what-we-do .card:hover .card-block a i{
+        display:inline-block;
+        font-weight:700;
+
+    }
+    #what-we-do .card .card-block:before{
+        font-family: FontAwesome;
+        position: absolute;
+        font-size: 39px;
+        color: #17C0EB;
+        left: 0;
+        -webkit-transition: -webkit-transform .2s ease-in-out;
+        transition:transform .2s ease-in-out;
+    }
+    #what-we-do .card .block-1:before{
+        content: "\f0e7";
+    }
+    #what-we-do .card .block-2:before{
+        content: "\f2c2";
+    }
+    #what-we-do .card .block-3:before{
+        content: "\f00c";
+    }
+    #what-we-do .card:hover .card-block:before{
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+        -webkit-transition: .5s all ease;
+        -moz-transition: .5s all ease;
+        transition: .5s all ease;
+    }
+    #button-addon1 {
+        color: #ffc371;
+    }
+
+    i {
+        color: #ffc371;
+    }
+
+    .form-control::placeholder {
+        font-size: 0.95rem;
+        color: #aaa;
+        font-style: italic;
+    }
+
+    .form-control.shadow-0:focus {
+        box-shadow: none;
+    }
+    .parallax {
+        /* The image used */
+        background-image: url("https://images.pexels.com/photos/453201/pexels-photo-453201.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+
+
+        /* Set a specific height */
+        min-height: 500px;
+
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+
+    }
+
 </style>
 <script>
     $( document ).ready(function() {
         new WOW().init();
+    });
+    // object-fit polyfill run
+    objectFitImages();
+
+    /* init Jarallax */
+    parallax(document.querySelectorAll('.parallax'));
+
+    parallax(document.querySelectorAll('.parallax-keep-img'), {
+        keepImg: true,
     });
 </script>
 <body>
@@ -183,10 +296,173 @@
 </header>
 <!-- Main navigation -->
 <!--Main Layout-->
+<!-- Services section -->
+<section id="what-we-do">
+    <div class="container-fluid">
+        <h2 class="section-title mb-2 h1">What you can do</h2>
+        <p class="text-center text-muted h5">Cari Kerja anda, atur lowongan anda, bangun karir anda dengan satu sistem.</p>
+        <div class="row mt-5">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 wow fadeInLeft">
+                <div class="card">
+                    <div class="card-block block-1">
+                        <h3 class="card-title">Permudah Cari Pekerjaan</h3>
+                        <p class="card-text">Anda dapat mencari pekerjaan sesuai kemampuan anda.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 wow fadeInUp">
+                <div class="card">
+                    <div class="card-block block-2">
+                        <h3 class="card-title">Managing Job</h3>
+                        <p class="card-text">Hotel dapat mengatur dan membuat lowongan pekerjaan dengan mudah.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 wow fadeInRight">
+                <div class="card">
+                    <div class="card-block block-3">
+                        <h3 class="card-title">Building Career</h3>
+                        <p class="card-text">Dengan sistem ini anda dapat membangun jenjang karir anda.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="mask rgba-blue-slightb">
+<div data-jarallax data-speed="0.2" class="parallax wow fadeIn">
+    <br/>
+        <div class="container flex-center text-center">
+            <div class="row mt-lg-5">
+                <div class="col-md-12 col-xl-9 mx-auto wow fadeIn">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h1 class="display-3 font-weight-bold mb-2 wow fadeInDown" style="color: white" data-wow-delay="0.3s">Tersedia Berbagai Jenis Posisi</h1>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+<div class="container pt-5 my-5 z-depth-1 bg-white wow fadeInUp">
+    <section class="p-md-5 mx-md-4">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-bold mb-3">
+                    <i class="far fa-paper-plane indigo-text pr-2"></i> JOB 1
+                </h4>
+                <p class="text-muted">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-bold mb-3">
+                    <i class="fas fa-pen-alt green-text pr-2"></i> JOB 2
+                </h4>
+                <p class="text-muted">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-bold mb-3">
+                    <i class="fas fa-user amber-text pr-2"></i> JOB 3
+                </h4>
+                <p class="text-muted">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-bold mb-3">
+                    <i class="fas fa-rocket red-text pr-2"></i> JOB 4
+                </h4>
+                <p class="text-muted">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-bold mb-3">
+                    <i class="fas fa-home lime-text pr-2"></i> JOB 5
+                </h4>
+                <p class="text-muted mb-lg-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-bold mb-3">
+                    <i class="fas fa-book-open blue-text pr-2"></i> JOB 6
+                </h4>
+                <p class="text-muted mb-lg-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-bold mb-3">
+                    <i class="fas fa-book-open blue-text pr-2"></i> JOB 6
+                </h4>
+                <p class="text-muted mb-lg-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-bold mb-3">
+                    <i class="fas fa-book pink-text pr-2"></i> JOB 7
+                </h4>
+                <p class="text-muted mb-md-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-bold mb-3">
+                    <i class="fas fa-paper-plane purple-text pr-2"></i> JOB 8
+                </h4>
+                <p class="text-muted mb-md-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-bold mb-3">
+                    <i class="fas fa-home lime-text pr-2"></i> JOB 5
+                </h4>
+                <p class="text-muted mb-lg-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-bold mb-3">
+                    <i class="fas fa-book-open blue-text pr-2"></i> JOB 6
+                </h4>
+                <p class="text-muted mb-lg-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-bold mb-3">
+                    <i class="fas fa-book pink-text pr-2"></i> JOB 7
+                </h4>
+                <p class="text-muted mb-md-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="font-weight-bold mb-3">
+                    <i class="fas fa-paper-plane purple-text pr-2"></i> JOB 8
+                </h4>
+                <p class="text-muted mb-md-0">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- /Services section -->
 <main>
     <div class="container">
         <!--Grid row-->
         <div class="row py-5">
+
             <!--Grid column-->
             <div class="col-md-12 text-center">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -197,6 +473,60 @@
     </div>
 </main>
 <!--Main Layout-->
+<!-- Footer -->
+<footer class="bg-white">
+    <div class="container py-5">
+        <div class="row py-4">
+            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0"><img src="image/logo2.png" alt="" width="180" class="mb-3">
+                <p class="font-italic text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                <ul class="list-inline mt-4">
+                    <li class="list-inline-item"><a href="#" target="" title="twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="#" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li class="list-inline-item"><a href="#" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
+                    <li class="list-inline-item"><a href="#" target="_blank" title="pinterest"><i class="fa fa-pinterest"></i></a></li>
+                    <li class="list-inline-item"><a href="#" target="_blank" title="vimeo"><i class="fa fa-vimeo"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                <h6 class="text-uppercase font-weight-bold mb-4">Hotel</h6>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><a href="#" class="text-muted">Home</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted">Profil</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted">Job</a></li>
+
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                <h6 class="text-uppercase font-weight-bold mb-4">Part-Timer</h6>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><a href="#" class="text-muted">Home</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted">Profil</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted">Job</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-lg-0">
+                <h6 class="text-uppercase font-weight-bold mb-4">Notification</h6>
+                <p class="text-muted mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At itaque temporibus.</p>
+                <div class="p-1 rounded border">
+                    <div class="input-group">
+                        <input type="email" placeholder="Enter your email address" aria-describedby="button-addon1" class="form-control border-0 shadow-0">
+                        <div class="input-group-append">
+                            <button id="button-addon1" type="submit" class="btn btn-link"><i class="fa fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyrights -->
+    <div class="bg-light py-4">
+        <div class="container text-center">
+            <p class="text-muted mb-0 py-2">© 2020 Kolega Hotel All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+<!-- End -->
 
 {{--<div class="container">--}}
 {{--    <nav class="navbar navbar-inverse navbar-expand-lg navbar-inner">--}}
