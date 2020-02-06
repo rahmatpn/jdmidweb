@@ -43,7 +43,7 @@ class JobController extends Controller
     function applyJob($job){
         $user = Auth::user();
         $profile = $user->profile;
-        $currentJob = Pekerjaan::with('countPekerja')->find($job);
+        $currentJob = Pekerjaan::find($job);
 
         $currentJob->tinggi_minimal = $currentJob->tinggi_minimal == null ? PHP_INT_MIN : $currentJob->tinggi_minimal;
         $currentJob->tinggi_maksimal = $currentJob->tinggi_maksimal == null ? PHP_INT_MAX : $currentJob->tinggi_maksimal;
