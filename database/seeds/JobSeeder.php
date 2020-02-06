@@ -16,7 +16,7 @@ class JobSeeder extends Seeder
     {
         DB::table('pekerjaan')->insert([
             'hotel_id'=>1,
-            'posisi'=>2,
+            'posisi_id'=>2,
             'area'=>'Kamar Mandi',
             'tanggal_mulai'=>'2020-02-03',
             'waktu_mulai'=>date("H:i:s"),
@@ -31,7 +31,7 @@ class JobSeeder extends Seeder
 
         DB::table('pekerjaan')->insert([
             'hotel_id'=>1,
-            'posisi'=>4,
+            'posisi_id'=>4,
             'area'=>'Lantai 2',
             'tanggal_mulai'=>'2020-02-03',
             'waktu_mulai'=>date("H:i:s"),

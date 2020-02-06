@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
         DB::table('user_profiles')->insert([
             'user_id'=>1,
             'nama'=>'user1',
+            'nama_lengkap'=>'user1',
             'email'=>'user1@user.com',
             'url_slug'=>'user1',
             'foto'=>'/image/user/profile/B1r9X1kACzYHQNL1xSaFEYJwP4bMW7V5h44oBBon.jpeg',
@@ -40,6 +41,7 @@ class UserSeeder extends Seeder
         DB::table('user_profiles')->insert([
             'user_id'=>2,
             'nama'=>'user2',
+            'nama_lengkap'=>'user2',
             'email'=>'user2@user.com',
             'url_slug'=>'user2',
             'foto'=>'/image/user/profile/B1r9X1kACzYHQNL1xSaFEYJwP4bMW7V5h44oBBon.jpeg',
