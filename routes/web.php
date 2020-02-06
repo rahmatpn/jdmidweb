@@ -32,6 +32,7 @@ Route::post('/masuk/user', 'Auth\RegisterController@createUser');
 Route::get('/home', 'HomeController@index');
 Route::get('/hotel/{profile}', 'ProfileHotelController@indexHotel')->name('hotel.show');
 Route::get('/user/{profile}', 'ProfileUserController@indexUser')->name('user.show');
+Route::get('/job/{pekerjaan}', 'PekerjaanController@show');
 
 Route::group([
     'middleware'=>'auth:user'
@@ -45,7 +46,7 @@ Route::group([
 ], function (){
     Route::get('/job/postjob', 'PekerjaanController@create');
     Route::post('/job', 'PekerjaanController@store');
-    Route::get('/job/{pekerjaan}', 'PekerjaanController@show');
+
     Route::get('/job/{url_slug}/edit','PekerjaanController@edit');
     Route::post('/job/update','PekerjaanController@update');
     Route::get('/job/{url_slug}/delete','PekerjaanController@delete');

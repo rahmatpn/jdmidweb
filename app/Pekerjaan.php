@@ -10,7 +10,7 @@ class Pekerjaan extends Model
     protected $guarded = [];
 
     public function getPosisi(){
-        $posisi = Posisi::whereId($this->posisi)->first();
+        $posisi = Posisi::whereId($this->posisi_id)->first();
         return $posisi->nama_posisi;
     }
 
