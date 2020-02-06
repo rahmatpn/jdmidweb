@@ -149,7 +149,7 @@
     <!-- Full Page Intro -->
     <div class="view" style="background: #ffffff">
         <!-- Mask & flexbox options-->
-        <div class="mask rgba-gradient d-flex justify-content-center align-items-center">
+        <div class="mask  d-flex justify-content-center align-items-center">
             <!-- Content -->
             <div class="container">
                 <!--Grid row-->
