@@ -50,7 +50,7 @@ class User extends Authenticatable
                 'nama_lengkap' => $user->name,
                 'user_id'=>$user->id,
                 'email'=>$user->email,
-                'url_slug' => Str::slug($user->name,''),
+                'url_slug' => $user->name
             ]);
 
         });

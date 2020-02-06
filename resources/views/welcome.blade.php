@@ -103,8 +103,8 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @guest('hotel') @guest('user')
-                    <a href="/register/hotel" class="btn btn-amber">Hotel</a>
-                    <a href="/register/user" class="btn btn-deep-purple">Part Timer</a>
+                    <a href="/masuk/hotel" class="btn btn-amber">Hotel</a>
+                    <a href="/masuk/user" class="btn btn-deep-purple">Part Timer</a>
                     @endguest @endguest
                                     @auth('hotel')
                             <li class="nav-item dropdown">
@@ -163,8 +163,8 @@
                         <h6 class="mb-4 wow fadeInDownBig">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor malesuada metus. Ut pellentesque,
                             purus non mollis sodales, arcu massa ornare sem, nec blandit ante lorem in sapien. Quisque tincidunt urna tortor, sed dignissim leo tristique non.
                             Nunc facilisis scelerisque massa et lacinia.</h6>
-                        <a class="btn btn-black wow fadeInLeftBig" href="/register/hotel"><strong>Post a Job</strong></a>
-                        <a class="btn btn-outline-blue wow fadeInRightBig" href="/register/user"><strong>Cari Lowongan</strong></a>
+                        <a class="btn btn-black wow fadeInLeftBig" href="/masuk/hotel"><strong>Post a Job</strong></a>
+                        <a class="btn btn-outline-blue wow fadeInRightBig" href="/masuk/user"><strong>Cari Lowongan</strong></a>
                     </div>
                     <!--Grid column-->
                     <!--Grid column-->

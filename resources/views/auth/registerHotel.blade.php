@@ -29,6 +29,11 @@
 </head>
 
 <body class="form-v8 ">
+@if(session()->get('gagal'))
+    <div class="alert alert-danger">
+        {{ session()->get('gagal') }}
+    </div>
+    @endif
 <div class="page-content">
     <div class="form-v8-content  shadow-lg">
         <div class="form-left ">
@@ -75,7 +80,7 @@
             </form>
                                     </form>
                 @isset($url)
-                    <form method="POST" class="form-detail" action='{{ url("register/$url") }}'>
+                    <form method="POST" class="form-detail" action='{{ url("masuk/$url") }}'>
                         @else
                             <form method="POST" class="form-detail" action="{{ route('register') }}" >
                                 @endisset

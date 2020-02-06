@@ -86,7 +86,7 @@
                         </form>
                 </form>
                 @isset($url)
-                    <form method="POST" class="form-detail" action='{{ url("register/$url") }}'>
+                    <form method="POST" class="form-detail" action='{{ url("masuk/$url") }}'>
                         @else
                             <form method="POST" class="form-detail" action="{{ route('register') }}" >
                                 @endisset

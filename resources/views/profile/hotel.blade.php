@@ -15,7 +15,7 @@
                 <div class="card shadow" style="width: 20rem">
                 <img class="card-img-top img-fluid" src="{{asset($hotel->profile->hotelPhoto())}}" alt="card hotel image">
                             <div class="card-body">
-                                <h4 title="card-title" >{{$hotel->profile->nama}}</h4>
+                                <h4 title="card-title">{{$hotel->profile->nama}}</h4>
                                 <span class="fa fa-home d-flex">
                                 <div class="pl-2">
                                      <p class="card-text">

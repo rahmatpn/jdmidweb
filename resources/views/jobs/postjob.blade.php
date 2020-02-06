@@ -5,7 +5,7 @@
     <div class="col-sm-8 offset-sm-2">
         <div class="container">
             <form action="/job" enctype="multipart/form-data" method="post" data-toggle="validator" novalidate="true">
-            <a href="/hotel/{{\Illuminate\Support\Str::slug(auth()->user()->name)}}" class="btn btn-info" role="button"> Kembali</a>
+            <a href="{{url('/hotel/'.auth()->user()->profile->url_slug)}}" class="btn btn-info" role="button"> Kembali</a>
             <br/>
             <br/>
                 {{ csrf_field() }}

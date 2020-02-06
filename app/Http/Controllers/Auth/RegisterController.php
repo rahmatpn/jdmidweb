@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use App\Hotel;
+use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -87,28 +88,46 @@ class RegisterController extends Controller
 
     protected function createHotel(Request $request)
     {
-        $this->validator($request->all())->validate();
-        $hotel = Hotel::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-
-        ]);
-
-
-
-        return redirect()->intended('register/hotel');
+        try {
+            $this->validator($request->all())->validate();
+            $hotel = Hotel::create([
+                'name' => Str::slug($request['name'], ''),
+                'email' => $request['email'],
+                'password' => Hash::make($request['password']),
+            ]);
+        } catch (QueryException $e) {
+            $errorCode = $e->errorInfo[2];
+            $str = strval($errorCode);
+            if (strpos($str, 'hotels_name_unique')) {
+                return redirect()->intended('masuk/hotel')->with("gagal", "duplicate data nama");
+            } elseif (strpos($str,'hotels_email_unique')) {
+                return redirect()->intended('masuk/hotel')->with("gagal", "duplicate data email");
+            }
+        }
+        return redirect()->intended('masuk/hotel');
     }
+
+
 
     protected function createUser(Request $request)
     {
+        try {
         $this->validator($request->all())->validate();
         $user = User::create([
-            'name' => $request['name'],
+            'name' => Str::slug($request['name'], ''),
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
-        return redirect()->intended('register/user');
+    } catch (QueryException $e) {
+        $errorCode = $e->errorInfo[2];
+        $str = strval($errorCode);
+        if (strpos($str, 'users_name_unique')) {
+            return redirect()->intended('masuk/user')->with("gagal", "duplicate data nama");
+        } elseif (strpos($str,'users_email_unique')) {
+            return redirect()->intended('masuk/user')->with("gagal", "duplicate data email");
+        }
+    }
+        return redirect()->intended('masuk/user');
     }
 
 

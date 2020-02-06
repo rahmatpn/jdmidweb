@@ -39,7 +39,7 @@ class Hotel extends Authenticatable
                 'nama' => $hotel->name,
                 'hotel_id' => $hotel->id,
                 'email' => $hotel->email,
-                'url_slug' => Str::slug($hotel->name,''),
+                'url_slug' => $hotel->name
             ]);
 
         });

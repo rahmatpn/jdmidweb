@@ -147,7 +147,7 @@
                         @if(\Illuminate\Support\Facades\Request::is('home'))
                         <li class="nav-item">
 
-                            <a class="nav-link" href="{{url('/user/'.\Illuminate\Support\Str::slug(auth()->guard('user')->user()->name))}}">
+                            <a class="nav-link" href="{{url('/user/'.auth()->guard('user')->user()->name)}}">
 
                             <i class="fa fa-user-circle"></i>
                             Profil
@@ -166,7 +166,7 @@
                        @endauth
                      @auth('hotel')
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/hotel/'.\Illuminate\Support\Str::slug(auth()->guard('hotel')->user()->name))}}">
+                            <a class="nav-link" href="{{url('/hotel/'.auth()->guard('hotel')->user()->profile->url_slug)}}">
                                 <i class="fa fa-user-circle"></i>
                                 Profil
                                 <span class="sr-only">(current)</span>
