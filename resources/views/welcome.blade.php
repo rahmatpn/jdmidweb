@@ -810,13 +810,13 @@
 <footer class="bg-white">
     <div class="container py-5">
         <div class="row py-4">
-            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0"><img src="image/logo2.png" alt="" width="180" class="mb-3">
+            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0"><img src="/image/logo2.png" alt="" width="180" class="mb-3">
                 <p class="font-italic text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
             </div>
             <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                 <h6 class="text-uppercase font-weight-bold mb-4">Hotel</h6>
                 <ul class="list-unstyled mb-0">
-                    <li class="mb-2"><a href="#" class="text-muted">Home</a></li>
+                    <li class="mb-2"><a href="/home" class="text-muted">Home</a></li>
                     <li class="mb-2"><a href="#" class="text-muted">Profil</a></li>
                     <li class="mb-2"><a href="#" class="text-muted">Job</a></li>
 
@@ -825,7 +825,7 @@
             <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                 <h6 class="text-uppercase font-weight-bold mb-4">Part-Timer</h6>
                 <ul class="list-unstyled mb-0">
-                    <li class="mb-2"><a href="#" class="text-muted">Home</a></li>
+                    <li class="mb-2"><a href="/home" class="text-muted">Home</a></li>
                     <li class="mb-2"><a href="#" class="text-muted">Profil</a></li>
                     <li class="mb-2"><a href="#" class="text-muted">Job</a></li>
                 </ul>
