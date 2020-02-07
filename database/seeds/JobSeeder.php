@@ -43,5 +43,35 @@ class JobSeeder extends Seeder
             'created_at'=> Carbon::now()->toDateTimeString(),
             'updated_at'=> Carbon::now()->toDateTimeString()
         ]);
+
+        DB::table('pekerjaan')->insert([
+            'hotel_id'=>2,
+            'posisi_id'=>3,
+            'area'=>'Gedung A Lantai 1',
+            'tanggal_mulai'=>'2020-02-13',
+            'waktu_mulai'=>date("H:i:s"),
+            'waktu_selesai'=>date("H:i:s"),
+            'kuota'=>1,
+            'bayaran'=>300000,
+            'deskripsi'=>'Jangan lupa bayar zakat',
+            'url_slug'=> Str::slug('Gedung A Lantai 1'.time(),'-'),
+            'created_at'=> Carbon::now()->toDateTimeString(),
+            'updated_at'=> Carbon::now()->toDateTimeString()
+        ]);
+
+        DB::table('pekerjaan')->insert([
+            'hotel_id'=>2,
+            'posisi_id'=>3,
+            'area'=>'Gedung A Lantai 2',
+            'tanggal_mulai'=>'2020-02-13',
+            'waktu_mulai'=>date("H:i:s"),
+            'waktu_selesai'=>date("H:i:s"),
+            'kuota'=>1,
+            'bayaran'=>300000,
+            'deskripsi'=>'Jangan lupa bayar zakat untuk satunya',
+            'url_slug'=> Str::slug('Gedung A Lantai 2'.time(),'-'),
+            'created_at'=> Carbon::now()->toDateTimeString(),
+            'updated_at'=> Carbon::now()->toDateTimeString()
+        ]);
     }
 }
