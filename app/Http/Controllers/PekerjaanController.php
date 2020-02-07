@@ -24,17 +24,17 @@ class PekerjaanController extends Controller
     {
         $data = request()->validate([
             'area' => 'required',
-            'posisi'=>'required',
+            'posisi_id'=>'required',
             'tanggal_mulai' => 'required',
             'waktu_mulai' => 'required',
             'waktu_selesai' => 'required',
             'tinggi_minimal' => '',
             'tinggi_maksimal' => '',
             'berat_minimal' => '',
-            'berat_maksimal' => '',
+            'berat_maksimxal' => '',
             'kuota' => 'required',
             'bayaran' => 'required',
-            'deskripsi' => ''
+            'deskripsi' => 'required'
         ]);
 
         $data['url_slug'] = Str::slug($data['area'].' '.time(), "-");
@@ -58,7 +58,7 @@ class PekerjaanController extends Controller
 
         DB::table('pekerjaan')->where('id',$request->id)->update([
             'area' => $request->area,
-            'posisi'=>$request->posisi,
+            'posisi_id'=>$request->posisi_id,
             'tanggal_mulai' => $request->tanggal_mulai,
             'waktu_mulai' => $request->waktu_mulai,
             'waktu_selesai' => $request->waktu_selesai,

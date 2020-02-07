@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-sm-8 offset-sm-2">
         <div class="container">
-            <form action="/job" enctype="multipart/form-data" method="post" data-toggle="validator" novalidate="true">
+            <form action="/job" enctype="multipart/form-data"  data-toggle="validator" method="post">
             <a href="{{url('/hotel/'.auth()->user()->profile->url_slug)}}" class="btn btn-info" role="button"> Kembali</a>
             <br/>
             <br/>
@@ -22,9 +22,9 @@
                                        required/>
                                 <div class="help-block with-errors"></div>
                             </div>
-                            <label for="posisi">Posisi</label>
+                            <label for="posisi_id">Posisi</label>
                             <div class="input-group mb-3">
-                                <select class="custom-select" id="posisi" name="posisi" data-error="Silahkan pilih Posisi Pekerjan" required>
+                                <select class="custom-select" id="posisi_id" name="posisi_id" data-error="Silahkan pilih Posisi Pekerjan" required>
                                     <option selected>Posisi</option>
                                     <option value="1">Laundry</option>
                                     <option value="2">Pool Maintenance</option>
@@ -157,7 +157,7 @@
                 </div>
                 <div class="form-group">
                     <label for="deskripsi">Deskripsi:</label>
-                    <textarea id="my-summernote" name="deskripsi" type="text" required="required"></textarea>
+                    <textarea id="my-summernote" name="deskripsi" type="text"></textarea>
 
                 </div>
                 <input type="submit" class="btn btn-primary" value="Simpan Data">

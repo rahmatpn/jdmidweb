@@ -47,6 +47,7 @@ Route::group([
 ], function (){
     Route::get('/job/postjob', 'PekerjaanController@create');
     Route::post('/job', 'PekerjaanController@store');
+
     Route::get('/job/{url_slug}/edit','PekerjaanController@edit');
     Route::post('/job/update','PekerjaanController@update');
     Route::get('/job/{url_slug}/delete','PekerjaanController@delete');
@@ -55,3 +56,4 @@ Route::group([
 });
 
 Route::get('/job/{pekerjaan}', 'PekerjaanController@show');
+

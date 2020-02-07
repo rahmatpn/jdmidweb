@@ -24,8 +24,8 @@
                                 </div>
                                 <label for="posisi">Posisi</label>
                                 <div class="input-group mb-3">
-                                    <select class="custom-select" id="posisi" name="posisi">
-                                        <option selected>{{$p->posisi}}</option>
+                                    <select class="custom-select" id="posisi_id" name="posisi_id">
+                                        <option selected>{{$p->posisi_id}}</option>
                                         <option value="1">Laundry</option>
                                         <option value="2">Pool Maintenance</option>
                                         <option value="3">Equipment Maintenance</option>
