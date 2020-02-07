@@ -25,6 +25,7 @@
     .view {
         height: 100%;
         color: #000000;
+        background-color: white;
     }
 
     @media (max-width: 740px) {
@@ -59,7 +60,7 @@
 
     @media (max-width: 991px) {
         .navbar:not(.top-nav-collapse) {
-            background: #fffdfd !important;
+            background: #ffffff !important;
         }
     }
 
@@ -159,6 +160,22 @@
     .parallax {
         /* The image used */
         background-image: url("https://images.pexels.com/photos/453201/pexels-photo-453201.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+
+
+        /* Set a specific height */
+        min-height: 500px;
+
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+
+    }
+    .parallaxx {
+        /* The image used */
+        background-image: url("https://images.pexels.com/photos/248021/pexels-photo-248021.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 
 
         /* Set a specific height */
@@ -332,6 +349,7 @@
         </div>
     </div>
 </section>
+
 <div class="mask rgba-blue-slightb">
 <div data-jarallax data-speed="0.2" class="parallax wow fadeIn">
     <br/>
@@ -387,7 +405,7 @@
             </div>
             <div class="col-lg-4 col-md-6 mb-5 wow fadeInDown" data-wow-delay="0.8s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-suitcase lime-text pr-2"></i> Porter
+                    <i class="fas fa-suitcase brown-text pr-2"></i> Porter
                 </h4>
                 <p class="text-muted pt-3">
                    Porter adalah orang yang membawa barang bawaan atau mengurus bagian bagasi di hotel.
@@ -395,7 +413,7 @@
             </div>
             <div class="col-lg-4 col-md-6 mb-5 wow fadeInRight" data-wow-delay="0.9s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-user-secret blue-text pr-2"></i> Security
+                    <i class="fas fa-user-secret black-text pr-2"></i> Security
                 </h4>
                 <p class="text-muted pt-3">
                     departemen keamanan (Security Departement) yang memiliki fungsi dan peran penting untuk menjaga serta memberi kenyamanan kepada setiap tamu yang ingin berkunjung ataupun menginap di hotel.
@@ -403,7 +421,7 @@
             </div>
             <div class="col-lg-4 col-md-6 mb-5 wow fadeInLeft" data-wow-delay="1s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-user-circle red-text pr-2"></i> Valet
+                    <i class="fas fa-user-circle orange-text pr-2"></i> Valet
                 </h4>
                 <p class="text-muted pt-3">
                     Yang bertugas untuk melayani pelayanan personal dan spesifik kepada tamu selama masa inap mereka.
@@ -419,7 +437,7 @@
             </div>
             <div class="col-lg-4 col-md-6 mb-5 wow fadeInRight" data-wow-delay="1.3s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-home blue-text pr-2"></i> Housekeeping
+                    <i class="fas fa-home purple-text pr-2"></i> Housekeeping
                 </h4>
                 <p class="text-muted pt-3">
                     Housekeeping adalah salah satu bagain  atau department yang ada di hotel yang bertugas menjaga, merawat,
@@ -438,7 +456,7 @@
             </div>
             <div class="col-lg-4 col-md-6 mb-5 wow fadeInDown" data-wow-delay="1.2s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-user lime-text pr-2"></i> Waiter/Waitress
+                    <i class="fas fa-user yellow-text pr-2"></i> Waiter/Waitress
                 </h4>
                 <p class="text-muted pt-3">
                    Waiter/Waitress mempunyai tugas dan tanggung jawab untuk melayani kebutuhan makanan dan minuman bagi para pelanggan hotel secara professional.
@@ -454,7 +472,7 @@
             </div>
             <div class="col-lg-4 col-md-6 mb-5 wow fadeInLeft" data-wow-delay="1.3s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-coffee red-text pr-2"></i> Barista / Bartender
+                    <i class="fas fa-coffee brown-text pr-2"></i> Barista / Bartender
                 </h4>
                 <p class="text-muted pt-3">
                     Membuat minuman sesuai dengan order tamu dan harus sesuai denganstandard Perusahaan serta memberikan kepuasan kepada tamu semaksimal mungkin.
@@ -462,7 +480,7 @@
             </div>
             <div class="col-lg-4 col-md-6 mb-5 wow fadeInUp" data-wow-delay="1.4s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-camera lime-text pr-2"></i> Photographer
+                    <i class="fas fa-camera black-text pr-2"></i> Photographer
                 </h4>
                 <p class="text-muted pt-3">
                     Fotografer memiliki tugas untuk mengambil foto guna mengabadikan berbagai momen dalam suatu gambar.
@@ -470,7 +488,7 @@
             </div>
             <div class="col-lg-4 col-md-6 mb-5 wow fadeInRight" data-wow-delay="1.5s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-broom blue-text pr-2"></i> Cleaning Service
+                    <i class="fas fa-broom pink-text pr-2"></i> Cleaning Service
                 </h4>
                 <p class="text-muted pt-3">
                     Cleaning Housekeeping sendiri merupakan salah satu lembaga departemen yang ada di hotel, yang bertugas menjaga, merawat, dan membersihkan serta memelihara rooms atau kamar-kamar hotel maupun area di luar kamar hotel atau area yang tergolong kedalam area umum.
@@ -479,20 +497,314 @@
         </div>
     </section>
 </div>
-<main>
-    <div class="container">
-        <!--Grid row-->
-        <div class="row py-5">
 
-            <!--Grid column-->
-            <div class="col-md-12 text-center">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<div class="mask rgba-blue-slight">
+    <div data-jarallax data-speed="0.2" class="parallaxx wow fadeIn">
+        <br/>
+        <div class="container flex-center text-center">
+            <div class="row mt-lg-5">
+                <div class="col-md-12 col-xl-9 mx-auto wow fadeIn">
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h1 class="display-3 font-weight-bold mb-2 wow fadeInDown" style="color: white" data-wow-delay="0.3s">Tersedia Aplikasi Android</h1>
+                </div>
             </div>
-            <!--Grid column-->
         </div>
-        <!--Grid row-->
     </div>
-</main>
+</div>
+<div class="container" >
+
+
+    <!--Section: Content-->
+    <section class="dark-grey-text">
+
+        <!-- Section heading -->
+        <h2 class="text-center font-weight-bold mb-4 pb-2">Why is it so great?</h2>
+        <!-- Section description -->
+        <p class="text-center lead grey-text mx-auto mb-5">Dengan aplikasi yang sudah tersedia untuk mobile, sekarang semakin mudah untuk melakukan pekerjaan</p>
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-4">
+
+                <!-- Grid row -->
+                <div class="row mb-3 wow fadeInLeft">
+
+                    <!-- Grid column -->
+                    <div class="col-2">
+                        <i class="fas fa-2x fa-flag-checkered orange-text"></i>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-10">
+                        <h5 class="font-weight-bold mb-3">International</h5>
+                        <p class="grey-text">Dapat juga diakses di luar negeri.</p>
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+                <!-- Grid row -->
+                <div class="row mb-3 wow fadeInLeft" data-wow-delay="0.2s">
+
+                    <!-- Grid column -->
+                    <div class="col-2">
+                        <i class="fas fa-2x fa-flask orange-text"></i>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-10">
+                        <h5 class="font-weight-bold mb-3">Efisien</h5>
+                        <p class="grey-text">Dengan sekali klik bisa menjalankan apa saja</p>
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+                <!-- Grid row -->
+                <div class="row mb-md-0 mb-3 wow fadeInLeft" data-wow-delay="0.3s">
+
+                    <!-- Grid column -->
+                    <div class="col-2">
+                        <i class="fas fa-2x fa-glass-martini orange-text"></i>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-10">
+                        <h5 class="font-weight-bold mb-3">Simple</h5>
+                        <p class="grey-text mb-md-0">Tidak perlu membuka desktop untuk membuka sistem atau website.</p>
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4 text-center wow bounceInDown">
+                <img class="img-fluid" src="/image/phone.png"
+                     alt="Sample image">
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4">
+
+                <!-- Grid row -->
+                <div class="row mb-3 wow fadeInRight">
+
+                    <!-- Grid column -->
+                    <div class="col-2">
+                        <i class="far fa-2x fa-heart orange-text"></i>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-10">
+                        <h5 class="font-weight-bold mb-3">Pas</h5>
+                        <p class="grey-text">Mudah dan pas karena bisa di akses dimana saja.</p>
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+                <!-- Grid row -->
+                <div class="row mb-3 wow fadeInRight" data-wow-delay="0.2s">
+
+                    <!-- Grid column -->
+                    <div class="col-2">
+                        <i class="fas fa-2x fa-bolt orange-text"></i>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-10">
+                        <h5 class="font-weight-bold mb-3">Rapid</h5>
+                        <p class="grey-text">Dengan tampilan dan data yang dibutuhkan sedikit, dapat memuat konten secara cepat. </p>
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+                <!-- Grid row -->
+                <div class="row wow fadeInRight"data-wow-delay="0.3s">
+
+                    <!-- Grid column -->
+                    <div class="col-2">
+                        <i class="fas fa-2x fa-magic orange-text" ></i>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-10">
+                        <h5 class="font-weight-bold mb-3">All in One</h5>
+                        <p class="grey-text mb-0">User dapat membuat akun atau memonitoring pekerjaan dengan menggunakan satu sentuhan.</p>
+                    </div>
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </section>
+    <!--Section: Content-->
+
+
+</div>
+<div class="container my-5">
+    <!--Section: Content-->
+    <section>
+
+        <h6 class="font-weight-normal text-uppercase font-small grey-text mb-4 text-center">FAQ</h6>
+        <!-- Section heading -->
+        <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Frequently Asked Questions</h3>
+        <hr class="w-header">
+        <!-- Section description -->
+        <p class="lead text-muted mx-auto mt-4 pt-2 mb-5 text-center">Punya pertanyaan? Kami punya jawabannya. Jika memiliki pertanyaan lebih lanjut silahkan hubungi support centre kami.</p>
+
+        <div class="row">
+            <div class="col-md-12 col-lg-10 mx-auto mb-5">
+
+                <!--Accordion wrapper-->
+                <div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+
+                    <!-- Accordion card -->
+                    <div class="card border-top border-bottom-0 border-left border-right border-light">
+
+                        <!-- Card header -->
+                        <div class="card-header border-bottom border-light" role="tab" id="headingOne1">
+                            <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
+                               aria-controls="collapseOne1">
+                                <h5 class="black-text font-weight-normal mb-0">
+                                    Apakah sistem ini cocok untuk mencari pekerjaan sampingan? <i class="fas fa-angle-down rotate-icon"></i>
+                                </h5>
+                            </a>
+                        </div>
+
+                        <!-- Card body -->
+                        <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
+                             data-parent="#accordionEx">
+                            <div class="card-body">
+                                 Sangat cocok bagi yang ingin mencari pekerjaan sampingan terutama di hotel.
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Accordion card -->
+
+                    <!-- Accordion card -->
+                    <div class="card border-bottom-0 border-left border-right border-light">
+
+                        <!-- Card header -->
+                        <div class="card-header border-bottom border-light" role="tab" id="headingTwo2">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo2"
+                               aria-expanded="false" aria-controls="collapseTwo2">
+                                <h5 class="black-text font-weight-normal mb-0">
+                                   Apakah terdapat pembayaran di situs ini? <i class="fas fa-angle-down rotate-icon"></i>
+                                </h5>
+                            </a>
+                        </div>
+
+                        <!-- Card body -->
+                        <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2"
+                             data-parent="#accordionEx">
+                            <div class="card-body">
+                                Sekarang, kami belum menentukan apakah akan ada in-payment di dalam situs ini.
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Accordion card -->
+
+                    <!-- Accordion card -->
+                    <div class="card border-bottom-0 border-left border-right border-light">
+
+                        <!-- Card header -->
+                        <div class="card-header border-bottom border-light" role="tab" id="headingThree3">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree3"
+                               aria-expanded="false" aria-controls="collapseThree3">
+                                <h5 class="black-text font-weight-normal mb-0">
+                                   Apakah saya dapat menghapus akun saya? <i class="fas fa-angle-down rotate-icon"></i>
+                                </h5>
+                            </a>
+                        </div>
+
+                        <!-- Card body -->
+                        <div id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree3"
+                             data-parent="#accordionEx">
+                            <div class="card-body">
+                                Jika ingin menghapus akun anda, silahkan hubungi support centre untuk penanganan lebih lanjut.
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Accordion card -->
+
+                    <!-- Accordion card -->
+                    <div class="card border-left border-right border-light">
+
+                        <!-- Card header -->
+                        <div class="card-header border-bottom border-light" role="tab" id="headingThree4">
+                            <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree4"
+                               aria-expanded="false" aria-controls="collapseThree4">
+                                <h5 class="black-text font-weight-normal mb-0">
+                                   Apakah saya dapat memanage akun hotel saya sendiri? <i class="fas fa-angle-down rotate-icon"></i>
+                                </h5>
+                            </a>
+                        </div>
+
+                        <!-- Card body -->
+                        <div id="collapseThree4" class="collapse" role="tabpanel" aria-labelledby="headingThree4"
+                             data-parent="#accordionEx">
+                            <div class="card-body">
+                               Bisa, bagi anda yang memiliki wewenang untuk mengatur dari pihak hotel yang bersangkutan.
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Accordion card -->
+
+                </div>
+                <!-- Accordion wrapper -->
+
+            </div>
+        </div>
+
+    </section>
+
+
+</div>
+{{--<main>--}}
+{{--    <div class="container">--}}
+{{--        <!--Grid row-->--}}
+{{--        <div class="row py-5">--}}
+
+{{--            <!--Grid column-->--}}
+{{--            <div class="col-md-12 text-center">--}}
+{{--                <p>giat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>--}}
+{{--            </div>--}}
+{{--            <!--Grid column-->--}}
+{{--        </div>--}}
+{{--        <!--Grid row-->--}}
+{{--    </div>--}}
+{{--</main>--}}
 <!--Main Layout-->
 <!-- Footer -->
 <footer class="bg-white">
@@ -500,13 +812,6 @@
         <div class="row py-4">
             <div class="col-lg-4 col-md-6 mb-4 mb-lg-0"><img src="image/logo2.png" alt="" width="180" class="mb-3">
                 <p class="font-italic text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-                <ul class="list-inline mt-4">
-                    <li class="list-inline-item"><a href="#" target="" title="twitter"><i class="fa fa-twitter"></i></a></li>
-                    <li class="list-inline-item"><a href="#" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
-                    <li class="list-inline-item"><a href="#" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
-                    <li class="list-inline-item"><a href="#" target="_blank" title="pinterest"><i class="fa fa-pinterest"></i></a></li>
-                    <li class="list-inline-item"><a href="#" target="_blank" title="vimeo"><i class="fa fa-vimeo"></i></a></li>
-                </ul>
             </div>
             <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                 <h6 class="text-uppercase font-weight-bold mb-4">Hotel</h6>
@@ -540,6 +845,7 @@
         </div>
     </div>
 
+
     <!-- Copyrights -->
     <div class="bg-light py-4">
         <div class="container text-center">
@@ -548,77 +854,6 @@
     </div>
 </footer>
 <!-- End -->
-
-{{--<div class="container">--}}
-{{--    <nav class="navbar navbar-inverse navbar-expand-lg navbar-inner">--}}
-{{--        <a class="navbar-brand">Kolega Hotel</a>--}}
-{{--        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--}}
-{{--            <span class="navbar-toggler-icon"></span>--}}
-{{--        </button>--}}
-{{--        <div class="collapse navbar-collapse" id="navbarSupportedContent">--}}
-{{--            <ul class="navbar-nav mr-auto">--}}
-{{--                <li class="nav-item active">--}}
-{{--                    <a class="nav-link" href="#">Home</a>--}}
-{{--                </li>--}}
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link" href="#">Tentang</a>--}}
-{{--                </li>--}}
-{{--            </ul>--}}
-
-{{--                <ul class="nav navbar-nav navbar-right">--}}
-{{--                    @auth('hotel')--}}
-{{--                        <li class="nav-item dropdown">--}}
-{{--                            <a id="navbarDropdown" class="nav-link dropdown-toggle nav-item active" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>--}}
-{{--                                Akun <span class="sr-only">(current)</span>--}}
-{{--                            </a>--}}
-
-{{--                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">--}}
-{{--                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">--}}
-{{--                                    {{ __('Logout') }}--}}
-{{--                                </a>--}}
-
-
-{{--                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
-{{--                                    @csrf--}}
-{{--                                </form>--}}
-{{--                            </div>--}}
-{{--                        </li>--}}
-{{--                        @endauth--}}
-{{--                    @auth('user')--}}
-{{--                        <li class="nav-item dropdown">--}}
-{{--                            <a id="navbarDropdown" class="nav-link dropdown-toggle nav-item active" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>--}}
-{{--                                Akun <span class="sr-only">(current)</span>--}}
-{{--                            </a>--}}
-
-{{--                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">--}}
-{{--                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">--}}
-{{--                                    {{ __('Logout') }}--}}
-{{--                                </a>--}}
-
-
-{{--                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
-{{--                                    @csrf--}}
-{{--                                </form>--}}
-{{--                            </div>--}}
-{{--                        </li>--}}
-{{--                    @endauth--}}
-
-{{--                        @guest('hotel') @guest('user')--}}
-{{--                        <li class="nav-item dropdown">--}}
-{{--                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Masuk</a>--}}
-{{--                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">--}}
-{{--                                <a class="dropdown-item" href="/register/user">Part Timer</a>--}}
-{{--                                <a class="dropdown-item" href="/register/hotel">Hotel</a>--}}
-{{--                            </div>--}}
-{{--                        </li>--}}
-{{--                        @endguest @endguest--}}
-
-{{--                </ul>--}}
-
-
-{{--        </div>--}}
-{{--    </nav>--}}
-{{--</div>--}}
 
 
 </body>
