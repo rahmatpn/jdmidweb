@@ -20,8 +20,8 @@ class Pekerjaan extends Model
     }
 
     public function getNama(){
-        $hotel = ProfileHotel::whereId($this->hotel_id)->first();
-        return $hotel->nama;
+        $profil = ProfileHotel::whereId($this->hotel_id)->first();
+        return $profil->nama;
     }
 
     public function getPekerjaan(){
