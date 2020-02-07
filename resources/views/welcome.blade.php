@@ -282,7 +282,7 @@
                     <!--Grid column-->
                     <!--Grid column-->
                     <div class="col-md-6 col-xl-6 mt-xl-5 wow fadeInRight" data-wow-delay="0.3s">
-                        <img src="{{asset('/image/login.bmp')}}" alt="foto_pekerja" class="img-fluid">
+                        <img src="{{asset('/image/login.jpg')}}" alt="foto_pekerja" class="img-fluid">
                     </div>
                     <!--Grid column-->
                 </div>
