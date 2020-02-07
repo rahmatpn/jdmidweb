@@ -348,36 +348,36 @@
 </div>
 </div>
 
-<div class="container pt-5 my-5 z-depth-1 bg-white wow fadeInUpBig">
+<div class="container pt-5 my-5 z-depth-1 bg-white wow fadeIn">
     <section class="p-md-3 mx-md-5">
         <div class="row">
-            <div class="col-lg-4 col-md-6 mb-5">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInLeft" data-wow-delay="0.2s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="far fa-paper-plane indigo-text pr-2"></i> Laundry
+                    <i class="far fa-user indigo-text pr-2"></i> Laundry
                 </h4>
                 <p class="text-muted pt-3">
                     Laundry adalah bagian dari housekeeping yang bertanggung jawab atas pencucian semua linen, baik itu house laundry maupun guest laundry.
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInUp" data-wow-delay="0.3s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-pen-alt green-text pr-2"></i> Pool Maintenance
+                    <i class="fas fa-water blue-text pr-2"></i> Pool Maintenance
                 </h4>
                 <p class="text-muted pt-3">
                     Pool Maintenance adalah bagian yang bertugas dan bertanggung jawab menjaga kebersihan kolam renang.
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInRight" data-wow-delay="0.4s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-user amber-text pr-2"></i> Equipment Maintenance
+                    <i class="fas fa-tools orange-text pr-2"></i> Equipment Maintenance
                 </h4>
                 <p class="text-muted pt-3">
                     Staff Maintenance adalah bagian yang bertugas dan bertanggung jawab menjaga alat - alat yang ada di hotel.
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInLeft" data-wow-delay="0.6s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-rocket red-text pr-2"></i> Receptionist
+                    <i class="fas fa-user-plus red-text pr-2"></i> Receptionist
                 </h4>
                 <p class="text-muted pt-3">
                     Resepsionis adalah pegawai yang memiliki tugas untuk menyapa, melayani, memberikan informasi kepada pengunjung,
@@ -385,41 +385,41 @@
                 </p>
 
             </div>
-            <div class="col-lg-4 col-md-6 mb-5">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInDown" data-wow-delay="0.8s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-home lime-text pr-2"></i> Porter
+                    <i class="fas fa-suitcase lime-text pr-2"></i> Porter
                 </h4>
                 <p class="text-muted pt-3">
-                   adalah orang yang membawa barang bawaan atau mengurus bagian bagasi di hotel.
+                   Porter adalah orang yang membawa barang bawaan atau mengurus bagian bagasi di hotel.
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInRight" data-wow-delay="0.9s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-book-open blue-text pr-2"></i> Security
+                    <i class="fas fa-user-secret blue-text pr-2"></i> Security
                 </h4>
                 <p class="text-muted pt-3">
                     departemen keamanan (Security Departement) yang memiliki fungsi dan peran penting untuk menjaga serta memberi kenyamanan kepada setiap tamu yang ingin berkunjung ataupun menginap di hotel.
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInLeft" data-wow-delay="1s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-rocket red-text pr-2"></i> Valet
+                    <i class="fas fa-user-circle red-text pr-2"></i> Valet
                 </h4>
                 <p class="text-muted pt-3">
                     Yang bertugas untuk melayani pelayanan personal dan spesifik kepada tamu selama masa inap mereka.
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInUp" data-wow-delay="1.2s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-home lime-text pr-2"></i> Concierge
+                    <i class="fas fa-car lime-text pr-2"></i> Concierge
                 </h4>
                 <p class="text-muted pt-3">
                     Yang bertugas untuk membukakan pintu mobil, pintu hotel, dan membawa pengunjung ke receptionist.
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInRight" data-wow-delay="1.3s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-book-open blue-text pr-2"></i> Housekeeping
+                    <i class="fas fa-home blue-text pr-2"></i> Housekeeping
                 </h4>
                 <p class="text-muted pt-3">
                     Housekeeping adalah salah satu bagain  atau department yang ada di hotel yang bertugas menjaga, merawat,
@@ -427,50 +427,50 @@
                     indah, dan aman.
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInLeft" data-wow-delay="1s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-rocket red-text pr-2"></i> Room Service
+                    <i class="fas fa-utensils red-text pr-2"></i> Room Service
                 </h4>
                 <p class="text-muted pt-3">
                     room service adalah untuk menyajikan makanandan minuman dikamar tamu,
                     termasuk menyiapkan pesanan tamu, melayani tamu, danmelakukan clear up kamar tamu serta menyampaikan tagihan pelayanan kamar (bill).
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInDown" data-wow-delay="1.2s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-home lime-text pr-2"></i> Waiter/Waitress
+                    <i class="fas fa-user lime-text pr-2"></i> Waiter/Waitress
                 </h4>
                 <p class="text-muted pt-3">
                    Waiter/Waitress mempunyai tugas dan tanggung jawab untuk melayani kebutuhan makanan dan minuman bagi para pelanggan hotel secara professional.
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInRight" data-wow-delay="1.3s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-book-open blue-text pr-2"></i> Crew Restaurant
+                    <i class="fas fa-fish blue-text pr-2"></i> Crew Restaurant
                 </h4>
                 <p class="text-muted pt-3">
                     Mempersiapkan bahan-bahan makanan yang akan diolah.
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInLeft" data-wow-delay="1.3s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-rocket red-text pr-2"></i> Barista / Bartender
+                    <i class="fas fa-coffee red-text pr-2"></i> Barista / Bartender
                 </h4>
                 <p class="text-muted pt-3">
                     Membuat minuman sesuai dengan order tamu dan harus sesuai denganstandard Perusahaan serta memberikan kepuasan kepada tamu semaksimal mungkin.
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInUp" data-wow-delay="1.4s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-home lime-text pr-2"></i> Photographer
+                    <i class="fas fa-camera lime-text pr-2"></i> Photographer
                 </h4>
                 <p class="text-muted pt-3">
                     Fotografer memiliki tugas untuk mengambil foto guna mengabadikan berbagai momen dalam suatu gambar.
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInRight" data-wow-delay="1.5s">
                 <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-book-open blue-text pr-2"></i> Cleaning Service
+                    <i class="fas fa-broom blue-text pr-2"></i> Cleaning Service
                 </h4>
                 <p class="text-muted pt-3">
                     Cleaning Housekeeping sendiri merupakan salah satu lembaga departemen yang ada di hotel, yang bertugas menjaga, merawat, dan membersihkan serta memelihara rooms atau kamar-kamar hotel maupun area di luar kamar hotel atau area yang tergolong kedalam area umum.
