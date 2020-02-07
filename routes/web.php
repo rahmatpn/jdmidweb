@@ -19,6 +19,7 @@ Route::get('jobvacancy',function (){
     return view('jobvacancy');
 });
 
+
 Auth::routes();
 Route::get('/login/hotel', 'Auth\LoginController@showHotelLoginForm');
 Route::get('/login/user', 'Auth\LoginController@showUserLoginForm');
