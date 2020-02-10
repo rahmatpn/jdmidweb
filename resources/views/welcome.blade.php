@@ -192,6 +192,44 @@
 
 </style>
 <script>
+    (function ($){
+        $.fn.counter = function() {
+            const $this = $(this),
+                numberFrom = parseInt($this.attr('data-from')),
+                numberTo = parseInt($this.attr('data-to')),
+                delta = numberTo - numberFrom,
+                deltaPositive = delta > 0 ? 1 : 0,
+                time = parseInt($this.attr('data-time')),
+                changeTime = 10;
+
+            let currentNumber = numberFrom,
+                value = delta*changeTime/time;
+            var interval1;
+            const changeNumber = () => {
+                currentNumber += value;
+                //checks if currentNumber reached numberTo
+                (deltaPositive && currentNumber >= numberTo) || (!deltaPositive &&currentNumber<= numberTo) ? currentNumber=numberTo : currentNumber;
+                this.text(parseInt(currentNumber));
+                currentNumber == numberTo ? clearInterval(interval1) : currentNumber;
+            }
+
+            interval1 = setInterval(changeNumber,changeTime);
+        }
+    }(jQuery));
+
+    $(document).ready(function(){
+
+        $('.count-up').counter();
+        $('.count1').counter();
+        $('.count2').counter();
+        $('.count3').counter();
+
+        new WOW().init();
+
+        setTimeout(function () {
+            $('.count5').counter();
+        }, 3000);
+    });
     $( document ).ready(function() {
         new WOW().init();
     });
@@ -520,9 +558,9 @@
     <section class="dark-grey-text">
 
         <!-- Section heading -->
-        <h2 class="text-center font-weight-bold mb-4 pb-2">Why is it so great?</h2>
+        <h2 class="text-center font-weight-bold mb-4 pb-2 wow fadeInUp">Why is it so great?</h2>
         <!-- Section description -->
-        <p class="text-center lead grey-text mx-auto mb-5">Dengan aplikasi yang sudah tersedia untuk mobile, sekarang semakin mudah untuk melakukan pekerjaan</p>
+        <p class="text-center lead grey-text mx-auto mb-5 wow fadeInDown">Dengan aplikasi yang sudah tersedia untuk mobile, sekarang semakin mudah untuk melakukan pekerjaan</p>
 
         <!-- Grid row -->
         <div class="row">
@@ -665,6 +703,46 @@
 
     </section>
     <!--Section: Content-->
+</div>
+<div class="container my-5">
+
+
+    <!--Section: Content-->
+    <section id="what-we-do">
+
+        <h3 class="text-center font-weight-bold mb-5">Our Beloved Things</h3>
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-md-6 col-lg-3 mb-4 text-center">
+                <h4 class="h1 font-weight-normal mb-3">
+                    <i class="fas fa-file-alt indigo-text"></i>
+                    <span class="d-inline-block count-up" data-from="0" data-to="{{\App\Pekerjaan::all()->count()}}" data-time="2000">{{\App\Pekerjaan::all()->count()}}</span>
+                </h4>
+                <p class="font-weight-normal text-muted">Total Jobs</p>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4 text-center">
+                <h4 class="h1 font-weight-normal mb-3">
+                    <i class="fas fa-user indigo-text"></i>
+                    <span class="d-inline-block count1" data-from="0" data-to="{{\App\User::all()->count()}}" data-time="2000">{{\App\User::all()->count()}}</span>
+                </h4>
+                <p class="font-weight-normal text-muted">Our User</p>
+            </div>
+
+            <div class="col-md-6 col-lg-3 mb-4 text-center">
+                <h4 class="h1 font-weight-normal mb-3">
+                    <i class="fas fa-home indigo-text"></i>
+                    <span class="d-inline-block count2" data-from="0" data-to="{{\App\Hotel::all()->count()}}" data-time="2000">{{\App\Hotel::all()->count()}}</span>
+                </h4>
+                <p class="font-weight-normal text-muted">The Great Hotels</p>
+            </div>
+
+
+        </div>
+
+    </section>
+    <!--Section: Content-->
 
 
 </div>
@@ -771,8 +849,7 @@
                         </div>
 
                         <!-- Card body -->
-                        <div id="collapseThree4" class="collapse" role="tabpanel" aria-labelledby="headingThree4"
-                             data-parent="#accordionEx">
+                        <div id="collapseThree4" class="collapse" role="tabpanel" aria-labelledby="headingThree4" data-parent="#accordionEx">
                             <div class="card-body">
                                Bisa, bagi anda yang memiliki wewenang untuk mengatur dari pihak hotel yang bersangkutan.
                             </div>
@@ -810,13 +887,13 @@
 <footer class="bg-white">
     <div class="container py-5">
         <div class="row py-4">
-            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0"><img src="/image/logo2.png" alt="" width="180" class="mb-3">
+            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0"><img src="{{asset('/image/logo2.png')}}" alt="" width="180" class="mb-3">
                 <p class="font-italic text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
             </div>
             <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                 <h6 class="text-uppercase font-weight-bold mb-4">Hotel</h6>
                 <ul class="list-unstyled mb-0">
-                    <li class="mb-2"><a href="/home" class="text-muted">Home</a></li>
+                    <li class="mb-2"><a href="{{url('/home')}}" class="text-muted">Home</a></li>
                     <li class="mb-2"><a href="#" class="text-muted">Profil</a></li>
                     <li class="mb-2"><a href="#" class="text-muted">Job</a></li>
 
@@ -825,7 +902,7 @@
             <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                 <h6 class="text-uppercase font-weight-bold mb-4">Part-Timer</h6>
                 <ul class="list-unstyled mb-0">
-                    <li class="mb-2"><a href="/home" class="text-muted">Home</a></li>
+                    <li class="mb-2"><a href="{{url('/home')}}" class="text-muted">Home</a></li>
                     <li class="mb-2"><a href="#" class="text-muted">Profil</a></li>
                     <li class="mb-2"><a href="#" class="text-muted">Job</a></li>
                 </ul>
