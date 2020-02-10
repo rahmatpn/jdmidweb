@@ -65,7 +65,7 @@ class LoginController extends Controller
             return redirect('/hotel/'.$profile->url_slug);
 
         }
-        return back()->withInput($request->only('email', 'remember'));
+        return redirect()->intended('masuk/hotel')->with('gagalLogin','Password atau Email salah');
     }
 
     public function showUserLoginForm()
@@ -84,6 +84,6 @@ class LoginController extends Controller
             $profile = ProfileUser::where('user_id',Auth::guard('user')->user()->id)->first();
             return redirect('/user/'.$profile->url_slug);
         }
-        return back()->withInput($request->only('email', 'remember'));
+        return redirect()->intended('masuk/user')->with('gagalLoginuser','Password atau Email salah');
     }
 }

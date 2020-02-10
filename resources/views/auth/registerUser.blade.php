@@ -9,37 +9,132 @@
 
     <title>Halaman Masuk Part Timer</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/loginhotel.js') }}" defer></script>
-{{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-    <!-- Fonts -->
-{{--    <link rel="dns-prefetch" href="//fonts.gstatic.com">--}}
-{{--    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">--}}
-    <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
-{{--    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">--}}
-{{--    <!-- Styles -->--}}
-{{--    <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
-{{--    <link href="{{ asset('css/style.css')}}" rel="stylesheet">--}}
+
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <style>
-        /*body{*/
-        /*    background-image: url("https://images.pexels.com/photos/1267473/pexels-photo-1267473.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");*/
-        /*    background-size:cover;*/
+    <script src="{{ asset('js/loginhotel.js') }}" defer></script>
+    <script src="{{ asset('js/mdb.js') }}"></script>
 
-        /*}*/
-        /*.backgroundimg{*/
+    <link rel="stylesheet" type="text/css" href="css/roboto.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    {{--    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">--}}
 
-        /*    opacity: 0.5;*/
-        /*}*/
-    </style>
+
+
 </head>
 
 <body class="form-v8 ">
+<div class="container wow fadeInUp">
+
+@if(session()->get('gagalLoginuser'))
+    <!-- Central Modal Medium Warning -->
+        <div class="modal fade" id="GagalLoginUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-danger" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                        <p class="heading lead">Login Gagal</p>
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                    </div>
+
+                    <!--Body-->
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <i class="fas fa-frown fa-4x mb-3 animated rotateIn"></i>
+                            <p>{{session()->get('gagalLoginuser')}}</p>
+                        </div>
+                    </div>
+
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!-- Central Modal Medium Warning-->
+@endif
+@if(session()->get('gagaluser'))
+    <!-- Central Modal Medium Warning -->
+        <div class="modal fade" id="modalGagal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-warning" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                        <p class="heading lead">Login Gagal</p>
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                    </div>
+
+                    <!--Body-->
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <i class="fas fa-times fa-4x mb-3 animated rotateIn"></i>
+                            <p>{{session()->get('gagaluser')}}</p>
+                        </div>
+                    </div>
+
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!-- Central Modal Medium Warning-->
+    @endif
+
+    @if(session()->get('successuser'))
+        <div class="modal fade top" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true" data-backdrop="true">
+            <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Body-->
+                    <div class="modal-body">
+                        <div class="row d-flex justify-content-center align-items-center">
+
+                            <p class="pt-3 pr-2">{{session()->get('successuser')}}</p>
+
+                            <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Ok, thanks</a>
+                        </div>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+    @endif
+    @if(Session::has('successuser'))
+        <script>
+            $(function() {
+                $('#modalCookie1').modal('show');
+            });
+        </script>
+    @endif
+    @if(Session::has('gagaluser'))
+        <script>
+            $(function() {
+                $('#modalGagal').modal('show');
+            });
+        </script>
+    @endif
+    @if(Session::has('gagalLoginuser'))
+        <script>
+            $(function() {
+                $('#GagalLoginUser').modal('show');
+            });
+        </script>
+    @endif
+</div>
 <div class="page-content">
     <div class="form-v8-content  shadow-lg">
         <div class="form-left ">

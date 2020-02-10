@@ -9,31 +9,136 @@
 
     <title>Halaman Masuk Hotel</title>
 
-    <script src="{{ asset('js/loginhotel.js') }}" defer></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/login.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/loginhotel.js') }}" defer></script>
+    <script src="{{ asset('js/mdb.js') }}"></script>
+
     <link rel="stylesheet" type="text/css" href="css/roboto.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 {{--    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">--}}
 
-    <!-- Styles -->
-{{--    <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
-{{--    <link href="{{ asset('css/style.css')}}" rel="stylesheet">--}}
 
-    <link href="{{ asset('css/login.css') }}" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
-
+<script>
+    $( document ).ready(function() {
+        new WOW().init();
+    });
+</script>
 <body class="form-v8 ">
-@if(session()->get('gagal'))
-    <div class="alert alert-danger">
-        {{ session()->get('gagal') }}
-    </div>
+<div class="container wow fadeInUp">
+
+@if(session()->get('gagalLogin'))
+    <!-- Central Modal Medium Warning -->
+        <div class="modal fade" id="modalGagalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-danger" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                        <p class="heading lead">Login Gagal</p>
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                    </div>
+
+                    <!--Body-->
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <i class="fas fa-frown fa-4x mb-3 animated rotateIn"></i>
+                            <p>{{session()->get('gagalLogin')}}</p>
+                        </div>
+                    </div>
+
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!-- Central Modal Medium Warning-->
+@endif
+    @if(session()->get('gagal'))
+        <!-- Central Modal Medium Warning -->
+            <div class="modal fade" id="modalGagal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-notify modal-warning" role="document">
+                    <!--Content-->
+                    <div class="modal-content">
+                        <!--Header-->
+                        <div class="modal-header">
+                            <p class="heading lead">Login Gagal</p>
+
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" class="white-text">&times;</span>
+                            </button>
+                        </div>
+
+                        <!--Body-->
+                        <div class="modal-body">
+                            <div class="text-center">
+                                <i class="fas fa-times fa-4x mb-3 animated rotateIn"></i>
+                                <p>{{session()->get('gagal')}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--/.Content-->
+                </div>
+            </div>
+            <!-- Central Modal Medium Warning-->
     @endif
+
+    @if(session()->get('success'))
+            <div class="modal fade top" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true" data-backdrop="true">
+                <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
+                    <!--Content-->
+                    <div class="modal-content">
+                        <!--Body-->
+                        <div class="modal-body">
+                            <div class="row d-flex justify-content-center align-items-center">
+
+                                <p class="pt-3 pr-2">{{session()->get('success')}}</p>
+
+                                <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Ok, thanks</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.Content-->
+                </div>
+            </div>
+@endif
+@if(Session::has('success'))
+    <script>
+        $(function() {
+            $('#modalCookie1').modal('show');
+        });
+    </script>
+@endif
+        @if(Session::has('gagal'))
+        <script>
+            $(function() {
+                $('#modalGagal').modal('show');
+            });
+        </script>
+    @endif
+    @if(Session::has('gagalLogin'))
+        <script>
+            $(function() {
+                $('#modalGagalLogin').modal('show');
+            });
+        </script>
+    @endif
+</div>
 <div class="page-content">
     <div class="form-v8-content  shadow-lg">
         <div class="form-left ">
@@ -125,219 +230,4 @@
     </div>
 </div>
 </body>
-{{--<div id="app">--}}
-{{--    <nav class="navbar navbar-expand-md navbar-light shadow-md">--}}
-{{--        <div class="container">--}}
-{{--            <a class="navbar-brand" href="{{ url('/') }}"> Kolega Hotel--}}
-{{--            </a>--}}
-{{--            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">--}}
-{{--                <span class="navbar-toggler-icon"></span>--}}
-{{--            </button>--}}
-
-{{--            <div class="collapse navbar-collapse" id="navbarSupportedContent">--}}
-{{--                <!-- Left Side Of Navbar -->--}}
-{{--                <ul class="navbar-nav mr-auto">--}}
-
-{{--                </ul>--}}
-
-{{--                <!-- Right Side Of Navbar -->--}}
-{{--                <ul class="navbar-nav ml-auto">--}}
-{{--                    <!-- Authentication Links -->--}}
-{{--                    @guest--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <button type="button" class="btn btn-primary" data-toogle="modal" data-toggle="modal" data-target="#loginmodal">MASUK</button>--}}
-{{--                        </li>--}}
-{{--                    @else--}}
-{{--                        <li class="nav-item dropdown">--}}
-{{--                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>--}}
-{{--                                {{ Auth::user()->name }} <span class="caret"></span>--}}
-{{--                            </a>--}}
-
-{{--                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">--}}
-{{--                                <a class="dropdown-item" href="{{ route('logout') }}"--}}
-{{--                                   onclick="event.preventDefault();--}}
-{{--                                                     document.getElementById('logout-form').submit();">--}}
-{{--                                    {{ __('Logout') }}--}}
-{{--                                </a>--}}
-
-{{--                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
-{{--                                    @csrf--}}
-{{--                                </form>--}}
-{{--                            </div>--}}
-{{--                        </li>--}}
-{{--                    @endguest--}}
-{{--                </ul>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </nav>--}}
-{{--</div>--}}
-
-{{--<div id="loginmodal" class="modal fade">--}}
-{{--    <div class="modal-dialog modal-login">--}}
-{{--        <div class="modal-content">--}}
-{{--            <div class="modal-header">--}}
-{{--                <h4 class="modal-title">Login</h4>--}}
-{{--                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>--}}
-{{--            </div>--}}
-{{--            <div class="modal-body">--}}
-{{--                @isset($url)--}}
-{{--                    <form method="POST" action='{{ url("login/$url")}}'>--}}
-{{--                    @else--}}
-{{--                    <form method="POST" action="{{route('login')}}">--}}
-{{--                    @endisset--}}
-{{--                    @csrf--}}
-{{--                    <div class="form-group">--}}
-{{--                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email" autofocus>--}}
-{{--                        @error('email')--}}
-{{--                        <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                        @enderror--}}
-{{--                    </div>--}}
-{{--                    <div class="form-group">--}}
-{{--                        <input id="password" type="password" type="password" placeholder="Password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">--}}
-
-{{--                        @error('password')--}}
-{{--                        <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                        @enderror--}}
-{{--                    </div>--}}
-{{--                    <div class="form-group small clearfix">--}}
-{{--                        <label class="checkbox-inline"><input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>--}}
-{{--                            <div style="margin-left: 20px">--}}
-{{--                            Remember me</div>--}}
-{{--                        </label>--}}
-{{--                        <a href="{{ route('password.request') }}" class="forgot-link">Forgot Password?</a>--}}
-{{--                    </div>--}}
-{{--                    <div class="form-group">--}}
-{{--                        <input type="submit" class="btn btn-primary btn-block btn-lg" value="Sign in">--}}
-{{--                    </div>--}}
-{{--                </form>--}}
-{{--                    </form>--}}
-{{--            </div>--}}
-{{--            <div class="modal-footer">Tidak Punya Akun? Silahkan Registrasi Terlebih Dahulu</div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
-
-{{--<div class="jumbotron jumbotron-fluid">--}}
-{{--    <div class="page-content">--}}
-{{--        <div class="form-v5-content">--}}
-{{--            @isset($url)--}}
-{{--                <form method="POST" class="form-detail" action='{{ url("register/$url") }}'>--}}
-{{--                    @else--}}
-{{--                <form method="POST" class="form-detail" action="{{ route('register') }}" >--}}
-{{--                @endisset--}}
-{{--                <h2>Registrasi Akun Hotel</h2>--}}
-{{--                @csrf--}}
-
-{{--                <div class="form-row">--}}
-{{--                    <label for="name">{{ __('Nama Hotel') }}</label>--}}
-{{--                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>--}}
-{{--                    @error('name')--}}
-{{--                    <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                    @enderror--}}
-{{--                </div>--}}
-{{--                <br/>--}}
-
-{{--                <div class="form-row">--}}
-{{--                    <label for="email">{{ __('E-Mail Address') }}</label>--}}
-{{--                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">--}}
-
-{{--                    @error('email')--}}
-{{--                    <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                    @enderror--}}
-
-{{--                </div>--}}
-{{--                <br/>--}}
-{{--                <div class="form-row">--}}
-{{--                    <label for="password">{{ __('Password') }}</label>--}}
-{{--                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">--}}
-
-{{--                    @error('password')--}}
-{{--                    <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                    @enderror--}}
-
-{{--                </div>--}}
-{{--                <br/>--}}
-{{--                <div class="form-row">--}}
-{{--                    <label for="password-confirm">{{ __('Confirm Password') }}</label>--}}
-{{--                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">--}}
-{{--                </div>--}}
-
-{{--                <div class="form-row-last">--}}
-{{--                    <input type="submit" class="register">--}}
-{{--                </div>--}}
-
-{{--                </form>--}}
-{{--                </form>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
-{{--<div class="container">--}}
-{{--    <div class="row">--}}
-{{--        <div class="col-sm-4">--}}
-{{--            <h3>Column 1</h3>--}}
-{{--            <p>Lorem ipsum dolor..</p>--}}
-{{--        </div>--}}
-{{--        <div class="col-sm-4">--}}
-{{--            <h3>Column 2</h3>--}}
-{{--            <p>Lorem ipsum dolor..</p>--}}
-{{--        </div>--}}
-{{--        <div class="col-sm-4">--}}
-{{--            <h3>Column 3</h3>--}}
-{{--            <p>Lorem ipsum dolor..</p>--}}
-{{--        </div>--}}
-{{--        <div class="col-sm-4">--}}
-{{--            <h3>Column 1</h3>--}}
-{{--            <p>Lorem ipsum dolor..</p>--}}
-{{--        </div>--}}
-{{--        <div class="col-sm-4">--}}
-{{--            <h3>Column 2</h3>--}}
-{{--            <p>Lorem ipsum dolor..</p>--}}
-{{--        </div>--}}
-{{--        <div class="col-sm-4">--}}
-{{--            <h3>Column 3</h3>--}}
-{{--            <p>Lorem ipsum dolor..</p>--}}
-{{--        </div>--}}
-{{--        <div class="col-sm-4">--}}
-{{--            <h3>Column 1</h3>--}}
-{{--            <p>Lorem ipsum dolor..</p>--}}
-{{--        </div>--}}
-{{--        <div class="col-sm-4">--}}
-{{--            <h3>Column 2</h3>--}}
-{{--            <p>Lorem ipsum dolor..</p>--}}
-{{--        </div>--}}
-{{--        <div class="col-sm-4">--}}
-{{--            <h3>Column 3</h3>--}}
-{{--            <p>Lorem ipsum dolor..</p>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <div class="col-sm-4">--}}
-{{--        <h3>Column 1</h3>--}}
-{{--        <p>Lorem ipsum dolor..</p>--}}
-{{--    </div>--}}
-{{--    <div class="col-sm-4">--}}
-{{--        <h3>Column 2</h3>--}}
-{{--        <p>Lorem ipsum dolor..</p>--}}
-{{--    </div>--}}
-{{--    <div class="col-sm-4">--}}
-{{--        <h3>Column 3</h3>--}}
-{{--        <p>Lorem ipsum dolor..</p>--}}
-{{--    </div>--}}
-{{--</div>--}}
-
-{{--<div class="jumbotron text-center" style="margin-bottom:0">--}}
-{{--    <p>Footer</p>--}}
-{{--</div>--}}
-
-
-{{--</body>--}}
 </html>

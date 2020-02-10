@@ -99,12 +99,12 @@ class RegisterController extends Controller
             $errorCode = $e->errorInfo[2];
             $str = strval($errorCode);
             if (strpos($str, 'hotels_name_unique')) {
-                return redirect()->intended('masuk/hotel')->with("gagal", "duplicate data nama");
+                return redirect()->intended('masuk/hotel')->with("gagal", "Nama Hotel telah terdaftar, masukan nama yang berbeda");
             } elseif (strpos($str,'hotels_email_unique')) {
-                return redirect()->intended('masuk/hotel')->with("gagal", "duplicate data email");
+                return redirect()->intended('masuk/hotel')->with("gagal", "Email telah terdaftar");
             }
         }
-        return redirect()->intended('masuk/hotel');
+        return redirect()->intended('masuk/hotel')->with('success','Silahkan Login menggunakan email dan password yang telah dibuat');
     }
 
 
@@ -122,12 +122,12 @@ class RegisterController extends Controller
         $errorCode = $e->errorInfo[2];
         $str = strval($errorCode);
         if (strpos($str, 'users_name_unique')) {
-            return redirect()->intended('masuk/user')->with("gagal", "duplicate data nama");
+            return redirect()->intended('masuk/user')->with("gagaluser", "Nama telah terdaftar, masukan nama yang berbeda");
         } elseif (strpos($str,'users_email_unique')) {
-            return redirect()->intended('masuk/user')->with("gagal", "duplicate data email");
+            return redirect()->intended('masuk/user')->with("gagaluser", "Email telah terdaftar");
         }
     }
-        return redirect()->intended('masuk/user');
+        return redirect()->intended('masuk/user')->with('successuser','Silahkan Login menggunakan email dan password yang telah dibuat');
     }
 
 
