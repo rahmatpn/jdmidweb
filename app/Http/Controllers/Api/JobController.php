@@ -25,6 +25,7 @@ class JobController extends Controller
 
         return response()->json(['jobs'=>
             Pekerjaan::with('hotel.profile')
+                ->with('posisi')
                 ->withCount('dikerjakan')
                 ->where('deskripsi','like','%'.$query.'%')
                 ->orWhere('area','like','%'.$query.'%')
@@ -35,6 +36,7 @@ class JobController extends Controller
     function getJobsWithPosition($position){
         return response()->json(['jobs'=>
             Pekerjaan::with('hotel.profile')
+                ->with('posisi')
                 ->withCount('dikerjakan')
                 ->where('posisi',$position)
                 ->get()]);
