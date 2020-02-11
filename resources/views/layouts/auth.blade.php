@@ -13,9 +13,11 @@
     <!-- Scripts -->
 {{--    <link href="{{ asset('css/style.css')}}" rel="stylesheet">--}}
 {{--    <link href="{{ asset('css/app.css')}}" rel="stylesheet">--}}
+    <link rel="stylesheet" href="{{ asset('css/freelancer.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/jquery.formatCurrency.js"></script>

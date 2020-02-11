@@ -100,8 +100,7 @@ class ProfileUserController extends Controller
             if(request('cover')){
                 $coverPath = request('cover')->store('user/cover','public');
 
-                $cover = Image::make(public_path("image/{$coverPath}"));
-                $cover->save();
+                $cover = Image::make(public_path("image/{$coverPath}"))->save();
                 $cPath = "/image/{$coverPath}";
                 $coverArray = ['cover'=> $cPath];
                 if ($user->profile->cover != null) {
