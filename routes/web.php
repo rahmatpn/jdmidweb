@@ -40,6 +40,7 @@ Route::group([
 ], function (){
     Route::get('/user/{profileUser}/edit', 'ProfileUserController@edit');
     Route::patch('/user/{profileUser}', 'ProfileUserController@update');
+    Route::post('/job/{url_slug}/apply', 'PekerjaanController@apply');
 });
 
 Route::group([
@@ -55,5 +56,5 @@ Route::group([
     Route::get('/hotel/{profile}/edit', 'ProfileHotelController@edit');
 });
 
-Route::get('/job/{pekerjaan}', 'PekerjaanController@show');
+Route::get('/job/{url_slug}', 'PekerjaanController@show');
 

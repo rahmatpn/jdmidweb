@@ -6,7 +6,9 @@ use App\Hotel;
 use App\Pekerjaan;
 use App\Posisi;
 use App\ProfileHotel;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -78,5 +80,15 @@ class PekerjaanController extends Controller
         return redirect('/hotel/'.auth()->user()->profile->url_slug)->with('success','Data Telah Dihapus');
     }
 
+
+    public function apply($url_slug){
+        $user = Auth::user();
+        $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
+        $user->mengerjakan()->toggle($pekerjaan);
+
+        return redirect('/home');
+
+
+    }
 
 }

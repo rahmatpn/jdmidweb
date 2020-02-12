@@ -56,13 +56,15 @@ body{
                         <h5>{{$pekerjaan->getAlamat()}}</h5>
                     </div>
                     <br/>
-                    <button type="button" class="btn aqua-gradient">Apply Sekarang</button>
+                    <form action="/job/{{$pekerjaan->url_slug}}/apply" method="post">
+                        @csrf
+                        <input type="submit" class="btn aqua-gradient-rgba" value="Apply">
+                    </form>
+
                 </div>
             </div>
         </div>
 
     </div>
 
-</div>
-
-@endsection
+</div>@endsection
