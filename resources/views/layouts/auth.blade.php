@@ -2,17 +2,10 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>Kolega Hotel</title>
-
-    <!-- Scripts -->
-{{--    <link href="{{ asset('css/style.css')}}" rel="stylesheet">--}}
-{{--    <link href="{{ asset('css/app.css')}}" rel="stylesheet">--}}
+    <link rel="icon" href="/image/logo2.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="{{ asset('css/freelancer.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -77,7 +70,7 @@
 
         @media (max-width: 991px) {
             .navbar:not(.top-nav-collapse) {
-                background: #ffffff !important;
+                background: #f8f8f8 !important;
                 text-shadow: black;
             }
         }
@@ -177,6 +170,11 @@
         }
     </style>
 </head>
+<script>
+    $( document ).ready(function() {
+        new WOW().init();
+    });
+</script>
 <body>
 
     <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar ">
@@ -249,14 +247,16 @@
                             <span class="badge badge-danger">11</span>
                         </a>
                     </li>
-
+                    @auth('user')
                     <!-- Authentication Links -->
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle nav-item active" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             Akun <span class="sr-only">(current)</span>
                         </a>
 
+
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{url('/user/'.$user->profile->url_slug.'/edit')}}">Edit Profile</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
@@ -267,6 +267,28 @@
                                 </form>
                             </div>
                     </li>
+                        @endauth
+                       @auth('hotel')
+                       <!-- Authentication Links -->
+                           <li class="nav-item dropdown">
+                               <a id="navbarDropdown" class="nav-link dropdown-toggle nav-item active" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                   Akun <span class="sr-only">(current)</span>
+                               </a>
+
+
+                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                   <a class="dropdown-item" href="{{url('/hotel/'.$hotel->profile->url_slug.'/edit')}}">Edit Profile</a>
+                                   <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                       {{ __('Logout') }}
+                                   </a>
+
+
+                                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                       @csrf
+                                   </form>
+                               </div>
+                           </li>
+                       @endauth
                 </ul>
             </div>
         </div>

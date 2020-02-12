@@ -166,11 +166,70 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="form-group">
+                                                            <label>Tanggal Lahir</label>
+                                                            <input type="date"
+                                                                   id="tanggal_lahir"
+                                                                   class="form-control"
+                                                                   name="tanggal_lahir"
+                                                                   value="{{ old('tanggal_lahir') ?? $user->profile->tanggal_lahir}}"
+                                                                   required="required">
+                                                            <div class="help-block with-errors"></div>
+
+                                                            @if($errors->has('tanggal_lahir'))
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $errors->first('tanggal_lahir') }}</strong>
+                                                                </span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="form-group">
+                                                            <label>Tinggi Badan</label>
+                                                            <input id="tinggi_badan"
+                                                                   type="number"
+                                                                   class="form-control @error('tinggi_badan') is-invalid @enderror"
+                                                                   name="tinggi_badan"
+                                                                   value="{{ old('tinggi_badan') ?? $user->profile->tinggi_badan}}"
+                                                                   autocomplete="tinggi_badan" placeholder="ex 170" autofocus>
+
+                                                            @if($errors->has('tinggi_badan'))
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $errors->first('tinggi_badan') }}</strong>
+                                                                </span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
 
                                                 <div class="row">
                                                     <div class="col">
                                                         <div class="form-group">
-                                                            <label>Social Media</label>
+                                                            <label>Berat Badan</label>
+                                                            <input id="berat_badan"
+                                                                   type="number"
+                                                                   class="form-control @error('berat_badan') is-invalid @enderror"
+                                                                   name="berat_badan"
+                                                                   value="{{ old('berat_badan') ?? $user->profile->berat_badan}}"
+                                                                   autocomplete="berat_badan" placeholder="ex 40" autofocus>
+
+                                                            @if($errors->has('berat_badan'))
+                                                                <span class="invalid-feedback" role="alert">
+                                                                    <strong>{{ $errors->first('berat_badan') }}</strong>
+                                                                </span>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="form-group">
+                                                            <label>Posisi</label>
                                                             @foreach($posisi as $posisi)
                                                                 <div class="form-check">
                                                                     <label class="form-check-label">

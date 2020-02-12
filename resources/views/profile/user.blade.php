@@ -39,10 +39,7 @@
         </div>
 
     </header>
-    <div class="float-right">
-        <a class="btn btn-info req-btn"  href="{{url('/user/'.$user->profile->url_slug.'/edit')}}" > Edit Profil</a>
-        <br/>
-    </div>
+
     <div class="container my-5">
 
         <!--Section: Content-->

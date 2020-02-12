@@ -51,6 +51,7 @@
 
     .top-nav-collapse {
         background-color: #FFFFFF !important;
+
     }
 
     .navbar:not(.top-nav-collapse) {
@@ -61,6 +62,7 @@
     @media (max-width: 991px) {
         .navbar:not(.top-nav-collapse) {
             background: #ffffff !important;
+
         }
     }
 
@@ -242,8 +244,10 @@
     parallax(document.querySelectorAll('.parallax-keep-img'), {
         keepImg: true,
     });
+
 </script>
 <body>
+
 <!-- Main navigation -->
 <header>
     <!--Navbar-->
