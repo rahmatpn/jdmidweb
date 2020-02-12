@@ -1,6 +1,9 @@
 @extends('layouts.auth')
 
 @section('content')
+    <div class="py-4 pt-lg-4">
+
+
     <div class="container">
         <form action="/user/{{$user->profile->url_slug}}" enctype="multipart/form-data" method="post">
             @csrf
@@ -246,5 +249,5 @@
             </div>
         </form>
     </div>
-
+    </div>
 @endsection

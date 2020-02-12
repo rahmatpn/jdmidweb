@@ -28,6 +28,59 @@
     <script src="{{ asset('js/mdb.js') }}"></script>
     @yield('css')
     <style>
+        /* Required for full background image */
+
+        html,
+        body,
+        header,
+        .view {
+            height: 100%;
+            background-color: white;
+        }
+
+        @media (max-width: 740px) {
+            html,
+            body,
+            header,
+            .view {
+                height: 1000px;
+            }
+        }
+        @media (min-width: 800px) and (max-width: 850px) {
+            html,
+            body,
+            header,
+            .view {
+                height: 600px;
+            }
+        }
+
+        .btn .fa {
+            margin-left: 3px;
+        }
+
+        .top-nav-collapse {
+            background-color: #FFFFFF !important;
+            text-decoration: white;
+
+        }
+
+        .navbar:not(.top-nav-collapse) {
+            background: transparent !important;
+            box-shadow: none;
+            text-emphasis-color: white;
+            text-decoration: white;
+
+
+
+        }
+
+        @media (max-width: 991px) {
+            .navbar:not(.top-nav-collapse) {
+                background: #ffffff !important;
+                text-shadow: black;
+            }
+        }
 
         .imghotel{
             position:relative;
@@ -126,9 +179,10 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar ">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}"> Kolega Hotel
+            <a class="navbar-brand" href="#">
+                <img src="/image/logo_head.png" height="50" alt="logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -148,9 +202,7 @@
                    @auth('user')
                         @if(\Illuminate\Support\Facades\Request::is('home'))
                         <li class="nav-item">
-
                             <a class="nav-link" href="{{url('/user/'.auth()->guard('user')->user()->name)}}">
-
                             <i class="fa fa-user-circle"></i>
                             Profil
                             <span class="sr-only">(current)</span>
@@ -158,12 +210,13 @@
                     </li>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" >
+                                <a class="nav-link" href="#">
                                     <i class="fa fa-user-circle"></i>
                                     Profil
                                     <span class="sr-only"></span>
                                 </a>
                             </li>
+
                         @endif
                        @endauth
                      @auth('hotel')
@@ -175,13 +228,13 @@
                             </a>
                         </li>
                     @endauth
-                    <li class="nav-item ">
-                        <a class="nav-link" href="{{url('/home')}}">
-                            <i class="fa fa-home"></i>
-                            Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
+                       <li class="nav-item">
+                           <a class="nav-link" href="{{url('/home')}}">
+                               <i class="fa fa-home"></i>
+                               Home
+                               <span class="sr-only">(current)</span>
+                           </a>
+                       </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             <i class="fa fa-angellist"></i>
@@ -219,7 +272,7 @@
         </div>
     </nav>
 
-    <main class="py-4">
+    <main>
         @yield('content')
     </main>
 <script>
@@ -281,4 +334,5 @@
 </script>
 
 </body>
+
 </html>
