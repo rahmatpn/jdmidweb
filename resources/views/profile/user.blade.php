@@ -50,6 +50,8 @@
             <hr class="w-header">
             <!-- Section description -->
 
+
+
             <div class="row text-center text-md-left">
                 <div class="col-md-6 mb-4">
                     <h5 class="font-weight-normal mb-3">Nama</h5>
