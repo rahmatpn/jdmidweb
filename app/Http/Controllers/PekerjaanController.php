@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use phpDocumentor\Reflection\Types\Null_;
 
 class PekerjaanController extends Controller
 {
@@ -84,9 +85,26 @@ class PekerjaanController extends Controller
     public function apply($url_slug){
         $user = Auth::user();
         $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
+        if ($user->profile->getIsCompletedAttribute() == false)
+            return back()->with('gagalProfile','Profile Belum Lengkap');
+        elseif ($pekerjaan->tinggi_minimal != Null) {
+            if ($user->profile->tinggi_badan < $pekerjaan->tinggi_minimal || $user->profile->tinggi_badan > $pekerjaan->tinggi_maksimal)
+                return back()->with('gagalTinggi', 'Tinggi badan anda tidak sesuai kriteria');
+        }
+        elseif($pekerjaan->berat_minimal != Null) {
+         if($user->profile->berat_badan < $pekerjaan->berat_minimal || $user->profile->berat_badan > $pekerjaan->berat_maksimal)
+            return back()->with('gagalBerat', 'Berat badan anda tidak seusai Kriteria');
+        }
+        elseif($pekerjaan->dikerjakan()->count() >= $pekerjaan->kuota)
+            return back()->with('kuotaPenuh', 'Kuota Penuh');
+        else {
         $user->mengerjakan()->toggle($pekerjaan);
 
-        return redirect('/home');
+        return back()->with('success','Berhasil apply pekerjaan di '.$pekerjaan->hotel->profile->nama);
+
+        }
+
+
 
 
     }

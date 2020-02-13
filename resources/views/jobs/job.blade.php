@@ -10,9 +10,18 @@ body{
 @endsection
 @section('content')
 <div class="container">
-    @if(session()->get('gagal'))
-        <div class="alert-danger">{{session()->get('gagal')}}</div>
+    @if(session()->get('gagalProfile'))
+        <div class="alert-danger">{{session()->get('gagalProfile')}}</div>
+    @elseif(session()->get('gagalTinggi'))
+        <div class="alert-danger">{{session()->get('gagalTinggi')}}</div>
+    @elseif(session()->get('gagalBerat'))
+        <div class="alert-danger">{{session()->get('gagalBerat')}}</div>
+    @elseif(session()->get('kuotaPenuh'))
+        <div class="alert-danger">{{session()->get('kuotaPenuh')}}</div>
+    @elseif(session()->get('success'))
+        <div class="alert-light">{{session()->get('success')}}</div>
     @endif
+
     <!-- Jumbotron -->
     <div class="card card-image" style="background-image: url(https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">
         <div class="text-white text-center rgba-stylish-strong py-5 px-4">
@@ -51,8 +60,28 @@ body{
                         <h4>Waktu Selesai</h4>
                         <h5>{{date("H:m", strtotime($pekerjaan->waktu_selesai))}}</h5>
                         <br/>
-                        <h4>Kuota</h4>
-                        <h5>{{$pekerjaan->kuota}}</h5>
+                        @if($pekerjaan->tinggi_minimal != null || $pekerjaan->tinggi_maksimal != null)
+                            <h4>Tinggi Badan</h4>
+                            @if($pekerjaan->tinggi_minimal !=null)
+                                <h5>minimal: {{$pekerjaan->tinggi_minimal ?? '-'}}</h5>
+                            @elseif($pekerjaan->tinggi_maksimal != null)
+                                <h5>maksimal: {{$pekerjaan->tinggi_maksimal ?? '-' }} </h5>
+                            @endif
+                            <br>
+                        @endif
+
+                        @if($pekerjaan->berat_minimal !=null || $pekerjaan->berat_maksimal != null)
+                            <h4>Berat Badan</h4>
+                            @if($pekerjaan->berat_minimal !=null)
+                            <h5>minimal: {{$pekerjaan->berat_minimal ?? '-'}}</h5>
+                            @elseif($pekerjaan->berat_maksimal != null)
+                            <h5>maksimal: {{$pekerjaan->berat_maksimal ?? '-' }} </h5>
+                            @endif
+                            <br/>
+                        @endif
+
+                        <h4>Kuota tersisa</h4>
+                        <h5>{{($pekerjaan->kuota)-($pekerjaan->dikerjakan()->count())}} Orang</h5>
                         <br/>
 
                         <h4>Alamat Hotel</h4>
