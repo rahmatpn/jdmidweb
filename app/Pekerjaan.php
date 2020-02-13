@@ -48,6 +48,6 @@ class Pekerjaan extends Model
     }
 
     public function posisi(){
-        return $this->hasOne(Posisi::class, 'id');
+        return $this->hasOne(Posisi::class, 'id', 'posisi_id');
     }
 }
