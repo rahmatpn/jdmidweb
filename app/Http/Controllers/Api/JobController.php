@@ -6,15 +6,23 @@ use App\Http\Controllers\Controller;
 use App\Pekerjaan;
 use App\ProfileHotel;
 use Illuminate\Http\Response;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
     function getAllJobs(){
+        $date = Carbon::now()->toDateString();
+        $time = Carbon::now()->toTimeString();
         return response()->json(['jobs'=>
             Pekerjaan::with('hotel.profile')
                 ->with('posisi')
                 ->withCount('dikerjakan')
+                ->where(function ($q) use($date, $time){
+                    $q->where('tanggal_mulai','>',$date)
+                        ->orWhere('tanggal_mulai',$date)->where('waktu_mulai','>',$time);
+                })
+                ->orderBy('tanggal_mulai')
                 ->get()]);
     }
 
@@ -23,22 +31,42 @@ class JobController extends Controller
                 ->pluck('hotel_id')
                 ->toArray();
 
+        $date = Carbon::now()->toDateString();
+        $time = Carbon::now()->toTimeString();
+
         return response()->json(['jobs'=>
             Pekerjaan::with('hotel.profile')
                 ->with('posisi')
                 ->withCount('dikerjakan')
-                ->where('deskripsi','like','%'.$query.'%')
-                ->orWhere('area','like','%'.$query.'%')
-                ->orWhere('hotel_id', !empty($hotel_id) ? $hotel_id : "")
+                ->where(function ($q) use($date, $time){
+                    $q->where('tanggal_mulai','>',$date)
+                        ->orWhere('tanggal_mulai',$date)->where('waktu_mulai','>',$time);
+                })
+                ->where('tanggal_mulai','>',$date)
+                ->orWhere('tanggal_mulai',$date)->where('waktu_mulai','>',$time)
+                ->where(function ($q) use ($query){
+                    $q->where('deskripsi','like','%'.$query.'%')
+                        ->orWhere('area','like','%'.$query.'%')
+                        ->orWhere('hotel_id', !empty($hotel_id) ? $hotel_id : "");
+                })
+                ->orderBy('tanggal_mulai')
                 ->get()]);
     }
 
     function getJobsWithPosition($position){
+        $date = Carbon::now()->toDateString();
+        $time = Carbon::now()->toTimeString();
+
         return response()->json(['jobs'=>
             Pekerjaan::with('hotel.profile')
                 ->with('posisi')
                 ->withCount('dikerjakan')
-                ->where('posisi',$position)
+                ->where('posisi_id',$position)
+                ->where(function ($q) use($date, $time){
+                    $q->where('tanggal_mulai','>',$date)
+                        ->orWhere('tanggal_mulai',$date)->where('waktu_mulai','>',$time);
+                })
+                ->orderBy('tanggal_mulai')
                 ->get()]);
     }
 
