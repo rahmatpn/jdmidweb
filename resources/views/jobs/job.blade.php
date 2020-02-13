@@ -10,6 +10,9 @@ body{
 @endsection
 @section('content')
 <div class="container">
+    @if(session()->get('gagal'))
+        <div class="alert-danger">{{session()->get('gagal')}}</div>
+    @endif
     <!-- Jumbotron -->
     <div class="card card-image" style="background-image: url(https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">
         <div class="text-white text-center rgba-stylish-strong py-5 px-4">
