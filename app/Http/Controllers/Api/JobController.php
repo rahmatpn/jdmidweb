@@ -80,16 +80,27 @@ class JobController extends Controller
         $currentJob->berat_minimal = $currentJob->berat_minimal == null ? PHP_INT_MIN : $currentJob->berat_minimal;
         $currentJob->berat_maksimal = $currentJob->berat_maksimal == null ? PHP_INT_MAX : $currentJob->berat_maksimal;
 
-        if($currentJob->dikerjakan->count() < $currentJob->kuota)
-            return response()->json($user->mengerjakan()->toggle(Pekerjaan::findOrFail($job)));
+        $date = Carbon::now()->toDateString();
+        $time = Carbon::now()->toTimeString();
 
-        else if ($currentJob->tinggi_minimal <= $profile->tinggi_badan && $currentJob->tinggi_maksimal >= $profile->tinggi_badan)
+        $isExpired = true;
+
+        if ($currentJob->tanggal_mulai > $date || $currentJob->tanggal_mulai == $date && $currentJob->waktu_mulai > $time)
+            $isExpired = false;
+
+        if($currentJob->dikerjakan->count() >= $currentJob->kuota)
+            return response()->json(['message'=>'Kuota sudah penuh'],Response::HTTP_FORBIDDEN);
+
+        elseif ($isExpired)
+            return response()->json(['message'=>'Job sudah expired'], Response::HTTP_FORBIDDEN);
+        elseif (!$profile->isCompleted)
+            return response()->json(['message'=>'Silakan melengkapi profil'], Response::HTTP_FORBIDDEN);
+        elseif ($currentJob->tinggi_minimal <= $profile->tinggi_badan && $currentJob->tinggi_maksimal >= $profile->tinggi_badan)
             return response()->json(['message'=>'Tinggi tidak memenuhi'],Response::HTTP_FORBIDDEN);
-
-        else if ($currentJob->berat_minimal <= $profile->berat_badan && $currentJob->berat_maksimal >= $profile->berat_badan)
+        elseif ($currentJob->berat_minimal <= $profile->berat_badan && $currentJob->berat_maksimal >= $profile->berat_badan)
             return response()->json(['message'=>'Berat tidak memenuhi'],Response::HTTP_FORBIDDEN);
 
         else
-            return response()->json(['message'=>'Kuota sudah penuh'],Response::HTTP_FORBIDDEN);
+            return response()->json($user->mengerjakan()->toggle(Pekerjaan::findOrFail($job)));
     }
 }
