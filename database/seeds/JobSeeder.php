@@ -54,7 +54,7 @@ class JobSeeder extends Seeder
             'kuota'=>1,
             'bayaran'=>300000,
             'deskripsi'=>'Jangan lupa bayar zakat',
-            'url_slug'=> Str::slug('Gedung A Lantai 1'.time(),'-'),
+            'url_slug'=> Str::slug('Gedung A Lantai 1 '.time(),'-'),
             'created_at'=> Carbon::now()->toDateTimeString(),
             'updated_at'=> Carbon::now()->toDateTimeString()
         ]);
@@ -69,7 +69,7 @@ class JobSeeder extends Seeder
             'kuota'=>1,
             'bayaran'=>300000,
             'deskripsi'=>'Jangan lupa bayar zakat untuk satunya',
-            'url_slug'=> Str::slug('Gedung A Lantai 2'.time(),'-'),
+            'url_slug'=> Str::slug('Gedung A Lantai 2 '.time(),'-'),
             'created_at'=> Carbon::now()->toDateTimeString(),
             'updated_at'=> Carbon::now()->toDateTimeString()
         ]);
@@ -83,8 +83,8 @@ class JobSeeder extends Seeder
             'waktu_selesai'=>date("H:i:s"),
             'kuota'=>5,
             'bayaran'=>50000,
-            'deskripsi'=>'Jangan lupa bayar zakat',
-            'url_slug'=> Str::slug('Gedung Z'.time(),'-'),
+            'deskripsi'=>'Jangan datang telat',
+            'url_slug'=> Str::slug('Gedung Z '.time(),'-'),
             'created_at'=> Carbon::now()->toDateTimeString(),
             'updated_at'=> Carbon::now()->toDateTimeString()
         ]);
@@ -98,8 +98,8 @@ class JobSeeder extends Seeder
             'waktu_selesai'=>date("H:i:s"),
             'kuota'=>2,
             'bayaran'=>150000,
-            'deskripsi'=>'Jangan lupa bayar zakat untuk satunya',
-            'url_slug'=> Str::slug('Kolam Renang'.time(),'-'),
+            'deskripsi'=>'Telat gpp',
+            'url_slug'=> Str::slug('Kolam Renang '.time(),'-'),
             'created_at'=> Carbon::now()->toDateTimeString(),
             'updated_at'=> Carbon::now()->toDateTimeString()
         ]);
