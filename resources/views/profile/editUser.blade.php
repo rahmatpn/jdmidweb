@@ -16,6 +16,8 @@
     </div>
 
     <form action="/user/{{$user->profile->url_slug}}" enctype="multipart/form-data" method="post">
+        @csrf
+        @method('PATCH')
     <!-- Jumbotron -->
     <div class="container my-5">
 
@@ -157,15 +159,116 @@
         </section>
         <section>
 
+            <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Posisi</h3>
+            <hr class="w-header">
+            <!-- Section description -->
 
+{{--                <div class="custom-control custom-checkbox custom-control-inline">--}}
+{{--                    <input type="checkbox" class="custom-control-input" id="posisi_user" name="posisi_user[]"  value="{{$posisi->id}}" {{($posisi->posisi==1)?  "checked" : "" }}>--}}
+{{--                </div>--}}
 
+{{--                <select class="selectpicker form-control" data-style="btn rounded btn-outline-info waves-effect" style="text-decoration-color: black" data-container="body" multiple>--}}
+{{--                    @foreach($posisi as $posisi)--}}
+{{--                    <option id="posisi_user" type="checkbox" name="posisi_user[]"  value="{{$posisi->id}}" {{($posisi->posisi==1)?  "checked" : "" }}>{{$posisi->nama_posisi}}</option>--}}
+{{--                    @endforeach--}}
+{{--                </select>--}}
+
+{{--            @foreach($posisi as $posisi)--}}
+{{--                <div class="custom-control custom-checkbox custom-control-inline">--}}
+
+{{--                    <input type="checkbox" class="custom-control-input custom" id="posisi_user" name="posisi_user[]"  value="{{$posisi->id}}" {{($posisi->posisi==1)?  "checked" : "" }}>--}}
+{{--                    <label class="custom-control-label">{{$posisi->nama_posisi}}--}}
+{{--                    </label>--}}
+{{--                </div>--}}
+{{--                @endforeach--}}
+            @foreach($posisi as $posisi)
+            <div class="custom-control custom-control-inline">
+                <input type="checkbox" class="form-check-input" id="posisi_user" name="posisi_user[]"  value="{{$posisi->id}}" {{($posisi->posisi==1)?  "checked" : "" }}>
+                <label for="defaultInline1">{{$posisi->nama_posisi}}</label>
+            </div>
+            @endforeach
         </section>
         <section>
+        <script>
+            $(document).ready( function() {
+                $(document).on('change', '.btn-file :file', function() {
+                    var input = $(this),
+                        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+                    input.trigger('fileselect', [label]);
+                });
+
+                $('.btn-file :file').on('fileselect', function(event, label) {
+
+                    var input = $(this).parents('.input-group').find(':text'),
+                        log = label;
+
+                    if( input.length ) {
+                        input.val(log);
+                    } else {
+                        if( log ) alert(log);
+                    }
+
+                });
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            $('#img-upload').attr('src', e.target.result);
+                        }
+
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+
+                $("#imgInp").change(function(){
+                    readURL(this);
+                });
+            });
+        </script>
             <!-- Section heading -->
             <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Foto</h3>
             <hr class="w-header">
             <!-- Section description -->
+            <div class="row py-4">
+                <div class="col-lg-6 mx-auto">
+
+                    <!-- Upload image input-->
+                    <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+                        <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0" id="foto" name="foto" >
+                        <label id="upload-label" for="upload" class="font-weight-light text-muted">Pilih File</label>
+                    </div>
+
+                    <!-- Uploaded image area-->
+                    <p class="font-italic text-muted text-center">The image uploaded will be rendered inside the box below.</p>
+                    <div class="image-area mt-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+
+                </div>
+            </div>
         </section>
+
+
+        <section>
+            <!-- Section heading -->
+            <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Cover</h3>
+            <hr class="w-header">
+            <!-- Section description -->
+            <div class="row py-4">
+                <div class="col-lg-6 mx-auto">
+
+                        <div class="input-group">
+            <span class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+                <label id="upload-label" for="upload" class="font-weight-light text-muted">Pilih File</label>
+                    <input type="file" id="imgInp" class="upload form-control border-0">
+            </span>
+                        </div>
+                    <p class="font-italic text-muted text-center">The image uploaded will be rendered inside the box below.</p>
+                        <img id='img-upload' class="img-fluid rounded shadow-sm mx-auto d-block"/>
+
+                </div>
+            </div>
+        </section>
+        <button class="btn rounded btn-primary" type="submit">Save Changes</button>
     </div>
     </form>
 

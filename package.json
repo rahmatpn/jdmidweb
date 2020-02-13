@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@dashboardcode/bsmultiselect": "^0.5.9",
         "@jkryszto/mdb-for-laravel": "^1.0.0",
         "node-waves": "^0.7.6"
     }

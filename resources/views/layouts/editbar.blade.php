@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="{{ asset('css/freelancer.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+
+{{--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dashboardcode/bsmultiselect@0.5.9/dist/css/BsMultiSelect.min.css">--}}
+{{--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dashboardcode/bsmultiselect@0.5.9/dist/css/BsMultiSelect.min.css.map">--}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,6 +20,8 @@
     <script type="text/javascript" src="scripts/jquery.formatCurrency.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
     <script src="{{ asset('js/mdb.js') }}"></script>
@@ -168,12 +174,114 @@
         .has-error input[type="text"], .has-error input[type="email"], .has-error input[type="number"], .has-error input[type="time"], .has-error input[type="date"] .has-error select {
             border: 1px solid #ff6162;
         }
+        #upload {
+            opacity: 0;
+        }
+
+        #upload-label {
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            transform: translateY(-50%);
+        }
+
+        .image-area {
+            border: 2px dashed rgba(255, 255, 255, 0.7);
+            padding: 1rem;
+            position: relative;
+        }
+
+        .image-area::before {
+            content: 'Uploaded image result';
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.8rem;
+            z-index: 1;
+        }
+        .upload {
+            opacity: 0;
+        }
+
+        .upload-label {
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            transform: translateY(-50%);
+        }
+
+
+        .image-area img {
+            z-index: 2;
+            position: relative;
+        }
+        .cover-area {
+            border: 2px dashed rgba(255, 255, 255, 0.7);
+            padding: 1rem;
+            position: relative;
+        }
+
+        .cover-area::before {
+            content: 'Uploaded image result';
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: absolute;
+            top: 100%;
+            left: 100%;
+            transform: translate(-50%, -50%);
+            font-size: 0.8rem;
+            z-index: 1;
+        }
+
+        .cover-area img {
+            z-index: auto;
+            position: relative;
+        }
+        #img-upload{
+            width: 100%;
+        }
     </style>
 </head>
 <script>
     $( document ).ready(function() {
         new WOW().init();
     });
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#imageResult')
+                    .attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $(function () {
+        $('#upload').on('change', function () {
+            readURL(input);
+        });
+    });
+
+    /*  ==========================================
+        SHOW UPLOADED IMAGE NAME
+    * ========================================== */
+    var input = document.getElementById( 'upload' );
+    var infoArea = document.getElementById( 'upload-label' );
+
+    input.addEventListener( 'change', showFileName );
+    function showFileName( event ) {
+        var input = event.srcElement;
+        var fileName = input.files[0].name;
+        infoArea.textContent = 'File name: ' + fileName;
+    }
 </script>
 <body>
 
