@@ -8,6 +8,7 @@ class ProfileUser extends Model
 {
     protected $table = "user_profiles";
     protected $guarded = [];
+    protected $appends = array('isCompleted');
 
     public function profileFoto(){
         return ($this->foto) ? $this->foto : '/image/user/profile/Q8QsrapijI7Y4TdaKMO08tnvcvH0p1Z8Ni9BaLdr.jpeg';
@@ -20,5 +21,18 @@ class ProfileUser extends Model
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    private function isCompleted(){
+        if ($this->nama_lengkap == null || $this->nomor_telepon == null || $this->tanggal_lahir == null || $this->jenis_kelamin == null ||
+        $this->tinggi_badan == null || $this->berat_badan == null || $this->alamat == null || $this->social_media == null ||
+        $this->pendidikan_terakhir == null || $this->foto == null || $this->cover == null){
+            return false;
+        }
+        return true;
+    }
+
+    public function getIsCompletedAttribute(){
+        return $this->isCompleted();
     }
 }

@@ -15,7 +15,7 @@ class ProfileController extends Controller
 {
     function getUserProfile($id)
     {
-        return response(["profile"=>\App\ProfileUser::firstOrFail()->where('user_id', $id)->get()]);
+        return response(["profile"=> ProfileUser::firstOrFail()->where('user_id', $id)->get()]);
     }
 
     function updateProfile(Request $request)
