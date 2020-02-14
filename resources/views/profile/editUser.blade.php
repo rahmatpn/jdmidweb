@@ -20,6 +20,9 @@
         @method('PATCH')
     <!-- Jumbotron -->
     <div class="container my-5">
+        @if(session()->get('gagalProfile'))
+            <div class="alert-danger">{{session()->get('gagalProfile')}}</div>
+        @endif
 
         <!--Section: Content-->
         <section>

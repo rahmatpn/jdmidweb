@@ -85,8 +85,9 @@ class PekerjaanController extends Controller
     public function apply($url_slug){
         $user = Auth::user();
         $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
+
         if ($user->profile->getIsCompletedAttribute() == false)
-            return back()->with('gagalProfile','Profile Belum Lengkap');
+            return redirect('/user/'.$user->profile->url_slug.'/edit')->with('gagalProfile','Profile belum lengkap');
         elseif ($pekerjaan->tinggi_minimal != Null) {
             if ($user->profile->tinggi_badan < $pekerjaan->tinggi_minimal || $user->profile->tinggi_badan > $pekerjaan->tinggi_maksimal)
                 return back()->with('gagalTinggi', 'Tinggi badan anda tidak sesuai kriteria');
