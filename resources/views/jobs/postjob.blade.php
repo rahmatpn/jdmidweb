@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-sm-8 offset-sm-2">
         <div class="container">
-            <form action="/job" enctype="multipart/form-data"  data-toggle="validator" method="post">
+            <form action="{{url('/job')}}" enctype="multipart/form-data"  data-toggle="validator" method="post">
             <a href="{{url('/hotel/'.auth()->user()->profile->url_slug)}}" class="btn btn-info" role="button"> Kembali</a>
             <br/>
             <br/>

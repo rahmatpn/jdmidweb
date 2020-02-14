@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <form action="/user/{{$user->profile->url_slug}}" enctype="multipart/form-data" method="post">
+    <form action="{{url('/user/'.$user->profile->url_slug)}}" enctype="multipart/form-data" method="post">
         @csrf
         @method('PATCH')
     <!-- Jumbotron -->

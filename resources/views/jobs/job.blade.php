@@ -92,11 +92,13 @@ body{
                         @csrf
                         <input type="submit" class="btn aqua-gradient-rgba" value="Apply">
                     </form>
-
+                    <a class="btn btn-primary" href="/job/{{$pekerjaan->url_slug}}/postlist" >Buat To-do List</a>
                 </div>
             </div>
+
         </div>
 
     </div>
 
-</div>@endsection
+</div>
+@endsection
