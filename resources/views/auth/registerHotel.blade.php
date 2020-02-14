@@ -142,7 +142,7 @@
 <div class="page-content">
     <div class="form-v8-content  shadow-lg">
         <div class="form-left ">
-            <img src="/image/hotel1.jpg"  alt="form">
+            <img src="{{asset('/image/hotel1.jpg')}}"  alt="form">
         </div>
 
         <div class="form-right">

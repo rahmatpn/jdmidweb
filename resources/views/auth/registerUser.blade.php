@@ -138,7 +138,7 @@
 <div class="page-content">
     <div class="form-v8-content  shadow-lg">
         <div class="form-left ">
-            <img src="/image/user.jpg"  class="img-fluid" style="padding-top: 50px"  alt="form">
+            <img src="{{asset('/image/user.jpg')}}"  class="img-fluid" style="padding-top: 50px"  alt="form">
         </div>
 
         <div class="form-right">
