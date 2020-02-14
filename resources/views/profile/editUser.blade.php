@@ -259,7 +259,7 @@
                         <div class="input-group">
             <span class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
                 <label id="upload-label" for="upload" class="font-weight-light text-muted">Pilih File</label>
-                    <input type="file" id="imgInp" class="upload form-control border-0">
+                    <input type="file" id="imgInp" class="upload form-control border-0"  name="cover">
             </span>
                         </div>
                     <p class="font-italic text-muted text-center">The image uploaded will be rendered inside the box below.</p>
