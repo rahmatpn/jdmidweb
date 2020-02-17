@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Artisan;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -61,3 +63,6 @@ Route::group([
 
 Route::get('/job/{url_slug}', 'PekerjaanController@show');
 
+Route::get('/command/initpassport', function (){
+    Artisan::call('passport:install');
+});

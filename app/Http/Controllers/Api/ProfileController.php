@@ -30,7 +30,7 @@ class ProfileController extends Controller
         if ($newProfile->fails()) {
             return response()->json(['errors'=>$newProfile->messages()],Response::HTTP_UNPROCESSABLE_ENTITY);
         }else {
-            $profile->update($request->all());
+            $profile->update($request->except('isCompleted'));
             return response()->json(['profile' => $profile], Response::HTTP_OK);
         }
     }
@@ -52,12 +52,7 @@ class ProfileController extends Controller
         $foto = Image::make(public_path("image/{$fotoPath}"));
         $foto -> save();
         $path = "/image/{$fotoPath}";
-//
-//        $name = time().'.'.$file->getClientOriginalExtension();
-//        $path = "/image/user/profile/";
-//        $destinationPath = public_path($path);
-//        $file->move($destinationPath, $name);
-//        $realPath = $path.$name;
+
         if ($profile['foto'] != null) {
             $oldPath = public_path($profile['foto']);
             if (file_exists($oldPath)) { //If it exits, delete it from folder
