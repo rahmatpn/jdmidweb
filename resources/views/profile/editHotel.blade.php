@@ -62,6 +62,17 @@
                 </div>
                 <div class="md-form input-group mb-3">
                     <div class="input-group-prepend">
+                        <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Deskripsi</span>
+                    </div>
+                    <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{ old('social_media') ?? $hotel->profile->deskripsi}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                    @if($errors->has('deskripsi'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('deskripsi') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="md-form input-group mb-3">
+                    <div class="input-group-prepend">
                         <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Social Media</span>
                     </div>
                     <input type="text" class="form-control" id="social_media" name="social_media" value="{{ old('social_media') ?? $hotel->profile->social_media}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
@@ -75,7 +86,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default" for="alamat">Alamat</span>
                     </div>
-                    <textarea id="alamat" class="md-textarea form-control" rows="3">
+                    <textarea id="alamat" class="md-textarea form-control" rows="3" name="alamat">
                     {{ old('alamat') ?? $hotel->profile->alamat}}
                 </textarea>
                 </div>

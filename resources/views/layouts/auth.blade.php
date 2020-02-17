@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kolega Hotel</title>
-    <link rel="icon" href="/image/logo2.png">
+    <link rel="icon" href="{{asset('/image/logo2.png')}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="{{ asset('css/freelancer.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -31,22 +32,6 @@
             background-color: white;
         }
 
-        @media (max-width: 740px) {
-            html,
-            body,
-            header,
-            .view {
-                height: 1000px;
-            }
-        }
-        @media (min-width: 800px) and (max-width: 850px) {
-            html,
-            body,
-            header,
-            .view {
-                height: 600px;
-            }
-        }
 
         .btn .fa {
             margin-left: 3px;
@@ -183,15 +168,18 @@
                 <img src="{{asset('/image/logo_head.png')}}" height="50" alt="logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
+                <span class="dark-blue-text"><i
+                        class="fas fa-bars fa-1x"></i></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-                    <form action ="#" method="GET" class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-primary btn-rounded" type="submit">Search</button>
+                    <!-- Search form -->
+                    <form class="form-inline active-cyan-4">
+                        <input class="form-control form-contro l-sm mr-3 w-75" type="text" placeholder="Search"
+                               aria-label="Search">
+                        <i class="fas fa-search text-light" aria-hidden="true"></i>
                     </form>
                 </ul>
 

@@ -32,10 +32,11 @@
             <h5 class="masthead-subheading"></h5>
 
             <!-- Masthead Subheading -->
-            @foreach($user->posisi as $posisi)
-            <p class="masthead-subheading font-weight-light mb-0">{{$posisi->nama_posisi}}</p>
+            @if(is_array($user->posisi) || is_object($user->posisi))
+                @foreach($user->posisi as $posisi)
+                <p class="masthead-subheading font-weight-light mb-0">{{$posisi->nama_posisi}}</p>
                 @endforeach
-
+            @endif
         </div>
 
     </header>

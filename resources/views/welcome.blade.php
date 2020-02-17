@@ -169,11 +169,21 @@
 
         /* Create the parallax scrolling effect */
         background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
+        background-position: 50% 50%;
         background-size: cover;
 
 
+    }
+    .parallax h1{
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 60px;
+        text-align: center;
+        padding-top: 60px;
+        line-height: 100px;
+    }
+    .jumbotron{margin-bottom: 0;}
+    .paralsec {
+        background-image: url("https://images.pexels.com/photos/453201/pexels-photo-453201.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     }
     .parallaxx {
         /* The image used */
@@ -392,7 +402,7 @@
     </div>
 </section>
 
-<div class="mask rgba-blue-slightb">
+<div class="mask rgba-blue-slight">
 <div data-jarallax data-speed="0.2" class="parallax wow fadeIn">
     <br/>
         <div class="container flex-center text-center">

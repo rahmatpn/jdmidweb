@@ -11,9 +11,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
-class ProfileHotelController extends Controller {
-
-    public function indexHotel($url_slug) {
+class ProfileHotelController extends Controller
+{
+    public function indexHotel($url_slug)
+    {
         $profil = ProfileHotel::where('url_slug', '=', $url_slug)->first();
         if ($profil != null) {
             $hotel = Hotel::findOrFail($profil->hotel_id);
@@ -23,14 +24,19 @@ class ProfileHotelController extends Controller {
         }
     }
 
-    public function edit($url_slug) {
+    public function edit($url_slug)
+    {
         $profil = ProfileHotel::where('url_slug', '=', $url_slug)->with('hotel')->first();
         $hotel = Hotel::find($profil->hotel_id);
         return view('profile.editHotel', compact('hotel'));
     }
 
-    public function update($url_slug) {
+
+    public function update($url_slug)
+    {
         $profile = ProfileHotel::where('url_slug', '=', $url_slug)->with('hotel')->first();
+        $hotel = Hotel::find($profile->hotel_id);
+
 
         $data = request()->validate([
             'nama' => 'required',
@@ -38,21 +44,34 @@ class ProfileHotelController extends Controller {
             'alamat' => '',
             'social_media' => '',
             'website' => '',
-            'foto' => ''
+            'deskripsi' => '',
+            'foto' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        $profile->update($data);
+
 
         if (request('foto')) {
-            $file = request('foto');
-            $foto = $file->move('image/hotel/photo/', $profile->nama . '.' . $file->getClientOriginalExtension());
+            $fotoPath = request('foto')->store('hotel/photo', 'public');
+
+            $foto = Image::make(public_path("image/{$fotoPath}"))->fit(1000, 1000);
+            $foto->save();
+            $path = "/image/{$fotoPath}";
+            $fotoArray = ['foto' => $path];
+            if ($hotel->profile->foto != null) {
+                $oldPath = public_path($hotel->profile->foto);
+                if (file_exists($oldPath)) { //If it exits, delete it from folder
+                    unlink($oldPath);
+                }
+            }
         }
 
-        $profile->update([
-            'foto' => !empty($foto) ? $foto : $profile->foto,
-        ]);
+            auth()->user()->profile->update(array_merge(
+                $data,
+                $fotoArray ?? []
+            ));
 
-        return redirect("/hotel/{$profile->url_slug}")->with("success", "Data Has Been Updated Successfully");
+
+            return redirect("/hotel/{$profile->url_slug}")->with("success", "Data Has Been Updated Successfully");
+
     }
-
 }

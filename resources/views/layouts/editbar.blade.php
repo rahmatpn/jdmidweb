@@ -37,22 +37,6 @@
             background-color: white;
         }
 
-        @media (max-width: 740px) {
-            html,
-            body,
-            header,
-            .view {
-                height: 1000px;
-            }
-        }
-        @media (min-width: 800px) and (max-width: 850px) {
-            html,
-            body,
-            header,
-            .view {
-                height: 600px;
-            }
-        }
 
         .btn .fa {
             margin-left: 3px;
