@@ -6,6 +6,7 @@ use App\Hotel;
 use App\Pekerjaan;
 use App\Posisi;
 use App\ProfileHotel;
+use App\ToDoList;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -107,15 +108,15 @@ class PekerjaanController extends Controller
     }
 
 
-    public function showList(){
-        return view('todolist.postlist');
+    public function showList($url_slug){
+        $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
+        return view('todolist.postlist', compact('pekerjaan'));
     }
 
     public function todolist($url_slug){
 
-
         $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
-        dd($pekerjaan);
+
         $data = request()->validate([
             'nama_pekerjaan'=>'required'
         ]);

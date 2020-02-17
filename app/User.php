@@ -68,6 +68,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsToMany(Posisi::class);
     }
 
+    public function todolist(){
+        return $this->belongsToMany(ToDoList::class);
+    }
+
     public function AauthAcessToken(){
         return $this->hasMany(OauthAccessToken::class);
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTodolistTable extends Migration
+class CreateTodolistUser extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateTodolistTable extends Migration
      */
     public function up()
     {
-        Schema::create('todolist', function (Blueprint $table) {
+        Schema::create('todolist_user', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('pekerjaan_id');
-            $table->string('nama_pekerjaan');
+            $table->unsignedBigInteger('todolist_id');
+            $table->unsignedBigInteger('user_id');
+            $table->boolean('status');
             $table->timestamps();
 
-            $table->index('pekerjaan_id');
+            $table->index('todolist_id');
+            $table->index('user_id');
         });
     }
 
@@ -30,6 +32,6 @@ class CreateTodolistTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('todolist');
+        Schema::dropIfExists('todolist_user');
     }
 }
