@@ -104,9 +104,25 @@ class PekerjaanController extends Controller
         return back()->with('success','Berhasil apply pekerjaan di '.$pekerjaan->hotel->profile->nama);
 
         }
+    }
 
 
+    public function showList(){
+        return view('todolist.postlist');
+    }
 
+    public function todolist($url_slug){
+
+
+        $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
+        dd($pekerjaan);
+        $data = request()->validate([
+            'nama_pekerjaan'=>'required'
+        ]);
+
+        $pekerjaan->todolist()->create($data);
+
+        return view('jobs.job', compact('pekerjaan'));
 
     }
 
