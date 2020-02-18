@@ -42,13 +42,14 @@ class ProfileHotelController extends Controller {
         ]);
 
         $profile->update($data);
-        
+
         if (request('foto')) {
             if (file_exists($profile->foto)) {
                 unlink($profile->foto);
             }
             $fileFoto = request('foto');
             $foto = $fileFoto->move('image/hotel/photo', $fileFoto->getClientOriginalName());
+            Image::make($foto)->fit(1000,1000)->save($foto);
         }
 
 
