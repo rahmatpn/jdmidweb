@@ -10,7 +10,7 @@
                 body,
                 header,
                 .view {
-                    height: 600px;
+                    height: 500px;
                 }
             }
 
@@ -19,14 +19,12 @@
                 body,
                 header,
                 .view{
-                    height: auto;
+                    height: 500px;
                 }
 
             }
 
             .paral {
-
-
 
                 /* Set a specific height */
                 min-height: 400px;
@@ -118,8 +116,8 @@
                 <div class="row">
                     <div class="col-md-6">
 
-                        <div class="view">
-                            <img src="{{asset($hotel->profile->hotelPhoto())}}" style="background-size: cover; width: 110%; object-fit: cover" class="d-flex" alt="Foto Profile Hotel">
+                        <div class="view wow fadeInLeft">
+                            <img src="{{asset($hotel->profile->hotelPhoto())}}" style="background-size: cover; width: 110%;" class="d-flex " alt="Foto Profile Hotel">
                             <div class="mask flex-center hm-gradient">
                             </div>
                         </div>
@@ -128,13 +126,13 @@
 
                     <div class="col-md-6">
 
-                        <div class="d-flex flex-column justify-content-center align-items-baseline h-100">
-                            <h4 class="subheading font-weight-bold">Hello We Are</h4>
-                            <h1 class="heading">{{$hotel->profile->nama}}</h1>
-                            <h4 class="subheading font-weight-bold">{{$hotel->profile->deskripsi}}</h4>
+                        <div class="d-flex flex-column justify-content-center align-items-baseline h-100 " >
+                            <h4 class="subheading font-weight-bold wow fadeInRight" data-wow-delay="0.4s">Hello We Are</h4>
+                            <h1 class="heading wow fadeInRight" data-wow-delay="0.6s">{{$hotel->profile->nama}}</h1>
+                            <h4 class="subheading font-weight-bold wow fadeInRight" data-wow-delay="0.7s">{{$hotel->profile->deskripsi}}</h4>
 
                             <div class="mr-4">
-                                <a href="{{url('/job/postjob')}}" type="button" class="btn btn-lily btn-margin rounded">Post A Job<i class="fas fa-caret-right ml-3"></i></a>
+                                <a href="{{url('/job/postjob')}}" type="button" class="btn btn-lily btn-margin rounded wow fadeIn" style="margin-top: 10px" data-wow-delay="1s">Post A Job<i class="fas fa-caret-right ml-3"></i></a>
                             </div>
                         </div>
 
@@ -146,14 +144,13 @@
 
         </header>
 
-        <div class="jumbotron paral parallax">
-            <h1 class="display-3">About Us</h1>
+        <div class="jumbotron paral parallax ">
+            <h1 class="display-3 wow fadeIn">About Us</h1>
 
         </div>
 
         <div class="container my-5">
             <section>
-
                 <!-- Section heading -->
                 <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Our Profile</h3>
                 <hr class="w-header">
@@ -161,7 +158,7 @@
 
 
 
-                <div class="row text-center text-md-left">
+                <div class="row text-center text-md-left wow fadeInUp">
                     <div class="col-md-6 mb-4">
                         <h5 class="font-weight-normal mb-3">Nama</h5>
                         <p class="text-muted">{{$hotel->profile->nama}}</p>
@@ -206,6 +203,22 @@
                         padding-right: 1rem;
                         padding-top: .6rem;
                     }
+
+                    .parent {
+                        position: relative;
+                    }
+                    .child {
+                        position: absolute;
+                        font-family: Arial;
+                        display:flex;
+                        justify-content:center;
+                        align-items:center;
+                        position: absolute;
+                        right: 10px;
+                        top:10px;
+                        color: white;
+                    }
+
                 </style>
 
 
@@ -226,21 +239,55 @@
                         <div class="row">
                             <!-- Grid column -->
                             @foreach($hotel->pekerjaan as $pekerjaan)
-                            <div class="col-md-12 col-lg-4">
 
+                            <div class="col-md-12 col-lg-4 ">
                                 <!-- Card -->
-                                <a class="card hoverable mb-4 waves-effect waves-light rgba-white-slight" href="{{url("/job/$pekerjaan->url_slug")}}">
 
-                                    <!-- Card image -->
-                                    <img class="card-img-top" src="{{asset($hotel->profile->hotelPhoto())}}" alt="Card image cap">
+                                <div class="card parent wow fadeInUp">
+                                    <!--Card image-->
+                                    <div class="view overlay">
 
-                                    <!-- Card content -->
-                                    <div class="card-body">
-
-                                        <h5 class="my-3">{{$pekerjaan->getPosisi()}}</h5>
-                                        <p class="card-text desc mb-3">{!!html_entity_decode($pekerjaan->deskripsi)!!}</p>
+                                        <img class="card-img-top" src="{{asset($hotel->profile->hotelPhoto())}}"
+                                             alt="Card image cap">
+                                            <div class="mask rgba-white-slight"></div>
                                     </div>
-                                </a>
+
+                                    <!--Card content-->
+                                    <div class="card-body">
+                                        <!--Title-->
+                                        <h4 class="card-title">{{$pekerjaan->getPosisi()}}</h4>
+                                        <!--Text-->
+                                        <p class="card-text desc">{!!html_entity_decode($pekerjaan->deskripsi)!!}</p>
+                                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                                        <a type="button" href="{{url("/job/$pekerjaan->url_slug")}}" class="btn btn-light-blue btn-md">Read more</a>
+
+                                    </div>
+                                    <div class="child dropdown dropleft">
+                                        <a class="material-icons" data-toggle="dropdown"
+                                           aria-haspopup="true" aria-expanded="false">more_vert</a>
+                                        <div class="dropdown-menu dropdown-menu-left">
+                                            <a class="dropdown-item" href="{{url("/job/$pekerjaan->url_slug/edit")}}">Edit</a>
+                                            <a class="dropdown-item" href="{{url("/job/$pekerjaan->url_slug/delete")}}">Delete</a>
+                                        </div>
+                                        <!-- Basic dropdown -->
+                                    </div>
+
+                                </div>
+{{--                                <a class="card hoverable mb-4 waves-effect waves-light rgba-white-slight">--}}
+{{--                                    <!-- Card image -->--}}
+
+{{--                                    <img class="card-img-top" src="{{asset($hotel->profile->hotelPhoto())}}" alt="Card image cap">--}}
+
+
+
+{{--                                    <!-- Card content -->--}}
+{{--                                    <div class="card-body">--}}
+{{--                                        <h5 class="my-3">{{$pekerjaan->getPosisi()}}</h5>--}}
+{{--                                        <p class="card-text desc mb-3">{!!html_entity_decode($pekerjaan->deskripsi)!!}</p>--}}
+{{--                                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->--}}
+{{--                                        <a href="{{url("/job/$pekerjaan->url_slug")}}"class="btn btn-primary btn-md" >Read more</a>--}}
+{{--                                    </div>--}}
+{{--                                </a>--}}
                                 <!-- Card -->
 
                             </div>
