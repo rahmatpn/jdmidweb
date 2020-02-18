@@ -313,7 +313,7 @@
                     <div class="col-md-6 d-flex justify-content-start">
                         <!-- Copyright -->
                         <div class="footer-copyright text-center bg-transparent">© 2020 Copyright:
-                            <a href="https://mdbootstrap.com/education/bootstrap/"> kolegahotel.com</a>
+                            <a href="#"> kolegahotel.com</a>
                         </div>
                         <!-- Copyright -->
                     </div>
