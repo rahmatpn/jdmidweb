@@ -240,7 +240,7 @@
                             <!-- Grid column -->
                             @foreach($hotel->pekerjaan as $pekerjaan)
 
-                            <div class="col-md-12 col-lg-4 ">
+                            <div class="col-md-12 col-lg-4">
                                 <!-- Card -->
 
                                 <div class="card parent wow fadeInUp">
@@ -257,7 +257,7 @@
                                         <!--Title-->
                                         <h4 class="card-title">{{$pekerjaan->getPosisi()}}</h4>
                                         <!--Text-->
-                                        <p class="card-text desc">{!!html_entity_decode($pekerjaan->deskripsi)!!}</p>
+                                        <div class="desc card-text">{!!html_entity_decode($pekerjaan->deskripsi)!!}</div>
                                         <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
                                         <a type="button" href="{{url("/job/$pekerjaan->url_slug")}}" class="btn btn-light-blue btn-md">Read more</a>
 
@@ -273,6 +273,7 @@
                                     </div>
 
                                 </div>
+                            <br/>
 {{--                                <a class="card hoverable mb-4 waves-effect waves-light rgba-white-slight">--}}
 {{--                                    <!-- Card image -->--}}
 
