@@ -11,12 +11,11 @@ class ProfileUser extends Model
     protected $appends = array('isCompleted');
 
     public function profileFoto(){
-        return ($this->foto) ? $this->foto : '/image/user/profile/Q8QsrapijI7Y4TdaKMO08tnvcvH0p1Z8Ni9BaLdr.jpeg';
+        return ($this->foto) ? $this->foto : 'image/user/profile/Q8QsrapijI7Y4TdaKMO08tnvcvH0p1Z8Ni9BaLdr.jpeg';
     }
 
-
     public function profileCover(){
-        return ($this -> cover) ?  $this->cover : '/image/user/cover/qj8MLkgRDV8E8WFk86txcFQ9guFZOZyEfRafS77D.webp';
+        return ($this -> cover) ? str_replace('\\', '/', $this->cover) : 'image/user/cover/qj8MLkgRDV8E8WFk86txcFQ9guFZOZyEfRafS77D.webp';
     }
 
     public function user(){

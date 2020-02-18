@@ -83,12 +83,12 @@ class ProfileUserController extends Controller {
 
         if (request('foto')) {
             $fileFoto = request('foto');
-            $foto = $fileFoto->move('/image/user/profile/', $profile->nama . '.' . $fileFoto->getClientOriginalExtension());
+            $foto = $fileFoto->move('image/user/profile/', $profile->nama . '.' . $fileFoto->getClientOriginalExtension());
         }
 
         if (request('cover')) {
             $fileCover = request('cover');
-            $cover = $fileCover->move('/image/user/cover/', $profile->nama . '.' . $fileCover->getClientOriginalExtension());
+            $cover = $fileCover->move('image/user/cover/', $profile->nama . '.' . $fileCover->getClientOriginalExtension());
         }
 
         $profile->update([
