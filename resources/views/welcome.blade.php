@@ -267,7 +267,8 @@
                 <img src="{{asset('/image/logo_head.png')}}" height="50" alt="logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                 <span class="dark-blue-text"><i
+                         class="fas fa-bars fa-1x"></i></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
                 <ul class="navbar-nav mr-auto">
