@@ -47,7 +47,7 @@ class ProfileHotelController extends Controller {
         if (request('foto')) {
             $file = request('foto');
             $foto = $file->move('image/hotel/photo/', $profile->nama . '.' . $file->getClientOriginalExtension());
-
+            Image::make($foto)->fit(1000,1000)->save($foto);
         }
 
 
