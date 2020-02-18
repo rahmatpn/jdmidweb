@@ -9,6 +9,13 @@
             background: -o-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
             background: linear-gradient(to 45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);
         }
+
+        .center-cropped {
+            width: 100px;
+            height: 100px;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
     </style>
 
     <header class="masthead text-white text-center " style="background-image: url({{asset($user->profile->profileCover())}}); background-repeat: no-repeat;
@@ -16,7 +23,7 @@
         <div class="container d-flex align-items-center flex-column">
 
             <!-- Masthead Avatar Image -->
-            <img class="masthead-avatar rounded-circle z-depth-1 mb-5" src="{{asset($user->profile->profileFoto())}}" alt="">
+            <img class="masthead-avatar center-cropped rounded-circle z-depth-1 mb-5 "  src="{{asset($user->profile->profileFoto())}}" alt="">
 
             <!-- Masthead Heading -->
             <h1 class="masthead-heading  text-uppercase mb-0">{{$user->profile->nama_lengkap}}</h1>

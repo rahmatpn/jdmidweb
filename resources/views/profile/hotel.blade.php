@@ -50,13 +50,13 @@
                 line-height: 100px;
             }
             .hm-gradient {
-                background: linear-gradient(40deg, rgba(0,51,199,.3), rgba(209,149,249,.3));
+                background: linear-gradient(40deg, rgba(72, 198, 239, 0.3), rgba(111, 134, 214, 0.3));
             }
             .heading {
                 margin: 0 6rem;
                 font-size: 3.8rem;
                 font-weight: 700;
-                color: #5d4267;
+                color: #48c6ef;
             }
             .subheading {
                 margin: 2.5rem 6rem;
@@ -67,13 +67,13 @@
                 margin-top: 3rem;
             }
             .btn.btn-lily {
-                background: linear-gradient(40deg, rgba(0,51,199,.7), rgba(209,149,249,.7));
+                background: linear-gradient(40deg, rgba(72, 198, 239, 0.7), rgba(111, 134, 214, 0.7));
                 color: #fff;
             }
             .title {
                 margin-top: 6rem;
                 margin-bottom: 2rem;
-                color: #5d4267;
+                color: #6f86d6;
             }
             .subtitle {
                 color: #bcb2c0;
@@ -119,7 +119,7 @@
                     <div class="col-md-6">
 
                         <div class="view">
-                            <img src="{{asset($hotel->profile->hotelPhoto())}}" style="background-size: cover; width: 110%;" class="d-flex" alt="Foto Profile Hotel">
+                            <img src="{{asset($hotel->profile->hotelPhoto())}}" style="background-size: cover; width: 110%; object-fit: cover" class="d-flex" alt="Foto Profile Hotel">
                             <div class="mask flex-center hm-gradient">
                             </div>
                         </div>
@@ -134,8 +134,7 @@
                             <h4 class="subheading font-weight-bold">{{$hotel->profile->deskripsi}}</h4>
 
                             <div class="mr-4">
-                                <button type="button" class="btn btn-lily btn-margin rounded">Edit Profile <i class="fas fa-caret-right ml-3"></i></button>
-                                <button type="button" class="btn btn-lily btn-margin rounded">Post A Job<i class="fas fa-caret-right ml-3"></i></button>
+                                <a href="{{url('/job/postjob')}}" type="button" class="btn btn-lily btn-margin rounded">Post A Job<i class="fas fa-caret-right ml-3"></i></a>
                             </div>
                         </div>
 
@@ -192,7 +191,69 @@
 
             </section>
 
+            <!-- Section -->
+            <section>
 
+                <style>
+                    .md-pills .nav-link.active {
+                        color: #fff;
+                        background-color: #616161;
+                    }
+                    button.close {
+                        position: absolute;
+                        right: 0;
+                        z-index: 2;
+                        padding-right: 1rem;
+                        padding-top: .6rem;
+                    }
+                </style>
+
+
+
+                <h6 class="font-weight-bold text-center grey-text text-uppercase small mb-4">Job Vacancy</h6>
+                <h3 class="font-weight-bold text-center dark-grey-text pb-2">Pekerjaan</h3>
+                <hr class="w-header my-4">
+                <p class="lead text-center text-muted pt-2 mb-5">Semua jenis pekerjaan </p>
+
+
+                <!--First row-->
+
+                <!--Tab panels-->
+                <div class="tab-content mb-5">
+                    <!--Panel 1-->
+                    <div class="tab-pane fade show in active" id="panel31" role="tabpanel">
+                        <!-- Grid row -->
+                        <div class="row">
+                            <!-- Grid column -->
+                            @foreach($hotel->pekerjaan as $pekerjaan)
+                            <div class="col-md-12 col-lg-4">
+
+                                <!-- Card -->
+                                <a class="card hoverable mb-4 waves-effect waves-light rgba-white-slight" href="{{url("/job/$pekerjaan->url_slug")}}">
+
+                                    <!-- Card image -->
+                                    <img class="card-img-top" src="{{asset($hotel->profile->hotelPhoto())}}" alt="Card image cap">
+
+                                    <!-- Card content -->
+                                    <div class="card-body">
+
+                                        <h5 class="my-3">{{$pekerjaan->getPosisi()}}</h5>
+                                        <p class="card-text desc mb-3">{!!html_entity_decode($pekerjaan->deskripsi)!!}</p>
+                                    </div>
+                                </a>
+                                <!-- Card -->
+
+                            </div>
+                        @endforeach
+                            <!-- Grid column -->
+                        </div>
+                        <!-- Grid row -->
+                    </div>
+                    <!--Panel 1-->
+                </div>
+                <!--Tab panels-->
+            </section>
+            <!-- Section -->
         </div>
         <!-- Footer -->
         <footer class="page-footer font-small indigo darken-4 py-4">
