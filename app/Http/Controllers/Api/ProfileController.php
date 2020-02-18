@@ -46,20 +46,9 @@ class ProfileController extends Controller
         if(!$file->isValid()) {
             return response()->json(['invalid_file_upload'], 400);
         }
+        $photo = $file->move('image/user/profile/', $profile->nama . '.' . $file->getClientOriginalExtension());
 
-        $fotoPath = $file->store('user/profile','public');
-
-        $foto = Image::make(public_path("image/{$fotoPath}"));
-        $foto -> save();
-        $path = "/image/{$fotoPath}";
-
-        if ($profile['foto'] != null) {
-            $oldPath = public_path($profile['foto']);
-            if (file_exists($oldPath)) { //If it exits, delete it from folder
-                unlink($oldPath);
-            }
-        }
-        $profile->update(['foto'=>$path]);
+        $profile->update(['foto'=>$photo]);
 
         return response()->json($profile, Response::HTTP_OK);
     }
@@ -76,20 +65,9 @@ class ProfileController extends Controller
             return response()->json(['invalid_file_upload'], 400);
         }
 
-        $fotoPath = $file->store('user/cover','public');
+        $cover = $file->move('image/user/cover/', $profile->nama . '.' . $file->getClientOriginalExtension());
 
-        $foto = Image::make(public_path("image/{$fotoPath}"));
-        $foto -> save();
-        $path = "/image/{$fotoPath}";
-
-        if ($profile['cover'] != null) {
-            $oldPath = public_path($profile['cover']);
-            if (file_exists($oldPath)) { //If it exits, delete it from folder
-                unlink($oldPath);
-            }
-        }
-
-        $profile->update(['cover'=>$path]);
+        $profile->update(['cover'=>$cover]);
 
         return response()->json($profile, Response::HTTP_OK);
     }
