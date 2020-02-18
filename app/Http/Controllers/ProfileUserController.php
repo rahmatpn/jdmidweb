@@ -61,16 +61,14 @@ class ProfileUserController extends Controller {
             'tinggi_badan' => '',
             'berat_badan' => '',
             'alamat' => '',
-            'social_media' => '',
-            'foto' => '',
-            'cover' => '',
+            'social_media' => ''
         ]);
 
         $profile->update($data);
         if ($req->posisi_user) {
             $posisi = $req->posisi_user;
             $posisiUser = PosisiUser::where('user_id', '=', $user->id)->delete();
-            if($posisi != null){
+            if ($posisi != null) {
                 foreach ($posisi as $pos) {
                     $posisiUser = new PosisiUser;
                     $posisiUser->user_id = $user->id;
@@ -78,17 +76,22 @@ class ProfileUserController extends Controller {
                     $posisiUser->save();
                 }
             }
-
         }
 
         if (request('foto')) {
+            if (file_exists($profile->foto)) {
+                unlink($profile->foto);
+            }
             $fileFoto = request('foto');
-            $foto = $fileFoto->move('image/user/profile/', $profile->nama . '.' . $fileFoto->getClientOriginalExtension());
+            $foto = $fileFoto->move('image/user/profile/', $fileFoto->getClientOriginalName());
         }
 
         if (request('cover')) {
+            if (file_exists($profile->cover)) {
+                unlink($profile->cover);
+            }
             $fileCover = request('cover');
-            $cover = $fileCover->move('image/user/cover/', $profile->nama . '.' . $fileCover->getClientOriginalExtension());
+            $cover = $fileCover->move('image/user/cover/', $fileCover->getClientOriginalName());
         }
 
         $profile->update([

@@ -39,15 +39,16 @@ class ProfileHotelController extends Controller {
             'social_media' => '',
             'website' => '',
             'deskripsi' => '',
-            'foto' => ''
         ]);
 
         $profile->update($data);
-
+        
         if (request('foto')) {
-            $file = request('foto');
-            $foto = $file->move('image/hotel/photo/', $profile->nama . '.' . $file->getClientOriginalExtension());
-            Image::make($foto)->fit(1000,1000)->save($foto);
+            if (file_exists($profile->foto)) {
+                unlink($profile->foto);
+            }
+            $fileFoto = request('foto');
+            $foto = $fileFoto->move('image/hotel/photo', $fileFoto->getClientOriginalName());
         }
 
 
