@@ -3,11 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Pekerjaan extends Model
 {
     protected $table = "pekerjaan";
     protected $guarded = [];
+    protected $appends = array('isApplied');
 
     public function getPosisi(){
         $posisi = Posisi::whereId($this->posisi_id)->first();
@@ -49,5 +51,16 @@ class Pekerjaan extends Model
 
     public function posisi(){
         return $this->hasOne(Posisi::class, 'id', 'posisi_id');
+    }
+
+    private function isApplied(){
+        if ($this->dikerjakan()->where('user_id',Auth::id())->count() == 1)
+            return true;
+        else
+            return false;
+    }
+
+    public function getIsAppliedAttribute(){
+        return $this->isApplied();
     }
 }
