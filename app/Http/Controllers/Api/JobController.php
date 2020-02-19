@@ -42,12 +42,10 @@ class JobController extends Controller
                     $q->where('tanggal_mulai','>',$date)
                         ->orWhere('tanggal_mulai',$date)->where('waktu_mulai','>',$time);
                 })
-                ->where('tanggal_mulai','>',$date)
-                ->orWhere('tanggal_mulai',$date)->where('waktu_mulai','>',$time)
                 ->where(function ($q) use ($query){
                     $q->where('deskripsi','like','%'.$query.'%')
                         ->orWhere('area','like','%'.$query.'%')
-                        ->orWhere('hotel_id', !empty($hotel_id) ? $hotel_id : "");
+                        ->orWhere('hotel_id', !empty($hotel_id) ? $hotel_id : "!@!@!@!");
                 })
                 ->orderBy('tanggal_mulai')
                 ->get()]);
