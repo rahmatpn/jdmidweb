@@ -52,7 +52,6 @@ class ProfileController extends Controller
         $photo = $file->move('image/user/profile/', time(). '.' . $file->getClientOriginalExtension());
 
         $profile->update(['foto'=>$photo]);
-        $profile->foto = $photo;
 
         if (file_exists($oldImage))
             unlink($oldImage);
@@ -79,7 +78,7 @@ class ProfileController extends Controller
         $profile->update(['cover'=>$cover]);
 
         if (file_exists($oldImage))
-        unlink($oldImage);
+            unlink($oldImage);
 
         return response()->json(ProfileUser::findOrFail($id), Response::HTTP_OK);
     }
