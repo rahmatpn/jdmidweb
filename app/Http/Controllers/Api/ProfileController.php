@@ -47,15 +47,17 @@ class ProfileController extends Controller
             return response()->json(['invalid_file_upload'], 400);
         }
 
-        if (file_exists($profile->foto)) {
-            unlink($profile->foto);
-        }
+        $oldImage = $profile->foto;
 
         $photo = $file->move('image/user/profile/', time(). '.' . $file->getClientOriginalExtension());
 
         $profile->update(['foto'=>$photo]);
+        $profile->foto = $photo;
 
-        return response()->json($profile, Response::HTTP_OK);
+        if (file_exists($oldImage))
+            unlink($oldImage);
+
+        return response()->json(ProfileUser::findOrFail($id), Response::HTTP_OK);
     }
 
     public function uploadCover(Request $request) {
@@ -70,14 +72,15 @@ class ProfileController extends Controller
             return response()->json(['invalid_file_upload'], 400);
         }
 
-        if (file_exists($profile->cover)) {
-            unlink($profile->cover);
-        }
+        $oldImage = $profile->cover;
 
         $cover = $file->move('image/user/cover/', time(). '.' . $file->getClientOriginalExtension());
 
         $profile->update(['cover'=>$cover]);
 
-        return response()->json($profile, Response::HTTP_OK);
+        if (file_exists($oldImage))
+        unlink($oldImage);
+
+        return response()->json(ProfileUser::findOrFail($id), Response::HTTP_OK);
     }
 }
