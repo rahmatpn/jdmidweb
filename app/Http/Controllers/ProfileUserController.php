@@ -83,7 +83,13 @@ class ProfileUserController extends Controller {
                 unlink($profile->foto);
             }
             $fileFoto = request('foto');
-            $foto = $fileFoto->move('image/user/profile/', $fileFoto->getClientOriginalName());
+            $foto = $fileFoto->move('image/user/profile/', time(). '.' . $fileFoto->getClientOriginalExtension());
+            $imageSize = getimagesize($foto);
+            if ($imageSize[0] < $imageSize[1])
+                $size = $imageSize[0];
+            else
+                $size = $imageSize[1];
+            Image::make($foto)->fit($size)->save($foto);
         }
 
         if (request('cover')) {
@@ -91,7 +97,7 @@ class ProfileUserController extends Controller {
                 unlink($profile->cover);
             }
             $fileCover = request('cover');
-            $cover = $fileCover->move('image/user/cover/', $fileCover->getClientOriginalName());
+            $cover = $fileCover->move('image/user/cover/', time(). '.' . $fileCover->getClientOriginalExtension());
         }
 
         $profile->update([

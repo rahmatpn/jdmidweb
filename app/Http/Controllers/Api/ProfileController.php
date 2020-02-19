@@ -46,7 +46,12 @@ class ProfileController extends Controller
         if(!$file->isValid()) {
             return response()->json(['invalid_file_upload'], 400);
         }
-        $photo = $file->move('image/user/profile/', $profile->nama . '.' . $file->getClientOriginalExtension());
+
+        if (file_exists($profile->foto)) {
+            unlink($profile->foto);
+        }
+
+        $photo = $file->move('image/user/profile/', time(). '.' . $file->getClientOriginalExtension());
 
         $profile->update(['foto'=>$photo]);
 
@@ -65,7 +70,11 @@ class ProfileController extends Controller
             return response()->json(['invalid_file_upload'], 400);
         }
 
-        $cover = $file->move('image/user/cover/', $profile->nama . '.' . $file->getClientOriginalExtension());
+        if (file_exists($profile->cover)) {
+            unlink($profile->cover);
+        }
+
+        $cover = $file->move('image/user/cover/', time(). '.' . $file->getClientOriginalExtension());
 
         $profile->update(['cover'=>$cover]);
 

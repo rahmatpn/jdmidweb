@@ -48,10 +48,9 @@ class ProfileHotelController extends Controller {
                 unlink($profile->foto);
             }
             $fileFoto = request('foto');
-            $foto = $fileFoto->move('image/hotel/photo', $fileFoto->getClientOriginalName());
-            Image::make($foto)->fit(1000,1000)->save($foto);
+            $foto = $fileFoto->move('image/hotel/photo/', time(). '.' . $fileFoto->getClientOriginalExtension());
+            Image::make($foto)->fit(1000)->save($foto);
         }
-
 
         $profile->update([
             'foto' => !empty($foto) ? $foto : $profile->foto,
