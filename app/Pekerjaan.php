@@ -35,6 +35,10 @@ class Pekerjaan extends Model
         $hotel = ProfileHotel::whereId($this->hotel_id)->first();
         return $hotel->social_media;
     }
+    public function getTodo(){
+        $todolist = ToDoList::where($this->pekerjaan_id)->first();
+        return $todolist->nama_pekerjaan;
+    }
 
 
     public function hotel(){

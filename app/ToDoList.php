@@ -13,6 +13,11 @@ class ToDoList extends Model
         return $this->belongsTo(Pekerjaan::class);
     }
 
+    public function getPekerjaan(){
+        $posisi = Pekerjaan::whereId($this->posisi_id)->first();
+        return $posisi->nama_posisi;
+    }
+
     public function user(){
         return $this->belongsToMany(User::class);
     }

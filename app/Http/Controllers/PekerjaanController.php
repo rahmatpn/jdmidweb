@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Validator;
 use phpDocumentor\Reflection\Types\Null_;
 
 class PekerjaanController extends Controller
@@ -109,7 +110,7 @@ class PekerjaanController extends Controller
 
 
     public function showList($url_slug){
-        $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
+        $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->with('todolist')->first();
         return view('todolist.postlist', compact('pekerjaan'));
     }
 
@@ -120,11 +121,27 @@ class PekerjaanController extends Controller
         $data = request()->validate([
             'nama_pekerjaan'=>'required'
         ]);
-
         $pekerjaan->todolist()->create($data);
 
-        return view('jobs.job', compact('pekerjaan'));
 
+
+//        return view('jobs.job', compact('pekerjaan'));
+        return back();
+    }
+
+    public function editList($url_slug){
+        $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->with('todolist')->first();
+        return view('todolist.postlist', compact('pekerjaan'));
+    }
+
+    public function  updateList(Request $request){
+
+        DB::table('todolist')->where('id',$request->id)->update([
+            'nama_pekerjaan'=> $request ->nama_pekerjaan
+        ]);
+
+
+        return back();
     }
 
 }

@@ -54,6 +54,9 @@ Route::group([
     Route::get('/job/{url_slug}/postlist','PekerjaanController@showList');
     Route::post('/job/{url_slug}/todolist', 'PekerjaanController@todolist');
 
+    Route::get('/job/{url_slug}/editlist','PekerjaanController@editList');
+    Route::patch('/job/{url_slug}/updatelist', 'PekerjaanController@updatelist');
+
     Route::get('/job/{url_slug}/edit','PekerjaanController@edit');
     Route::post('/job/update','PekerjaanController@update');
     Route::get('/job/{url_slug}/delete','PekerjaanController@delete');

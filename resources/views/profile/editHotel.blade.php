@@ -20,7 +20,6 @@
     @method('PATCH')
     <!-- Jumbotron -->
         <div class="container my-5">
-
             <!--Section: Content-->
             <section>
                 <!-- Section heading -->
