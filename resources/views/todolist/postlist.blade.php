@@ -85,8 +85,8 @@
                                     </div>
                                     <div class="modal-body">
                                         @foreach($pekerjaan->todolist as $todolist)
-                                            <input type="text" name="id" value="{{ $todolist->id}}">
-                                        <p><input type="text" class="form-control" name="nama_pekerjaan" value="{{$todolist->nama_pekerjaan}}"></p>
+                                            <input type="hidden" name="id[]" value="{{ $todolist->id}}">
+                                        <p><input type="text" class="form-control" name="nama_pekerjaan[]" value="{{$todolist->nama_pekerjaan}}"></p>
                                         @endforeach
                                     </div>
                                     <div class="modal-footer">

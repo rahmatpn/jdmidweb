@@ -61,7 +61,7 @@ class PekerjaanController extends Controller
     }
     public function update(Request $request){
 
-        DB::table('pekerjaan')->where('id',$request->id)->update([
+        Pekerjaan::where('id',$request->id)->update([
             'area' => $request->area,
             'posisi_id'=>$request->posisi_id,
             'tanggal_mulai' => $request->tanggal_mulai,
@@ -135,11 +135,11 @@ class PekerjaanController extends Controller
     }
 
     public function  updateList(Request $request){
-
-        DB::table('todolist')->where('id',$request->id)->update([
-            'nama_pekerjaan'=> $request ->nama_pekerjaan
-        ]);
-
+        foreach (array_combine($request->id, $request->nama_pekerjaan) as $id => $nama_pekerjaan) {
+            ToDoList::where('id', $id)->update([
+                'nama_pekerjaan' => $nama_pekerjaan
+            ]);
+        }
 
         return back();
     }
