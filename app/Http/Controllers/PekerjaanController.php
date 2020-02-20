@@ -140,8 +140,14 @@ class PekerjaanController extends Controller
                 'nama_pekerjaan' => $nama_pekerjaan
             ]);
         }
-
         return back();
+    }
+
+    public function deleteList($url_slug , $id){
+//        dd($id);
+//        DB::table('todolist')->where('id', $id)->delete();
+        ToDoList::where('id', $id)->delete();
+        return back()->with('success','Data Telah Dihapus');
     }
 
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Pekerjaan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ToDoListController extends Controller{
     //
@@ -26,5 +27,9 @@ class ToDoListController extends Controller{
 
     }
 
+    public function deleteList($id){
+        DB::table('todolist')->where('id', $id)->delete();
+        return back()->with('success','Data Telah Dihapus');
+    }
 
 }

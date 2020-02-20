@@ -1,14 +1,12 @@
-@extends('layouts.auth')
+@extends('layouts.editbar')
 
 @section('content')
 {{--    <head>--}}
 {{--        <meta name="csrf-token" content="{{ csrf_token() }}">--}}
 {{--    </head>--}}
-    <div class="row">
-        <div class="col-sm-8 offset-sm-2">
-            <div class="container">
+
                 <form action="/job/{{$pekerjaan->url_slug}}/todolist" enctype="multipart/form-data"  data-toggle="validator" method="post">
-                    <a href="{{url('/hotel/'.auth()->user()->profile->url_slug)}}" class="btn btn-info" role="button"> Kembali</a>
+                    <a href="{{url('/hotel/'.auth()->user()->profile->url_slug)}}" style="display: none" class="btn btn-info" role="button"> Kembali</a>
                     <br/>
                     <br/>
                     {{ csrf_field() }}
@@ -30,16 +28,26 @@
 {{--                    </div>--}}
 {{--                    </div>--}}
 {{--                        <input type="submit" class="btn btn-info" value="Submit"/>--}}
-                                                <div class="card-header">
-                                                    Todo List
-                                                    <a href="#" class="fa-pull-right" id="addNew" data-toggle="modal" data-target="#basicExampleModal">
-                                                    <i class="fa fa-plus" aria-hidden="true"></i></a>
-                                                </div>
-                                                <ul class="list-group list-group-flush">
-                                                    @foreach($pekerjaan->todolist as $todolist)
-                                                    <li class="list-group-item ourItem" data-toggle="modal" data-target="#editModal">{{$todolist->nama_pekerjaan}}</li>
-                                                    @endforeach
-                                                </ul>
+
+                    <div class="container">
+                        <div class="card-header">
+                            Todo List
+                            <a href="#" class="fa-pull-right" id="addNew" data-toggle="modal" data-target="#basicExampleModal">
+                                <i class="fa fa-plus" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                @foreach($pekerjaan->todolist as $todolist)
+                                    <li class="list-group-item ourItem" data-toggle="modal" data-target="#editModal">{{$todolist->nama_pekerjaan}}</li>
+                                @endforeach
+                            </ul>
+
+                        </div>
+
+
+                    </div>
+
+
 
 
                     <div class="card">
@@ -67,6 +75,8 @@
                             </div>
                         </div>
                     </div>
+
+
                 </form>
 
                 <form action="/job/{{$pekerjaan->url_slug}}/updatelist" enctype="multipart/form-data"  data-toggle="validator" method="post">
@@ -86,7 +96,22 @@
                                     <div class="modal-body">
                                         @foreach($pekerjaan->todolist as $todolist)
                                             <input type="hidden" name="id[]" value="{{ $todolist->id}}">
-                                        <p><input type="text" class="form-control" name="nama_pekerjaan[]" value="{{$todolist->nama_pekerjaan}}"></p>
+{{--                                        <div class="form-inline">--}}
+{{--                                            <div class="form-group">--}}
+
+
+{{--                                            <p><input type="text" class="form-control" name="nama_pekerjaan[]" value="{{$todolist->nama_pekerjaan}}"></p>--}}
+{{--                                            <a href="{{url('/job/'.$pekerjaan->url_slug.'/delete/'.$todolist->id)}}" class="fa fa-times"></a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+
+                                            <div class="md-form input-group mb-3">
+                                                <input type="text" class="form-control" name="nama_pekerjaan[]" value="{{$todolist->nama_pekerjaan}}" aria-describedby="MaterialButton-addon2">
+                                                <div class="input-group-append">
+                                                    <a href="{{url('/job/'.$pekerjaan->url_slug.'/delete/'.$todolist->id)}}" class="btn btn-md rounded btn-secondary m-0 px-3" type="button" id="MaterialButton-addon2">X</a>
+                                                </div>
+                                            </div>
+
                                         @endforeach
                                     </div>
                                     <div class="modal-footer">
@@ -99,6 +124,8 @@
                             </div>
                         </div>
                     </div>
+
+
 {{--                        <div class="card-header">--}}
 {{--                            Todo List--}}
 {{--                            <a href="#" class="fa-pull-right" id="addNew" data-toggle="modal" data-target="#basicExampleModal">--}}
@@ -142,9 +169,6 @@
 
                 </form>
 
-            </div>
-        </div>
-    </div>
 
     <script>
         $(document).ready(function () {

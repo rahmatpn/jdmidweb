@@ -52,8 +52,7 @@
                                class="form-control"
                                name="tanggal_mulai"
 
-                                value="{{$p->tanggal_mulai}}"
-                                >
+                                value="{{$p->tanggal_mulai}}">
                     </div>
                     <div class="form-group">
                         <label for="waktu_mulai">Waktu Mulai:</label>
