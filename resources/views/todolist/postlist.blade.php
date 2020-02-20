@@ -1,6 +1,14 @@
 @extends('layouts.editbar')
 
 @section('content')
+    <style>
+        body{
+            background: linear-gradient(45deg, rgba(85, 131, 238, 0.6), rgba(65, 216, 221, 0.69) 100%);
+        }
+        .rgba-gradient {
+            background: linear-gradient(45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);
+        }
+    </style>
 {{--    <head>--}}
 {{--        <meta name="csrf-token" content="{{ csrf_token() }}">--}}
 {{--    </head>--}}
@@ -29,20 +37,35 @@
 {{--                    </div>--}}
 {{--                        <input type="submit" class="btn btn-info" value="Submit"/>--}}
 
-                    <div class="container">
-                        <div class="card-header">
-                            Todo List
-                            <a href="#" class="fa-pull-right" id="addNew" data-toggle="modal" data-target="#basicExampleModal">
-                                <i class="fa fa-plus" aria-hidden="true"></i></a>
-                        </div>
-                        <div class="card-body">
-                            <ul class="list-group list-group-flush">
-                                @foreach($pekerjaan->todolist as $todolist)
-                                    <li class="list-group-item ourItem" data-toggle="modal" data-target="#editModal">{{$todolist->nama_pekerjaan}}</li>
-                                @endforeach
-                            </ul>
+                    <div class="container my-5">
+                        <section>
+                            <div class="jumbotron">
 
-                        </div>
+                            <!-- Section heading -->
+                            <h2 class="h1-responsive font-weight-bold text-center my-5">Post To-Do List</h2>
+                            <!-- Section description -->
+                            <p class="text-center w-responsive mx-auto mb-5">Duis aute irure dolor in reprehenderit in voluptate velit
+                                esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                                qui officia deserunt mollit id laborum.</p>
+
+                            <div class="card bg-info mb-3 ">
+                                <div class="card-header white-text text-center text-uppercase">
+                                    Todo List {{$pekerjaan->getPosisi()}}
+                                    <a href="#" class="fa-pull-right" id="addNew" data-toggle="modal" data-target="#basicExampleModal">
+                                        <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                </div>
+                                @foreach($pekerjaan->todolist as $todolist)
+                                <ul class="list-group list-group-flush">
+                                        <li class="list-group-item" data-toggle="modal" data-target="#editModal">{{$todolist->nama_pekerjaan}}</li>
+                                    <div style="border-bottom: 1px solid;"></div>
+                                </ul>
+                                @endforeach
+
+                            </div>
+                            </div>
+                        </section>
+
+
 
 
                     </div>
