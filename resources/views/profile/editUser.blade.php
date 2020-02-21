@@ -5,7 +5,6 @@
     <div class="card card-image" style="background-image: url('https://images.pexels.com/photos/2058128/pexels-photo-2058128.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'); background-position: center; background-size: cover">
         <div class="text-white text-center rgba-stylish-strong py-5 px-4">
             <div class="py-5">
-
                 <!-- Content -->
                 <br/>
                 <h2 class="card-title h2 my-4 py-2">Edit Profile</h2>

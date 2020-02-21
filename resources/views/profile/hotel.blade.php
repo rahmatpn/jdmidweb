@@ -245,7 +245,7 @@
 
                                 <div class="card parent wow fadeInUp">
                                     <!--Card image-->
-                                    <div class="view overlay">
+                                    <div class="view overlay zoom">
 
                                         <img class="card-img-top" src="{{asset($hotel->profile->hotelPhoto())}}"
                                              alt="Card image cap">
