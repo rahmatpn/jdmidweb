@@ -23,15 +23,27 @@ Route::get('jobvacancy',function (){
 
 
 Auth::routes();
-Route::get('/login/hotel', 'Auth\LoginController@showHotelLoginForm');
-Route::get('/login/user', 'Auth\LoginController@showUserLoginForm');
+
 Route::get('/masuk/hotel', 'Auth\RegisterController@showHotelRegisterForm');
 Route::get('/masuk/user', 'Auth\RegisterController@showUserRegisterForm');
+Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
+Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
 
 Route::post('/login/hotel', 'Auth\LoginController@hotelLogin');
 Route::post('/login/user', 'Auth\LoginController@userLogin');
+Route::post('/login/admin', 'Auth\LoginController@adminLogin');
+
 Route::post('/masuk/hotel', 'Auth\RegisterController@createHotel');
 Route::post('/masuk/user', 'Auth\RegisterController@createUser');
+Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
+
+Route::get('/admin', 'AdminController@index');
+Route::get('/admin/user/manage', 'AdminController@indexUser');
+Route::get('/admin/hotel/manage', 'AdminController@indexHotel');
+Route::get('/admin/pekerjaan/manage', 'AdminController@indexPekerjaan');
+Route::get('/admin/logout', 'LoginController@logout');
+
+
 Route::get('/home', 'HomeController@index');
 Route::get('/hotel/{profile}', 'ProfileHotelController@indexHotel')->name('hotel.show');
 Route::get('/user/{profile}', 'ProfileUserController@indexUser')->name('user.show');
@@ -57,6 +69,7 @@ Route::group([
     Route::get('/job/{url_slug}/editlist','PekerjaanController@editList');
     Route::patch('/job/{url_slug}/updatelist', 'PekerjaanController@updateList');
     Route::get('/job/{url_slug}/delete/{id}','PekerjaanController@deleteList');
+    Route::patch('/job/{url_slug}/updatelist', 'PekerjaanController@updateList');
 
     Route::get('/job/{url_slug}/edit','PekerjaanController@edit');
     Route::post('/job/update','PekerjaanController@update');

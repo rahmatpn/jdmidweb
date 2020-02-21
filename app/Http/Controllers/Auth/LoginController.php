@@ -45,6 +45,7 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
         $this->middleware('guest:hotel')->except('logout');
         $this->middleware('guest:user')->except('logout');
+        $this->middleware('guest:admin')->except('logout');
 
     }
 
@@ -86,4 +87,29 @@ class LoginController extends Controller
         }
         return redirect()->intended('masuk/user')->with('gagalLoginuser','Password atau Email salah');
     }
+
+    public function showAdminLoginForm()
+    {
+        return view('auth.login', ['url' => 'admin']);
+    }
+
+    public function adminLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email'   => 'required|email',
+            'password' => 'required|min:6'
+        ]);
+
+        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+
+            return redirect()->intended('/admin');
+        }
+        return back()->withInput($request->only('email', 'remember'));
+    }
+
+//    public function logout(Request $request)
+//    {
+//        Auth::logout();
+//        return view('');
+//    }
 }

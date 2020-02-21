@@ -289,6 +289,27 @@
                                </div>
                            </li>
                        @endauth
+                       @auth('admin')
+                       <!-- Authentication Links -->
+                           <li class="nav-item dropdown">
+                               <a id="navbarDropdown" class="nav-link dropdown-toggle nav-item active" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                   Akun <span class="sr-only">(current)</span>
+                               </a>
+
+
+                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+{{--                                   <a class="dropdown-item" href="{{url('/hotel/'.auth()->guard('hotel')->user()->profile->url_slug.'/edit')}}">Edit Profile</a>--}}
+                                   <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                       {{ __('Logout') }}
+                                   </a>
+
+
+                                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                       @csrf
+                                   </form>
+                               </div>
+                           </li>
+                       @endauth
                 </ul>
             </div>
         </div>

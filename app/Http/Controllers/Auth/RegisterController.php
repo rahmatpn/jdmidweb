@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Admin;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -45,6 +46,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
         $this->middleware('guest:hotel');
         $this->middleware('guest:user');
+        $this->middleware('guest:admin');
     }
 
     /**
@@ -68,14 +70,14 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
-    }
+//    protected function create(array $data)
+//    {
+//        return User::create([
+//            'name' => $data['name'],
+//            'email' => $data['email'],
+//            'password' => Hash::make($data['password']),
+//        ]);
+//    }
     public function showHotelRegisterForm()
     {
         return view('auth.registerHotel', ['url' => 'hotel']);
@@ -84,6 +86,24 @@ class RegisterController extends Controller
     public function showUserRegisterForm()
     {
         return view('auth.registerUser', ['url' => 'user']);
+    }
+
+    public function showAdminRegisterForm()
+    {
+        return view('auth.register', ['url' => 'admin']);
+    }
+
+    protected function createAdmin(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $admin = Admin::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+
+
+        return redirect()->intended('login/admin');
     }
 
     protected function createHotel(Request $request)
@@ -108,25 +128,24 @@ class RegisterController extends Controller
     }
 
 
-
     protected function createUser(Request $request)
     {
         try {
-        $this->validator($request->all())->validate();
-        $user = User::create([
-            'name' => Str::slug($request['name'], ''),
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-        ]);
-    } catch (QueryException $e) {
-        $errorCode = $e->errorInfo[2];
-        $str = strval($errorCode);
-        if (strpos($str, 'users_name_unique')) {
-            return redirect()->intended('masuk/user')->with("gagaluser", "Nama telah terdaftar, masukan nama yang berbeda");
-        } elseif (strpos($str,'users_email_unique')) {
-            return redirect()->intended('masuk/user')->with("gagaluser", "Email telah terdaftar");
+            $this->validator($request->all())->validate();
+            $user = User::create([
+                'name' => Str::slug($request['name'], ''),
+                'email' => $request['email'],
+                'password' => Hash::make($request['password']),
+            ]);
+        } catch (QueryException $e) {
+            $errorCode = $e->errorInfo[2];
+            $str = strval($errorCode);
+            if (strpos($str, 'users_name_unique')) {
+                return redirect()->intended('masuk/user')->with("gagaluser", "Nama telah terdaftar, masukan nama yang berbeda");
+            } elseif (strpos($str,'users_email_unique')) {
+                return redirect()->intended('masuk/user')->with("gagaluser", "Email telah terdaftar");
+            }
         }
-    }
         return redirect()->intended('masuk/user')->with('successuser','Silahkan Login menggunakan email dan password yang telah dibuat');
     }
 
