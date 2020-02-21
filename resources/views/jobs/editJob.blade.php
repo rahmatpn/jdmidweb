@@ -4,7 +4,6 @@
 
     <div class="container my-5 py-5">
 
-        @foreach($pekerjaan as $p)
         <form action="/job/update" enctype="multipart/form-data"  data-toggle="validator" method="post">
             {{ csrf_field() }}
             <section>
@@ -12,18 +11,18 @@
                 <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Edit Job</h3>
                 <hr class="w-header">
                 <div class="row">
-                    <input type="hidden" name="id" value="{{ $p->id}}">
+                    <input type="hidden" name="id" value="{{ $pekerjaan->id}}">
                     <div class="md-form input-group mb-3 col-xl">
                         <div class="input-group-prepend">
                             <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Area</span>
                         </div>
-                        <input type="text" class="form-control" id="area" name="area" value="{{$p->area}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                        <input type="text" class="form-control" id="area" name="area" value="{{$pekerjaan->area}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
                     </div>
                     <div class="md-form input-group mb-3 col-xl">
                         <div class="input-group-prepend">
                             <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Tanggal Mulai</span>
                         </div>
-                        <input type="date" class="form-control" id="tanggal_mulai" name="tanggal_mulai" value="{{$p->tanggal_mulai}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                        <input type="date" class="form-control" id="tanggal_mulai" name="tanggal_mulai" value="{{$pekerjaan->tanggal_mulai}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
                     </div>
 
                 </div>
@@ -33,7 +32,7 @@
                         <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Posisi</span>
                     </div>
                     <select class="browser-default custom-select rounded" id="posisi_id" name="posisi_id">
-                        <option selected>{{$p->posisi_id}}</option>
+                        <option value="{{$pekerjaan->posisi_id}}">{{\App\Posisi::where('id',$pekerjaan->posisi_id)->first()->nama_posisi}}</option>
                         <option value="1">Laundry</option>
                         <option value="2">Pool Maintenance</option>
                         <option value="3">Equipment Maintenance</option>
@@ -57,13 +56,13 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Waktu Mulai</span>
                         </div>
-                        <input type="time" class="form-control" id="waktu_mulai" name="waktu_mulai" value="{{$p->waktu_mulai}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                        <input type="time" class="form-control" id="waktu_mulai" name="waktu_mulai" value="{{$pekerjaan->waktu_mulai}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
                     </div>
                     <div class="md-form input-group mb-3 col-xl">
                         <div class="input-group-prepend">
                             <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Waktu Selesai</span>
                         </div>
-                        <input type="time" class="form-control" id="waktu_selesai" name="waktu_selesai" value="{{$p->waktu_selesai}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                        <input type="time" class="form-control" id="waktu_selesai" name="waktu_selesai" value="{{$pekerjaan->waktu_selesai}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
                     </div>
                 </div>
             </section>
@@ -76,7 +75,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Tinggi Minimal</span>
                         </div>
-                        <input type="number" class="form-control" id="tinggi_minimal" name="tinggi_minimal" value="{{$p->tinggi_minimal}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                        <input type="number" class="form-control" id="tinggi_minimal" name="tinggi_minimal" value="{{$pekerjaan->tinggi_minimal}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
                         <div class="input-group-append">
                             <span class="input-group-text md-addon" id="material-addon2">Cm</span>
                         </div>
@@ -85,7 +84,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Tinggi Maksimal</span>
                         </div>
-                        <input type="number" class="form-control" id="tinggi_maksimal" name="tinggi_maksimal" value="{{$p->tinggi_maksimal}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                        <input type="number" class="form-control" id="tinggi_maksimal" name="tinggi_maksimal" value="{{$pekerjaan->tinggi_maksimal}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
                         <div class="input-group-append">
                             <span class="input-group-text md-addon" id="material-addon2">Cm</span>
                         </div>
@@ -97,7 +96,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Berat Minimal</span>
                         </div>
-                        <input type="number" class="form-control" id="berat_minimal" name="berat_minimal" value="{{$p->berat_minimal}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                        <input type="number" class="form-control" id="berat_minimal" name="berat_minimal" value="{{$pekerjaan->berat_minimal}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
                         <div class="input-group-append">
                             <span class="input-group-text md-addon" id="material-addon2">Kg</span>
                         </div>
@@ -106,7 +105,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Berat Maksimal</span>
                         </div>
-                        <input type="number" class="form-control" id="berat_maksimal" name="berat_maksimal" value="{{$p->berat_maksimal}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                        <input type="number" class="form-control" id="berat_maksimal" name="berat_maksimal" value="{{$pekerjaan->berat_maksimal}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
                         <div class="input-group-append">
                             <span class="input-group-text md-addon" id="material-addon2">Kg</span>
                         </div>
@@ -119,7 +118,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Kuota</span>
                     </div>
-                    <input type="number" class="form-control" id="kuota" name="kuota" value="{{$p->kuota}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                    <input type="number" class="form-control" id="kuota" name="kuota" value="{{$pekerjaan->kuota}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
                 </div>
 
                 <div class="md-form input-group mb-3">
@@ -127,19 +126,18 @@
                         <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Bayaran</span>
                         <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Rp:</span>
                     </div>
-                    <input type="number" class="form-control" id="bayaran" name="bayaran" value="{{$p->bayaran}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                    <input type="number" class="form-control" id="bayaran" name="bayaran" value="{{$pekerjaan->bayaran}}" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
                 </div>
                 <div class="md-form input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Deskripsi</span>
                     </div>
-                    <textarea id="my-summernote" name="deskripsi"  type="text">{{$p->deskripsi}}</textarea>
+                    <textarea id="my-summernote" name="deskripsi"  type="text">{{$pekerjaan->deskripsi}}</textarea>
                 </div>
 
                 <input type="submit" class="btn btn-primary" value="Simpan Data">
             </section>
         </form>
-            @endforeach
     </div>
 
 

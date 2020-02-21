@@ -55,12 +55,11 @@ class PekerjaanController extends Controller
     }
     public function edit($url_slug){
         // mengambil data pegawai berdasarkan url_slug yang dipilih
-        $pekerjaan = DB::table('pekerjaan')->where('url_slug',$url_slug)->get();
+        $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
         // passing data pegawai yang didapat ke view edit.blade.php
-        return view('jobs.editJob',['pekerjaan' => $pekerjaan]);
+        return view('jobs.editJob',compact('pekerjaan'));
     }
     public function update(Request $request){
-
         Pekerjaan::where('id',$request->id)->update([
             'area' => $request->area,
             'posisi_id'=>$request->posisi_id,
