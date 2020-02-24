@@ -107,7 +107,7 @@
                 </div>
                 <div class="col-md-6 mb-4">
                     <h5 class="font-weight-normal mb-3">Social Media</h5>
-                    <p class="text-muted"> {{$user->profile->alamat}}</p>
+                    <p class="text-muted"> {{$user->profile->social_media}}</p>
                 </div>
             </div>
 

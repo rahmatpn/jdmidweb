@@ -151,7 +151,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default" for="alamat">Alamat</span>
                 </div>
-                <textarea id="alamat" class="md-textarea form-control" rows="3">
+                <textarea id="alamat" name="alamat" class="md-textarea form-control" rows="3">
                     {{ old('alamat') ?? $user->profile->alamat}}
                 </textarea>
             </div>
@@ -159,7 +159,7 @@
 
             <!-- Section description -->
         </section>
-        <section>
+        <section class="my-5">
 
             <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Posisi</h3>
             <hr class="w-header">
