@@ -26,8 +26,8 @@ class UserSeeder extends Seeder
             'nama_lengkap'=>'user1',
             'email'=>'user1@user.com',
             'url_slug'=>'user1',
-            'foto'=>'/image/user/profile/B1r9X1kACzYHQNL1xSaFEYJwP4bMW7V5h44oBBon.jpeg',
-            'cover'=>'/image/user/cover/ub16Sv0E7hcSzOLGTjFZ9MRfQodXGPuEkZI6SQZD.jpeg',
+//            'foto'=>'image/user/profile/1582527725.jpg',
+//            'cover'=>'image/user/cover/1582527727.png',
             'created_at'=> Carbon::now()->toDateTimeString(),
             'updated_at'=> Carbon::now()->toDateTimeString()
         ]);
@@ -44,8 +44,8 @@ class UserSeeder extends Seeder
             'nama_lengkap'=>'user2',
             'email'=>'user2@user.com',
             'url_slug'=>'user2',
-            'foto'=>'/image/user/profile/B1r9X1kACzYHQNL1xSaFEYJwP4bMW7V5h44oBBon.jpeg',
-            'cover'=>'/image/user/cover/ub16Sv0E7hcSzOLGTjFZ9MRfQodXGPuEkZI6SQZD.jpeg',
+//            'foto'=>'image/user/profile/1582527725.jpg',
+//            'cover'=>'image/user/cover/1582527727.png',
             'created_at'=> Carbon::now()->toDateTimeString(),
             'updated_at'=> Carbon::now()->toDateTimeString()
         ]);

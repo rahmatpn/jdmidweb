@@ -23,7 +23,7 @@
                         <th class="align-middle">Berat Maksimal</th>
                         <th class="align-middle">Bayaran</th>
                         <th class="align-middle">Kuota</th>
-                        <th class="align-middle">Deskripsi</th>
+                        <th class="align-middle text-md-center">Deskripsi</th>
                         <th></th>
                         <th></th>
         </tr>

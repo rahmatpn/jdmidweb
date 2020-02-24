@@ -3,8 +3,12 @@
 @section('content')
 
     <div class="container my-5 py-5">
-
-        <form action="/job/update" enctype="multipart/form-data"  data-toggle="validator" method="post">
+        @auth('hotel')
+                <form action="/job/update" enctype="multipart/form-data"  data-toggle="validator" method="post">
+                    @endauth
+                    @auth('admin')
+                        <form action="/pekerjaan/update" enctype="multipart/form-data"  data-toggle="validator" method="post">
+                            @endauth
             {{ csrf_field() }}
             <section>
                 <!-- Section heading -->
@@ -138,6 +142,7 @@
                 <input type="submit" class="btn btn-primary" value="Simpan Data">
             </section>
         </form>
+                </form>
     </div>
 
 

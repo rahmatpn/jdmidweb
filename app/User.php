@@ -40,6 +40,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+
+
     protected static function boot()
     {
         parent::boot();
@@ -55,7 +57,12 @@ class User extends Authenticatable implements MustVerifyEmail
 
         });
 
+        static::deleted(function($user){
+            $user->profile()->delete();
+        });
+
     }
+
     public function profile(){
         return $this->hasOne(ProfileUser::class);
     }

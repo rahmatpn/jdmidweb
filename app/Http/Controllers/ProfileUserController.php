@@ -27,8 +27,10 @@ class ProfileUserController extends Controller {
     public function edit($url_slug) {
         $profil = ProfileUser::where('url_slug', '=', $url_slug)->with('user')->first();
         $user = User::find($profil->user_id);
+        if (\auth()->guard('user')->user()) {
+            $this->authorize('update', $user->profile);
+        }
 
-        $this->authorize('update', $user->profile);
         $posisi = Posisi::all();
 
         $posisiUser = PosisiUser::where('user_id', '=', $user->id)->get();
@@ -49,7 +51,9 @@ class ProfileUserController extends Controller {
         $profile = ProfileUser::where('url_slug', '=', $url_slug)->with('user')->first();
         $user = User::find($profile->user_id);
 
-        $this->authorize('update', $user->profile);
+        if (\auth()->guard('user')->user()) {
+            $this->authorize('update', $user->profile);
+        }
 
         $data = request()->validate([
             'nama' => 'required',
@@ -105,7 +109,19 @@ class ProfileUserController extends Controller {
             'cover' => !empty($cover) ? $cover : $profile->cover,
         ]);
 
-        return redirect("/user/{$profile->url_slug}"); //redirect to user's profile
+        if (auth()->guard('user')->user() !=null){
+            return redirect("/user/{$profile->url_slug}");
+        } else
+            return redirect('/admin/user/manage');
     }
+
+    public function destroy($url_slug){
+        $profile = ProfileUser::where('url_slug', '=', $url_slug)->with('user')->first();
+        $user = User::find($profile->user_id);
+        $user->delete();
+        return redirect('/admin/user/manage');
+    }
+
+
 
 }

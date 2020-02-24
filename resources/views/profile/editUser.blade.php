@@ -14,7 +14,12 @@
         </div>
     </div>
 
-    <form action="{{url('/user/'.$user->profile->url_slug)}}" enctype="multipart/form-data" method="post">
+    @auth('user')
+        <form action="{{url('/user/'.$user->profile->url_slug)}}" enctype="multipart/form-data"  data-toggle="validator" method="post">
+            @endauth
+            @auth('admin')
+                <form action="{{url('admin/user/'.$user->profile->url_slug)}}" enctype="multipart/form-data"  data-toggle="validator" method="post">
+                    @endauth
         @csrf
         @method('PATCH')
     <!-- Jumbotron -->
