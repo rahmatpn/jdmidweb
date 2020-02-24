@@ -258,8 +258,7 @@
                                         <h4 class="card-title">{{$pekerjaan->getPosisi()}}</h4>
                                         <!--Text-->
                                         <div class="desc card-text">{!!html_entity_decode($pekerjaan->deskripsi)!!}</div>
-                                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                                        <a type="button" href="{{url("/job/$pekerjaan->url_slug")}}" class="btn btn-light-blue btn-md">Read more</a>
+                                        <a type="button" href="{{url("/job/$pekerjaan->url_slug")}}" class="btn btn-blue btn-md">Read more</a>
 
                                     </div>
                                     <div class="child dropdown dropleft">
@@ -268,6 +267,8 @@
                                         <div class="dropdown-menu dropdown-menu-left">
                                             <a class="dropdown-item" href="{{url("/job/$pekerjaan->url_slug/edit")}}">Edit</a>
                                             <a class="dropdown-item" href="{{url("/job/$pekerjaan->url_slug/delete")}}">Delete</a>
+                                            <a class="dropdown-item"     href="{{url("/job/$pekerjaan->url_slug/postlist")}}">Todo List</a>
+
                                         </div>
                                         <!-- Basic dropdown -->
                                     </div>
