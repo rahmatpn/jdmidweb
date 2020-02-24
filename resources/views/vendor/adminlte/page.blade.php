@@ -97,15 +97,15 @@
                     @yield('content_top_nav_right')
                     @if(Auth::user())
                         <li class="nav-item">
-                            <a class="nav-link" href="#"
+                            <a class="nav-link" href="/logout"
                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                             >
                                 <i class="fa fa-fw fa-power-off"></i> {{ __('adminlte::adminlte.log_out') }}
                             </a>
-                            <form id="logout-form" action="{{ $logout_url }}" method="POST" style="display: none;">
-                                @if(config('adminlte.logout_method'))
-                                    {{ method_field(config('adminlte.logout_method')) }}
-                                @endif
+                            <form id="logout-form" action="/logout" method="POST" style="display: none;">
+{{--                                @if(config('adminlte.logout_method'))--}}
+{{--                                    {{ method_field(config('adminlte.logout_method')) }}--}}
+{{--                                @endif--}}
                                 {{ csrf_field() }}
                             </form>
                         </li>
@@ -120,7 +120,7 @@
                 </ul>
                 @if(config('adminlte.layout_topnav') || View::getSection('layout_topnav'))
                     </nav>
-                @endif
+            </div>@endif
             </nav>
         @if(!config('adminlte.layout_topnav') && !View::getSection('layout_topnav'))
         <aside class="main-sidebar {{config('adminlte.classes_sidebar', 'sidebar-dark-primary elevation-4')}}">

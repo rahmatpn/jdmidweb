@@ -37,17 +37,21 @@ Route::post('/masuk/hotel', 'Auth\RegisterController@createHotel');
 Route::post('/masuk/user', 'Auth\RegisterController@createUser');
 Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
 
-Route::get('/admin', 'AdminController@index');
-Route::get('/admin/user/manage', 'AdminController@indexUser');
-Route::get('/admin/hotel/manage', 'AdminController@indexHotel');
-Route::get('/admin/pekerjaan/manage', 'AdminController@indexPekerjaan');
-Route::get('/admin/logout', 'LoginController@logout');
-
+Route::group([
+    'middleware'=>'auth:admin'
+], function () {
+    Route::get('/admin', 'AdminController@index');
+    Route::get('/admin/user/manage', 'AdminController@indexUser');
+    Route::get('/admin/hotel/manage', 'AdminController@indexHotel');
+    Route::get('/admin/pekerjaan/manage', 'AdminController@indexPekerjaan');
+    Route::get('/admin/pekerjaan/{url_slug}/edit','PekerjaanController@edit');
+    Route::get('/admin/pekerjaan/{url_slug}/delete','PekerjaanController@delete');
+    Route::post('/pekerjaan/update','PekerjaanController@update');
+});
 
 Route::get('/home', 'HomeController@index');
 Route::get('/hotel/{profile}', 'ProfileHotelController@indexHotel')->name('hotel.show');
 Route::get('/user/{profile}', 'ProfileUserController@indexUser')->name('user.show');
-
 
 Route::group([
     'middleware'=>'auth:user'

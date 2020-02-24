@@ -59,6 +59,7 @@ class PekerjaanController extends Controller
         // passing data pegawai yang didapat ke view edit.blade.php
         return view('jobs.editJob',compact('pekerjaan'));
     }
+
     public function update(Request $request){
         Pekerjaan::where('id',$request->id)->update([
             'area' => $request->area,
@@ -74,12 +75,20 @@ class PekerjaanController extends Controller
             'bayaran' => $request->bayaran,
             'deskripsi' => $request->deskripsi
         ]);
-        return redirect('/hotel/'.auth()->user()->profile->url_slug)->with('success','Data Telah Diupdate!');
-
+        if(Auth::guard('hotel')->user() != null){
+            return redirect('/hotel/'.auth()->user()->profile->url_slug)->with('success','Data Telah Diupdate!');
+        }else
+            return redirect('/admin/pekerjaan/manage');
     }
+
     public function delete($url_slug){
         DB::table('pekerjaan')->where('url_slug', $url_slug)->delete();
-        return redirect('/hotel/'.auth()->user()->profile->url_slug)->with('success','Data Telah Dihapus');
+        if(Auth::guard('hotel')->user() != null){
+            return redirect('/hotel/'.auth()->user()->profile->url_slug)->with('success','Data Telah Dihapus');
+        }else
+            return back();
+
+
     }
 
 
