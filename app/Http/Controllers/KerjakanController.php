@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\DB;
 class KerjakanController extends Controller
 {
 
+    public function index(){
+//        $pekerjaan = Pekerjaan::orderBy('tanggal_mulai')->get();
+        return view('jobs.joblist', compact('pekerjaan'));
+    }
 
     public function store(){
 

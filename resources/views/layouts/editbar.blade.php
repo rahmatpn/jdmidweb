@@ -290,28 +290,18 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                    @auth('user')
-                        @if(\Illuminate\Support\Facades\Request::is('home'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/user/'.auth()->guard('user')->user()->name)}}">
+                            <a class="nav-link" href="{{url('/user/'.\Illuminate\Support\Str::slug(auth()->guard('user')->user()->name))}}">
                             <i class="fa fa-user-circle"></i>
                             Profil
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                        @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fa fa-user-circle"></i>
-                                    Profil
-                                    <span class="sr-only"></span>
-                                </a>
-                            </li>
 
-                        @endif
                        @endauth
                      @auth('hotel')
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/hotel/'.auth()->guard('hotel')->user()->profile->url_slug)}}">
+                            <a class="nav-link" href="{{url('/hotel/'.\Illuminate\Support\Str::slug(auth()->guard('hotel')->user()->name))}}">
                                 <i class="fa fa-user-circle"></i>
                                 Profil
                                 <span class="sr-only">(current)</span>
@@ -326,7 +316,7 @@
                            </a>
                        </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{url('/joblist')}}">
                             <i class="fa fa-angellist"></i>
                             Job-List
                             <span class="sr-only">(current)</span>

@@ -50,6 +50,7 @@ Route::group([
 });
 
 Route::get('/home', 'HomeController@index');
+Route::get('/joblist', 'KerjakanController@index');
 Route::get('/hotel/{profile}', 'ProfileHotelController@indexHotel')->name('hotel.show');
 Route::get('/user/{profile}', 'ProfileUserController@indexUser')->name('user.show');
 

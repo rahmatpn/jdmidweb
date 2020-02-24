@@ -11,7 +11,7 @@
                 <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Edit Job</h3>
                 <hr class="w-header">
                 <div class="row">
-                    <input type="hidden" name="id" value="{{ $pekerjaan->id}}">
+                    <input type="hidden" name="id" value="{{$pekerjaan->id}}">
                     <div class="md-form input-group mb-3 col-xl">
                         <div class="input-group-prepend">
                             <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Area</span>

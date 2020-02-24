@@ -317,7 +317,6 @@
                                      aria-labelledby="navbarDropdownMenuLink-333">
                                     <a class="dropdown-item" href="#">Profil</a>
                                     <a class="dropdown-item" href="{{url(route('logout'))}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Log Out</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>

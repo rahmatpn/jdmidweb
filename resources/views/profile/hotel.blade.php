@@ -267,7 +267,8 @@
                                         <div class="dropdown-menu dropdown-menu-left">
                                             <a class="dropdown-item" href="{{url("/job/$pekerjaan->url_slug/edit")}}">Edit</a>
                                             <a class="dropdown-item" href="{{url("/job/$pekerjaan->url_slug/delete")}}">Delete</a>
-                                            <a class="dropdown-item"     href="{{url("/job/$pekerjaan->url_slug/postlist")}}">Todo List</a>
+                                            <a class="dropdown-item" href="{{url("/job/$pekerjaan->url_slug/postlist")}}">Todo List</a>
+
 
                                         </div>
                                         <!-- Basic dropdown -->
