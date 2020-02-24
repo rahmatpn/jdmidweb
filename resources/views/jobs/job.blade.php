@@ -88,11 +88,19 @@ body{
                         <h5>{{$pekerjaan->getAlamat()}}</h5>
                     </div>
                     <br/>
+                    @auth('hotel')
                     <form action="/job/{{$pekerjaan->url_slug}}/apply" method="post">
                         @csrf
-                        <input type="submit" class="btn aqua-gradient-rgba" value="Apply">
+                        <input type="hidden" class="btn aqua-gradient-rgba" value="Apply">
                     </form>
-                    <a class="btn btn-primary" href="/job/{{$pekerjaan->url_slug}}/postlist" >Buat To-do List</a>
+                    @endauth
+                    @auth('user')
+                        <form action="/job/{{$pekerjaan->url_slug}}/apply" method="post">
+                            @csrf
+                            <input type="submit" class="btn aqua-gradient-rgba" value="Apply">
+                        </form>
+                        @endauth
+{{--                    <a class="btn btn-primary" href="/job/{{$pekerjaan->url_slug}}/postlist" >Buat To-do List</a>--}}
                 </div>
             </div>
 
