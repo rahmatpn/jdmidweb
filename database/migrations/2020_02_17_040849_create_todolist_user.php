@@ -17,7 +17,6 @@ class CreateTodolistUser extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('todolist_id');
             $table->unsignedBigInteger('user_id');
-            $table->boolean('status');
             $table->timestamps();
 
             $table->index('todolist_id');

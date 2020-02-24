@@ -19,6 +19,6 @@ class ToDoList extends Model
     }
 
     public function user(){
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'todolist_user', 'todolist_id', 'user_id')->withTimestamps();
     }
 }

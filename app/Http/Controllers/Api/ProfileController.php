@@ -18,10 +18,12 @@ class ProfileController extends Controller
         return response(["profile"=> ProfileUser::firstOrFail()->where('user_id', $id)->get()]);
     }
 
-    function updateProfile(Request $request)
+    function updateProfile(Request $request, $id)
     {
-        $id = auth()->id();
-        $profile = ProfileUser::findOrFail($id);
+        if ($id != auth()->id())
+            return response(Response::HTTP_UNAUTHORIZED);
+
+        $profile = ProfileUser::findOrFail(auth()->id());
         $newProfile = Validator::make($request->all(),[
             'id' => 'required',
             'user_id' => 'required',
@@ -35,9 +37,11 @@ class ProfileController extends Controller
         }
     }
 
-    public function uploadImage(Request $request) {
-        $id = auth()->id();
-        $profile = ProfileUser::findOrFail($id);
+    public function uploadImage(Request $request, $id) {
+        if ($id != auth()->id())
+            return response(Response::HTTP_UNAUTHORIZED);
+
+        $profile = ProfileUser::findOrFail(auth()->id());
 
         if(!$request->hasFile('image')) {
             return response()->json(['upload_file_not_found'], 400);
@@ -59,9 +63,11 @@ class ProfileController extends Controller
         return response()->json(ProfileUser::findOrFail($id), Response::HTTP_OK);
     }
 
-    public function uploadCover(Request $request) {
-        $id = auth()->id();
-        $profile = ProfileUser::findOrFail($id);
+    public function uploadCover(Request $request, $id) {
+        if ($id != auth()->id())
+            return response(Response::HTTP_UNAUTHORIZED);
+
+        $profile = ProfileUser::findOrFail(auth()->id());
 
         if(!$request->hasFile('image')) {
             return response()->json(['upload_file_not_found'], 400);

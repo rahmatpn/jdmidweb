@@ -61,7 +61,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     public function mengerjakan(){
-        return $this->belongsToMany(Pekerjaan::class);
+        return $this->belongsToMany(Pekerjaan::class, 'pekerjaan_user')->withTimestamps()->withPivot('status');
     }
 
     public function posisi(){
@@ -69,7 +69,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     public function todolist(){
-        return $this->belongsToMany(ToDoList::class);
+        return $this->belongsToMany(ToDoList::class, 'todolist_user', 'user_id', 'todolist_id')->withTimestamps();
     }
 
     public function AauthAcessToken(){
