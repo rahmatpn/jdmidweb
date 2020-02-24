@@ -31,20 +31,25 @@ Route::get('profile/{id}/positions', 'Api\PositionController@getUserPositions');
 Route::group([
    'middleware'=>'auth:api'
 ], function (){
+
     Route::get('auth/jobs','Api\JobController@getAllJobs');
     Route::get('auth/jobs/{query}','Api\JobController@getJobs');
     Route::get('auth/jobs/position/{position}','Api\JobController@getJobsWithPosition');
+
     Route::put('profile/{id}/update', 'Api\ProfileController@updateProfile');
     Route::post('profile/{id}/upload/profile', 'Api\ProfileController@uploadImage');
     Route::post('profile/{id}/upload/cover', 'Api\ProfileController@uploadCover');
     Route::post('profile/positions/update','Api\PositionController@selectPosition');
+
     Route::post('logout','Api\AuthController@logout');
-    Route::post('jobs/{job}/apply','Api\JobController@applyJob');
+
+    Route::post('auth/jobs/{job}/apply','Api\JobController@applyJob');
     Route::get('profile/{id}/jobsdetail', 'Api\JobController@getJobsDetail');
     Route::post('auth/jobs/todo/{todo}/check', 'Api\ToDoListController@checkTodolist');
 });
 
 Route::get('profile/{id}/jobs', 'Api\JobController@getUserJob');
+
 Route::get('jobs','Api\JobController@getAllJobs');
 Route::get('jobs/{query}','Api\JobController@getJobs');
 Route::get('jobs/position/{position}','Api\JobController@getJobsWithPosition');

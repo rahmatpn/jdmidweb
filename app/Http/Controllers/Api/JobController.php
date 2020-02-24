@@ -89,22 +89,29 @@ class JobController extends Controller
 
         if($currentJob->dikerjakan->count() >= $currentJob->kuota)
             return response()->json(['message'=>'Kuota sudah penuh'],Response::HTTP_FORBIDDEN);
-//
-//        elseif ($isExpired)
-//            return response()->json(['message'=>'Job sudah expired'], Response::HTTP_FORBIDDEN);
-//        elseif (!$profile->isCompleted)
-//            return response()->json(['message'=>'Silakan melengkapi profil'], Response::HTTP_FORBIDDEN);
-//        elseif ($currentJob->tinggi_minimal > $profile->tinggi_badan && $currentJob->tinggi_maksimal > $profile->tinggi_badan)
-//            return response()->json(['message'=>'Tinggi tidak memenuhi'],Response::HTTP_FORBIDDEN);
-//        elseif ($currentJob->berat_minimal > $profile->berat_badan && $currentJob->berat_maksimal > $profile->berat_badan)
-//            return response()->json(['message'=>'Berat tidak memenuhi'],Response::HTTP_FORBIDDEN);
+
+        elseif ($isExpired)
+            return response()->json(['message'=>'Job sudah expired'], Response::HTTP_FORBIDDEN);
+        elseif (!$profile->isCompleted)
+            return response()->json(['message'=>'Silakan melengkapi profil'], Response::HTTP_FORBIDDEN);
+        elseif ($currentJob->tinggi_minimal > $profile->tinggi_badan && $currentJob->tinggi_maksimal > $profile->tinggi_badan)
+            return response()->json(['message'=>'Tinggi tidak memenuhi'],Response::HTTP_FORBIDDEN);
+        elseif ($currentJob->berat_minimal > $profile->berat_badan && $currentJob->berat_maksimal > $profile->berat_badan)
+            return response()->json(['message'=>'Berat tidak memenuhi'],Response::HTTP_FORBIDDEN);
 
         else
             return response()->json($user->mengerjakan()->toggle(Pekerjaan::findOrFail($job)));
     }
 
     function getUserJob($id){
-        return response()->json(['jobs'=>User::with('mengerjakan')->get()->find($id)]);
+        $jobs = User::with('mengerjakan')->get()->find($id)->mengerjakan->pluck('id');
+        return response()->json(['jobs'=>
+            Pekerjaan::with('hotel.profile')
+                ->with('posisi')
+                ->withCount('dikerjakan')
+                ->whereIn('id',$jobs)
+                ->orderBy('tanggal_mulai')
+                ->get()]);
     }
 
     function getJobsDetail($id){
