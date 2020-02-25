@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Pekerjaan</h1>
 @stop
 
 @section('content')
@@ -46,7 +46,7 @@
             <td>{{$pekerjaan->kuota}}</td>
             <td class="text-justify">{{$pekerjaan->deskripsi}}</td>
             <td><a href="{{url('/admin/pekerjaan/'.$pekerjaan->url_slug.'/delete')}}" class="btn btn-danger">Delete</a> </td>
-            <td><a href="{{url('/admin/pekerjaan/'.$pekerjaan->url_slug.'/edit')}}" class="btn btn-primary">Edit</a> </td>
+            <td><a href="{{url('/admin/pekerjaan/'.$pekerjaan->url_slug.'/edit')}}" class="btn btn-info">Edit</a> </td>
         </tr>
             @endforeach
         </tbody>

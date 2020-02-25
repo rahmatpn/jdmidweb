@@ -3,7 +3,10 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Hotel</h1>
+    <div class="justify-content-end d-flex">
+        <a href="{{url('admin/hotel/add')}}" class="btn btn-success justify-content-end">Tambah Hotel</a>
+    </div>
 @stop
 
 @section('content')
@@ -34,8 +37,8 @@
                 <td>{{$hotel->profile->social_media}}</td>
                 <td>{{$hotel->profile->weabsite}}</td>
                 <td class="text-md-center"><img src="{{asset($hotel->profile->hotelPhoto())}}" class="h-25"></td>
-                <td><a href="{{url('/admin/hotel/'.$hotel->profile->url_slug.'/delete')}}" class="btn btn-danger">Delete</a> </td>
-                <td><a href="{{url('/admin/hotel/'.$hotel->profile->url_slug.'/edit')}}" class="btn btn-primary">Edit</a> </td>
+                <td><a href="{{url('/admin/hotel/'.$hotel->profile->url_slug.'/delete')}}" class="btn btn-danger">Hapus</a> </td>
+                <td><a href="{{url('/admin/hotel/'.$hotel->profile->url_slug.'/edit')}}" class="btn btn-info">Edit</a> </td>
             </tr>
         @endforeach
         </tbody>

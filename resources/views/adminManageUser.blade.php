@@ -5,7 +5,7 @@
 @section('content_header')
     <h1>User</h1>
     <div class="justify-content-end d-flex">
-        <a href="{{url('add/user')}}" class="btn btn-success justify-content-end">Add user</a>
+        <a href="{{url('admin/user/add')}}" class="btn btn-success justify-content-end">Tambah user</a>
     </div>
 
 @stop
@@ -45,7 +45,7 @@
                 <td>{{$user->profile->pendidikan_terakhir}}</td>
                 <td> <img src="{{asset($user->profile->profileFoto())}}" class="w-100"></td>
                 <td> <img src="{{asset($user->profile->profileCover())}}" class="w-100"></td>
-                <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/delete')}}" class="btn btn-danger">Delete</a> </td>
+                <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/delete')}}" class="btn btn-danger">Hapus</a> </td>
                 <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/edit')}}" class="btn btn-info">Edit</a> </td>
             </tr>
         @endforeach
