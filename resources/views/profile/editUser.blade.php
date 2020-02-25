@@ -23,10 +23,29 @@
         @csrf
         @method('PATCH')
     <!-- Jumbotron -->
+                        @if(Session::has('gagalProfile'))
+                            <script>
+                                $(function() {
+                                    $('#modalCookie2').modal('show');
+                                });
+                            </script>
+                        @endif
     <div class="container my-5">
         @if(session()->get('gagalProfile'))
-            <div class="alert-danger">{{session()->get('gagalProfile')}}</div>
-        @endif
+            <div class="modal fade top" id="modalCookie2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true" data-backdrop="true">
+                <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="row d-flex justify-content-center align-items-center">
+                                <p class="pt-3 pr-2">{{session()->get('gagalProfile')}}</p>
+                                <a type="button" class="btn blue-gradient rounded waves-effect" data-dismiss="modal">Dilengkapi dong :(</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    @endif
 
         <!--Section: Content-->
         <section>
@@ -280,7 +299,8 @@
     </form>
 
 
-</form>{{--    <div class="container">--}}
+</form>
+        {{--    <div class="container">--}}
 {{--        <form action="/user/{{$user->profile->url_slug}}" enctype="multipart/form-data" method="post">--}}
 {{--            @csrf--}}
 {{--            @method('PATCH')--}}

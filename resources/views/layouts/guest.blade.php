@@ -33,15 +33,21 @@
         body,
         header,
         .view {
-            height: 100%;
-            background-color: white;
+
+            background: linear-gradient(45deg, rgba(19, 84, 122, 0.6), rgba(128, 208, 199, 0.69) 100%);
         }
 
 
         .btn .fa {
             margin-left: 3px;
         }
-
+        .desc {
+            white-space: nowrap;
+            white-space: -o-pre-wrap;
+            width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
         .top-nav-collapse {
             background-color: #FFFFFF !important;
             text-decoration: white;
@@ -65,170 +71,7 @@
             }
         }
 
-        .imghotel{
-            position:relative;
-            overflow:hidden;
-            padding-bottom:100%;
-        }
-        .imghotel img{
-            position: absolute;
-            max-width: 100%;
-            max-height: 100%;
-            top: 50%;
-            left: 50%;
-            transform: translateX(-50%) translateY(-50%);
-        }
 
-        .desc {
-            display: block;
-            width: 600px;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
-        /* Material design styling */
-
-        /*placeholder style*/
-
-        .note-placeholder {
-            position: absolute;
-            top: 20%;
-            left: 5%;
-            font-size: 2rem;
-            color: #e4e5e7;
-            pointer-events: none;
-        }
-
-        /*Toolbar panel*/
-
-        .note-editor .note-toolbar {
-            background: #f0f0f1;
-            border-bottom: 1px solid #c2cad8;
-            -webkit-box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-            box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.14), 0 3px 4px 0 rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
-        }
-
-        /*Buttons from toolbar*/
-
-        .summernote .btn-group, .popover-content .btn-group {
-            background: transparent;
-            -webkit-box-shadow: none;
-            box-shadow: none;
-        }
-
-        .note-popover {
-            background: #f0f0f1!important;
-        }
-
-        .summernote .btn, .note-btn {
-            color: rgba(0, 0, 0, .54)!important;
-            background-color: transparent!important;
-            padding: 6px 12px;
-            font-size: 14px;
-            line-height: 1.42857;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            -webkit-box-shadow: none;
-            box-shadow: none;
-        }
-
-        .summernote .dropdown-toggle:after {
-            vertical-align: middle;
-        }
-
-        .note-editor.card {
-            -webkit-box-shadow: none;
-            box-shadow: none;
-            border-radius: 2px;
-        }
-
-        /* Border of the Summernote textarea */
-
-        .note-editor.note-frame {
-            border: 1px solid rgba(0, 0, 0, .14);
-        }
-
-        /* Padding of the text in textarea */
-
-        .note-editor.note-frame .note-editing-area .note-editable {
-            padding-top: 1rem;
-        }
-        .has-error input[type="text"], .has-error input[type="email"], .has-error input[type="number"], .has-error input[type="time"], .has-error input[type="date"] .has-error select {
-            border: 1px solid #ff6162;
-        }
-        #upload {
-            opacity: 0;
-        }
-
-        #upload-label {
-            position: absolute;
-            top: 50%;
-            left: 1rem;
-            transform: translateY(-50%);
-        }
-
-        .image-area {
-            border: 2px dashed rgba(255, 255, 255, 0.7);
-            padding: 1rem;
-            position: relative;
-        }
-
-        .image-area::before {
-            content: 'Uploaded image result';
-            color: #fff;
-            font-weight: bold;
-            text-transform: uppercase;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 0.8rem;
-            z-index: 1;
-        }
-        .upload {
-            opacity: 0;
-        }
-
-        .upload-label {
-            position: absolute;
-            top: 50%;
-            left: 1rem;
-            transform: translateY(-50%);
-        }
-
-
-        .image-area img {
-            z-index: 2;
-            position: relative;
-        }
-        .cover-area {
-            border: 2px dashed rgba(255, 255, 255, 0.7);
-            padding: 1rem;
-            position: relative;
-        }
-
-        .cover-area::before {
-            content: 'Uploaded image result';
-            color: #fff;
-            font-weight: bold;
-            text-transform: uppercase;
-            position: absolute;
-            top: 100%;
-            left: 100%;
-            transform: translate(-50%, -50%);
-            font-size: 0.8rem;
-            z-index: 1;
-        }
-
-        .cover-area img {
-            z-index: auto;
-            position: relative;
-        }
-        #img-upload{
-            width: 100%;
-        }
     </style>
 </head>
 <script>
@@ -248,24 +91,6 @@
         }
     }
 
-    $(function () {
-        $('#upload').on('change', function () {
-            readURL(input);
-        });
-    });
-
-    /*  ==========================================
-        SHOW UPLOADED IMAGE NAME
-    * ========================================== */
-    var input = document.getElementById( 'upload' );
-    var infoArea = document.getElementById( 'upload-label' );
-
-    input.addEventListener( 'change', showFileName );
-    function showFileName( event ) {
-        var input = event.srcElement;
-        var fileName = input.files[0].name;
-        infoArea.textContent = 'File name: ' + fileName;
-    }
 </script>
 <body>
 
@@ -322,18 +147,35 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fa fa-whatsapp "></i>
-                        Notifikasi
-                        <span class="badge badge-danger">11</span>
-                    </a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" type="button" id="dropdownMenu3" data-toggle="dropdown" href="#">
+                            <i class="fa fa-whatsapp "></i>
+                            Notifikasi
+                            <span class="badge badge-danger">11</span>
+                        </a>
+                        <div class="dropdown">
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+
+                                <div class="card-body">
+                                    <h5 class="card-title">Judul Notifikasi</h5>
+                                    <p class="card-text">isi notifikasi</p>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Judul Notifikasi</h5>
+                                    <p class="card-text">isi notifikasi</p>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Judul Notifikasi</h5>
+                                    <p class="card-text">isi notifikasi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                     @auth('hotel')
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">
-                                <img src="{{asset(\Illuminate\Support\Facades\Auth::guard('hotel')->user()->profile->foto)}}" class="rounded-circle z-depth-0"
+                                <img src="{{asset(\Illuminate\Support\Facades\Auth::guard('hotel')->user()->profile->hotelPhoto())}}" class="rounded-circle z-depth-0"
                                      alt="avatar image" height="30">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-default"
@@ -350,7 +192,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">
-                                <img src="{{asset(\Illuminate\Support\Facades\Auth::guard('user')->user()->profile->foto)}}" class="rounded-circle z-depth-0"
+                                <img src="{{asset(\Illuminate\Support\Facades\Auth::guard('user')->user()->profile->profileFoto())}}" class="rounded-circle z-depth-0"
                                      alt="avatar image" height="30">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-default"
@@ -368,7 +210,7 @@
     </div>
 </nav>
 
-<main class="py-5">
+<main>
     @yield('content')
 </main>
 

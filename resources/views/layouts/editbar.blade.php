@@ -322,49 +322,58 @@
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fa fa-whatsapp "></i>
-                            Chat
-                            <span class="badge badge-danger">11</span>
-                        </a>
-                    </li>
-                    @auth('user')
-                    <!-- Authentication Links -->
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle nav-item active" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            Akun <span class="sr-only">(current)</span>
-                        </a>
+                       <li class="nav-item">
+                           <a class="nav-link" type="button" id="dropdownMenu3" data-toggle="dropdown" href="#">
+                               <i class="fa fa-whatsapp "></i>
+                               Notifikasi
+                               <span class="badge badge-danger">11</span>
+                           </a>
+                           <div class="dropdown">
+                               <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
 
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{url('/user/'.auth()->guard('user')->user()->profile->url_slug.'/edit')}}">Edit Profile</a>
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                    </li>
-                        @endauth
+                                   <div class="card-body">
+                                       <h5 class="card-title">Judul Notifikasi</h5>
+                                       <p class="card-text">isi notifikasi</p>
+                                   </div>
+                                   <div class="card-body">
+                                       <h5 class="card-title">Judul Notifikasi</h5>
+                                       <p class="card-text">isi notifikasi</p>
+                                   </div>
+                                   <div class="card-body">
+                                       <h5 class="card-title">Judul Notifikasi</h5>
+                                       <p class="card-text">isi notifikasi</p>
+                                   </div>
+                               </div>
+                           </div>
+                       </li>
                        @auth('hotel')
-                       <!-- Authentication Links -->
                            <li class="nav-item dropdown">
-                               <a id="navbarDropdown" class="nav-link dropdown-toggle nav-item active" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                   Akun <span class="sr-only">(current)</span>
+                               <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                                  aria-haspopup="true" aria-expanded="false">
+                                   <img src="{{asset(\Illuminate\Support\Facades\Auth::guard('hotel')->user()->profile->hotelPhoto())}}" class="rounded-circle z-depth-0"
+                                        alt="avatar image" height="30">
                                </a>
-
-
-                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                   <a class="dropdown-item" href="{{url('/hotel/'.auth()->guard('hotel')->user()->profile->url_slug.'/edit')}}">Edit Profile</a>
-                                   <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                       {{ __('Logout') }}
-                                   </a>
-
-
+                               <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                                    aria-labelledby="navbarDropdownMenuLink-333">
+                                   <a class="dropdown-item" href="{{url('/hotel/'.auth()->guard('hotel')->user()->profile->url_slug.'/edit')}}">Edit Profil</a>
+                                   <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Log Out</a>
+                                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                       @csrf
+                                   </form>
+                               </div>
+                           </li>
+                       @endauth
+                       @auth('user')
+                           <li class="nav-item dropdown">
+                               <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                                  aria-haspopup="true" aria-expanded="false">
+                                   <img src="{{asset(\Illuminate\Support\Facades\Auth::guard('user')->user()->profile->profileFoto())}}" class="rounded-circle z-depth-0"
+                                        alt="avatar image" height="30">
+                               </a>
+                               <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                                    aria-labelledby="navbarDropdownMenuLink-333">
+                                   <a class="dropdown-item" href="{{url('/user/'.auth()->guard('user')->user()->profile->url_slug.'/edit')}}">Edit Profile</a>
+                                   <a class="dropdown-item" href="{{url(route('logout'))}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Log Out</a>
                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                        @csrf
                                    </form>

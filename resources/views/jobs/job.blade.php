@@ -10,19 +10,129 @@ body{
 @endsection
 @section('content')
 <div class="container">
-    @if(session()->get('gagalProfile'))
-        <div class="alert-danger">{{session()->get('gagalProfile')}}</div>
-    @elseif(session()->get('gagalTinggi'))
-        <div class="alert-danger">{{session()->get('gagalTinggi')}}</div>
-    @elseif(session()->get('gagalBerat'))
-        <div class="alert-danger">{{session()->get('gagalBerat')}}</div>
-    @elseif(session()->get('kuotaPenuh'))
-        <div class="alert-danger">{{session()->get('kuotaPenuh')}}</div>
-    @elseif(session()->get('success'))
-        <div class="alert-light">{{session()->get('success')}}</div>
+{{--    @if(session()->get('gagalProfile'))--}}
+{{--        <div class="alert-danger">{{session()->get('gagalProfile')}}</div>--}}
+{{--    @elseif(session()->get('gagalTinggi'))--}}
+{{--        <div class="alert-danger">{{session()->get('gagalTinggi')}}</div>--}}
+{{--    @elseif(session()->get('gagalBerat'))--}}
+{{--        <div class="alert-danger">{{session()->get('gagalBerat')}}</div>--}}
+{{--    @elseif(session()->get('kuotaPenuh'))--}}
+{{--        <div class="alert-danger">{{session()->get('kuotaPenuh')}}</div>--}}
+{{--    @elseif(session()->get('success'))--}}
+{{--        <div class="alert-light">{{session()->get('success')}}</div>--}}
+{{--    @endif--}}
+
+        @if(Session::has('success'))
+            <script>
+                $(function() {
+                    $('#modalCookie1').modal('show');
+                });
+            </script>
+        @elseif(Session::has('gagalProfile'))
+            <script>
+                $(function() {
+                    $('#modalCookie2').modal('show');
+                });
+            </script>
+        @elseif(Session::has('gagalTinggi'))
+            <script>
+                $(function() {
+                    $('#modalCookie3').modal('show');
+                });
+            </script>
+    @elseif(Session::has('gagalBerat'))
+        <script>
+            $(function() {
+                $('#modalCookie4').modal('show');
+            });
+        </script>
+    @elseif(Session::has('kuotaPenuh'))
+        <script>
+            $(function() {
+                $('#modalCookie5').modal('show');
+            });
+        </script>
+        @endif
+
+
+
+        @if(session()->get('success'))
+            <div class="modal fade top" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true" data-backdrop="true">
+                <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="row d-flex justify-content-center align-items-center">
+                                <p class="pt-3 pr-2">{{session()->get('success')}}</p>
+                                <a type="button" class="btn blue-gradient rounded waves-effect" data-dismiss="modal">Yay</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+        @if(session()->get('gagalProfile'))
+            <div class="modal fade top" id="modalCookie2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true" data-backdrop="true">
+                <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="row d-flex justify-content-center align-items-center">
+                                <p class="pt-3 pr-2">{{session()->get('gagalProfile')}}</p>
+                                <a type="button" class="btn blue-gradient rounded waves-effect" data-dismiss="modal">:(</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+    @if(session()->get('gagalTinggi'))
+        <div class="modal fade top" id="modalCookie3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true" data-backdrop="true">
+            <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <p class="pt-3 pr-2">{{session()->get('gagalTinggi')}}</p>
+                            <a type="button" class="btn blue-gradient rounded waves-effect" data-dismiss="modal">Wah kurang tinggi :(</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+    @if(session()->get('gagalBerat'))
+        <div class="modal fade top" id="modalCookie4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true" data-backdrop="true">
+            <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <p class="pt-3 pr-2">{{session()->get('gagalBerat')}}</p>
+                            <a type="button" class="btn blue-gradient rounded waves-effect" data-dismiss="modal">Wah harus makan lagi :(</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+    @if(session()->get('kuotaPenuh'))
+        <div class="modal fade top" id="modalCookie5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true" data-backdrop="true">
+            <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <p class="pt-3 pr-2">{{session()->get('kuotaPenuh')}}</p>
+                            <a type="button" class="btn blue-gradient rounded waves-effect" data-dismiss="modal">Silahkan Coba Lagi di lain waktu</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     @endif
 
-    <!-- Jumbotron -->
+
     <div class="card card-image" style="background-image: url(https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">
         <div class="text-white text-center rgba-stylish-strong py-5 px-4">
             <div class="py-5">

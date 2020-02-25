@@ -242,17 +242,34 @@
                            </li>
                            @endauth
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" type="button" id="dropdownMenu3" data-toggle="dropdown" href="#">
                             <i class="fa fa-whatsapp "></i>
                             Notifikasi
                             <span class="badge badge-danger">11</span>
                         </a>
+                        <div class="dropdown">
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title">Judul Notifikasi</h5>
+                                        <p class="card-text">isi notifikasi</p>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Judul Notifikasi</h5>
+                                    <p class="card-text">isi notifikasi</p>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Judul Notifikasi</h5>
+                                    <p class="card-text">isi notifikasi</p>
+                                </div>
+                            </div>
+                        </div>
                     </li>
                        @auth('hotel')
                            <li class="nav-item dropdown">
                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
                                   aria-haspopup="true" aria-expanded="false">
-                                   <img src="{{asset(\Illuminate\Support\Facades\Auth::guard('hotel')->user()->profile->foto)}}" class="rounded-circle z-depth-0"
+                                   <img src="{{asset(\Illuminate\Support\Facades\Auth::guard('hotel')->user()->profile->hotelPhoto())}}" class="rounded-circle z-depth-0"
                                         alt="avatar image" height="30">
                                </a>
                                <div class="dropdown-menu dropdown-menu-right dropdown-default"
@@ -269,7 +286,7 @@
                            <li class="nav-item dropdown">
                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
                                   aria-haspopup="true" aria-expanded="false">
-                                   <img src="{{asset(\Illuminate\Support\Facades\Auth::guard('user')->user()->profile->foto)}}" class="rounded-circle z-depth-0"
+                                   <img src="{{asset(\Illuminate\Support\Facades\Auth::guard('user')->user()->profile->profileFoto())}}" class="rounded-circle z-depth-0"
                                         alt="avatar image" height="30">
                                </a>
                                <div class="dropdown-menu dropdown-menu-right dropdown-default"
