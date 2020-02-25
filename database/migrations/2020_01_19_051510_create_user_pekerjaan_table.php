@@ -20,8 +20,10 @@ class CreateUserPekerjaanTable extends Migration
             $table->enum('status', [0,1]); //0 = belum selesai, 1 = selesai
             $table->timestamps();
 
-            $table->index('pekerjaan_id');
-            $table->index('user_id');
+            $table->foreign('pekerjaan_id')->references('id')->on('pekerjaan')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+//            $table->index('pekerjaan_id');
+//            $table->index('user_id');
         });
     }
 

@@ -31,8 +31,10 @@ class CreatePekerjaanTable extends Migration
             $table->string('url_slug')->unique();
             $table->timestamps();
 
-            $table->index('hotel_id');
-            $table->index('posisi_id');
+            $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
+            $table->foreign('posisi_id')->references('id')->on('posisi')->onDelete('cascade');
+//            $table->index('hotel_id');
+//            $table->index('posisi_id');
         });
     }
 

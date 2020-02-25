@@ -32,9 +32,11 @@ class CreateUserProfilesTable extends Migration
             $table->string('url_slug')->unique();
             $table->timestamps();
 
-            $table->index('user_id');
-            $table->index('nama');
-            $table->index('email');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('email')->references('email')->on('users')->onDelete('cascade');
+//            $table->index('user_id');
+//            $table->index('nama');
+//            $table->index('email');
         });
     }
 

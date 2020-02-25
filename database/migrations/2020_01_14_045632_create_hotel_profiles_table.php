@@ -26,10 +26,11 @@ class CreateHotelProfilesTable extends Migration
             $table->string('website')->nullable();
             $table->string('url_slug')->unique();
             $table->timestamps();
+        });
 
-            $table->index('hotel_id');
-            $table->index('email');
-            $table->index('nama');
+        Schema::table('hotel_profiles', function (Blueprint $table){
+            $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
+            $table->foreign('email')->references('email')->on('hotels')->onDelete('cascade');
         });
     }
 

@@ -19,7 +19,8 @@ class CreateTodolistTable extends Migration
             $table->string('nama_pekerjaan');
             $table->timestamps();
 
-            $table->index('pekerjaan_id');
+            $table->foreign('pekerjaan_id')->references('id')->on('pekerjaan')->onDelete('cascade');
+//            $table->index('pekerjaan_id');
         });
     }
 

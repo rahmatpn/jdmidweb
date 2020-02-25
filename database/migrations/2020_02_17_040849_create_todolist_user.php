@@ -19,8 +19,10 @@ class CreateTodolistUser extends Migration
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 
-            $table->index('todolist_id');
-            $table->index('user_id');
+            $table->foreign('todolist_id')->references('id')->on('todolist')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+//            $table->index('todolist_id');
+//            $table->index('user_id');
         });
     }
 

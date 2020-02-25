@@ -19,8 +19,10 @@ class CreateUserPosisiTable extends Migration
             $table->unsignedBigInteger('posisi_id');
             $table->timestamps();
 
-            $table->index('user_id');
-            $table->index('posisi_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('posisi_id')->references('id')->on('posisi')->onDelete('cascade');
+//            $table->index('user_id');
+//            $table->index('posisi_id');
         });
     }
 
