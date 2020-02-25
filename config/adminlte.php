@@ -190,7 +190,7 @@ return [
             'label'       => 4,
             'label_color' => 'success',
         ],
-        ['header' => 'account_settings'],
+        ['header' => 'Manage'],
         [
             'text' => 'User',
             'url'  => 'admin/user/manage',
@@ -244,18 +244,20 @@ return [
 //                ],
 //            ],
 //        ],
-        ['header' => 'labels'],
+        ['header' => 'Add', 'icon' => 'fas fa-fw fa-plus'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
+            'text' => 'User',
+            'url'  => 'admin/user/add',
+            'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
+            'text' => 'Hotel',
+            'url'  => 'admin/hotel/add',
+            'icon' => 'fas fa-fw fa-building',
         ],
         [
-            'text'       => 'information',
-            'icon_color' => 'aqua',
+            'text'       => 'posisi',
+            'icon' => 'fas fa-fw fa-id-card',
         ],
     ],
 

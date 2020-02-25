@@ -280,7 +280,7 @@
     </form>
 
 
-{{--    <div class="container">--}}
+</form>{{--    <div class="container">--}}
 {{--        <form action="/user/{{$user->profile->url_slug}}" enctype="multipart/form-data" method="post">--}}
 {{--            @csrf--}}
 {{--            @method('PATCH')--}}

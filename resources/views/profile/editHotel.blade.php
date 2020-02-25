@@ -15,7 +15,12 @@
         </div>
     </div>
 
-    <form action="{{url('/hotel/'.$hotel->profile->url_slug)}}" enctype="multipart/form-data" method="post">
+    @auth('hotel')
+        <form action="{{url('/hotel/'.$hotel->profile->url_slug)}}" enctype="multipart/form-data"  data-toggle="validator" method="post">
+            @endauth
+            @auth('admin')
+                <form action="{{url('admin/hotel/'.$hotel->profile->url_slug)}}" enctype="multipart/form-data"  data-toggle="validator" method="post">
+                @endauth
     @csrf
     @method('PATCH')
     <!-- Jumbotron -->
@@ -157,9 +162,8 @@
             <button class="btn rounded btn-primary" type="submit">Save Changes</button>
         </div>
     </form>
-
-
-{{--        <div class="container">--}}
+</form>
+        {{--        <div class="container">--}}
 {{--        <form action="/hotel/{{$hotel->profile->url_slug}}" enctype="multipart/form-data" method="post">--}}
 {{--            @csrf--}}
 {{--            @method('PATCH')--}}

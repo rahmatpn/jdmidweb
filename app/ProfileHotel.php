@@ -10,7 +10,7 @@ class ProfileHotel extends Model
     protected $guarded = [];
 
     public function hotelPhoto(){
-        $fotoPath = ($this->foto) ? $this->foto : '/image/hotel/photo/SoT63YrEf7pfluOCxALtvyz9XMELNpGJACIBdtJ9.png';
+        $fotoPath = ($this->foto) ? $this->foto : 'image/hotel/photo/SoT63YrEf7pfluOCxALtvyz9XMELNpGJACIBdtJ9.png';
         return $fotoPath;
     }
 

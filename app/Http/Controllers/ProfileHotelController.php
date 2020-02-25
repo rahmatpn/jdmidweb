@@ -24,13 +24,22 @@ class ProfileHotelController extends Controller {
     }
 
     public function edit($url_slug) {
-        $profil = ProfileHotel::where('url_slug', '=', $url_slug)->with('hotel')->first();
-        $hotel = Hotel::find($profil->hotel_id);
+        $profile = ProfileHotel::where('url_slug', '=', $url_slug)->with('hotel')->first();
+        $hotel = Hotel::find($profile->hotel_id);
+
+        if (\auth()->guard('hotel')->user()) {
+            $this->authorize('update', $hotel->profile);
+        }
+
         return view('profile.editHotel', compact('hotel'));
     }
 
     public function update($url_slug) {
         $profile = ProfileHotel::where('url_slug', '=', $url_slug)->with('hotel')->first();
+        $hotel = Hotel::find($profile->hotel_id);
+        if (\auth()->guard('hotel')->user()) {
+            $this->authorize('update', $hotel->profile);
+        }
 
         $data = request()->validate([
             'nama' => 'required',
@@ -56,7 +65,16 @@ class ProfileHotelController extends Controller {
             'foto' => !empty($foto) ? $foto : $profile->foto,
         ]);
 
-        return redirect("/hotel/{$profile->url_slug}")->with("success", "Data Has Been Updated Successfully");
+        if(auth()->guard('hotel')->user() != null) {
+            return redirect("/hotel/{$profile->url_slug}")->with("success", "Data Has Been Updated Successfully");
+        }else
+            return redirect('/admin/hotel/manage');
     }
 
+    public function destroy($url_slug){
+        $profile = ProfileHotel::where('url_slug', '=', $url_slug)->with('hotel')->first();
+        $hotel = Hotel::find($profile->hotel_id);
+        $hotel->delete();
+        return redirect('/admin/hotel/manage');
+    }
 }

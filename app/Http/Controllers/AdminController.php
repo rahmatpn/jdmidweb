@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
 
+
     public function index(){
         $pekerjaan = Pekerjaan::orderby('id')->get();
         $user = User::orderby('id')->get();
@@ -33,6 +34,9 @@ class AdminController extends Controller
         return view('adminManagePekerjaan', compact('pekerjaan'));
     }
 
+    public function add(){
+        return view('adminAdd');
+    }
 
 
 }

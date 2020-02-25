@@ -34,8 +34,8 @@
                 <td>{{$hotel->profile->social_media}}</td>
                 <td>{{$hotel->profile->weabsite}}</td>
                 <td class="text-md-center"><img src="{{asset($hotel->profile->hotelPhoto())}}" class="h-25"></td>
-                <td><a href="{{url('/admin/user/'.$hotel->profile->url_slug.'/delete')}}" class="btn btn-danger">Delete</a> </td>
-                <td><a href="{{url('/admin/user/'.$hotel->profile->url_slug.'/edit')}}" class="btn btn-primary">Edit</a> </td>
+                <td><a href="{{url('/admin/hotel/'.$hotel->profile->url_slug.'/delete')}}" class="btn btn-danger">Delete</a> </td>
+                <td><a href="{{url('/admin/hotel/'.$hotel->profile->url_slug.'/edit')}}" class="btn btn-primary">Edit</a> </td>
             </tr>
         @endforeach
         </tbody>

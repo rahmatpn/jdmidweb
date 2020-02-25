@@ -3,7 +3,11 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>User</h1>
+    <div class="justify-content-end d-flex">
+        <a href="{{url('add/user')}}" class="btn btn-success justify-content-end">Add user</a>
+    </div>
+
 @stop
 
 @section('content')
@@ -22,7 +26,8 @@
             <th class="align-middle">Pendidikan Terakhir</th>
             <th class="align-middle text-md-center">foto</th>
             <th class="align-middle text-md-center">cover</th>
-
+            <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -41,15 +46,17 @@
                 <td> <img src="{{asset($user->profile->profileFoto())}}" class="w-100"></td>
                 <td> <img src="{{asset($user->profile->profileCover())}}" class="w-100"></td>
                 <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/delete')}}" class="btn btn-danger">Delete</a> </td>
-                <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/edit')}}" class="btn btn-primary">Edit</a> </td>
-
+                <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/edit')}}" class="btn btn-info">Edit</a> </td>
             </tr>
         @endforeach
         </tbody>
     </table>
+
+
 @stop
 
 @section('css')
+
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
