@@ -6,7 +6,6 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header"> {{ isset($url) ? ucwords($url) : ""}} {{ __('Register') }}</div>
-
                     <div class="card-body">
                         @isset($url)
                             <form method="POST" action='{{ url("register/admin") }}' aria-label="{{ __('Register') }}">
@@ -50,11 +49,6 @@
                                         </div>
                                     </form>
                             </form>
-
-
-
-
-
                     </div>
                     </div>
             </div>
