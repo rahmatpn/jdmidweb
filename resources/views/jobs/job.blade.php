@@ -94,7 +94,7 @@ body{
                     <div class="modal-body">
                         <div class="row d-flex justify-content-center align-items-center">
                             <p class="pt-3 pr-2">{{session()->get('gagalTinggi')}}</p>
-                            <a type="button" class="btn blue-gradient rounded waves-effect" data-dismiss="modal">Wah kurang tinggi :(</a>
+                            <a type="button" class="btn blue-gradient rounded waves-effect" data-dismiss="modal">Oke :(</a>
                         </div>
                     </div>
                 </div>
@@ -109,7 +109,7 @@ body{
                     <div class="modal-body">
                         <div class="row d-flex justify-content-center align-items-center">
                             <p class="pt-3 pr-2">{{session()->get('gagalBerat')}}</p>
-                            <a type="button" class="btn blue-gradient rounded waves-effect" data-dismiss="modal">Wah harus makan lagi :(</a>
+                            <a type="button" class="btn blue-gradient rounded waves-effect" data-dismiss="modal">Oke :(</a>
                         </div>
                     </div>
                 </div>
