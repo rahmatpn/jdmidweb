@@ -109,6 +109,7 @@
                 </div>
             </div>
         @endif
+
         <!-- Main navigation -->
         <header>
             <!-- Intro -->

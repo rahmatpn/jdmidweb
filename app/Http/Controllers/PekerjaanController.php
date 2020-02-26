@@ -46,7 +46,7 @@ class PekerjaanController extends Controller
 
         auth()->user()->pekerjaan()->create($data);
 
-        return redirect('/hotel/'.auth()->user()->profile->url_slug);
+        return redirect('/hotel/'.auth()->user()->profile->url_slug)->with('success','Hore, Lowongan anda berhasil di post');
 
     }
     public function show($url_slug){
