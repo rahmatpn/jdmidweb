@@ -12,7 +12,7 @@
         @elseif(request()->is('admin/hotel/add'))
         hahahah
         @else
-            hueheuehue
+        hueheuehue
         @endif
         belum ada isi
 @stop
