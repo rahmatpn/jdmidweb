@@ -79,18 +79,18 @@ class JobController extends Controller
         $currentJob->berat_minimal = $currentJob->berat_minimal == null ? PHP_INT_MIN : $currentJob->berat_minimal;
         $currentJob->berat_maksimal = $currentJob->berat_maksimal == null ? PHP_INT_MAX : $currentJob->berat_maksimal;
 
-        $date = Carbon::now()->toDateString();
-        $time = Carbon::now()->toTimeString();
+//        $date = Carbon::now()->toDateString();
+//        $time = Carbon::now()->toTimeString();
 
-        $isExpired = true;
-
-        if ($currentJob->tanggal_mulai > $date || $currentJob->tanggal_mulai == $date && $currentJob->waktu_mulai > $time)
-            $isExpired = false;
+//        $isExpired = true;
+//
+//        if ($currentJob->tanggal_mulai > $date || $currentJob->tanggal_mulai == $date && $currentJob->waktu_mulai > $time)
+//            $isExpired = false;
 
         if($currentJob->dikerjakan->count() >= $currentJob->kuota)
             return response()->json(['message'=>'Kuota sudah penuh'],Response::HTTP_FORBIDDEN);
 
-        elseif ($isExpired)
+        elseif ($currentJob->isExpired)
             return response()->json(['message'=>'Job sudah expired'], Response::HTTP_FORBIDDEN);
         elseif (!$profile->isCompleted)
             return response()->json(['message'=>'Silakan melengkapi profil'], Response::HTTP_FORBIDDEN);
