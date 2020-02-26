@@ -29,10 +29,44 @@
 {{--            </div>--}}
 {{--        </div>--}}
 {{--    </div>--}}
+@if(Session::has('expired'))
+    <script>
+        $(function() {
+            $('#modalexpired').modal('show');
+        });
+    </script>
+@endif
+@if(session()->get('expired'))
+    <div class="modal fade" id="modalexpired" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-danger" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <p class="heading lead">Oops</p>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
 
-<style>
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="text-center">
+                        <i class="fas fa-times fa-4x mb-3 animated rotateIn"></i>
+                        <p>{{session()->get('expired')}}</p>
+                    </div>
+                </div>
 
-</style>
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                    <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Ok, Siap</a>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    @endif
 <div class="container py-5">
     <div class="row my-5">
         <div class="col-md-3">
@@ -47,11 +81,6 @@
                             </div>
                             <div class="col-lg-8 text-muted d-flex flex-column justify-content-start pt-1">
                                 <p class="mb-2"><strong>{{$hotel->profile->nama}}</strong></p>
-                                {{--                            @if(is_array($user->posisi) || is_object($user->posisi))--}}
-                                {{--                                @foreach($user->posisi as $posisi)--}}
-                                {{--                                    <p class="mb-1">{{$posisi->nama_posisi}}</p>--}}
-                                {{--                                @endforeach--}}
-                                {{--                            @endif--}}
                             </div>
 
                         </div>
@@ -71,11 +100,6 @@
                         </div>
                         <div class="col-lg-8 text-muted d-flex flex-column justify-content-start pt-1">
                             <p class="mb-2"><strong>{{$user->profile->nama}}</strong></p>
-{{--                            @if(is_array($user->posisi) || is_object($user->posisi))--}}
-{{--                                @foreach($user->posisi as $posisi)--}}
-{{--                                    <p class="mb-1">{{$posisi->nama_posisi}}</p>--}}
-{{--                                @endforeach--}}
-{{--                            @endif--}}
                         </div>
 
                     </div>
@@ -85,11 +109,7 @@
 
                         @if(is_array($user->posisi) || is_object($user->posisi))
                             @foreach($user->posisi as $posisi)
-                        <p class="text-muted card-text mt-2 px-4 mb-2">{{$posisi->nama_posisi}}
-
-
-                        </p>
-
+                        <p class="text-muted card-text mt-2 px-4 mb-2">{{$posisi->nama_posisi}}</p>
                         @endforeach
                     @endif
 
@@ -104,10 +124,23 @@
 {{--                    <div class="avatar w-100 white d-flex justify-content-center align-items-center">--}}
 {{--                        <img src="{{asset($pekerjaan->hotel->profile->hotelPhoto())}}"  class="img-fluid z-depth-1">--}}
 {{--                    </div>--}}
-                    <h5 class="card-title">{{$pekerjaan->getPosisi()}}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{$pekerjaan->hotel->profile->nama}}</h6>
-                    <p class="card-text desc">{!!html_entity_decode($pekerjaan->deskripsi)!!}</p>
-                    <a href="{{url("/job/$pekerjaan->url_slug")}}" class="btn btn-md blue-gradient">Selengkapnya</a>
+                    <div class="row">
+                        <div class="col-8">
+                            <h5 class="card-title">{{$pekerjaan->getPosisi()}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{$pekerjaan->hotel->profile->nama}}</h6>
+                            <p class="card-text desc">{!!html_entity_decode($pekerjaan->deskripsi)!!}</p>
+                            <a href="{{url("/job/$pekerjaan->url_slug")}}" class="btn btn-md blue-gradient">Selengkapnya</a>
+
+                        </div>
+                        <div class="col-4 align-items-center">
+                            <div class="avatar w-100 white d-flex justify-content-center align-items-center">
+                                <img src="{{asset($pekerjaan->hotel->profile->hotelPhoto())}}"  class="img-fluid z-depth-1">
+                            </div>
+                        </div>
+
+                    </div>
+
+
                 </div>
             </div>
         <br/>
