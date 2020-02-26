@@ -174,22 +174,22 @@ body{
                             <h4>Tinggi Badan</h4>
                             @if($pekerjaan->tinggi_minimal !=null)
                                 <h5>minimal: {{$pekerjaan->tinggi_minimal ?? '-'}}</h5>
-                            @elseif($pekerjaan->tinggi_maksimal != null)
+                            @endif
+                            @if($pekerjaan->tinggi_maksimal != null)
                                 <h5>maksimal: {{$pekerjaan->tinggi_maksimal ?? '-' }} </h5>
                             @endif
                             <br>
                         @endif
-
                         @if($pekerjaan->berat_minimal !=null || $pekerjaan->berat_maksimal != null)
                             <h4>Berat Badan</h4>
                             @if($pekerjaan->berat_minimal !=null)
                             <h5>minimal: {{$pekerjaan->berat_minimal ?? '-'}}</h5>
-                            @elseif($pekerjaan->berat_maksimal != null)
+                            @endif
+                            @if($pekerjaan->berat_maksimal != null)
                             <h5>maksimal: {{$pekerjaan->berat_maksimal ?? '-' }} </h5>
                             @endif
                             <br/>
                         @endif
-
                         <h4>Kuota tersisa</h4>
                         <h5>{{($pekerjaan->kuota)-($pekerjaan->dikerjakan()->count())}} Orang</h5>
                         <br/>

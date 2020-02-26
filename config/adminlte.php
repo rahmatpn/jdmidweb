@@ -187,7 +187,6 @@ return [
             'text'        => 'Home',
             'url'         => '/home',
             'icon'        => 'fas fa-fw fa-home',
-            'label'       => 4,
             'label_color' => 'success',
         ],
         ['header' => 'Manage'],

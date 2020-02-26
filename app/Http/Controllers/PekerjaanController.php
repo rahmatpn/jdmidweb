@@ -47,12 +47,13 @@ class PekerjaanController extends Controller
         auth()->user()->pekerjaan()->create($data);
 
         return redirect('/hotel/'.auth()->user()->profile->url_slug)->with('success','Hore, Lowongan anda berhasil di post');
-
     }
+
     public function show($url_slug){
         $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
         return view('jobs.job', compact('pekerjaan'));
     }
+
     public function edit($url_slug){
         // mengambil data pegawai berdasarkan url_slug yang dipilih
         $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
@@ -91,18 +92,17 @@ class PekerjaanController extends Controller
 
     }
 
-
     public function apply($url_slug){
         $user = Auth::user();
         $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
 
-        if ($user->profile->getIsCompletedAttribute() == false)
+        if (!$user->profile->isCompleted)
             return redirect('/user/'.$user->profile->url_slug.'/edit')->with('gagalProfile','Profile belum lengkap');
-        elseif ($pekerjaan->tinggi_minimal != Null) {
+        elseif ($pekerjaan->tinggi_minimal != Null || $pekerjaan->tinggi_maksimal !=null) {
             if ($user->profile->tinggi_badan < $pekerjaan->tinggi_minimal || $user->profile->tinggi_badan > $pekerjaan->tinggi_maksimal)
                 return back()->with('gagalTinggi', 'Tinggi badan anda tidak sesuai kriteria');
         }
-        elseif($pekerjaan->berat_minimal != Null) {
+        elseif($pekerjaan->berat_minimal != Null || $pekerjaan->berat_maksimal != null) {
          if($user->profile->berat_badan < $pekerjaan->berat_minimal || $user->profile->berat_badan > $pekerjaan->berat_maksimal)
             return back()->with('gagalBerat', 'Berat badan anda tidak seusai Kriteria');
         }
@@ -112,10 +112,8 @@ class PekerjaanController extends Controller
         $user->mengerjakan()->toggle($pekerjaan);
 
         return back()->with('success','Berhasil apply pekerjaan di '.$pekerjaan->hotel->profile->nama);
-
         }
     }
-
 
     public function showList($url_slug){
         $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->with('todolist')->first();
@@ -152,10 +150,9 @@ class PekerjaanController extends Controller
     }
 
     public function deleteList($url_slug , $id){
-//        dd($id);
-//        DB::table('todolist')->where('id', $id)->delete();
         ToDoList::where('id', $id)->delete();
         return back()->with('success','Data Telah Dihapus');
+        //test
     }
 
 }
