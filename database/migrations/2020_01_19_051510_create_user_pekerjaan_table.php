@@ -17,13 +17,11 @@ class CreateUserPekerjaanTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('pekerjaan_id');
             $table->unsignedBigInteger('user_id');
-            $table->enum('status', [0,1]); //0 = belum selesai, 1 = selesai
+            $table->enum('status', [0,1,2]); //0 = pending, 1 = diterima, 2 = selesai
             $table->timestamps();
 
             $table->foreign('pekerjaan_id')->references('id')->on('pekerjaan')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-//            $table->index('pekerjaan_id');
-//            $table->index('user_id');
         });
     }
 
