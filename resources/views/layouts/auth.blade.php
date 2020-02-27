@@ -207,7 +207,7 @@
                     </li>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link" href="{{url('/user/'.auth()->guard('user')->user()->name)}}">
                                     <i class="fa fa-user-circle"></i>
                                     Profil
                                     <span class="sr-only"></span>

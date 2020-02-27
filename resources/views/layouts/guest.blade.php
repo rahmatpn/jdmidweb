@@ -34,7 +34,7 @@
         header,
         .view {
 
-            background: linear-gradient(45deg, rgba(19, 84, 122, 0.6), rgba(128, 208, 199, 0.69) 100%);
+            background: linear-gradient(45deg, rgba(137, 247, 254, 0.6), rgba(102, 166, 255, 0.69) 100%);
         }
 
 
