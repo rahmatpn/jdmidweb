@@ -88,4 +88,88 @@ class ProfileController extends Controller
 
         return response()->json(ProfileUser::findOrFail($id), Response::HTTP_OK);
     }
+
+    public function uploadKtp(Request $request, $id){
+        if ($id != auth()->id())
+            return response(Response::HTTP_UNAUTHORIZED);
+
+        $profile = ProfileUser::findOrFail(auth()->id());
+
+        if(!$request->hasFile('image')) {
+            return response()->json(['upload_file_not_found'], 400);
+        }
+        $file = $request->file('image');
+        if(!$file->isValid()) {
+            return response()->json(['invalid_file_upload'], 400);
+        }
+
+        $ktp = $file->move('image/user/ktp/', time(). '.' . $file->getClientOriginalExtension());
+
+        $profile->update(['ktp'=>$ktp]);
+
+        return response()->json(ProfileUser::findOrFail($id), Response::HTTP_OK);
+    }
+
+    public function uploadSkck(Request $request, $id){
+        if ($id != auth()->id())
+            return response(Response::HTTP_UNAUTHORIZED);
+
+        $profile = ProfileUser::findOrFail(auth()->id());
+
+        if(!$request->hasFile('image')) {
+            return response()->json(['upload_file_not_found'], 400);
+        }
+        $file = $request->file('image');
+        if(!$file->isValid()) {
+            return response()->json(['invalid_file_upload'], 400);
+        }
+
+        $skck = $file->move('image/user/ktp/', time(). '.' . $file->getClientOriginalExtension());
+
+        $profile->update(['skck'=>$skck]);
+
+        return response()->json(ProfileUser::findOrFail($id), Response::HTTP_OK);
+    }
+
+    public function uploadSertifikat(Request $request, $id){
+        if ($id != auth()->id())
+            return response(Response::HTTP_UNAUTHORIZED);
+
+        $profile = ProfileUser::findOrFail(auth()->id());
+
+        if(!$request->hasFile('image')) {
+            return response()->json(['upload_file_not_found'], 400);
+        }
+        $file = $request->file('image');
+        if(!$file->isValid()) {
+            return response()->json(['invalid_file_upload'], 400);
+        }
+
+        $sertif = $file->move('image/user/ktp/', time(). '.' . $file->getClientOriginalExtension());
+
+        $profile->update(['sertifikat'=>$sertif]);
+
+        return response()->json(ProfileUser::findOrFail($id), Response::HTTP_OK);
+    }
+
+    public function uploadKartuSatpam(Request $request, $id){
+        if ($id != auth()->id())
+            return response(Response::HTTP_UNAUTHORIZED);
+
+        $profile = ProfileUser::findOrFail(auth()->id());
+
+        if(!$request->hasFile('image')) {
+            return response()->json(['upload_file_not_found'], 400);
+        }
+        $file = $request->file('image');
+        if(!$file->isValid()) {
+            return response()->json(['invalid_file_upload'], 400);
+        }
+
+        $kartu_satpam = $file->move('image/user/ktp/', time(). '.' . $file->getClientOriginalExtension());
+
+        $profile->update(['kartu_satpam'=>$kartu_satpam]);
+
+        return response()->json(ProfileUser::findOrFail($id), Response::HTTP_OK);
+    }
 }

@@ -34,10 +34,10 @@ class CreateUserProfilesTable extends Migration
             $table->string('foto')->nullable();
             $table->string('cover')->nullable();
             $table->string('url_slug')->unique();
-            $table->enum('status_ktp', [0,1]); //0 = pending, 1 = verified, delete = ditolak
-            $table->enum('status_skck', [0,1]); //0 = pending, 1 = verified, delete = ditolak
-            $table->enum('status_sertifikat', [0,1]); //0 = pending, 1 = verified, delete = ditolak
-            $table->enum('status_kartu_satpam', [0,1]); //0 = pending, 1 = verified, delete = ditolak
+            $table->enum('status_ktp', [0,1])->nullable(); //null = pending, 0 = ditolak, 1 = verif
+            $table->enum('status_skck', [0,1])->nullable(); //null = pending, 0 = ditolak, 1 = verif
+            $table->enum('status_sertifikat', [0,1])->nullable(); //null = pending, 0 = ditolak, 1 = verif
+            $table->enum('status_kartu_satpam', [0,1])->nullable(); //null = pending, 0 = ditolak, 1 = verif
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

@@ -30,7 +30,7 @@ class CreatePekerjaanTable extends Migration
             $table->bigInteger('bayaran');
             $table->text('deskripsi');
             $table->string('url_slug')->unique();
-            $table->enum('status', [0,1])->nullable(); //0 = pending, 1 = accepted, delete = ditolak
+            $table->enum('status', [0,1])->nullable(); //null = pending, 0 = ditolak, 1 = accepted
             $table->timestamps();
 
             $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
