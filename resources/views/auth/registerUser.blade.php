@@ -28,13 +28,17 @@
 
 
 </head>
-
+<script>
+    $( document ).ready(function() {
+        new WOW().init();
+    });
+</script>
 <body class="form-v8 ">
 <div class="container wow fadeInUp">
 
 @if(session()->get('gagalLoginuser'))
     <!-- Central Modal Medium Warning -->
-        <div class="modal fade" id="GagalLoginUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        <div class="modal fade" id="modalGagalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
             <div class="modal-dialog modal-notify modal-danger" role="document">
                 <!--Content-->
@@ -62,7 +66,7 @@
         </div>
         <!-- Central Modal Medium Warning-->
 @endif
-@if(session()->get('gagaluser'))
+@if(session()->get('gagal'))
     <!-- Central Modal Medium Warning -->
         <div class="modal fade" id="modalGagal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
@@ -82,7 +86,7 @@
                     <div class="modal-body">
                         <div class="text-center">
                             <i class="fas fa-times fa-4x mb-3 animated rotateIn"></i>
-                            <p>{{session()->get('gagaluser')}}</p>
+                            <p>{{session()->get('gagal')}}</p>
                         </div>
                     </div>
 
@@ -93,7 +97,7 @@
         <!-- Central Modal Medium Warning-->
     @endif
 
-    @if(session()->get('successuser'))
+    @if(session()->get('success'))
         <div class="modal fade top" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true" data-backdrop="true">
             <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
@@ -103,7 +107,7 @@
                     <div class="modal-body">
                         <div class="row d-flex justify-content-center align-items-center">
 
-                            <p class="pt-3 pr-2">{{session()->get('successuser')}}</p>
+                            <p class="pt-3 pr-2">{{session()->get('success')}}</p>
 
                             <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Ok, thanks</a>
                         </div>
@@ -113,14 +117,14 @@
             </div>
         </div>
     @endif
-    @if(Session::has('successuser'))
+    @if(Session::has('success'))
         <script>
             $(function() {
                 $('#modalCookie1').modal('show');
             });
         </script>
     @endif
-    @if(Session::has('gagaluser'))
+    @if(Session::has('gagal'))
         <script>
             $(function() {
                 $('#modalGagal').modal('show');
@@ -130,11 +134,10 @@
     @if(Session::has('gagalLoginuser'))
         <script>
             $(function() {
-                $('#GagalLoginUser').modal('show');
+                $('#modalGagalLogin').modal('show');
             });
         </script>
-    @endif
-</div>
+    @endif</div>
 <div class="page-content">
     <div class="form-v8-content  shadow-lg">
         <div class="form-left ">

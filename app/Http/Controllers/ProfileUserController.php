@@ -46,7 +46,15 @@ class ProfileUserController extends Controller {
 
         return view('profile.editUser', compact('user', 'posisi'));
     }
+    public function editBerkas($url_slug) {
+        $profil = ProfileUser::where('url_slug', '=', $url_slug)->with('user')->first();
+        $user = User::find($profil->user_id);
+        if (\auth()->guard('user')->user()) {
+            $this->authorize('update', $user->profile);
+        }
 
+        return view('profile.editUser', compact('user'));
+    }
     public function update($url_slug, Request $req) {
         $profile = ProfileUser::where('url_slug', '=', $url_slug)->with('user')->first();
         $user = User::find($profile->user_id);
@@ -115,13 +123,63 @@ class ProfileUserController extends Controller {
             return redirect('/admin/user/manage');
     }
 
+    public function updateBerkas($url_slug){
+        $profile = ProfileUser::where('url_slug', '=', $url_slug)->with('user')->first();
+        $user = User::find($profile->user_id);
+
+        if (\auth()->guard('user')->user()) {
+            $this->authorize('update', $user->profile);
+        }
+
+        if (request('ktp')) {
+            if (file_exists($profile->ktp)) {
+                unlink($profile->ktp);
+            }
+            $fileKtp = request('ktp');
+            $ktp = $fileKtp->move('image/user/ktp/', time(). '.' . $fileKtp->getClientOriginalExtension());
+        }
+
+        if (request('skck')) {
+            if (file_exists($profile->skck)) {
+                unlink($profile->skck);
+            }
+            $fileSkck = request('skck');
+            $skck = $fileSkck->move('image/user/skck/', time(). '.' . $fileSkck->getClientOriginalExtension());
+        }
+
+        if (request('sertifikat')) {
+            if (file_exists($profile->sertifikat)) {
+                unlink($profile->sertifikat);
+            }
+            $fileSertifikat = request('sertifikat');
+            $sertifikat = $fileSertifikat->move('image/user/sertifikat/', time(). '.' . $fileSertifikat->getClientOriginalExtension());
+        }
+
+        if (request('kartu_satpam')) {
+            if (file_exists($profile->kartu_satpam)) {
+                unlink($profile->kartu_satpam);
+            }
+            $fileKartu = request('kartu_satpam');
+            $kartu_satpam = $fileKartu->move('image/user/satpam/', time(). '.' . $fileKartu->getClientOriginalExtension());
+        }
+
+        $profile->update([
+            'ktp' => !empty($ktp) ? $ktp : $profile->ktp,
+            'skck' => !empty($skck) ? $skck : $profile->skck,
+            'sertifikat' => !empty($sertifikat) ? $sertifikat : $profile->sertifikat,
+            'kartu_satpam' => !empty($kartu_satpam) ? $kartu_satpam : $profile->kartu_satpam,
+        ]);
+
+        if (auth()->guard('user')->user() !=null){
+            return redirect("/user/{$profile->url_slug}");
+        } else
+            return redirect('/admin/user/manage');
+    }
+
     public function destroy($url_slug){
         $profile = ProfileUser::where('url_slug', '=', $url_slug)->with('user')->first();
         $user = User::find($profile->user_id);
         $user->delete();
         return redirect('/admin/user/manage');
     }
-
-
-
 }

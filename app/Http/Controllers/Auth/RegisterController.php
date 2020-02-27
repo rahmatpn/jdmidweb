@@ -141,12 +141,13 @@ class RegisterController extends Controller
             $errorCode = $e->errorInfo[2];
             $str = strval($errorCode);
             if (strpos($str, 'users_name_unique')) {
-                return redirect()->intended('masuk/user')->with("gagaluser", "Nama telah terdaftar, masukan nama yang berbeda");
+                return redirect()->intended('masuk/user')->with("gagal", "Nama telah terdaftar, masukan nama yang berbeda");
             } elseif (strpos($str,'users_email_unique')) {
-                return redirect()->intended('masuk/user')->with("gagaluser", "Email telah terdaftar");
+                return redirect()->intended('masuk/user')->with("gagal", "Email telah terdaftar");
             }
+
         }
-        return redirect()->intended('masuk/user')->with('successuser','Silahkan Login menggunakan email dan password yang telah dibuat');
+        return redirect()->intended('masuk/user')->with('success','Silahkan Login menggunakan email dan password yang telah dibuat');
     }
 
 
