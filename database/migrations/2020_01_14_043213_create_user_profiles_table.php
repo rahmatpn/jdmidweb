@@ -18,6 +18,10 @@ class CreateUserProfilesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('nama');
             $table->string('nama_lengkap')->nullable();
+            $table->string('ktp')->nullable();
+            $table->string('skck')->nullable();
+            $table->string('sertifikat')->nullable();
+            $table->string('kartu_satpam')->nullable();
             $table->string('nomor_telepon')->nullable();
             $table->date('tanggal_lahir')->nullable();
             $table->enum('jenis_kelamin',['L', 'P'])->nullable();
@@ -30,6 +34,10 @@ class CreateUserProfilesTable extends Migration
             $table->string('foto')->nullable();
             $table->string('cover')->nullable();
             $table->string('url_slug')->unique();
+            $table->enum('status_ktp', [0,1])->nullable(); //0 = pending, 1 = verified, delete = ditolak
+            $table->enum('status_skck', [0,1])->nullable(); //0 = pending, 1 = verified, delete = ditolak
+            $table->enum('status_sertifikat', [0,1])->nullable(); //0 = pending, 1 = verified, delete = ditolak
+            $table->enum('status_kartu_satpam', [0,1])->nullable(); //0 = pending, 1 = verified, delete = ditolak
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

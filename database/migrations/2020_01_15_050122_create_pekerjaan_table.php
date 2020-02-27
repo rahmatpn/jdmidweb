@@ -25,10 +25,12 @@ class CreatePekerjaanTable extends Migration
             $table->integer('tinggi_maksimal')->nullable();
             $table->integer('berat_minimal')->nullable();
             $table->integer('berat_maksimal')->nullable();
+            $table->string('foto')->nullable();
             $table->integer('kuota');
             $table->bigInteger('bayaran');
             $table->text('deskripsi');
             $table->string('url_slug')->unique();
+            $table->enum('status', [0,1])->nullable(); //0 = pending, 1 = accepted, delete = ditolak
             $table->timestamps();
 
             $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');

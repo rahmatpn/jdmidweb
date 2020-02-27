@@ -108,12 +108,10 @@ class PekerjaanController extends Controller
         elseif ($currentJob->isExpired){
             return redirect('/home')->with('expired','Job sudah expired');
         }
-        elseif ($currentJob->tinggi_minimal > $profile->tinggi_badan && $currentJob->tinggi_maksimal > $profile->tinggi_badan){
-//            if ($user->profile->tinggi_badan < $pekerjaan->tinggi_minimal || $user->profile->tinggi_badan > $pekerjaan->tinggi_maksimal)
+        elseif ($currentJob->tinggi_minimal < $profile->tinggi_badan || $currentJob->tinggi_maksimal > $profile->tinggi_badan){
             return back()->with('gagalTinggi', 'Tinggi badan anda tidak sesuai kriteria');
         }
-        elseif($currentJob->berat_minimal > $profile->berat_badan && $currentJob->berat_maksimal > $profile->berat_badan) {
-//         if($profile->berat_badan < $pekerjaan->berat_minimal || $profile->berat_badan > $pekerjaan->berat_maksimal)
+        elseif($currentJob->berat_minimal > $profile->berat_badan || $currentJob->berat_maksimal < $profile->berat_badan) {
             return back()->with('gagalBerat', 'Berat badan anda tidak seusai Kriteria');
         }
         elseif($currentJob->dikerjakan->count() >= $currentJob->kuota)

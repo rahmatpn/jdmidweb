@@ -25,6 +25,7 @@ class CreateHotelProfilesTable extends Migration
             $table->string('foto')->nullable();
             $table->string('website')->nullable();
             $table->string('url_slug')->unique();
+            $table->enum('status_verifikasi', [0,1])->nullable(); //null = pending, 0 = ditolak, 1 = accepted
             $table->timestamps();
         });
 

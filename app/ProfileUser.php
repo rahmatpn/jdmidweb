@@ -25,7 +25,7 @@ class ProfileUser extends Model
     private function isCompleted(){
         if ($this->nama_lengkap == null || $this->nomor_telepon == null || $this->tanggal_lahir == null || $this->jenis_kelamin == null ||
         $this->tinggi_badan == null || $this->berat_badan == null || $this->alamat == null || $this->social_media == null ||
-        $this->pendidikan_terakhir == null || $this->foto == null || $this->cover == null){
+        $this->pendidikan_terakhir == null || $this->foto == null || $this->cover == null || $this->ktp == null || $this->skck == null){
             return false;
         }
         return true;
