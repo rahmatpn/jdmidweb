@@ -35,8 +35,6 @@ class CreatePekerjaanTable extends Migration
 
             $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
             $table->foreign('posisi_id')->references('id')->on('posisi')->onDelete('cascade');
-//            $table->index('hotel_id');
-//            $table->index('posisi_id');
         });
     }
 
