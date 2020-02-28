@@ -105,7 +105,7 @@ class ProfileController extends Controller
 
         $ktp = $file->move('image/user/ktp/', time(). '.' . $file->getClientOriginalExtension());
 
-        $profile->update(['ktp'=>$ktp]);
+        $profile->update(['ktp'=>$ktp, 'status_ktp'=>null]);
 
         return response()->json(ProfileUser::findOrFail($id), Response::HTTP_OK);
     }
@@ -126,7 +126,7 @@ class ProfileController extends Controller
 
         $skck = $file->move('image/user/ktp/', time(). '.' . $file->getClientOriginalExtension());
 
-        $profile->update(['skck'=>$skck]);
+        $profile->update(['skck'=>$skck, 'status_skck'=>null]);
 
         return response()->json(ProfileUser::findOrFail($id), Response::HTTP_OK);
     }
@@ -147,7 +147,7 @@ class ProfileController extends Controller
 
         $sertif = $file->move('image/user/ktp/', time(). '.' . $file->getClientOriginalExtension());
 
-        $profile->update(['sertifikat'=>$sertif]);
+        $profile->update(['sertifikat'=>$sertif, 'status_sertifikat'=>null]);
 
         return response()->json(ProfileUser::findOrFail($id), Response::HTTP_OK);
     }
@@ -168,7 +168,7 @@ class ProfileController extends Controller
 
         $kartu_satpam = $file->move('image/user/ktp/', time(). '.' . $file->getClientOriginalExtension());
 
-        $profile->update(['kartu_satpam'=>$kartu_satpam]);
+        $profile->update(['kartu_satpam'=>$kartu_satpam, 'status_kartu_satpam'=>null]);
 
         return response()->json(ProfileUser::findOrFail($id), Response::HTTP_OK);
     }

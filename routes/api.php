@@ -39,6 +39,10 @@ Route::group([
     Route::put('profile/{id}/update', 'Api\ProfileController@updateProfile');
     Route::post('profile/{id}/upload/profile', 'Api\ProfileController@uploadImage');
     Route::post('profile/{id}/upload/cover', 'Api\ProfileController@uploadCover');
+    Route::post('profile/{id}/upload/ktp', 'Api\ProfileController@uploadKtp');
+    Route::post('profile/{id}/upload/skck', 'Api\ProfileController@uploadSkck');
+    Route::post('profile/{id}/upload/sertif', 'Api\ProfileController@uploadSertifikat');
+    Route::post('profile/{id}/upload/kartu', 'Api\ProfileController@uploadkartuSatpam');
     Route::post('profile/positions/update','Api\PositionController@selectPosition');
 
     Route::post('logout','Api\AuthController@logout');
