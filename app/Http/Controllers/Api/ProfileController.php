@@ -27,7 +27,11 @@ class ProfileController extends Controller
         $newProfile = Validator::make($request->all(),[
             'id' => 'required',
             'user_id' => 'required',
-            'email' => 'required'
+            'email' => 'required',
+            'status_ktp'=>auth()->user()->status_ktp,
+            'status_skck'=>auth()->user()->status_skck,
+            'status_sertifikat'=>auth()->user()->status_sertifikat,
+            'status_kartu_satpam'=>auth()->user()->status_kartu_satpam
         ]);
         if ($newProfile->fails()) {
             return response()->json(['errors'=>$newProfile->messages()],Response::HTTP_UNPROCESSABLE_ENTITY);
