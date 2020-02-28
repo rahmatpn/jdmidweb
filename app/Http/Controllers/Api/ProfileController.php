@@ -124,7 +124,7 @@ class ProfileController extends Controller
             return response()->json(['invalid_file_upload'], 400);
         }
 
-        $skck = $file->move('image/user/ktp/', time(). '.' . $file->getClientOriginalExtension());
+        $skck = $file->move('image/user/skck/', time(). '.' . $file->getClientOriginalExtension());
 
         $profile->update(['skck'=>$skck, 'status_skck'=>null]);
 
@@ -145,7 +145,7 @@ class ProfileController extends Controller
             return response()->json(['invalid_file_upload'], 400);
         }
 
-        $sertif = $file->move('image/user/ktp/', time(). '.' . $file->getClientOriginalExtension());
+        $sertif = $file->move('image/user/sertif/', time(). '.' . $file->getClientOriginalExtension());
 
         $profile->update(['sertifikat'=>$sertif, 'status_sertifikat'=>null]);
 
@@ -166,7 +166,7 @@ class ProfileController extends Controller
             return response()->json(['invalid_file_upload'], 400);
         }
 
-        $kartu_satpam = $file->move('image/user/ktp/', time(). '.' . $file->getClientOriginalExtension());
+        $kartu_satpam = $file->move('image/user/satpam/', time(). '.' . $file->getClientOriginalExtension());
 
         $profile->update(['kartu_satpam'=>$kartu_satpam, 'status_kartu_satpam'=>null]);
 
