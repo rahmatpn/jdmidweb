@@ -225,13 +225,24 @@
                             </a>
                         </li>
                     @endauth
+                       @auth('hotel')
                        <li class="nav-item">
-                           <a class="nav-link" href="{{url('/home')}}">
+                           <a class="nav-link" href="{{url('/home/hotel')}}">
                                <i class="fa fa-home"></i>
                                Home
                                <span class="sr-only">(current)</span>
                            </a>
                        </li>
+                       @endauth
+                       @auth('user')
+                           <li class="nav-item">
+                               <a class="nav-link" href="{{url('/home')}}">
+                                   <i class="fa fa-home"></i>
+                                   Home
+                                   <span class="sr-only">(current)</span>
+                               </a>
+                           </li>
+                       @endauth
                        @auth('user')
                            <li class="nav-item">
                                <a class="nav-link" href="{{url('/joblist')}}">

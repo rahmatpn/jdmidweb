@@ -248,7 +248,7 @@
                                     <!--Card image-->
                                     <div class="view overlay zoom">
 
-                                        <img class="card-img-top" src="{{asset($hotel->profile->hotelPhoto())}}"
+                                        <img class="card-img-top" src="{{asset(!empty($pekerjaan->foto) ? $pekerjaan->foto : $hotel->profile->hotelPhoto())}}"
                                              alt="Card image cap">
                                             <div class="mask rgba-white-slight"></div>
                                     </div>
