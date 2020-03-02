@@ -57,9 +57,12 @@ class PekerjaanController extends Controller
             else
                 $size = $imageSize[1];
             Image::make($foto)->fit($size)->save($foto);
+            $data['foto'] = $foto;
         }
-        $data['foto'] = $foto;
-//        dd($data);
+        else {
+            $data['foto'] = \auth()->user()->profile->foto;
+        }
+
         auth()->user()->pekerjaan()->create(
             $data
 //            'foto' => !empty($foto) ? $foto : $data->foto,
