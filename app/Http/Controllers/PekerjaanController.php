@@ -18,6 +18,9 @@ use phpDocumentor\Reflection\Types\Null_;
 
 class PekerjaanController extends Controller
 {
+    //
+
+
     public function create()
     {
         return view('jobs.postjob');
@@ -42,7 +45,7 @@ class PekerjaanController extends Controller
             'foto' => ''
         ]);
 
-           $data['url_slug'] = Str::slug($data['area'].' '.time(), "-");
+        $data['url_slug'] = Str::slug($data['area'].' '.time(), "-");
 //        auth()->user()->pekerjaan()->create($data);
 
         if (request('foto')) {
@@ -134,8 +137,8 @@ class PekerjaanController extends Controller
         elseif($currentJob->dikerjakan->count() >= $currentJob->kuota)
             return back()->with('kuotaPenuh', 'Kuota Penuh');
         else {
-        $user->mengerjakan()->toggle($pekerjaan);
-        return back()->with('success','Berhasil apply pekerjaan di '.$pekerjaan->hotel->profile->nama);
+            $user->mengerjakan()->toggle($pekerjaan);
+            return back()->with('success','Berhasil apply pekerjaan di '.$pekerjaan->hotel->profile->nama);
         }
     }
 
@@ -153,6 +156,9 @@ class PekerjaanController extends Controller
         ]);
         $pekerjaan->todolist()->create($data);
 
+
+
+//        return view('jobs.job', compact('pekerjaan'));
         return back();
     }
 
@@ -173,5 +179,7 @@ class PekerjaanController extends Controller
     public function deleteList($url_slug , $id){
         ToDoList::where('id', $id)->delete();
         return back()->with('success','Data Telah Dihapus');
+        //test
     }
+
 }
