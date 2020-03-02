@@ -12,24 +12,25 @@
                     <div class="row">
                         <div class="md-form input-group mb-3 col-xl">
                             <div class="input-group-prepend">
-                                <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Area</span>
+                                <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Area <span class="text-danger">*</span></span>
                             </div>
-                            <input type="text" class="form-control" id="area" name="area"  aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                            <input type="text" class="form-control" id="area" name="area" placeholder="Ex. Main Hall" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default" data-error="Silahkan Masukkan Area Kerja">
+                            <div class="help-block with-errors"></div>
                         </div>
                         <div class="md-form input-group mb-3 col-xl">
                             <div class="input-group-prepend">
-                                <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Tanggal Mulai</span>
+                                <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Tanggal Mulai <span class="text-danger">*</span></span>
                             </div>
-                            <input type="date" class="form-control" id="tanggal_mulai" name="tanggal_mulai" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                            <input type="date" class="form-control validate" id="tanggal_mulai" name="tanggal_mulai" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default" required>
                         </div>
 
                     </div>
 
                     <div class="md-form input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Posisi</span>
+                            <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Posisi  <span class="text-danger">*</span></span>
                         </div>
-                        <select class="browser-default custom-select rounded" id="posisi_id" name="posisi_id">
+                        <select class="browser-default custom-select rounded" required id="posisi_id" name="posisi_id">
                             <option selected>Pilih Posisi</option>
                             <option value="1">Laundry</option>
                             <option value="2">Pool Maintenance</option>
@@ -52,28 +53,26 @@
                     <div class="row">
                         <div class="md-form input-group mb-3 col-xl">
                             <div class="input-group-prepend">
-                                <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Waktu Mulai</span>
+                                <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Waktu Mulai  <span class="text-danger">*</span></span>
                             </div>
-                            <input type="time" class="form-control" id="waktu_mulai" name="waktu_mulai"  aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                            <input type="time" class="form-control validate" id="waktu_mulai" name="waktu_mulai"  aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default" required>
                         </div>
                         <div class="md-form input-group mb-3 col-xl">
                             <div class="input-group-prepend">
-                                <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Waktu Selesai</span>
+                                <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Waktu Selesai  <span class="text-danger">*</span></span>
                             </div>
-                            <input type="time" class="form-control" id="waktu_selesai" name="waktu_selesai" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                            <input type="time" class="form-control validate" id="waktu_selesai" name="waktu_selesai" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default" required>
                         </div>
                     </div>
                 </section>
                 <section>
-
                     <hr class="w-header my-3">
-
                     <div class="row">
                         <div class="md-form input-group mb-3 col-xl">
                             <div class="input-group-prepend">
                                 <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Tinggi Minimal</span>
                             </div>
-                            <input type="number" class="form-control" id="tinggi_minimal" name="tinggi_minimal" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                            <input type="number" class="form-control validate" id="tinggi_minimal" name="tinggi_minimal" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
                             <div class="input-group-append">
                                 <span class="input-group-text md-addon" id="material-addon2">Cm</span>
                             </div>
@@ -82,7 +81,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Tinggi Maksimal</span>
                             </div>
-                            <input type="number" class="form-control" id="tinggi_maksimal" name="tinggi_maksimal" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                            <input type="number" class="form-control validate" id="tinggi_maksimal" name="tinggi_maksimal" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
                             <div class="input-group-append">
                                 <span class="input-group-text md-addon" id="material-addon2">Cm</span>
                             </div>
@@ -94,7 +93,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Berat Minimal</span>
                             </div>
-                            <input type="number" class="form-control" id="berat_minimal" name="berat_minimal" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                            <input type="number" class="form-control validate" id="berat_minimal" name="berat_minimal" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
                             <div class="input-group-append">
                                 <span class="input-group-text md-addon" id="material-addon2">Kg</span>
                             </div>
@@ -103,7 +102,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Berat Maksimal</span>
                             </div>
-                            <input type="number" class="form-control" id="berat_maksimal" name="berat_maksimal"  aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                            <input type="number" class="form-control validate" id="berat_maksimal" name="berat_maksimal"  aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
                             <div class="input-group-append">
                                 <span class="input-group-text md-addon" id="material-addon2">Kg</span>
                             </div>
@@ -114,17 +113,17 @@
                     <hr class="w-header my-3">
                     <div class="md-form input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Kuota</span>
+                            <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Kuota  <span class="text-danger">*</span></span>
                         </div>
-                        <input type="number" class="form-control" id="kuota" name="kuota"  aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                        <input type="number" class="form-control validate" id="kuota" name="kuota"  aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default" required>
                     </div>
 
                     <div class="md-form input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Bayaran</span>
+                            <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Bayaran  <span class="text-danger">*</span></span>
                             <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Rp:</span>
                         </div>
-                        <input type="number" class="form-control" id="bayaran" name="bayaran"  aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
+                        <input type="number" class="form-control validate" id="bayaran" name="bayaran"  aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default" required>
                     </div>
 
 
@@ -182,6 +181,23 @@
                         readURL(this);
                     });
 
+                    (function() {
+                        'use strict';
+                        window.addEventListener('load', function() {
+// Fetch all the forms we want to apply custom Bootstrap validation styles to
+                            var forms = document.getElementsByClassName('needs-validation');
+// Loop over them and prevent submission
+                            var validation = Array.prototype.filter.call(forms, function(form) {
+                                form.addEventListener('submit', function(event) {
+                                    if (form.checkValidity() === false) {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                    }
+                                    form.classList.add('was-validated');
+                                }, false);
+                            });
+                        }, false);
+                    })();
                 });
             </script>
 
