@@ -18,9 +18,6 @@ use phpDocumentor\Reflection\Types\Null_;
 
 class PekerjaanController extends Controller
 {
-    //
-
-
     public function create()
     {
         return view('jobs.postjob');
@@ -156,9 +153,6 @@ class PekerjaanController extends Controller
         ]);
         $pekerjaan->todolist()->create($data);
 
-
-
-//        return view('jobs.job', compact('pekerjaan'));
         return back();
     }
 
@@ -179,7 +173,5 @@ class PekerjaanController extends Controller
     public function deleteList($url_slug , $id){
         ToDoList::where('id', $id)->delete();
         return back()->with('success','Data Telah Dihapus');
-        //test
     }
-
 }

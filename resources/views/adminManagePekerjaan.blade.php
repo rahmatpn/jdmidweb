@@ -3,11 +3,24 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.0/smooth-scroll.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+    </head>
     <h1>Pekerjaan</h1>
 @stop
 
 @section('content')
-    <table class="table table-responsive-md table-hover">
+    <div class="card shadow-sm" >
+        <div class="card-body">
+    <table class="table table-hover table-sm ">
         <thead>
         <tr>
             <th class="align-middle">Id</th>
@@ -30,7 +43,13 @@
         </thead>
         <tbody>
         @foreach($pekerjaan as $pekerjaan)
-        <tr>
+            @if($pekerjaan->status == null)
+            <tr class="bg-gray-">
+                @elseif($pekerjaan->status == '0')
+                <tr class="bg-red">
+            @else
+                <tr>
+                    @endif
             <td>{{$pekerjaan->id}}</td>
             <td>{{$pekerjaan->posisi->nama_posisi}}</td>
             <td>{{$pekerjaan->hotel->profile->nama}}</td>
@@ -45,12 +64,25 @@
             <td>Rp.{{$pekerjaan->bayaran}}</td>
             <td>{{$pekerjaan->kuota}}</td>
             <td class="text-justify">{{$pekerjaan->deskripsi}}</td>
-            <td><a href="{{url('/admin/pekerjaan/'.$pekerjaan->url_slug.'/delete')}}" class="btn btn-danger">Delete</a> </td>
-            <td><a href="{{url('/admin/pekerjaan/'.$pekerjaan->url_slug.'/edit')}}" class="btn btn-info">Edit</a> </td>
-        </tr>
-            @endforeach
-        </tbody>
-    </table>
+            <td>
+                <div class="btn-group btn-group-sm">
+                    <a href="{{url('/admin/pekerjaan/'.$pekerjaan->url_slug.'/delete')}}" class="btn btn-danger fa fa-trash"></a>
+                    <a href="{{url('/admin/pekerjaan/'.$pekerjaan->url_slug.'/edit')}}" class="btn btn-info fa fa-pencil"></a>
+                </div>
+            </td>
+            <td>
+                <div class="btn-group btn-group-sm">
+                    <a href="{{url('admin/pekerjaan/'.$pekerjaan->url_slug.'/verifyPekerjaan')}}" class="btn btn-success fa fa-thumbs-up"></a>
+                    <a href="{{url('admin/pekerjaan/'.$pekerjaan->url_slug.'/rejectPekerjaan')}}" class="btn btn-warning fa fa-thumbs-down"></a>
+                </div>
+            </td>
+            </tr>
+                @endforeach
+            </tbody>
+
+            </table>
+        </div>
+    </div>
     @stop
 
 @section('css')

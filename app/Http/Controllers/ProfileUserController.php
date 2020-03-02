@@ -52,7 +52,6 @@ class ProfileUserController extends Controller {
         if (\auth()->guard('user')->user()) {
             $this->authorize('update', $user->profile);
         }
-
         return view('profile.editUser', compact('user'));
     }
     public function update($url_slug, Request $req) {
