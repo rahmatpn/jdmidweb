@@ -28,15 +28,11 @@ class ProfileController extends Controller
             'id' => 'required',
             'user_id' => 'required',
             'email' => 'required',
-            'status_ktp'=>auth()->user()->status_ktp,
-            'status_skck'=>auth()->user()->status_skck,
-            'status_sertifikat'=>auth()->user()->status_sertifikat,
-            'status_kartu_satpam'=>auth()->user()->status_kartu_satpam
         ]);
         if ($newProfile->fails()) {
             return response()->json(['errors'=>$newProfile->messages()],Response::HTTP_UNPROCESSABLE_ENTITY);
         }else {
-            $profile->update($request->except('isCompleted'));
+            $profile->update($request->except('isCompleted', 'status_ktp', 'status_skck', 'status_sertifikat', 'status_kartu_satpam'));
             return response()->json(['profile' => $profile], Response::HTTP_OK);
         }
     }
