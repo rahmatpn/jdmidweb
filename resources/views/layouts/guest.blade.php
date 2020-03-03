@@ -29,13 +29,7 @@
     <style>
         /* Required for full background image */
 
-        html,
-        body,
-        header,
-        .view {
 
-            background: linear-gradient(45deg, rgba(137, 247, 254, 0.6), rgba(102, 166, 255, 0.69) 100%);
-        }
 
 
         .btn .fa {

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Validator;
+use Intervention\Image\Facades\Image;
 use phpDocumentor\Reflection\Types\Null_;
 
 class PekerjaanController extends Controller
@@ -27,6 +28,7 @@ class PekerjaanController extends Controller
 
     public function store()
     {
+
         $data = request()->validate([
             'area' => 'required',
             'posisi_id'=>'required',
@@ -36,15 +38,36 @@ class PekerjaanController extends Controller
             'tinggi_minimal' => '',
             'tinggi_maksimal' => '',
             'berat_minimal' => '',
-            'berat_maksimxal' => '',
+            'berat_maksimal' => '',
             'kuota' => 'required',
             'bayaran' => 'required',
-            'deskripsi' => 'required'
+            'deskripsi' => 'required',
+            'foto' => ''
         ]);
 
         $data['url_slug'] = Str::slug($data['area'].' '.time(), "-");
+//        auth()->user()->pekerjaan()->create($data);
 
-        auth()->user()->pekerjaan()->create($data);
+        if (request('foto')) {
+            $fileFoto = request('foto');
+            $foto = $fileFoto->move('image/hotel/job/', time(). '.' . $fileFoto->getClientOriginalExtension());
+            $imageSize = getimagesize($foto);
+            if ($imageSize[0] < $imageSize[1])
+                $size = $imageSize[0];
+            else
+                $size = $imageSize[1];
+            Image::make($foto)->fit($size)->save($foto);
+            $data['foto'] = $foto;
+        }
+        else {
+            $data['foto'] = \auth()->user()->profile->foto;
+        }
+
+        auth()->user()->pekerjaan()->create(
+            $data
+//            'foto' => !empty($foto) ? $foto : $data->foto,
+        );
+
 
         return redirect('/hotel/'.auth()->user()->profile->url_slug)->with('success','Hore, Lowongan anda berhasil di post');
     }
@@ -117,8 +140,8 @@ class PekerjaanController extends Controller
         elseif($currentJob->dikerjakan->count() >= $currentJob->kuota)
             return back()->with('kuotaPenuh', 'Kuota Penuh');
         else {
-        $user->mengerjakan()->toggle($pekerjaan);
-        return back()->with('success','Berhasil apply pekerjaan di '.$pekerjaan->hotel->profile->nama);
+            $user->mengerjakan()->toggle($pekerjaan);
+            return back()->with('success','Berhasil apply pekerjaan di '.$pekerjaan->hotel->profile->nama);
         }
     }
 

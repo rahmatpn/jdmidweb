@@ -45,22 +45,33 @@ Route::group([
     Route::get('/admin/user/manage', 'AdminController@indexUser');
     Route::get('/admin/user/{url_slug}/edit','ProfileUserController@edit');
     Route::get('/admin/user/{url_slug}/delete', 'ProfileUserController@destroy');
+    Route::get('/admin/user/{url_slug}/verify', 'AdminController@verifyUser');
+    Route::get('/admin/user/{url_slug}/verifyKtp', 'AdminController@verifyUserKtp');
+    Route::get('/admin/user/{url_slug}/rejectKtp', 'AdminController@rejectUserKtp');
+    Route::get('/admin/user/{url_slug}/verifySkck', 'AdminController@verifyUserSkck');
+    Route::get('/admin/user/{url_slug}/rejectSkck', 'AdminController@rejectUserSkck');
     Route::patch('/admin/user/{url_slug}', 'ProfileUserController@update');
     Route::get('/admin/user/add', 'AdminController@add');
 
     Route::get('/admin/hotel/manage', 'AdminController@indexHotel');
     Route::get('/admin/hotel/{url_slug}/edit','ProfileHotelController@edit');
     Route::get('/admin/hotel/{url_slug}/delete', 'ProfileHotelController@destroy');
+    Route::get('/admin/hotel/{url_slug}/verify', 'AdminController@viewVerifyHotel');
+    Route::get('/admin/hotel/{url_slug}/verifyHotel', 'AdminController@verifyHotel');
+    Route::get('/admin/hotel/{url_slug}/rejectHotel', 'AdminController@rejectHotel');
     Route::patch('/admin/hotel/{url_slug}', 'ProfileHotelController@update');
     Route::get('/admin/hotel/add', 'AdminController@add');
 
     Route::get('/admin/pekerjaan/manage', 'AdminController@indexPekerjaan');
     Route::get('/admin/pekerjaan/{url_slug}/edit','PekerjaanController@edit');
     Route::get('/admin/pekerjaan/{url_slug}/delete','PekerjaanController@delete');
+    Route::get('/admin/pekerjaan/{url_slug}/verifyPekerjaan', 'AdminController@verifyPekerjaan');
+    Route::get('/admin/pekerjaan/{url_slug}/rejectPekerjaan', 'AdminController@rejectPekerjaan');
     Route::post('/pekerjaan/update','PekerjaanController@update');
 });
 
 Route::get('/home', 'HomeController@index');
+Route::get('/home/hotel', 'HomeController@indexHotel');
 Route::get('/joblist', 'KerjakanController@index');
 Route::get('/hotel/{profile}', 'ProfileHotelController@indexHotel')->name('hotel.show');
 Route::get('/user/{profile}', 'ProfileUserController@indexUser')->name('user.show');

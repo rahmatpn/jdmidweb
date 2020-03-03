@@ -248,7 +248,7 @@
                                     <!--Card image-->
                                     <div class="view overlay zoom">
 
-                                        <img class="card-img-top" src="{{asset($hotel->profile->hotelPhoto())}}"
+                                        <img class="card-img-top" src="{{asset(!empty($pekerjaan->foto) ? $pekerjaan->foto : $hotel->profile->hotelPhoto())}}"
                                              alt="Card image cap">
                                             <div class="mask rgba-white-slight"></div>
                                     </div>
@@ -267,7 +267,7 @@
                                            aria-haspopup="true" aria-expanded="false">more_vert</a>
                                         <div class="dropdown-menu dropdown-menu-left">
                                             <a class="dropdown-item" href="{{url("/job/$pekerjaan->url_slug/edit")}}">Edit</a>
-                                            <a class="dropdown-item" href="{{url("/job/$pekerjaan->url_slug/delete")}}">Delete</a>
+                                            <a class="dropdown-item" data-target="#centralModalWarning" data-toggle="modal" href="#">Delete</a>
                                             <a class="dropdown-item" href="{{url("/job/$pekerjaan->url_slug/postlist")}}">Todo List</a>
 
 
@@ -275,6 +275,36 @@
                                         <!-- Basic dropdown -->
                                     </div>
 
+                                </div>
+                                <div class="modal fade" id="centralModalWarning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                                     aria-hidden="true">
+                                    <div class="modal-dialog modal-notify modal-warning" role="document">
+                                        <!--Content-->
+                                        <div class="modal-content">
+                                            <!--Header-->
+                                            <div class="modal-header">
+                                                <p class="heading lead">Modal Warning</p>
+
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true" class="white-text">&times;</span>
+                                                </button>
+                                            </div>
+
+                                            <!--Body-->
+                                            <div class="modal-body">
+                                                <div class="text-center">
+                                                    <i class="fas fa-times fa-4x mb-3 animated rotateIn"></i>
+                                                    <p>Apakah anda berniat untuk menghapus job ini?</p>
+                                                </div>
+                                            </div>
+
+                                            <!--Footer-->
+                                            <div class="modal-footer justify-content-center">
+                                                <a type="button" class="btn btn-warning" href="{{url("/job/$pekerjaan->url_slug/delete")}}">Yakin</a>
+                                            </div>
+                                        </div>
+                                        <!--/.Content-->
+                                    </div>
                                 </div>
                             <br/>
 {{--                                <a class="card hoverable mb-4 waves-effect waves-light rgba-white-slight">--}}
@@ -306,6 +336,8 @@
             </section>
             <!-- Section -->
         </div>
+        <!-- Central Modal Medium Warning -->
+
         <!-- Footer -->
         <footer class="page-footer font-small indigo darken-4 py-4">
 
