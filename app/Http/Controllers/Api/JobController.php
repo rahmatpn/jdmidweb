@@ -19,6 +19,7 @@ class JobController extends Controller
             Pekerjaan::with('hotel.profile')
                 ->with('posisi')
                 ->withCount('dikerjakan')
+                ->where('status', '1')
                 ->where(function ($q) use($date, $time){
                     $q->where('tanggal_mulai','>',$date)
                         ->orWhere('tanggal_mulai',$date)->where('waktu_mulai','>',$time);
@@ -39,6 +40,7 @@ class JobController extends Controller
             Pekerjaan::with('hotel.profile')
                 ->with('posisi')
                 ->withCount('dikerjakan')
+                ->where('status', '1')
                 ->where(function ($q) use($date, $time){
                     $q->where('tanggal_mulai','>',$date)
                         ->orWhere('tanggal_mulai',$date)->where('waktu_mulai','>',$time);
@@ -60,6 +62,7 @@ class JobController extends Controller
             Pekerjaan::with('hotel.profile')
                 ->with('posisi')
                 ->withCount('dikerjakan')
+                ->where('status', '1')
                 ->where('posisi_id',$position)
                 ->where(function ($q) use($date, $time){
                     $q->where('tanggal_mulai','>',$date)
@@ -82,7 +85,7 @@ class JobController extends Controller
         if($currentJob->dikerjakan->count() >= $currentJob->kuota)
             return response()->json(['message'=>'Kuota sudah penuh'],Response::HTTP_FORBIDDEN);
 
-        elseif ($currentJob->isExpired)
+        elseif ($currentJob->isExpired || $currentJob->status != '1')
             return response()->json(['message'=>'Job sudah expired'], Response::HTTP_FORBIDDEN);
         elseif (!$profile->isCompleted)
             return response()->json(['message'=>'Silakan melengkapi profil'], Response::HTTP_FORBIDDEN);
@@ -95,20 +98,35 @@ class JobController extends Controller
     }
 
     function getUserJob($id){
-        $jobs = User::with('mengerjakan')->get()->find($id)->mengerjakan->pluck('id');
-        return response()->json(['jobs'=>
-            Pekerjaan::with('hotel.profile')
-                ->with('posisi')
-                ->withCount('dikerjakan')
-                ->whereIn('id',$jobs)
-                ->orderBy('tanggal_mulai')
-                ->get()]);
+        $jobs = User::whereHas('mengerjakan', function ($q){
+            $q->where('pekerjaan_user.status', '!=', '0');
+        })->with('mengerjakan')
+            ->get()->find($id);
+        if ($jobs != null){
+            $jobs = $jobs->mengerjakan->pluck('id');
+            return response()->json(['jobs'=>
+                Pekerjaan::with('hotel.profile')
+                    ->with('posisi')
+                    ->withCount('dikerjakan')
+                    ->whereIn('id',$jobs)
+                    ->orderBy('tanggal_mulai')
+                    ->get()]);
+        } else {
+            return \response()->json(['jobs'=>[]]);
+        }
     }
 
     function getJobsDetail($id){
         if ($id != auth()->id())
             return \response(Response::HTTP_UNAUTHORIZED);
-        $jobs = User::with('mengerjakan')->find(\auth()->id())->mengerjakan->pluck('id');
-        return \response()->json(['job_detail'=>Pekerjaan::with('todolist')->find($jobs)]);
+        $jobs = User::whereHas('mengerjakan', function ($q){
+            $q->where('pekerjaan_user.status', '!=', '0');
+        })->with('mengerjakan')->find(\auth()->id());
+        if ($jobs != null){
+            $jobs = $jobs->mengerjakan->pluck('id');
+            return \response()->json(['job_detail'=>Pekerjaan::with('todolist')->find($jobs)]);
+        } else {
+            return \response()->json(['job_detail'=>[]]);
+        }
     }
 }
