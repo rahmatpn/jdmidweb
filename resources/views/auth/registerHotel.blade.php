@@ -66,68 +66,107 @@
         </div>
         <!-- Central Modal Medium Warning-->
 @endif
-    @if(session()->get('gagal'))
-        <!-- Central Modal Medium Warning -->
-            <div class="modal fade" id="modalGagal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog modal-notify modal-warning" role="document">
-                    <!--Content-->
-                    <div class="modal-content">
-                        <!--Header-->
-                        <div class="modal-header">
-                            <p class="heading lead">Login Gagal</p>
+@if ($errors->any())
+    <!-- Central Modal Medium Warning -->
+        <div class="modal fade" id="modalGagal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-warning" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                        <p class="heading lead">Login Gagal</p>
 
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true" class="white-text">&times;</span>
-                            </button>
-                        </div>
-
-                        <!--Body-->
-                        <div class="modal-body">
-                            <div class="text-center">
-                                <i class="fas fa-times fa-4x mb-3 animated rotateIn"></i>
-                                <p>{{session()->get('gagal')}}</p>
-                            </div>
-                        </div>
-
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
                     </div>
-                    <!--/.Content-->
+
+                    <!--Body-->
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <i class="fas fa-times fa-4x mb-3 animated rotateIn"></i>
+                            @foreach ($errors->all() as $error)
+                                <p>{{ $error }}</p>
+                            @endforeach
+                        </div>
+                    </div>
+
                 </div>
+                <!--/.Content-->
             </div>
-            <!-- Central Modal Medium Warning-->
+        </div>
+        <!-- Central Modal Medium Warning-->
+@endif
+@if (session()->get('gagal'))
+    <!-- Central Modal Medium Warning -->
+        <div class="modal fade" id="modalGagal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-warning" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                        <p class="heading lead">Login Gagal</p>
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                    </div>
+
+                    <!--Body-->
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <i class="fas fa-times fa-4x mb-3 animated rotateIn"></i>
+                            <p>{{session()->get('gagal')}}</p>
+                        </div>
+                    </div>
+
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!-- Central Modal Medium Warning-->
     @endif
 
     @if(session()->get('success'))
-            <div class="modal fade top" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                 aria-hidden="true" data-backdrop="true">
-                <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
-                    <!--Content-->
-                    <div class="modal-content">
-                        <!--Body-->
-                        <div class="modal-body">
-                            <div class="row d-flex justify-content-center align-items-center">
+        <div class="modal fade top" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true" data-backdrop="true">
+            <div class="modal-dialog modal-frame modal-top modal-notify modal-info" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Body-->
+                    <div class="modal-body">
+                        <div class="row d-flex justify-content-center align-items-center">
 
-                                <p class="pt-3 pr-2">{{session()->get('success')}}</p>
+                            <p class="pt-3 pr-2">{{session()->get('success')}}</p>
 
-                                <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Ok, thanks</a>
-                            </div>
+                            <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Ok, thanks</a>
                         </div>
                     </div>
-                    <!--/.Content-->
                 </div>
+                <!--/.Content-->
             </div>
-@endif
-@if(Session::has('success'))
-    <script>
-        $(function() {
-            $('#modalCookie1').modal('show');
-        });
-    </script>
-@endif
-        @if(Session::has('gagal'))
+        </div>
+    @endif
+    @if(Session::has('success'))
+        <script>
+            $(function() {
+                $('#modalCookie1').modal('show');
+            });
+        </script>
+    @endif
+    @if($errors->any())
         <script>
             $(function() {
                 $('#modalGagal').modal('show');
+            });
+        </script>
+    @endif
+    @if(Session::has('gagal'))
+        <script>
+            $(function() {
+                $('#modalGagal1').modal('show');
             });
         </script>
     @endif

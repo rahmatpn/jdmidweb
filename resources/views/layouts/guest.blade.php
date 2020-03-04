@@ -98,6 +98,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <form action ="#" method="GET" class="form-inline my-2 my-lg-0">
@@ -127,6 +128,7 @@
                         </a>
                     </li>
                 @endauth
+                    @auth('user')
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/home')}}">
                         <i class="fa fa-home"></i>
@@ -134,6 +136,17 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
+                    @endauth
+                    @auth('hotel')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('/home/hotel')}}">
+                                <i class="fa fa-home"></i>
+                                Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        @endauth
+                    @auth('user')
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/joblist')}}">
                         <i class="fa fa-angellist"></i>
@@ -141,6 +154,7 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
+                    @endauth
                     <li class="nav-item">
                         <a class="nav-link" type="button" id="dropdownMenu3" data-toggle="dropdown" href="#">
                             <i class="fa fa-whatsapp "></i>
@@ -200,8 +214,11 @@
                         </li>
                     @endauth
             </ul>
+
+
         </div>
     </div>
+
 </nav>
 
 <main>

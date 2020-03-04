@@ -7,12 +7,38 @@
             background-color: #f8f8f8;
         }
         .text {
-            overflow: hidden;
+            display: block;/* or inline-block */
             text-overflow: ellipsis;
-            white-space: normal;
-            display: -webkit-box;
-            -webkit-box-lines: single;
-            -webkit-line-clamp: 2; /* number of lines to show */
+            word-wrap: break-word;
+            overflow: hidden;
+            max-height: 3.6em;
+            line-height: 1.8em;
+        }
+        .md-pills .nav-link.active {
+            color: #fff;
+            background-color: #616161;
+        }
+        button.close {
+            position: absolute;
+            right: 0;
+            z-index: 2;
+            padding-right: 1rem;
+            padding-top: .6rem;
+        }
+
+        .parent {
+            position: relative;
+        }
+        .child {
+            position: absolute;
+            font-family: Arial;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            position: absolute;
+            right: 10px;
+            top:10px;
+            color: white;
         }
     </style>
     <div class="container py-5">
@@ -39,9 +65,10 @@
 {{--                @endauth--}}
 {{--            </div>--}}
             <div class="col-md-8">
+
                 @foreach($pekerjaan as $pkerja)
-                    <div  class="card">
-                        <div  class="card-body">
+                    <a  class="card hoverable mb-1" href="{{url("/job/$pkerja->url_slug")}}">
+                        <div  class="card-body wow fadeIn">
                             {{--                    <div class="avatar w-100 white d-flex justify-content-center align-items-center">--}}
                             {{--                        <img src="{{asset($pkerja->hotel->profile->hotelPhoto())}}"  class="img-fluid z-depth-1">--}}
                             {{--                    </div>--}}
@@ -51,7 +78,27 @@
                                     <h6 class="card-subtitle mb-2 text-muted">{{$pkerja->hotel->profile->nama}}</h6>
                                     <div class="card-text text">{!!html_entity_decode($pkerja->deskripsi)!!}</div>
 {{--                                    <a href="{{url("/job/$pkerja->url_slug")}}" class="btn btn-md blue-gradient">Selengkapnya</a>--}}
-
+                                    <table class="table">
+                                        <thead class="black white-text">
+                                        <tr>
+                                            <th scope="col">Applyer</th>
+                                        </tr>
+                                        </thead>
+                                    </table>
+                                    <table class="table">
+                                        <thead class="grey lighten-2">
+                                        <tr>
+                                            <th scope="col">Lolos</th>
+                                            <th scope="col">Terdaftar</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <th scope="row">0</th>
+                                            <td>0</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                                 <div class="col-4 align-items-center">
                                     <div class="avatar w-100 white d-flex justify-content-center align-items-center">
@@ -64,7 +111,7 @@
 
                         </div>
 
-                    </div>
+                    </a>
                     <br/>
                 @endforeach
                     {!! $pekerjaan->render() !!}
@@ -73,10 +120,23 @@
                 <div class="card">
 
                     <div class="card-body">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th scope="col"><i class="fas fa-user mr-2 blue-text" aria-hidden="true"></i>Total Applyer</th>
+                                <th scope="col"><i class="fas fa-briefcase mr-2 blue-text" aria-hidden="true"></i>Pekerjaan</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">0</th>
+                                <td>{{\App\Pekerjaan::where('hotel_id', $hotel->id)->count()}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
                         <div class="card-text">
-                            <a href="#!" class="card-title">Pekerjaan {{\App\Pekerjaan::where('hotel_id', $hotel->id)->count()}}</a>
-                            <a href="#!" class="card-title">Contact Us</a>
-                            <a href="#!" class="card-title">Privacy Policy</a>
+{{--                            <a href="#!" class="card-title">Pekerjaan {{\App\Pekerjaan::where('hotel_id', $hotel->id)->count()}}</a>--}}
+{{--                            <a href="#!" class="card-title">Contact Us</a>--}}
                             <a href="#!" class="card-title">© 2020 Kolega Hotel, Inc.</a>
                         </div>
 

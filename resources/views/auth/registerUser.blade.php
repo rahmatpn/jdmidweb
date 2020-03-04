@@ -36,17 +36,6 @@
 <body class="form-v8 ">
 <div class="container wow fadeInUp">
 
-{{--    Contoh kode--}}
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-{{--    for handle error--}}
 
 @if(session()->get('gagalLoginuser'))
     <!-- Central Modal Medium Warning -->
@@ -78,7 +67,7 @@
         </div>
         <!-- Central Modal Medium Warning-->
 @endif
-@if(session()->get('fail'))
+    @if ($errors->any())
     <!-- Central Modal Medium Warning -->
         <div class="modal fade" id="modalGagal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
@@ -98,7 +87,39 @@
                     <div class="modal-body">
                         <div class="text-center">
                             <i class="fas fa-times fa-4x mb-3 animated rotateIn"></i>
-                            <p>{{session()->get('fail')}}</p>
+                            @foreach ($errors->all() as $error)
+                            <p>{{ $error }}</p>
+                                @endforeach
+                        </div>
+                    </div>
+
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!-- Central Modal Medium Warning-->
+    @endif
+@if (session()->get('gagal'))
+    <!-- Central Modal Medium Warning -->
+        <div class="modal fade" id="modalGagal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-warning" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                        <p class="heading lead">Login Gagal</p>
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                    </div>
+
+                    <!--Body-->
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <i class="fas fa-times fa-4x mb-3 animated rotateIn"></i>
+                                <p>{{session()->get('gagal')}}</p>
                         </div>
                     </div>
 
@@ -136,10 +157,17 @@
             });
         </script>
     @endif
-    @if(Session::has('fail'))
+    @if($errors->any())
         <script>
             $(function() {
                 $('#modalGagal').modal('show');
+            });
+        </script>
+    @endif
+    @if(Session::has('gagal'))
+        <script>
+            $(function() {
+                $('#modalGagal1').modal('show');
             });
         </script>
     @endif
@@ -149,7 +177,8 @@
                 $('#modalGagalLogin').modal('show');
             });
         </script>
-    @endif</div>
+    @endif
+</div>
 <div class="page-content">
     <div class="form-v8-content  shadow-lg">
         <div class="form-left ">
