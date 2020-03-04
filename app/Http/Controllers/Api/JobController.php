@@ -75,7 +75,12 @@ class JobController extends Controller
     function applyJob($job){
         $user = Auth::user();
         $profile = $user->profile;
-        $currentJob = Pekerjaan::find($job);
+        $currentJob = Pekerjaan::whereHas('dikerjakan', function ($q) use ($user){
+            $q->where('pekerjaan_user.user_id', '=', $user->id);
+        })->with('dikerjakan')->find($job);
+        if ($currentJob == null){
+            $currentJob = Pekerjaan::with('dikerjakan')->find($job);
+        }
 
         $currentJob->tinggi_minimal = $currentJob->tinggi_minimal == null ? PHP_INT_MIN : $currentJob->tinggi_minimal;
         $currentJob->tinggi_maksimal = $currentJob->tinggi_maksimal == null ? PHP_INT_MAX : $currentJob->tinggi_maksimal;
@@ -93,6 +98,12 @@ class JobController extends Controller
             return response()->json(['message'=>'Tinggi tidak memenuhi'],Response::HTTP_FORBIDDEN);
         elseif ($currentJob->berat_minimal > $profile->berat_badan || $currentJob->berat_maksimal < $profile->berat_badan)
             return response()->json(['message'=>'Berat tidak memenuhi'],Response::HTTP_FORBIDDEN);
+        elseif (!empty($currentJob->dikerjakan->first())){
+            if ($currentJob->dikerjakan->first()->pivot->status != '0')
+                return response()->json(['message'=>'Anda tidak dapat mengcancel'], Response::HTTP_FORBIDDEN);
+            else
+                return response()->json($user->mengerjakan()->toggle(Pekerjaan::findOrFail($job)));
+        }
         else
             return response()->json($user->mengerjakan()->toggle(Pekerjaan::findOrFail($job)));
     }
