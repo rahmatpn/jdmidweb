@@ -36,6 +36,18 @@
 <body class="form-v8 ">
 <div class="container wow fadeInUp">
 
+{{--    Contoh kode--}}
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+{{--    for handle error--}}
+
 @if(session()->get('gagalLoginuser'))
     <!-- Central Modal Medium Warning -->
         <div class="modal fade" id="modalGagalLogin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"

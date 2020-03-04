@@ -55,7 +55,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validatorUser(array $data)
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
@@ -64,6 +64,23 @@ class RegisterController extends Controller
         ]);
     }
 
+    protected function validatorHotel(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:hotels'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
+
+    protected function validatorAdmin(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:admins'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
     /**
      * Create a new user instance after a valid registration.
      *
@@ -95,7 +112,7 @@ class RegisterController extends Controller
 
     protected function createAdmin(Request $request)
     {
-        $this->validator($request->all())->validate();
+        $this->validatorAdmin($request->all())->validate();
         $admin = Admin::create([
             'name' => $request['name'],
             'email' => $request['email'],
@@ -109,7 +126,7 @@ class RegisterController extends Controller
     protected function createHotel(Request $request)
     {
         try {
-            $this->validator($request->all())->validate();
+            $this->validatorHotel($request->all())->validate();
             $hotel = Hotel::create([
                 'name' => Str::slug($request['name'], ''),
                 'email' => $request['email'],
@@ -120,9 +137,10 @@ class RegisterController extends Controller
             $str = strval($errorCode);
             if (strpos($str, 'hotels_name_unique')) {
                 return redirect()->intended('masuk/hotel')->with("gagal", "Nama Hotel telah terdaftar, masukan nama yang berbeda");
-            } elseif (strpos($str,'hotels_email_unique')) {
-                return redirect()->intended('masuk/hotel')->with("gagal", "Email telah terdaftar");
             }
+//            elseif (strpos($str,'hotels_email_unique')) {
+//                return redirect()->intended('masuk/hotel')->with("gagal", "Email telah terdaftar");
+//            }
         }
         return redirect()->intended('masuk/hotel')->with('success','Silahkan Login menggunakan email dan password yang telah dibuat');
     }
@@ -131,7 +149,7 @@ class RegisterController extends Controller
     protected function createUser(Request $request)
     {
         try {
-            $this->validator($request->all())->validate();
+            $this->validatorUser($request->all())->validate();
             $user = User::create([
                 'name' => Str::slug($request['name'], ''),
                 'email' => $request['email'],
@@ -142,10 +160,10 @@ class RegisterController extends Controller
             $str = strval($errorCode);
             if (strpos($str, 'users_name_unique')) {
                 return redirect()->intended('masuk/user')->with("gagal", "Nama telah terdaftar, masukan nama yang berbeda");
-            } elseif (strpos($str,'users_email_unique')) {
-                return redirect()->intended('masuk/user')->with("gagal", "Email telah terdaftar");
             }
-
+//            elseif (strpos($str,'users_email_unique')) {
+//                return redirect()->intended('masuk/user')->with("gagal", "Email telah terdaftar");
+//            }
         }
         return redirect()->intended('masuk/user')->with('success','Silahkan Login menggunakan email dan password yang telah dibuat');
     }
