@@ -78,7 +78,7 @@
         </div>
         <!-- Central Modal Medium Warning-->
 @endif
-@if(session()->get('gagal'))
+@if(session()->get('fail'))
     <!-- Central Modal Medium Warning -->
         <div class="modal fade" id="modalGagal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
              aria-hidden="true">
@@ -98,7 +98,7 @@
                     <div class="modal-body">
                         <div class="text-center">
                             <i class="fas fa-times fa-4x mb-3 animated rotateIn"></i>
-                            <p>{{session()->get('gagal')}}</p>
+                            <p>{{session()->get('fail')}}</p>
                         </div>
                     </div>
 
@@ -136,7 +136,7 @@
             });
         </script>
     @endif
-    @if(Session::has('gagal'))
+    @if(Session::has('fail'))
         <script>
             $(function() {
                 $('#modalGagal').modal('show');

@@ -6,6 +6,14 @@
         body{
             background-color: #f8f8f8;
         }
+        .text {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+            display: -webkit-box;
+            -webkit-box-lines: single;
+            -webkit-line-clamp: 2; /* number of lines to show */
+        }
     </style>
     <div class="container py-5">
         <div class="row my-5">
@@ -41,7 +49,7 @@
                                 <div class="col-8">
                                     <h5 class="card-title">{{$pkerja->getPosisi()}}</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">{{$pkerja->hotel->profile->nama}}</h6>
-                                    <p class="card-text desc">{!!html_entity_decode($pkerja->deskripsi)!!}</p>
+                                    <div class="card-text text">{!!html_entity_decode($pkerja->deskripsi)!!}</div>
 {{--                                    <a href="{{url("/job/$pkerja->url_slug")}}" class="btn btn-md blue-gradient">Selengkapnya</a>--}}
 
                                 </div>

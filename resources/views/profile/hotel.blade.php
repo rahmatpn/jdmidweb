@@ -79,6 +79,12 @@
                 margin-right: 20%;
                 margin-bottom: 6rem;
             }
+            .card-text-short{
+                overflow: hidden;
+                white-space: normal;
+                height: 1.2em; /* exactly 2 lines */
+                text-overflow: -o-ellipsis-lastline;
+            }
 
         </style>
 
@@ -258,7 +264,7 @@
                                         <!--Title-->
                                         <h4 class="card-title">{{$pekerjaan->getPosisi()}}</h4>
                                         <!--Text-->
-                                        <div class="desc card-text">{!!html_entity_decode($pekerjaan->deskripsi)!!}</div>
+                                        <div class="card-text card-text-short">{!!html_entity_decode($pekerjaan->deskripsi)!!}</div>
                                         <a type="button" href="{{url("/job/$pekerjaan->url_slug")}}" class="btn btn-blue btn-md">Read more</a>
 
                                     </div>
