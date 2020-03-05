@@ -18,7 +18,10 @@ class JobController extends Controller
         return response()->json(['jobs'=>
             Pekerjaan::with('hotel.profile')
                 ->with('posisi')
-                ->withCount('dikerjakan')
+                ->withCount(['dikerjakan' => function ($q){
+                    $q->where('status', '!=', '0');
+                }])
+                ->withCount('terdaftar')
                 ->where('status', '1')
                 ->where(function ($q) use($date, $time){
                     $q->where('tanggal_mulai','>',$date)
@@ -39,7 +42,10 @@ class JobController extends Controller
         return response()->json(['jobs'=>
             Pekerjaan::with('hotel.profile')
                 ->with('posisi')
-                ->withCount('dikerjakan')
+                ->withCount(['dikerjakan' => function ($q){
+                    $q->where('status', '!=', '0');
+                }])
+                ->withCount('terdaftar')
                 ->where('status', '1')
                 ->where(function ($q) use($date, $time){
                     $q->where('tanggal_mulai','>',$date)
@@ -61,7 +67,10 @@ class JobController extends Controller
         return response()->json(['jobs'=>
             Pekerjaan::with('hotel.profile')
                 ->with('posisi')
-                ->withCount('dikerjakan')
+                ->withCount(['dikerjakan' => function ($q){
+                    $q->where('status', '!=', '0');
+                }])
+                ->withCount('terdaftar')
                 ->where('status', '1')
                 ->where('posisi_id',$position)
                 ->where(function ($q) use($date, $time){
@@ -100,7 +109,7 @@ class JobController extends Controller
             return response()->json(['message'=>'Berat tidak memenuhi'],Response::HTTP_FORBIDDEN);
         elseif (!empty($currentJob->dikerjakan->first())){
             if ($currentJob->dikerjakan->first()->pivot->status != '0')
-                return response()->json(['message'=>'Anda tidak dapat mengcancel'], Response::HTTP_FORBIDDEN);
+                return response()->json(['message'=>'Hubungi pihak hotel untuk membatalkan pekerjaan'], Response::HTTP_FORBIDDEN);
             else
                 return response()->json($user->mengerjakan()->toggle(Pekerjaan::findOrFail($job)));
         }
@@ -118,7 +127,10 @@ class JobController extends Controller
             return response()->json(['jobs'=>
                 Pekerjaan::with('hotel.profile')
                     ->with('posisi')
-                    ->withCount('dikerjakan')
+                    ->withCount(['dikerjakan' => function ($q){
+                        $q->where('status', '!=', '0');
+                    }])
+                    ->withCount('terdaftar')
                     ->whereIn('id',$jobs)
                     ->orderBy('tanggal_mulai')
                     ->get()]);

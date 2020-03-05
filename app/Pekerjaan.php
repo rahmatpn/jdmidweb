@@ -50,6 +50,10 @@ class Pekerjaan extends Model
         return $this->belongsToMany(User::class, 'pekerjaan_user')->withTimestamps()->withPivot('status');
     }
 
+    public function terdaftar(){
+        return $this->belongsToMany(User::class, 'pekerjaan_user')->withTimestamps()->withPivot('status');
+    }
+
     public function todolist(){
         return $this->hasMany(ToDoList::class);
     }
