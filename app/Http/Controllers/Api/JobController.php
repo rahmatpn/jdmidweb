@@ -18,10 +18,7 @@ class JobController extends Controller
         return response()->json(['jobs'=>
             Pekerjaan::with('hotel.profile')
                 ->with('posisi')
-                ->withCount(['dikerjakan' => function ($q){
-                    $q->where('status', '!=', '0');
-                }])
-                ->withCount('terdaftar')
+                ->withCount('dikerjakan')
                 ->where('status', '1')
                 ->where(function ($q) use($date, $time){
                     $q->where('tanggal_mulai','>',$date)
@@ -42,10 +39,7 @@ class JobController extends Controller
         return response()->json(['jobs'=>
             Pekerjaan::with('hotel.profile')
                 ->with('posisi')
-                ->withCount(['dikerjakan' => function ($q){
-                    $q->where('status', '!=', '0');
-                }])
-                ->withCount('terdaftar')
+                ->withCount('dikerjakan')
                 ->where('status', '1')
                 ->where(function ($q) use($date, $time){
                     $q->where('tanggal_mulai','>',$date)
@@ -67,10 +61,7 @@ class JobController extends Controller
         return response()->json(['jobs'=>
             Pekerjaan::with('hotel.profile')
                 ->with('posisi')
-                ->withCount(['dikerjakan' => function ($q){
-                    $q->where('status', '!=', '0');
-                }])
-                ->withCount('terdaftar')
+                ->withCount('dikerjakan')
                 ->where('status', '1')
                 ->where('posisi_id',$position)
                 ->where(function ($q) use($date, $time){
@@ -96,7 +87,7 @@ class JobController extends Controller
         $currentJob->berat_minimal = $currentJob->berat_minimal == null ? PHP_INT_MIN : $currentJob->berat_minimal;
         $currentJob->berat_maksimal = $currentJob->berat_maksimal == null ? PHP_INT_MAX : $currentJob->berat_maksimal;
 
-        if($currentJob->dikerjakan->count() >= $currentJob->kuota)
+        if($currentJob->diterima->count() >= $currentJob->kuota)
             return response()->json(['message'=>'Kuota sudah penuh'],Response::HTTP_FORBIDDEN);
 
         elseif ($currentJob->isExpired || $currentJob->status != '1')
@@ -127,10 +118,7 @@ class JobController extends Controller
             return response()->json(['jobs'=>
                 Pekerjaan::with('hotel.profile')
                     ->with('posisi')
-                    ->withCount(['dikerjakan' => function ($q){
-                        $q->where('status', '!=', '0');
-                    }])
-                    ->withCount('terdaftar')
+                    ->withCount('dikerjakan')
                     ->whereIn('id',$jobs)
                     ->orderBy('tanggal_mulai')
                     ->get()]);
