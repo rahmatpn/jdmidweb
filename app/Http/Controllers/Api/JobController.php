@@ -108,7 +108,26 @@ class JobController extends Controller
             return response()->json($user->mengerjakan()->toggle(Pekerjaan::findOrFail($job)));
     }
 
-    function getUserJob($id){
+    function getUserAppliedJob($id){
+        $jobs = User::whereHas('mengerjakan', function ($q){
+            $q->where('pekerjaan_user.status', '0');
+        })->with('mengerjakan')
+            ->get()->find($id);
+        if ($jobs != null){
+            $jobs = $jobs->mengerjakan->pluck('id');
+            return response()->json(['jobs'=>
+                Pekerjaan::with('hotel.profile')
+                    ->with('posisi')
+                    ->withCount('dikerjakan')
+                    ->whereIn('id',$jobs)
+                    ->orderBy('tanggal_mulai')
+                    ->get()]);
+        } else {
+            return \response()->json(['jobs'=>[]]);
+        }
+    }
+
+    function getUserAcceptedJob($id){
         $jobs = User::whereHas('mengerjakan', function ($q){
             $q->where('pekerjaan_user.status', '!=', '0');
         })->with('mengerjakan')
