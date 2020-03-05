@@ -39,31 +39,12 @@
             right: 10px;
             top:10px;
             color: white;
+
         }
+
     </style>
     <div class="container py-5">
         <div class="row my-5">
-{{--            <div class="col-md-3">--}}
-{{--                @auth('hotel')--}}
-{{--                    <div class="card">--}}
-{{--                        <div class="card-body">--}}
-{{--                            <div class="row">--}}
-{{--                                <div class="col-lg-4 mb-2 align-items-center">--}}
-{{--                                    <div class="avatar w-100 white d-flex justify-content-center align-items-center">--}}
-{{--                                        <img src="{{asset($hotel->profile->hotelPhoto())}}"  class="img-fluid z-depth-1">--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="col-lg-8 text-muted d-flex flex-column justify-content-start pt-1">--}}
-{{--                                    <p class="mb-2"><strong>{{$hotel->profile->nama}}</strong></p>--}}
-{{--                                </div>--}}
-
-{{--                            </div>--}}
-{{--                            <hr/>--}}
-
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                @endauth--}}
-{{--            </div>--}}
             <div class="col-md-8">
 
                 @foreach($pekerjaan as $pkerja)
@@ -116,6 +97,7 @@
                 @endforeach
                     {!! $pekerjaan->render() !!}
             </div>
+
             <div class="col-md-4">
                 <div class="card">
 
@@ -150,39 +132,87 @@
             </div>
         </div>
     </div>
-    <footer class="page-footer font-small indigo darken-4 py-4">
 
-        <!-- Footer Elements -->
-        <div class="container">
+    <!-- Footer -->
+    <footer class="page-footer font-small light-blue">
 
-            <div class="row">
-                <div class="col-md-6 d-flex justify-content-start">
-                    <!-- Copyright -->
-                    <div class="footer-copyright text-center bg-transparent">© 2020 Copyright:
-                        <a href="#"> kolegahotel.com</a>
-                    </div>
-                    <!-- Copyright -->
-                </div>
-                <div class="col-md-6 d-flex justify-content-end">
-                    <ul class="list-unstyled d-flex mb-0">
-                        <li>
-                            <a class="mr-3" role="button"><i class="fab fa-facebook-f"></i></a>
-                        </li>
-                        <li>
-                            <a class="mr-3" role="button"><i class="fab fa-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a class="mr-3" role="button"><i class="fab fa-instagram"></i></a>
-                        </li>
-                        <li>
-                            <a class="" role="button"><i class="fab fa-youtube"></i></a>
-                        </li>
-                    </ul>
-                </div>
+        <div style="background-color: #232D93;">
+            <div class="container">
+
+                <!-- Grid row-->
+                <ul class="list-unstyled list-inline text-center py-2">
+                    <li class="list-inline-item">
+                        <h5 class="mb-1">Buat lowongan pekerjaan sekarang</h5>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#!" class="btn btn-outline-white rounded">Post it!</a>
+                    </li>
+                </ul>
+
             </div>
+        </div>
+
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left mt-5">
+
+            <!-- Grid row -->
+            <div class="row mt-3">
+
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+
+                    <!-- Content -->
+                    <h6 class="text-uppercase font-weight-bold">Hotel name</h6>
+                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <h1>{{$hotel->profile->nama}}</h1>
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                    <!-- Links -->
+                    <h6 class="text-uppercase font-weight-bold">Hotel Brief</h6>
+                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>Deskripsi Perusahaan</p>
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+                    <!-- Links -->
+                    <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        <i class="fas fa-home mr-3"></i>{{$hotel->profile->alamat}}</p>
+                    <p>
+                        <i class="fas fa-envelope mr-3"></i>{{$hotel->email}}</p>
+                    <p>
+                        <i class="fas fa-phone mr-3"></i>{{$hotel->profile->nomor_telepon}}</p>
+                    <p>
+                        <i class="fas fa-globe mr-3"></i>{{$hotel->profile->website}}</p>
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
 
         </div>
-        <!-- Footer Elements -->
+        <!-- Footer Links -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center text-black-50 py-3">© 2020 Kolega Hotel, Inc.
+        </div>
+        <!-- Copyright -->
 
     </footer>
+    <!-- Footer -->
+    <!-- Footer -->
 @endsection
