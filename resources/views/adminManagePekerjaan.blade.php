@@ -15,6 +15,24 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
     </head>
     <h1>Pekerjaan</h1>
+    <style>
+        .desc {
+            white-space: nowrap;
+            width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .text {
+            display: block;/* or inline-block */
+            text-overflow: ellipsis;
+            word-wrap: break-word;
+            overflow: hidden;
+            max-height: 4.2em;
+            line-height: 1.8em;
+        }
+
+    </style>
 @stop
 
 @section('content')
@@ -37,19 +55,15 @@
             <th class="align-middle">Bayaran</th>
             <th class="align-middle">Kuota</th>
             <th class="align-middle text-md-center">Deskripsi</th>
+            <th class="align-middle">Status</th>
+            <th class="align-middle">Foto</th>
             <th></th>
             <th></th>
         </tr>
         </thead>
         <tbody>
         @foreach($pekerjaan as $pekerjaan)
-            @if($pekerjaan->status == null)
-            <tr class="bg-gray-">
-                @elseif($pekerjaan->status == '0')
-                <tr class="bg-red">
-            @else
-                <tr>
-                    @endif
+            <tr>
             <td>{{$pekerjaan->id}}</td>
             <td>{{$pekerjaan->posisi->nama_posisi}}</td>
             <td>{{$pekerjaan->hotel->profile->nama}}</td>
@@ -63,19 +77,26 @@
             <td>{{$pekerjaan->berat_maksimal ?? '-'}}</td>
             <td>Rp.{{$pekerjaan->bayaran}}</td>
             <td>{{$pekerjaan->kuota}}</td>
-            <td class="text-justify">{{$pekerjaan->deskripsi}}</td>
-            <td>
-                <div class="btn-group btn-group-sm">
-                    <a href="{{url('/admin/pekerjaan/'.$pekerjaan->url_slug.'/delete')}}" class="btn btn-danger fa fa-trash"></a>
-                    <a href="{{url('/admin/pekerjaan/'.$pekerjaan->url_slug.'/edit')}}" class="btn btn-info fa fa-pencil"></a>
-                </div>
-            </td>
-            <td>
-                <div class="btn-group btn-group-sm">
-                    <a href="{{url('admin/pekerjaan/'.$pekerjaan->url_slug.'/verifyPekerjaan')}}" class="btn btn-success fa fa-thumbs-up"></a>
-                    <a href="{{url('admin/pekerjaan/'.$pekerjaan->url_slug.'/rejectPekerjaan')}}" class="btn btn-warning fa fa-thumbs-down"></a>
-                </div>
-            </td>
+            <td class="text desc">{{$pekerjaan->deskripsi}}</td>
+                @if($pekerjaan->status == null)
+                    <td><button class="btn btn-dark fa fa-clock-o"></button></td>
+                    {{--                <td>Belum diverifikasi</td>--}}
+                @elseif($pekerjaan->status == '1')
+                    <td><button class="btn btn-success fa fa-check"></button></td>
+                    {{--                <td>Terverifikasi</td>--}}
+                @else
+                    <td><button class="btn btn-danger fa fa-close"></button></td>
+                @endif
+            <td><img src="{{asset($pekerjaan->foto ?? $pekerjaan->hotel->profile->hotelPhoto())}}" class="w-100"></td>
+            <td><a href="{{url('/admin/pekerjaan/'.$pekerjaan->url_slug.'/delete')}}" class="btn btn-danger fa fa-trash"></a></td>
+            <td><a href="{{url('/admin/pekerjaan/'.$pekerjaan->url_slug.'/edit')}}" class="btn btn-info fa fa-pencil"></a></td>
+{{--               @if($pekerjaan->status == null)--}}
+                        <td><a href="{{url('admin/pekerjaan/'.$pekerjaan->url_slug.'/verify')}}" class="btn btn-outline-warning fa fa-eye"></a></td>
+{{--                   @elseif($pekerjaan->status == '1')--}}
+{{--                        <td><a href="{{url('admin/pekerjaan/'.$pekerjaan->url_slug.'/verify')}}" class="btn btn-success fa fa-check"></a></td>--}}
+{{--                   @else--}}
+{{--                        <td><a href="{{url('admin/pekerjaan/'.$pekerjaan->url_slug.'/verify')}}" class="btn btn-danger fa fa-close"></a></td>--}}
+{{--                   @endif--}}
             </tr>
                 @endforeach
             </tbody>

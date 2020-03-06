@@ -17,10 +17,42 @@
     </head>
     <div class="row">
         <h1 class="text-uppercase col-md-8">User</h1>
-        <div class="justify-content-end d-flex col-md-4">
-            <a href="{{url('admin/user/add')}}" class="btn btn-success justify-content-end">Tambah user</a>
+        <div class="justify-content-end d-flex col-md-4" >
+            <button  data-toggle="modal" data-target="#myModal"  class="btn btn-success justify-content-end fa fa-plus"> Tambah User</button>
         </div>
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title float-left">Add User</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <form method="POST" class="form-detail" action="{{url('/admin/user/create')}}" >
+                    @csrf
+                    <div class="form-col">
 
+                        <label class="form-row">
+                            Nama    <input type="text" name="name" id="name" class="input-text" required>
+                        </label>
+                        <label class=" form-row">
+                            Email   <input type="text" name="email" id="email" class="input-text" required>
+                        </label>
+                        <label class=" form-row">
+                            Password <input type="password" name="password" id="password" class="input-text" required>
+                        </label>
+                        <label class=" form-row">
+                            Confirm password <input type="password" name="password_confirmation" id="password-confirm" class="input-text" required autocomplete="new-password">
+                        </label>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
 @stop
@@ -41,6 +73,8 @@
             <th class="align-middle">Alamat</th>
             <th class="align-middle">Social Media</th>
             <th class="align-middle">Pendidikan Terakhir</th>
+            <th class="align-middle">Status KTP</th>
+            <th class="align-middle">Status SKCk</th>
             <th class="align-middle text-md-center">foto</th>
             <th class="align-middle text-md-center">cover</th>
             <th></th>
@@ -60,18 +94,25 @@
                 <td>{{$user->profile->alamat}}</td>
                 <td>{{$user->profile->social_media}}</td>
                 <td>{{$user->profile->pendidikan_terakhir}}</td>
+                @if($user->profile->status_ktp == null)
+                    <td><button class="btn btn-dark fa fa-clock-o"></button></td>
+                @elseif($user->profile->status_ktp == '1')
+                    <td><button class="btn btn-success fa fa-check"></button></td>
+                @else
+                    <td><button class="btn btn-danger fa fa-close"></button></td>
+                @endif
+                @if($user->profile->status_skck == null)
+                    <td><button class="btn btn-dark fa fa-clock-o"></button></td>
+                @elseif($user->profile->status_skck == '1')
+                    <td><button class="btn btn-success fa fa-check"></button></td>
+                @else
+                    <td><button class="btn btn-danger fa fa-close"></button></td>
+                @endif
                 <td> <img src="{{asset($user->profile->profileFoto())}}" class="w-75"></td>
                 <td> <img src="{{asset($user->profile->profileCover())}}" class="w-100"></td>
-                <div class="button-group">
-                    <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/delete')}}" class="btn btn-danger fa fa-trash"></a></td>
-                    <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/edit')}}" class="btn btn-info fa fa-pencil"></a></td>
-                    @if($user->profile->status_ktp != '1' or $user->profile->status_skck !=1 )
-                        <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/verify')}}" class="btn btn-outline-warning  fa fa-check"></a> </td>
-                        @else
-                        <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/verify')}}" class="btn btn-success  fa fa-check"></a> </td>
-                    @endif
-                </div>
-
+                <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/delete')}}" class="btn btn-danger fa fa-trash"></a></td>
+                <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/edit')}}" class="btn btn-info fa fa-pencil"></a></td>
+                <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/verify')}}" class="btn btn-outline-warning  fa fa-eye"></a> </td>
             </tr>
         @endforeach
         </tbody>

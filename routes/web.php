@@ -42,6 +42,8 @@ Route::group([
 ], function () {
     Route::get('/admin', 'AdminController@index');
 
+
+    //User
     Route::get('/admin/user/manage', 'AdminController@indexUser');
     Route::get('/admin/user/{url_slug}/edit','ProfileUserController@edit');
     Route::get('/admin/user/{url_slug}/delete', 'ProfileUserController@destroy');
@@ -51,8 +53,10 @@ Route::group([
     Route::get('/admin/user/{url_slug}/verifySkck', 'AdminController@verifyUserSkck');
     Route::get('/admin/user/{url_slug}/rejectSkck', 'AdminController@rejectUserSkck');
     Route::patch('/admin/user/{url_slug}', 'ProfileUserController@update');
-    Route::get('/admin/user/add', 'AdminController@add');
+    Route::post('/admin/user/create', 'AdminController@adminCreateUser');;
 
+
+    //Hotel
     Route::get('/admin/hotel/manage', 'AdminController@indexHotel');
     Route::get('/admin/hotel/{url_slug}/edit','ProfileHotelController@edit');
     Route::get('/admin/hotel/{url_slug}/delete', 'ProfileHotelController@destroy');
@@ -60,14 +64,24 @@ Route::group([
     Route::get('/admin/hotel/{url_slug}/verifyHotel', 'AdminController@verifyHotel');
     Route::get('/admin/hotel/{url_slug}/rejectHotel', 'AdminController@rejectHotel');
     Route::patch('/admin/hotel/{url_slug}', 'ProfileHotelController@update');
-    Route::get('/admin/hotel/add', 'AdminController@add');
+    Route::post('/admin/hotel/create', 'AdminController@adminCreateHotel');
 
+    //Pekerjaan
     Route::get('/admin/pekerjaan/manage', 'AdminController@indexPekerjaan');
     Route::get('/admin/pekerjaan/{url_slug}/edit','PekerjaanController@edit');
     Route::get('/admin/pekerjaan/{url_slug}/delete','PekerjaanController@delete');
+    Route::get('/admin/pekerjaan/{url_slug}/verify', 'AdminController@viewVerifyPekerjaan');
     Route::get('/admin/pekerjaan/{url_slug}/verifyPekerjaan', 'AdminController@verifyPekerjaan');
     Route::get('/admin/pekerjaan/{url_slug}/rejectPekerjaan', 'AdminController@rejectPekerjaan');
     Route::post('/pekerjaan/update','PekerjaanController@update');
+
+    //Posisi
+    Route::get('/admin/posisi/manage', 'AdminController@indexPosisi');
+    Route::post('/admin/posisi/add', 'AdminController@createPosisi');;
+    Route::get('/admin/posisi/{id}/delete', 'AdminController@destroyPosisi');
+    Route::get('/admin/posisi/{id}/edit', 'AdminController@viewEditPosisi');
+    Route::patch('/admin/posisi/{id}/save', 'AdminController@editPosisi');
+
 });
 
 Route::get('/home', 'HomeController@index');

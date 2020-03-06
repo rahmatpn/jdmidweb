@@ -143,7 +143,7 @@
                         </div>
                         <div class="col-4 align-items-center">
                             <div class="avatar w-100 white d-flex justify-content-center align-items-center">
-                                <img src="{{asset($pekerjaan->hotel->profile->hotelPhoto())}}"  class="img-fluid z-depth-1">
+                                <img src="{{asset($pekerjaan->foto ?? $pekerjaan->hotel->profile->hotelPhoto())}}"  class="img-fluid z-depth-1">
                             </div>
                         </div>
 

@@ -205,6 +205,11 @@ return [
             'url'  => 'admin/pekerjaan/manage',
             'icon' => 'fas fa-fw fa-briefcase',
         ],
+        [
+            'text'       => 'posisi',
+            'icon' => 'fas fa-fw fa-id-card',
+            'url'  => 'admin/posisi/manage',
+        ],
 //        [
 //            'text'    => 'multilevel',
 //            'icon'    => 'fas fa-fw fa-share',
@@ -243,21 +248,18 @@ return [
 //                ],
 //            ],
 //        ],
-        ['header' => 'Add', 'icon' => 'fas fa-fw fa-plus'],
-        [
-            'text' => 'User',
-            'url'  => 'admin/user/add',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Hotel',
-            'url'  => 'admin/hotel/add',
-            'icon' => 'fas fa-fw fa-building',
-        ],
-        [
-            'text'       => 'posisi',
-            'icon' => 'fas fa-fw fa-id-card',
-        ],
+//        ['header' => 'Add', 'icon' => 'fas fa-fw fa-plus'],
+//        [
+//            'text' => 'User',
+//            'url'  => 'admin/user/add',
+//            'icon' => 'fas fa-fw fa-user',
+//        ],
+//        [
+//            'text' => 'Hotel',
+//            'url'  => 'admin/hotel/add',
+//            'icon' => 'fas fa-fw fa-building',
+//        ],
+
     ],
 
     /*

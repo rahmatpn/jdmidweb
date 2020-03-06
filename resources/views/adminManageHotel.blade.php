@@ -18,7 +18,40 @@
     <div class="row">
         <h1 class="text-uppercase col-md-8">Hotel</h1>
         <div class="justify-content-end d-flex col-md-4" >
-            <a href="{{url('admin/hotel/add')}}" class="btn btn-success justify-content-end">Tambah Hotel</a>
+            <button  data-toggle="modal" data-target="#myModal"  class="btn btn-success justify-content-end fa fa-plus"> Tambah Hotel</button>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title float-left">Add Hotel</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <form method="POST" class="form-detail" action="{{url('/admin/hotel/create')}}" >
+                    @csrf
+                    <div class="form-col">
+
+                        <label class="form-row">
+                            Nama    <input type="text" name="name" id="name" class="input-text" required>
+                        </label>
+                        <label class=" form-row">
+                            Email   <input type="text" name="email" id="email" class="input-text" required>
+                        </label>
+                        <label class=" form-row">
+                            Password <input type="password" name="password" id="password" class="input-text" required>
+                        </label>
+                        <label class=" form-row">
+                            Confirm password <input type="password" name="password_confirmation" id="password-confirm" class="input-text" required autocomplete="new-password">
+                        </label>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -39,6 +72,7 @@
             <th class="align-middle">Nomor Telepon</th>
             <th class="align-middle">Social Media</th>
             <th class="align-middle">Website</th>
+            <th class="align-middle">Status</th>
             <th class="align-middle text-md-center">Foto</th>
             <th></th>
             <th></th>
@@ -54,14 +88,27 @@
                 <td>{{$hotel->profile->nomor_telepon}}</td>
                 <td>{{$hotel->profile->social_media}}</td>
                 <td>{{$hotel->profile->weabsite}}</td>
+                @if($hotel->profile->status_verifikasi == null)
+                    <td><button class="btn btn-dark fa fa-clock-o"></button></td>
+                    {{--                <td>Belum diverifikasi</td>--}}
+                @elseif($hotel->profile->status_verifikasi == '1')
+                <td><button class="btn btn-success fa fa-check"></button></td>
+                    {{--                <td>Terverifikasi</td>--}}
+                @else
+                    <td><button class="btn btn-danger fa fa-close"></button></td>
+                @endif
+
+{{--                <td>{{$hotel->profile->status_verifikasi}}</td>--}}
                 <td class="text-md-center"><img src="{{asset($hotel->profile->hotelPhoto())}}" class="h-25"></td>
                 <td><a href="{{url('/admin/hotel/'.$hotel->profile->url_slug.'/delete')}}" class="btn btn-danger fa fa-trash"></a> </td>
                 <td><a href="{{url('/admin/hotel/'.$hotel->profile->url_slug.'/edit')}}" class="btn btn-info fa fa-pencil"></a> </td>
-                @if($hotel->profile->status_verifikasi != '1')
-                <td><a href="{{url('admin/hotel/'.$hotel->profile->url_slug.'/verify')}}" class="btn btn-outline-warning fa fa-check"></a> </td>
-                @else
-                    <td><a href="{{url('admin/hotel/'.$hotel->profile->url_slug.'/verify')}}" class="btn btn-success fa fa-check"></a> </td>
-                    @endif
+{{--                @if($hotel->profile->status_verifikasi == null)--}}
+                    <td><a href="{{url('admin/hotel/'.$hotel->profile->url_slug.'/verify')}}" class="btn btn-warning fa fa-eye"></a></td>
+{{--                @elseif($hotel->profile->status_verifikasi == '1')--}}
+{{--                    <td><a href="{{url('admin/hotel/'.$hotel->profile->url_slug.'/verify')}}" class="btn btn-success fa fa-check"></a></td>--}}
+{{--                @else--}}
+{{--                    <td><a href="{{url('admin/hotel/'.$hotel->profile->url_slug.'/verify')}}" class="btn btn-danger fa fa-close"></a></td>--}}
+{{--                @endif--}}
             </tr>
         @endforeach
         </tbody>

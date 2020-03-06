@@ -24,12 +24,12 @@
                 <td><a href="{{url('admin/user/'.$user->url_slug.'/rejectSkck')}}" class="btn btn-danger"> Reject</a> </td>
             </tr>
             <tr>
-                <th><strong> Sertifikat: </strong></th>
+                <th><h5> Sertifikat: </h5></th>
                 <td><img src="{{asset('image/user/skck/user1')}} ?? 'kosong'" alt="Surat"></td>
                 <td><a href="#" class="btn btn-success"> Verify</a> </td>
             </tr>
             <tr>
-                <th><strong> Kartu Satpam: </strong></th>
+                <th><h5> Kartu Satpam: </h5></th>
                 <td><img src="{{asset('image/user/skck/user1')}}" alt="Satpam"></td>
                 <td><a href="#" class="btn btn-success"> Verify</a> </td>
             </tr>
