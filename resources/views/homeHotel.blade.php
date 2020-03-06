@@ -136,7 +136,7 @@
     <!-- Footer -->
     <footer class="page-footer font-small light-blue">
 
-        <div style="background-color: #232D93;">
+        <div style="background-color: #043A70;">
             <div class="container">
 
                 <!-- Grid row-->
@@ -145,7 +145,7 @@
                         <h5 class="mb-1">Buat lowongan pekerjaan sekarang</h5>
                     </li>
                     <li class="list-inline-item">
-                        <a href="#!" class="btn btn-outline-white rounded">Post it!</a>
+                        <a href="{{url('/job/postjob')}}" class="btn btn-outline-white rounded">Post it!</a>
                     </li>
                 </ul>
 
@@ -175,7 +175,7 @@
                     <!-- Links -->
                     <h6 class="text-uppercase font-weight-bold">Hotel Brief</h6>
                     <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                    <p>Deskripsi Perusahaan</p>
+                    <p>{{$hotel->profile->deskripsi}}</p>
 
                 </div>
                 <!-- Grid column -->

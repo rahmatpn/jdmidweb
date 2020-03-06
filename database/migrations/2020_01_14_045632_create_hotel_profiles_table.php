@@ -19,7 +19,7 @@ class CreateHotelProfilesTable extends Migration
             $table->string('nama');
             $table->text('alamat')->nullable();
             $table->string('email');
-            $table->string('deskripsi')->nullable();
+            $table->text('deskripsi')->nullable();
             $table->string('nomor_telepon')->nullable();
             $table->string('social_media')->nullable();
             $table->string('foto')->nullable();
