@@ -34,14 +34,12 @@ class HomeController extends Controller
 
     public function index()
     {
-        $pekerjaan = Pekerjaan::orderBy('tanggal_mulai')->get();
-//        $pekerjaan = DB::table('pekerjaan')->paginate(20);
+        $pekerjaan = Pekerjaan::orderBy('tanggal_mulai')->paginate(10);
         $user = \auth()->guard('user')->user();
-        $hotel = \auth()->guard('hotel')->user();
 //        if (\auth()->guard('hotel')->user() != null){
 //            $myhotel = Pekerjaan::where('hotel_id',\auth()->guard('hotel')->user()->profile->id);
 //        }
-        return view('home', compact('pekerjaan', 'user','hotel','myhotel'));
+        return view('home', array('kerja' => $pekerjaan), compact( 'user'));
     }
     public function indexHotel(){
         $hotel = \auth()->guard('hotel')->user();

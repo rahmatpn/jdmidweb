@@ -95,7 +95,12 @@
                     </a>
                     <br/>
                 @endforeach
-                    {!! $pekerjaan->render() !!}
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination pagination-circle pg-blue">
+                            {!! $pekerjaan->render() !!}
+                        </ul>
+                    </nav>
+
             </div>
 
             <div class="col-md-4">
@@ -213,6 +218,5 @@
         <!-- Copyright -->
 
     </footer>
-    <!-- Footer -->
     <!-- Footer -->
 @endsection

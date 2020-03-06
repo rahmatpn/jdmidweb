@@ -127,7 +127,7 @@
                 @endauth
         </div>
         <div class="col-md-6">
-            @foreach($pekerjaan as $pekerjaan)
+            @foreach($kerja as $pekerjaan)
             <div class="card">
                 <div class="card-body">
 {{--                    <div class="avatar w-100 white d-flex justify-content-center align-items-center">--}}
@@ -138,7 +138,7 @@
                             <h5 class="card-title">{{$pekerjaan->getPosisi()}}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">{{$pekerjaan->hotel->profile->nama}}</h6>
                             <p class="card-text desc">{!!html_entity_decode($pekerjaan->deskripsi)!!}</p>
-                            <a href="{{url("/job/$pekerjaan->url_slug")}}" class="btn btn-md blue-gradient">Selengkapnya</a>
+                            <a href="{{url("/job/$pekerjaan->url_slug")}}" class="btn btn-md blue">Selengkapnya</a>
 
                         </div>
                         <div class="col-4 align-items-center">
@@ -154,61 +154,98 @@
             </div>
         <br/>
             @endforeach
-        </div>
-        <div class="col-md-3">
-            <div class="card">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination pagination-circle pg-blue">
+                        {!! $kerja->render() !!}
+                    </ul>
+                </nav>
 
-                <div class="card-body">
-                    <div class="card-text">
-                        <a href="#!" class="card-title">About us</a>
-                        <a href="#!" class="card-title">Contact Us</a>
-                        <a href="#!" class="card-title">Privacy Policy</a>
-                        <a href="#!" class="card-title">© 2020 Kolega Hotel, Inc.</a>
-                    </div>
+{{--                {!! $kerja->render() !!}--}}
+        </div>
+
+{{--        <div class="col-md-3">--}}
+{{--            <div class="card">--}}
+
+{{--                <div class="card-body">--}}
+{{--                    <div class="card-text">--}}
+{{--                        <a href="#!" class="card-title">About us</a>--}}
+{{--                        <a href="#!" class="card-title">Contact Us</a>--}}
+{{--                        <a href="#!" class="card-title">Privacy Policy</a>--}}
+{{--                        <a href="#!" class="card-title">© 2020 Kolega Hotel, Inc.</a>--}}
+{{--                    </div>--}}
 
 {{--                    <h6 class="card-subtitle mb-2 text-muted">Contact User</h6>--}}
 
-                   {{-- <p class="card-text">Some quick example text to build on the panel title and make up the bulk of the panel's content.</p>
-                    <a href="#!" class="card-link mr-3">Card link</a>
-                    <a href="#!" class="card-link ml-0">Another link</a>--}}
-                </div>
-            </div>
-        </div>
+{{--                   --}}{{-- <p class="card-text">Some quick example text to build on the panel title and make up the bulk of the panel's content.</p>--}}
+{{--                    <a href="#!" class="card-link mr-3">Card link</a>--}}
+{{--                    <a href="#!" class="card-link ml-0">Another link</a>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
     </div>
 </div>
-<footer class="page-footer font-small indigo darken-4 py-4">
+    <!-- Footer -->
+    <footer class="page-footer font-small black-text white pt-4 shadow">
 
-    <!-- Footer Elements -->
-    <div class="container">
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left mt-3">
 
-        <div class="row">
-            <div class="col-md-6 d-flex justify-content-start">
-                <!-- Copyright -->
-                <div class="footer-copyright text-center bg-transparent">© 2020 Copyright:
-                    <a href="#"> kolegahotel.com</a>
+            <!-- Grid row -->
+            <div class="row mt-3">
+
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+
+                    <!-- Content -->
+                    <h6 class="text-uppercase font-weight-bold">Hotel name</h6>
+                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+
+                    <div class="row">
+                        <img src="{{asset('/image/logo_head.png')}}" alt="" width="180">
+                    </div>
+
+
                 </div>
-                <!-- Copyright -->
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                    <!-- Links -->
+                    <h6 class="text-uppercase font-weight-bold">Trivia</h6>
+                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>Lorem ipsum</p>
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+                    <!-- Links -->
+                    <h6 class="text-uppercase font-weight-bold">Contact us</h6>
+                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        <i class="fas fa-home mr-3"></i>Lorem Ipsum</p>
+                    <p>
+                        <i class="fas fa-envelope mr-3"></i>info@kolegahotel.com</p>
+                    <p>
+                        <i class="fas fa-phone mr-3"></i>123125346</p>
+
+                </div>
+                <!-- Grid column -->
+
             </div>
-            <div class="col-md-6 d-flex justify-content-end">
-                <ul class="list-unstyled d-flex mb-0">
-                    <li>
-                        <a class="mr-3" role="button"><i class="fab fa-facebook-f"></i></a>
-                    </li>
-                    <li>
-                        <a class="mr-3" role="button"><i class="fab fa-twitter"></i></a>
-                    </li>
-                    <li>
-                        <a class="mr-3" role="button"><i class="fab fa-instagram"></i></a>
-                    </li>
-                    <li>
-                        <a class="" role="button"><i class="fab fa-youtube"></i></a>
-                    </li>
-                </ul>
-            </div>
+            <!-- Grid row -->
+
         </div>
+        <!-- Footer Links -->
 
-    </div>
-    <!-- Footer Elements -->
+        <!-- Copyright -->
+        <div class="footer-copyright text-center text-black-50 py-3">© 2020 Kolega Hotel, Inc.
+        </div>
+        <!-- Copyright -->
 
-</footer>
+    </footer>
+    <!-- Footer -->
 @endsection
