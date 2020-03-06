@@ -14,63 +14,63 @@ class PosisiSeeder extends Seeder
     {
         DB::table('posisi')->insert([
            'nama_posisi'=>'Laundry',
-            'deskripsi' => 'Laundry adalah layanan hotel yang bekerja mencuci dan menyetrika baju para tamu'
+            'deskripsi' => 'Laundry adalah bagian dari housekeeping yang bertanggung jawab atas pencucian semua linen, baik itu house laundry maupun guest laundry.'
         ]);
         DB::table('posisi')->insert([
             'nama_posisi'=>'Pool Maintenance',
-            'deskripsi' => 'Bekerja merawat peralatan dan pemeliharaan fasilitas kolam renang, dan tugas terkait lainnya sesuai kebutuhan.'
+            'deskripsi' => 'Pool Maintenance adalah bagian yang bertugas dan bertanggung jawab menjaga kebersihan kolam renang.'
         ]);
         DB::table('posisi')->insert([
             'nama_posisi'=>'Equipment Maintenance',
-            'deskripsi' => 'Bekerja merawat peralatan dan pemeliharaan peralatan yang digunakan oleh pegawai.'
+            'deskripsi' => 'Staff Maintenance adalah bagian yang bertugas dan bertanggung jawab menjaga alat - alat yang ada di hotel.'
         ]);
         DB::table('posisi')->insert([
             'nama_posisi'=>'Receptionist',
-            'deskripsi' => 'Resepsionis adalah orang yang bertugas sebagai penerima tamu disuatu perusahaan, kantor, hotel.'
+            'deskripsi' => 'Resepsionis adalah pegawai yang memiliki tugas untuk menyapa, melayani, memberikan informasi kepada pengunjung, pelanggan atau pihak yang berkepentingan terkait tujuan yang diinginkan.'
         ]);
         DB::table('posisi')->insert([
             'nama_posisi'=>'Porter',
-            'deskripsi' => 'Section atau bagian dari Front Office Departemen yang bertugas untuk menangani barang bawaan tamu, baik pada saat check in maupun check out.'
+            'deskripsi' => 'Porter adalah orang yang membawa barang bawaan atau mengurus bagian bagasi di hotel.'
         ]);
         DB::table('posisi')->insert([
             'nama_posisi'=>'Security',
-            'deskripsi' => 'bertugas menjaga dan mengatur keamanan hotel serta melakukan pengamanan seluruh area hotel.'
+            'deskripsi' => 'departemen keamanan (Security Departement) yang memiliki fungsi dan peran penting untuk menjaga serta memberi kenyamanan kepada setiap tamu yang ingin berkunjung ataupun menginap di hotel.'
         ]);
         DB::table('posisi')->insert([
             'nama_posisi'=>'Valet',
-            'deskripsi' => 'Bertugas memarkirkan kendaraan yang dibawa oleh tamu'
+            'deskripsi' => 'Yang bertugas untuk melayani pelayanan personal dan spesifik kepada tamu selama masa inap mereka.'
         ]);
         DB::table('posisi')->insert([
             'nama_posisi'=>'Concierge',
-            'deskripsi' => 'bertugas memberikan saran, jawaban bahkan membantu mewujudkan permintaan tamu selama itu bukan kegiatan yang menentang hukum atau perbuatan yang ilegal.'
+            'deskripsi' => 'Yang bertugas untuk membukakan pintu mobil, pintu hotel, dan membawa pengunjung ke receptionist.'
         ]);
         DB::table('posisi')->insert([
             'nama_posisi'=>'Housekeeping',
-            'deskripsi'=> 'Bertugas untuk menjaga, merawat, dan membersihkan serta memelihara rooms atau kamar-kamar hotel ataupun area diluar kamar hotel.'
+            'deskripsi'=> 'Housekeeping adalah salah satu bagain atau department yang ada di hotel yang bertugas menjaga, merawat, dan membersihkan serta memelihara rooms atau kamar kamar hotel maupun area diluar kamar hotel atau area yang tergolong kedalam area umum (public areas) di hotel agar tetap nyaman, indah, dan aman.'
         ]);
         DB::table('posisi')->insert([
             'nama_posisi'=>'Room Service',
-            'deskripsi'=> 'pelayanan makanan dan minuman di dalam kamar hotel, selain itu juga bertugas mengambil pesanan, menyiapkan, menyajikan, dan mengambil kembali peralatan yang telah digunakan di kamar'
+            'deskripsi'=> 'room service adalah untuk menyajikan makanandan minuman dikamar tamu, termasuk menyiapkan pesanan tamu, melayani tamu, danmelakukan clear up kamar tamu serta menyampaikan tagihan pelayanan kamar (bill).'
         ]);
         DB::table('posisi')->insert([
             'nama_posisi'=>'Waiter/Waitress',
-            'deskripsi'=> 'Bertugas melayani makan dan minum tamu restoran secara professional'
+            'deskripsi'=> 'Waiter/Waitress mempunyai tugas dan tanggung jawab untuk melayani kebutuhan makanan dan minuman bagi para pelanggan hotel secara professional.'
         ]);
         DB::table('posisi')->insert([
             'nama_posisi'=>'Crew Restaurant',
-            'deskripsi'=> 'Bertugas membantu operasional restoran dan melayani customer'
+            'deskripsi'=> 'Mempersiapkan bahan-bahan makanan yang akan diolah.'
         ]);
         DB::table('posisi')->insert([
             'nama_posisi'=>'Barista',
-            'deskripsi'=> 'Barista adalah sebutan untuk seseorang yang pekerjaannya membuat dan menyajikan kopi kepada pelanggan'
+            'deskripsi'=> 'Membuat minuman sesuai dengan order tamu dan harus sesuai denganstandard Perusahaan serta memberikan kepuasan kepada tamu semaksimal mungkin.'
         ]);
         DB::table('posisi')->insert([
             'nama_posisi'=>'Photographer',
-            'deskripsi'=> 'Bertugas membuat gambar dengan cara menangkap cahaya dari subyek gambar dengan kamera maupun peralatan fotografi lainnya'
+            'deskripsi'=> 'Fotografer memiliki tugas untuk mengambil foto guna mengabadikan berbagai momen dalam suatu gambar.'
         ]);
         DB::table('posisi')->insert([
             'nama_posisi'=>'Cleaning Service',
-            'deskripsi'=> ' Bertugas memberikan pelayanan kebersihan,kerapihan dan Hygenisasi dari sebuah gedung/bangunan baik indoor ataupun outdoor sehingga tercipta suasana yang comfortable dalam menunjang aktifitas sehari-hari.'
+            'deskripsi'=> ' Cleaning Housekeeping sendiri merupakan salah satu lembaga departemen yang ada di hotel, yang bertugas menjaga, merawat, dan membersihkan serta memelihara rooms atau kamar-kamar hotel maupun area di luar kamar hotel atau area yang tergolong kedalam area umum.'
         ]);
     }
 }
