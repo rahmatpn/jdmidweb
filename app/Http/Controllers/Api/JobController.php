@@ -184,6 +184,6 @@ class JobController extends Controller
             ->where('waktu_mulai', '<', $time)
             ->where('waktu_selesai', '>', $time)
             ->first();
-        return \response()->json(['todolist'=>$jobs]);
+        return \response()->json(['active_jobs'=>$jobs]);
     }
 }
