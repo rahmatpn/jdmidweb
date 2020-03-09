@@ -115,7 +115,6 @@
                 </div>
             </div>
         @endif
-
         <!-- Main navigation -->
         <header>
             <!-- Intro -->
@@ -136,7 +135,7 @@
                         <div class="d-flex flex-column justify-content-center align-items-baseline h-100 " >
                             <h4 class="subheading font-weight-bold wow fadeInRight" data-wow-delay="0.4s">Hello We Are</h4>
                             <h1 class="heading wow fadeInRight" data-wow-delay="0.6s">{{$hotel->profile->nama}}</h1>
-                            <h4 class="subheading font-weight-bold wow fadeInRight" data-wow-delay="0.7s">{{$hotel->profile->deskripsi}}</h4>
+                            <h5 class="subheading font-weight-bold wow fadeInRight font-small" data-wow-delay="0.7s">{{$hotel->profile->deskripsi}}</h5>
 
                             <div class="mr-4">
                                 <a href="{{url('/job/postjob')}}" type="button" class="btn btn-lily btn-margin rounded wow fadeIn" style="margin-top: 10px" data-wow-delay="1s">Post A Job<i class="fas fa-caret-right ml-3"></i></a>
