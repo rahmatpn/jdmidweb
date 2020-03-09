@@ -128,7 +128,8 @@ class PekerjaanController extends Controller
 
         if (!$profile->isCompleted)
             return redirect('/user/'.$profile->url_slug.'/edit')->with('gagalProfile','Profile belum lengkap');
-        elseif ($currentJob->isExpired){
+        else
+            if ($currentJob->isExpired){
             return redirect('/home')->with('expired','Job sudah expired');
         }
         elseif ($currentJob->tinggi_minimal > $profile->tinggi_badan || $currentJob->tinggi_maksimal < $profile->tinggi_badan){
