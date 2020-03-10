@@ -153,7 +153,7 @@ class JobController extends Controller
 
     function getUserJobHistory($id){
         $jobs = User::whereHas('mengerjakan', function ($q){
-            $q->where('pekerjaan_user.status', '2');
+            $q->where('pekerjaan_user.status', '3');
         })->with('mengerjakan')
             ->get()->find($id);
         if ($jobs != null){
@@ -187,5 +187,20 @@ class JobController extends Controller
             ->where('waktu_selesai', '>', $time)
             ->first();
         return \response()->json(['active_jobs'=>$jobs]);
+    }
+
+    function jobDone($id)
+    { //id = jobId
+        $job = Pekerjaan::find($id);
+        if ($job->dikerjakan->first()->pivot->status == 1) {
+            if (\auth()->user()->todolist->count() == $job->todolist->count()) {
+                $job->dikerjakan()->updateExistingPivot(\auth()->id(), ['status' => '2']);
+                return \response()->json(['message' => 'success']);
+            } else {
+                return \response()->json(['message' => 'not success'], Response::HTTP_FORBIDDEN);
+            }
+        } else {
+            return \response()->json(['message' => 'not success'], Response::HTTP_FORBIDDEN);
+        }
     }
 }

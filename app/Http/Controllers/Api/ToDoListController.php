@@ -11,7 +11,9 @@ use Illuminate\Http\Response;
 class ToDoListController extends Controller
 {
     function checkTodolist($todo){
-        $jobs = User::with('mengerjakan')->find(auth()->id())->mengerjakan->pluck('id')->toArray();
+        $jobs = User::whereHas('mengerjakan', function ($q){
+            $q->where('pekerjaan_user.status', '1');
+        })->with('mengerjakan')->find(auth()->id())->mengerjakan->pluck('id')->toArray();
         $todo = ToDoList::find($todo);
         if (in_array($todo->pekerjaan_id, $jobs)){
             return response()
