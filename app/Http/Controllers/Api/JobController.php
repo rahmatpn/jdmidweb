@@ -179,6 +179,8 @@ class JobController extends Controller
             $q->where('user_id', $id)
                 ->where('pekerjaan_user.status', '1');
             })
+            ->with('hotel.profile')
+            ->with('posisi')
             ->with('todolist')
             ->where('tanggal_mulai', $date)
             ->where('waktu_mulai', '<', $time)
