@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Pekerjaan;
 use App\ToDoList;
 use App\User;
 use Illuminate\Http\Response;
@@ -21,5 +22,15 @@ class ToDoListController extends Controller
         }
         else
             return response(Response::HTTP_FORBIDDEN);
+    }
+
+    function checkedTodolist($id){
+        $userid = auth()->id();
+        $todolists = ToDoList::whereHas('user', function ($q) use ($userid){
+            $q->where('user_id', $userid);
+        })
+            ->where('pekerjaan_id', $id)
+            ->get();
+        return response()->json(['todolist'=>$todolists]);
     }
 }

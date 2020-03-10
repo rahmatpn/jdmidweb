@@ -48,11 +48,13 @@ Route::group([
     Route::post('logout','Api\AuthController@logout');
 
     Route::post('auth/jobs/{job}/apply','Api\JobController@applyJob');
-    Route::post('auth/jobs/todo/{todo}/check', 'Api\ToDoListController@checkTodolist');
 
     Route::get('profile/{id}/acceptedjobs', 'Api\JobController@getUserAcceptedJob');
     Route::get('profile/{id}/appliedjobs', 'Api\JobController@getUserAppliedJob');
     Route::get('profile/{id}/activejobs', 'Api\JobController@getActiveJobs');
+
+    Route::get('auth/job/{id}/todo', 'Api\ToDoListController@checkedTodolist');
+    Route::post('auth/jobs/todo/{todo}/check', 'Api\ToDoListController@checkTodolist');
 });
 
 Route::get('jobs','Api\JobController@getAllJobs');
