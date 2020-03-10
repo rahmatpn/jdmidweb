@@ -6,6 +6,7 @@ use App\Hotel;
 use App\Pekerjaan;
 use App\Posisi;
 use App\ProfileHotel;
+use App\ProfileUser;
 use App\ToDoList;
 use App\User;
 use Illuminate\Http\Request;
@@ -74,7 +75,10 @@ class PekerjaanController extends Controller
 
     public function show($url_slug){
         $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
-        return view('jobs.job', compact('pekerjaan'));
+        $pelamar = $pekerjaan->dikerjakan()->where('status', '0')->get();
+        $pelamarDiterima = $pekerjaan->dikerjakan()->where('status', '1')->get();
+//        dd($pelamar);
+        return view('jobs.job', compact('pekerjaan','pelamar', 'pelamarDiterima'));
     }
 
     public function edit($url_slug){
@@ -144,6 +148,24 @@ class PekerjaanController extends Controller
             $user->mengerjakan()->toggle($pekerjaan);
             return back()->with('success','Berhasil apply pekerjaan di '.$pekerjaan->hotel->profile->nama);
         }
+    }
+
+    public function acceptApply($slug, $url_slug ){
+        $user = ProfileUser::where('url_slug', '=', $url_slug)->first();
+        $pekerjaan = Pekerjaan::where('url_slug','=', $slug)->first();
+        $statusPekerjaan = $pekerjaan->dikerjakan()->where('user_id', $user->id)->first()->pivot;
+        $statusPekerjaan->status = '1';
+        $statusPekerjaan->save();
+        return redirect('/job/'.$slug);
+    }
+
+    public function rejectApply($slug, $url_slug){
+        $user = ProfileUser::where('url_slug', '=', $url_slug)->first();
+        $pekerjaan = Pekerjaan::where('url_slug','=', $slug)->first();
+//        $statusPekerjaan = $pekerjaan->dikerjakan()->where('user_id', $user->id)->first();
+        $pekerjaan->dikerjakan()->toggle($user);
+        return redirect('/job/'.$slug);
+
     }
 
     public function showList($url_slug){
