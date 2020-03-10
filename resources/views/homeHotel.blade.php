@@ -75,8 +75,8 @@
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <th scope="row">0</th>
-                                            <td>0</td>
+                                            <th scope="row">{{$pkerja->dikerjakan()->where('status', '1')->count()}}</th>
+                                            <td>{{$pkerja->dikerjakan->count()}}</td>
                                         </tr>
                                         </tbody>
                                     </table>

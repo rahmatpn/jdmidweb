@@ -259,13 +259,14 @@ body{
                                         </tr>
                                         </thead>
                                         <tbody>
+                                        @foreach($pelamar as $pelamar)
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
-                                            <td><button type="button" class="btn btn-success">Terima</button>
-                                                <button type="button" class="btn btn-danger">Tolak</button>
-                                            </td>
+                                            <th scope="row">{{$loop->index + 1}}</th>
+                                            <td>{{$pelamar->profile->nama}}</td>
+                                            <td><a href="{{url('/job/'.$pekerjaan->url_slug.'/accept/'.$pelamar->profile->url_slug)}}" class="btn btn-success">Terima</a></td>
+                                            <td><a href="{{url('/job/'.$pekerjaan->url_slug.'/reject/'.$pelamar->profile->url_slug)}}" class="btn btn-danger">Tolak</a></td>
                                         </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -283,12 +284,15 @@ body{
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <th scope="row">1</th>
-                                            <td>Mark</td>
+                                        @foreach($pelamarDiterima as $pelamarD)
+                                            <tr>
+                                                <th scope="row">{{$loop->index + 1}}</th>
+                                                <td>{{$pelamarD->profile->nama}}</td>
                                             <td>
-                                                <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                <a href="{{url('/job/'.$pekerjaan->url_slug.'/cancel/'.$pelamarD->profile->url_slug)}}"><i class="fa fa-times" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
