@@ -17,7 +17,7 @@ class CreateUserPekerjaanTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('pekerjaan_id');
             $table->unsignedBigInteger('user_id');
-            $table->enum('status', [0,1,2,3]); //0 = pending, 1 = diterima, 2 = selesai, 3 = terverifikasi
+            $table->enum('status', [0,1,2,3,4]); //0 = pending, 1 = diterima, 2 = selesai, 3 = terverifikasi, 4 = terbayar
             $table->timestamps();
 
             $table->foreign('pekerjaan_id')->references('id')->on('pekerjaan')->onDelete('cascade');

@@ -153,7 +153,7 @@ class JobController extends Controller
 
     function getUserJobHistory($id){
         $jobs = User::whereHas('mengerjakan', function ($q){
-            $q->where('pekerjaan_user.status', '3');
+            $q->where('pekerjaan_user.status', '>', 2);
         })->with('mengerjakan')
             ->get()->find($id);
         if ($jobs != null){
@@ -161,6 +161,7 @@ class JobController extends Controller
             return response()->json(['jobs'=>
                 Pekerjaan::with('hotel.profile')
                     ->with('posisi')
+                    ->with('dikerjakan')
                     ->withCount('dikerjakan')
                     ->whereIn('id',$jobs)
                     ->orderBy('tanggal_mulai')
