@@ -24,7 +24,11 @@ class PekerjaanController extends Controller
 
     public function create()
     {
-        return view('jobs.postjob');
+        $hotel = auth()->guard('hotel')->user()->profile;
+        if($hotel->status_verifikasi != 1)
+            return redirect('/hotel/'.$hotel->url_slug)->with('gagalVerifikasi', 'Profile belum diverifikasi, silakan hubungi admin');
+        else
+            return view('jobs.postjob');
     }
 
     public function store()

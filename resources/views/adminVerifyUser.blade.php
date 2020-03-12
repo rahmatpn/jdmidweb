@@ -25,13 +25,15 @@
             </tr>
             <tr>
                 <th><h5> Sertifikat: </h5></th>
-                <td><img src="{{asset('image/user/skck/user1')}} ?? 'kosong'" alt="Surat"></td>
-                <td><a href="#" class="btn btn-success"> Verify</a> </td>
+                <td class="text-md-center"><img src="{{asset($user->sertifikat)}}" class="h-50" alt="SKCK"></td>
+                <td><a href="{{url('admin/user/'.$user->url_slug.'/verifySkck')}}" class="btn btn-success"> Verify</a> </td>
+                <td><a href="{{url('admin/user/'.$user->url_slug.'/rejectSkck')}}" class="btn btn-danger"> Reject</a> </td>
             </tr>
             <tr>
                 <th><h5> Kartu Satpam: </h5></th>
-                <td><img src="{{asset('image/user/skck/user1')}}" alt="Satpam"></td>
-                <td><a href="#" class="btn btn-success"> Verify</a> </td>
+                <td class="text-md-center"><img src="{{asset($user->kartu_satpam)}}" class="h-50" alt="SKCK"></td>
+                <td><a href="{{url('admin/user/'.$user->url_slug.'/verifySkck')}}" class="btn btn-success"> Verify</a> </td>
+                <td><a href="{{url('admin/user/'.$user->url_slug.'/rejectSkck')}}" class="btn btn-danger"> Reject</a> </td>
             </tr>
         </table>
 @stop

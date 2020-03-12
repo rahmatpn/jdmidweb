@@ -7,6 +7,7 @@ use App\Pekerjaan;
 use App\Posisi;
 use App\ProfileHotel;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -34,13 +35,24 @@ class HomeController extends Controller
 
     public function index()
     {
-        $pekerjaan = Pekerjaan::orderBy('tanggal_mulai')->paginate(10);
+        $date = Carbon::now()->setTimezone('Asia/Phnom_Penh')->toDateString();
+        $time = Carbon::now()->setTimezone('Asia/Phnom_Penh')->toTimeString();
+
+
+
+        $pekerjaan = Pekerjaan::where('status', '1')
+            ->where(function ($q) use($date, $time){
+                $q->where('tanggal_mulai','>',$date)
+                    ->orWhere('tanggal_mulai',$date)->where('waktu_mulai','>',$time);
+            })
+            ->orderBy('tanggal_mulai')
+            ->paginate(10);
+
         $user = \auth()->guard('user')->user();
-//        if (\auth()->guard('hotel')->user() != null){
-//            $myhotel = Pekerjaan::where('hotel_id',\auth()->guard('hotel')->user()->profile->id);
-//        }
-        return view('home', array('kerja' => $pekerjaan), compact( 'user'));
+        return view('home', array('kerja' => $pekerjaan), compact( 'user','time','date'));
+
     }
+
     public function indexHotel(){
         $hotel = \auth()->guard('hotel')->user();
         $pekerjaan = Pekerjaan::where('hotel_id','=', $hotel->profile->hotel_id)->paginate(5);
