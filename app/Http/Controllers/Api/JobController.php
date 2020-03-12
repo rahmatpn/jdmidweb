@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Auth;
 class JobController extends Controller
 {
     function getAllJobs(){
-        $date = Carbon::now()->toDateString();
-        $time = Carbon::now()->toTimeString();
+        $date = Carbon::now()->setTimezone('Asia/Phnom_Penh')->toDateString();
+        $time = Carbon::now()->setTimezone('Asia/Phnom_Penh')->toTimeString();
         return response()->json(['jobs'=>
             Pekerjaan::with('hotel.profile')
                 ->with('posisi')
@@ -33,8 +33,8 @@ class JobController extends Controller
                 ->pluck('hotel_id')
                 ->toArray();
 
-        $date = Carbon::now()->toDateString();
-        $time = Carbon::now()->toTimeString();
+        $date = Carbon::now()->setTimezone('Asia/Phnom_Penh')->toDateString();
+        $time = Carbon::now()->setTimezone('Asia/Phnom_Penh')->toTimeString();
 
         return response()->json(['jobs'=>
             Pekerjaan::with('hotel.profile')
@@ -55,8 +55,8 @@ class JobController extends Controller
     }
 
     function getJobsWithPosition($position){
-        $date = Carbon::now()->toDateString();
-        $time = Carbon::now()->toTimeString();
+        $date = Carbon::now()->setTimezone('Asia/Phnom_Penh')->toDateString();
+        $time = Carbon::now()->setTimezone('Asia/Phnom_Penh')->toTimeString();
 
         return response()->json(['jobs'=>
             Pekerjaan::with('hotel.profile')
@@ -111,74 +111,58 @@ class JobController extends Controller
     function getUserAppliedJob($id){
         if ($id != auth()->id())
             return \response(Response::HTTP_UNAUTHORIZED);
-        $jobs = User::whereHas('mengerjakan', function ($q){
-            $q->where('pekerjaan_user.status', '0');
-        })->with('mengerjakan')
-            ->get()->find($id);
-        if ($jobs != null){
-            $jobs = $jobs->mengerjakan->pluck('id');
-            return response()->json(['jobs'=>
-                Pekerjaan::with('hotel.profile')
-                    ->with('posisi')
-                    ->withCount('dikerjakan')
-                    ->whereIn('id',$jobs)
-                    ->orderBy('tanggal_mulai')
-                    ->get()]);
-        } else {
-            return \response()->json(['jobs'=>[]]);
-        }
+
+        return response()->json(['jobs'=>
+            Pekerjaan::with('hotel.profile')
+                ->with('posisi')
+                ->withCount('dikerjakan')
+                ->whereHas('dikerjakan', function ($q) use ($id){
+                    $q->where('pekerjaan_user.status', 1)->where('user_id', $id);
+                })
+                ->orderBy('tanggal_mulai')
+                ->get()]);
     }
 
     function getUserAcceptedJob($id){
         if ($id != auth()->id())
             return \response(Response::HTTP_UNAUTHORIZED);
-        $jobs = User::whereHas('mengerjakan', function ($q){
-            $q->where('pekerjaan_user.status', '1');
-        })->with('mengerjakan')
-            ->get()->find($id);
-        if ($jobs != null){
-            $jobs = $jobs->mengerjakan->pluck('id');
-            return response()->json(['jobs'=>
-                Pekerjaan::with('hotel.profile')
-                    ->with('posisi')
-                    ->with('todolist')
-                    ->withCount('dikerjakan')
-                    ->whereIn('id',$jobs)
-                    ->orderBy('tanggal_mulai')
-                    ->get()]);
-        } else {
-            return \response()->json(['jobs'=>[]]);
-        }
+
+        return response()->json(['jobs'=>
+            Pekerjaan::with('hotel.profile')
+                ->with('posisi')
+                ->with('todolist')
+                ->withCount('dikerjakan')
+                ->whereHas('dikerjakan', function ($q) use ($id){
+                    $q->where('pekerjaan_user.status', 2)->where('user_id', $id);
+                })
+                ->orderBy('tanggal_mulai')
+                ->get()]);
     }
 
     function getUserJobHistory($id){
-        $jobs = User::whereHas('mengerjakan', function ($q){
-            $q->where('pekerjaan_user.status', '>', 2);
-        })->with('mengerjakan')
-            ->get()->find($id);
-        if ($jobs != null){
-            $jobs = $jobs->mengerjakan->pluck('id');
-            return response()->json(['jobs'=>
-                Pekerjaan::with('hotel.profile')
-                    ->with('posisi')
-                    ->with('dikerjakan')
-                    ->withCount('dikerjakan')
-                    ->whereIn('id',$jobs)
-                    ->orderBy('tanggal_mulai')
-                    ->get()]);
-        } else {
-            return \response()->json(['jobs'=>[]]);
-        }
+        if ($id != auth()->id())
+            return \response(Response::HTTP_UNAUTHORIZED);
+
+        return response()->json(['jobs'=>
+            Pekerjaan::with('hotel.profile')
+                ->with('posisi')
+                ->with('dikerjakan')
+                ->withCount('dikerjakan')
+                ->whereHas('dikerjakan', function ($q) use ($id){
+                    $q->where('pekerjaan_user.status', '>', 2)->where('user_id', $id);
+                })
+                ->orderBy('tanggal_mulai')
+                ->get()]);
     }
 
     function getActiveJobs($id){
-        $date = Carbon::now()->toDateString();
-        $time = Carbon::now()->toTimeString();
+        $date = Carbon::now()->setTimezone('Asia/Phnom_Penh')->toDateString();
+        $time = Carbon::now()->setTimezone('Asia/Phnom_Penh')->toTimeString();
         if ($id != auth()->id())
             return \response(Response::HTTP_UNAUTHORIZED);
         $jobs = Pekerjaan::whereHas('dikerjakan', function ($q) use ($id){
             $q->where('user_id', $id)
-                ->where('pekerjaan_user.status', '1');
+                ->where('pekerjaan_user.status', 2);
             })
             ->with('hotel.profile')
             ->with('posisi')
@@ -190,8 +174,7 @@ class JobController extends Controller
         return \response()->json(['active_jobs'=>$jobs]);
     }
 
-    function jobDone($id)
-    { //id = jobId
+    function jobDone($id) { //id = jobId
         $job = Pekerjaan::find($id);
         if ($job->dikerjakan->first()->pivot->status == 1) {
             if (\auth()->user()->todolist->count() == $job->todolist->count()) {
