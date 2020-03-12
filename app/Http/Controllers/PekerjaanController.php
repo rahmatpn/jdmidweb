@@ -211,5 +211,12 @@ class PekerjaanController extends Controller
         return back()->with('success','Data Telah Dihapus');
         //test
     }
+    public function detailList($url_slug){
+        $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
+        $user = Auth::guard('user')->user();
+        $kerjakan = $user->mengerjakan()->get();
+
+        return view('todolist.todolist', compact('pekerjaan','kerjakan','user'));
+    }
 
 }

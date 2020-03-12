@@ -31,5 +31,10 @@ class ToDoListController extends Controller{
         DB::table('todolist')->where('id', $id)->delete();
         return back()->with('success','Data Telah Dihapus');
     }
+    public function todoList($url_slug){
+        $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
+
+        return view('todolist.todolist');
+    }
 
 }

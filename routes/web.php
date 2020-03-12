@@ -175,6 +175,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/home/hotel', 'HomeController@indexHotel');
 
 Route::get('/joblist', 'KerjakanController@index');
+Route::get('/joblist/{url_slug}/todolist', 'PekerjaanController@detailList');
 
 Route::get('/hotel/{profile}', 'ProfileHotelController@indexHotel')->name('hotel.show');
 

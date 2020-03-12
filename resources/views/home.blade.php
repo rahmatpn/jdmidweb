@@ -127,8 +127,9 @@
                 @endauth
         </div>
         <div class="col-md-6">
-            @foreach($kerja as $pekerjaan)
+
             <div class="card">
+                @foreach($kerja as $pekerjaan)
                 <div class="card-body">
 {{--                    <div class="avatar w-100 white d-flex justify-content-center align-items-center">--}}
 {{--                        <img src="{{asset($pekerjaan->hotel->profile->hotelPhoto())}}"  class="img-fluid z-depth-1">--}}
@@ -148,12 +149,12 @@
                         </div>
 
                     </div>
-
-
                 </div>
+                    <hr>
+                @endforeach
             </div>
         <br/>
-            @endforeach
+
                 <nav aria-label="Page navigation example">
                     <ul class="pagination pagination-circle pg-blue">
                         {!! $kerja->render() !!}
