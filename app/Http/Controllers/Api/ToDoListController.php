@@ -35,4 +35,11 @@ class ToDoListController extends Controller
             ->get();
         return response()->json(['todolist'=>$todolists]);
     }
+
+    function getTodolist($id){
+        if (!auth()->user()->mengerjakan->where('id', $id)->isEmpty())
+            return \response(["todolist"=>ToDoList::where('pekerjaan_id', $id)->get()]);
+        else
+            return response(Response::HTTP_FORBIDDEN);
+    }
 }

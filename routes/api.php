@@ -58,6 +58,7 @@ Route::group([
 
     Route::get('auth/job/{id}/todo', 'Api\ToDoListController@checkedTodolist');
     Route::post('auth/jobs/todo/{todo}/check', 'Api\ToDoListController@checkTodolist');
+    Route::get('auth/job/{id}/todolist', 'Api\ToDoListController@getTodolist');
 });
 
 Route::get('jobs','Api\JobController@getAllJobs');

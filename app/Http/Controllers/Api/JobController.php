@@ -130,7 +130,6 @@ class JobController extends Controller
         return response()->json(['jobs'=>
             Pekerjaan::with('hotel.profile')
                 ->with('posisi')
-                ->with('todolist')
                 ->withCount('dikerjakan')
                 ->whereHas('dikerjakan', function ($q) use ($id){
                     $q->where('pekerjaan_user.status', 2)->where('user_id', $id);
@@ -151,7 +150,7 @@ class JobController extends Controller
                 ->whereHas('dikerjakan', function ($q) use ($id){
                     $q->where('pekerjaan_user.status', '>', 2)->where('user_id', $id);
                 })
-                ->orderBy('tanggal_mulai')
+                ->orderBy('tanggal_mulai', 'desc')
                 ->get()]);
     }
 
