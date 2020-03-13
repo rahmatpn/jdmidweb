@@ -52,6 +52,7 @@ Route::group([
     Route::get('profile/{id}/acceptedjobs', 'Api\JobController@getUserAcceptedJob');
     Route::get('profile/{id}/appliedjobs', 'Api\JobController@getUserAppliedJob');
     Route::get('profile/{id}/activejobs', 'Api\JobController@getActiveJobs');
+    Route::get('profile/{id}/jobhistory', 'Api\JobController@getUserJobHistory');
 
     Route::post('auth/job/{id}/done', 'Api\JobController@jobDone');
 
@@ -62,5 +63,3 @@ Route::group([
 Route::get('jobs','Api\JobController@getAllJobs');
 Route::get('jobs/{query}','Api\JobController@getJobs');
 Route::get('jobs/position/{position}','Api\JobController@getJobsWithPosition');
-
-Route::get('profile/{id}/jobhistory', 'Api\JobController@getUserJobHistory');
