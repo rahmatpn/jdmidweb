@@ -121,20 +121,16 @@
                                             <input type="hidden" name="id[]" value="{{ $todolist->id}}">
 {{--                                        <div class="form-inline">--}}
 {{--                                            <div class="form-group">--}}
-
-
 {{--                                            <p><input type="text" class="form-control" name="nama_pekerjaan[]" value="{{$todolist->nama_pekerjaan}}"></p>--}}
 {{--                                            <a href="{{url('/job/'.$pekerjaan->url_slug.'/delete/'.$todolist->id)}}" class="fa fa-times"></a>--}}
 {{--                                            </div>--}}
 {{--                                        </div>--}}
-
                                             <div class="md-form input-group mb-3">
                                                 <input type="text" class="form-control" name="nama_pekerjaan[]" value="{{$todolist->nama_pekerjaan}}" aria-describedby="MaterialButton-addon2">
                                                 <div class="input-group-append">
                                                     <a href="{{url('/job/'.$pekerjaan->url_slug.'/delete/'.$todolist->id)}}" class="btn btn-md rounded btn-secondary m-0 px-3" type="button" id="MaterialButton-addon2">X</a>
                                                 </div>
                                             </div>
-
                                         @endforeach
                                     </div>
                                     <div class="modal-footer">

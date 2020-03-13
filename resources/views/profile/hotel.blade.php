@@ -95,6 +95,45 @@
                 });
             </script>
         @endif
+
+        @if(Session::has('gagalVerifikasi'))
+            <script>
+                $(function() {
+                    $('#modalGagalVerifikasi').modal('show');
+                });
+            </script>
+        @endif
+        @if (session()->get('gagalVerifikasi'))
+            <!-- Central Modal Medium Warning -->
+            <div class="modal fade" id="modalGagalVerifikasi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-notify modal-warning" role="document">
+                    <!--Content-->
+                    <div class="modal-content">
+                        <!--Header-->
+                        <div class="modal-header">
+                            <p class="heading lead">Gagal</p>
+
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" class="white-text">&times;</span>
+                            </button>
+                        </div>
+
+                        <!--Body-->
+                        <div class="modal-body">
+                            <div class="text-center">
+                                <i class="fas fa-times fa-4x mb-3 animated rotateIn"></i>
+                                <p>{{session()->get('gagalVerifikasi')}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--/.Content-->
+                </div>
+            </div>
+            <!-- Central Modal Medium Warning-->
+        @endif
+
         @if(session()->get('success'))
             <div class="modal fade top" id="modalCookie1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                  aria-hidden="true" data-backdrop="true">

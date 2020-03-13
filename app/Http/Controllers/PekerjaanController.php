@@ -24,7 +24,11 @@ class PekerjaanController extends Controller
 
     public function create()
     {
-        return view('jobs.postjob');
+        $hotel = auth()->guard('hotel')->user()->profile;
+        if($hotel->status_verifikasi != 1)
+            return redirect('/hotel/'.$hotel->url_slug)->with('gagalVerifikasi', 'Profile belum diverifikasi, silakan hubungi admin');
+        else
+            return view('jobs.postjob');
     }
 
     public function store()
@@ -206,6 +210,13 @@ class PekerjaanController extends Controller
         ToDoList::where('id', $id)->delete();
         return back()->with('success','Data Telah Dihapus');
         //test
+    }
+    public function detailList($url_slug){
+        $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
+        $user = Auth::guard('user')->user();
+        $kerjakan = $user->mengerjakan()->get();
+
+        return view('todolist.todolist', compact('pekerjaan','kerjakan','user'));
     }
 
 }
