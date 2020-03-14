@@ -143,8 +143,13 @@
 
                                 </div>
                             <div class="child">
-                                   <span><i class="far fa-times-circle fa-2x fa-fw red-text align-items-center"></i></span>
-                                    <span><i class="fas fa-check-circle fa-2x green-text" style="display: none"></i></span>
+                                @if($pekerjaan->pivot->status == '2')
+                                    <span><i class="far fa-clock fa-2x fa-fw  align-items-center"></i></span>
+                                @elseif($pekerjaan->pivot->status == '1')
+                                <span><i class="far fa-times-circle fa-2x fa-fw red-text align-items-center"></i></span>
+
+                                @endif
+{{--                                    <span><i class="fas fa-check-circle fa-2x green-text" style="display: none"></i></span>--}}
 
 
                             </div>

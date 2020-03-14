@@ -197,6 +197,8 @@ Route::group([
 
     Route::post('/job/{url_slug}/apply', 'PekerjaanController@apply');
 
+    Route::post('/job/{url_slug}/done', 'PekerjaanController@jobDone');
+
 });
 
 

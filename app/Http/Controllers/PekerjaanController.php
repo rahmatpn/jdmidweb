@@ -8,6 +8,7 @@ use App\Posisi;
 use App\ProfileHotel;
 use App\ProfileUser;
 use App\ToDoList;
+use App\TodolistUser;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,6 +17,7 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Validator;
 use Intervention\Image\Facades\Image;
 use phpDocumentor\Reflection\Types\Null_;
+use function GuzzleHttp\Psr7\copy_to_string;
 
 class PekerjaanController extends Controller
 {
@@ -211,12 +213,47 @@ class PekerjaanController extends Controller
         return back()->with('success','Data Telah Dihapus');
         //test
     }
-    public function detailList($url_slug){
-        $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
+    public function detailList($url_slug)
+    {
+        $pekerjaan = Pekerjaan::where('url_slug', '=', $url_slug)->first();
         $user = Auth::guard('user')->user();
-        $kerjakan = $user->mengerjakan()->get();
+        $kerjakan = $user->mengerjakan()->where('url_slug',$url_slug)->first();
         $todolist = ToDoList::where('pekerjaan_id', $pekerjaan->id)->get();
-        return view('todolist.todolist', compact('pekerjaan','kerjakan','user','todolist'));
+        $todolistUser = TodolistUser::where('user_id', $user->id)->get();
+        foreach ($todolist as $to) {
+            foreach ($todolistUser as $tdU) {
+                //dd($posU->posisi_id);
+                if ($to->id == $tdU->todolist_id) {
+                    $to->todo = 1;
+                }
+            }
+        }
+            return view('todolist.todolist', compact('pekerjaan', 'kerjakan', 'user', 'todolist'));
+
+    }
+
+    function jobDone($url_slug, Request $req) { //id = jobId
+        $user = \auth()->guard('user')->user();
+        $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
+        if ($req->todolist_user) {
+            $todolist = $req->todolist_user;
+            $todolistUser = TodolistUser::where('user_id', '=', $user->profile->id)->delete();
+            if ($todolist != null) {
+                foreach ($todolist as $td) {
+                    $todolistUser = new TodolistUser();
+                    $todolistUser->user_id = $user->profile->id;
+                    $todolistUser->todolist_id = $td;
+                    $todolistUser->save();
+                }
+            }
+        }
+        if (\auth()->user()->todolist->count() == $pekerjaan->todolist->count()) {
+            $pekerjaan->dikerjakan()->updateExistingPivot(\auth()->id(), ['status' => '2']);
+            return redirect('/home');
+            } else {
+            return back();
+            }
+
     }
 
 }
