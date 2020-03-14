@@ -18,7 +18,7 @@ class KerjakanController extends Controller
         $kerjakan = $user->mengerjakan()->get();
 
 
-        return view('jobs.joblist', compact('kerjakan','user','hotel'));
+        return view('jobs.joblist', compact('kerjakan','user'));
     }
 
     public function store(){

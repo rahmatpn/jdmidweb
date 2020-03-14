@@ -34,13 +34,12 @@
                 <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">To-Do List</h3>
                 <hr class="w-header">
                 <div class="list-group-flush ">
-                    <!-- for each -->
+                    @foreach($todolist as $todo)
                         <div class="list-group-item">
                             <div class="d-flex align-items-center">
-                                <i class="fab fa-2x mr-4 blue p-3 white-text rounded " aria-hidden="true">1</i><!--- Doko ID ne -->
+                                <i class="fab fa-2x mr-4 blue p-3 white-text rounded " aria-hidden="true">{{$loop->index + 1}}</i><!--- Doko ID ne -->
                                <!-- Joblist -->
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a dui sit amet sapien accumsan blandit eget porttitor sapien. Mauris faucibus arcu eu facilisis aliquet. Etiam nec iaculis arcu. Nullam euismod quam a ligula egestas,
-                                a dapibus ante consequat. Curabitur id consectetur leo. Curabitur sodales eget urna ut dignissim. Pellentesque sodales neque a consectetur maximus
+                                {{$todo->nama_pekerjaan}}
 
                                 <div class="custom-control custom-checkbox checkbox-lg">
                                     <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
@@ -49,7 +48,7 @@
                             </div>
                             <hr>
                         </div>
-                    <!-- end for each -->
+                    @endforeach
                 </div>
 
 

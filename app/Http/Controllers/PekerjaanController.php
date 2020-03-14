@@ -215,8 +215,8 @@ class PekerjaanController extends Controller
         $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
         $user = Auth::guard('user')->user();
         $kerjakan = $user->mengerjakan()->get();
-
-        return view('todolist.todolist', compact('pekerjaan','kerjakan','user'));
+        $todolist = ToDoList::where('pekerjaan_id', $pekerjaan->id)->get();
+        return view('todolist.todolist', compact('pekerjaan','kerjakan','user','todolist'));
     }
 
 }
