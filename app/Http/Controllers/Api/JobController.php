@@ -145,7 +145,9 @@ class JobController extends Controller
         return response()->json(['jobs'=>
             Pekerjaan::with('hotel.profile')
                 ->with('posisi')
-                ->with('dikerjakan')
+                ->with(['dikerjakan' => function ($q) use ($id){
+                    $q->where('user_id', $id);
+                }])
                 ->withCount('dikerjakan')
                 ->whereHas('dikerjakan', function ($q) use ($id){
                     $q->where('pekerjaan_user.status', '>', 2)->where('user_id', $id);
