@@ -149,125 +149,36 @@
 
                     <!-- Grid row -->
                     <div class="row">
-
+                        <!--for each e kene-->
                         <!-- Grid column -->
                         <div class="col-md-12 col-lg-4">
 
                             <!-- Card -->
-                            <a class="card hoverable mb-4" data-toggle="modal" data-target="#basicExampleModal">
-
+                            <a class="card hoverable mb-4" >
+                            <!--photo ne diganti foto job -->
                                 <!-- Card image -->
                                 <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img3.jpg" alt="Card image cap">
 
                                 <!-- Card content -->
                                 <div class="card-body">
-
+                            <!-- jeneng pekerjaan -->
                                     <h5 class="my-3">Phone Bag</h5>
-                                    <p class="card-text text-uppercase mb-3">Bag, Box</p>
+                                    <p class="card-text text-uppercase mb-3">Bag, Box</p> <!-- Jeneng Hotel e -->
 
                                 </div>
 
                             </a>
                             <!-- Card -->
 
-                            <!-- Card -->
-                            <a class="card hoverable mb-4" data-toggle="modal" data-target="#basicExampleModal">
 
-                                <!-- Card image -->
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img9.jpg" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <h5 class="my-3">Paper Bag</h5>
-                                    <p class="card-text text-uppercase mb-3">Bag</p>
-
-                                </div>
-
-                            </a>
-                            <!-- Card -->
 
                         </div>
-                        <!-- Grid column -->
+                        <!--end for each e kene-->
 
-                        <!-- Grid column -->
-                        <div class="col-md-6 col-lg-4">
-
-                            <!-- Card -->
-                            <a class="card hoverable mb-4" data-toggle="modal" data-target="#basicExampleModal">
-
-                                <!-- Card image -->
-                                <img class="card-img-top" src=" https://mdbootstrap.com/img/Photos/Others/img4.jpg" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <h5 class="my-3">Book</h5>
-                                    <p class="card-text text-uppercase mb-3">Book</p>
-
-                                </div>
-
-                            </a>
-                            <!-- Card -->
-
-                            <!-- Card -->
-                            <a class="card hoverable mb-4" data-toggle="modal" data-target="#basicExampleModal">
-
-                                <!-- Card image -->
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img5.jpg" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <h5 class="my-3">Notes</h5>
-                                    <p class="card-text text-uppercase mb-3">Note</p>
-
-                                </div>
-
-                            </a>
-                            <!-- Card -->
-
-                        </div>
                         <!-- Grid column -->
 
                         <!-- Grid column -->
-                        <div class="col-md-6 col-lg-4">
 
-                            <!-- Card -->
-                            <a class="card hoverable mb-4" data-toggle="modal" data-target="#basicExampleModal">
-
-                                <!-- Card image -->
-                                <img class="card-img-top" src=" https://mdbootstrap.com/img/Photos/Others/img10.jpg" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <h5 class="my-3">T-shirt</h5>
-                                    <p class="card-text text-uppercase mb-3">Box</p>
-
-                                </div>
-
-                            </a>
-                            <!-- Card -->
-
-                            <!-- Card -->
-                            <a class="card hoverable mb-4" data-toggle="modal" data-target="#basicExampleModal">
-
-                                <!-- Card image -->
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img8.jpg" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <h5 class="my-3">Magazine</h5>
-                                    <p class="card-text text-uppercase mb-3">Book</p>
-
-                                </div>
-
-                            </a>
-                            <!-- Card -->
-
-                        </div>
                         <!-- Grid column -->
 
                     </div>
