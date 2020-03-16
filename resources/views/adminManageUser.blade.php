@@ -60,7 +60,7 @@
 @section('content')
     <div class="card shadow-sm">
         <div class="card-body">
-    <table class="table table-responsive-md table-hover">
+    <table class="table table-sm table-hover">
         <thead>
         <tr>
             <th class="align-middle">Id</th>
@@ -95,24 +95,24 @@
                 <td>{{$user->profile->social_media}}</td>
                 <td>{{$user->profile->pendidikan_terakhir}}</td>
                 @if($user->profile->status_ktp == null)
-                    <td><button class="btn btn-dark fa fa-clock-o"></button></td>
+                    <td><button class="btn btn-sm btn-dark fa fa-clock-o"></button></td>
                 @elseif($user->profile->status_ktp == '1')
-                    <td><button class="btn btn-success fa fa-check"></button></td>
+                    <td><button class="btn btn-sm btn-success fa fa-check"></button></td>
                 @else
-                    <td><button class="btn btn-danger fa fa-close"></button></td>
+                    <td><button class="btn btn-sm btn-danger fa fa-close"></button></td>
                 @endif
                 @if($user->profile->status_skck == null)
-                    <td><button class="btn btn-dark fa fa-clock-o"></button></td>
+                    <td><button class="btn btn-sm btn-dark fa fa-clock-o"></button></td>
                 @elseif($user->profile->status_skck == '1')
-                    <td><button class="btn btn-success fa fa-check"></button></td>
+                    <td><button class="btn btn-sm btn-success fa fa-check"></button></td>
                 @else
-                    <td><button class="btn btn-danger fa fa-close"></button></td>
+                    <td><button class="btn btn-sm btn-danger fa fa-close"></button></td>
                 @endif
-                <td> <img src="{{asset($user->profile->profileFoto())}}" class="w-75"></td>
+                <td> <img src="{{asset($user->profile->profileFoto())}}" class="w-100"></td>
                 <td> <img src="{{asset($user->profile->profileCover())}}" class="w-100"></td>
-                <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/delete')}}" class="btn btn-danger fa fa-trash"></a></td>
-                <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/edit')}}" class="btn btn-info fa fa-pencil"></a></td>
-                <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/verify')}}" class="btn btn-outline-warning  fa fa-eye"></a> </td>
+                <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/delete')}}" class="btn btn-sm btn-danger fa fa-trash"></a></td>
+                <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/edit')}}" class="btn btn-sm btn-info fa fa-pencil"></a></td>
+                <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/verify')}}" class="btn btn-sm btn-outline-warning  fa fa-eye"></a> </td>
             </tr>
         @endforeach
         </tbody>

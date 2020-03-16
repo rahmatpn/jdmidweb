@@ -38,25 +38,25 @@
 @section('content')
     <div class="card shadow-sm" >
         <div class="card-body">
-    <table class="table table-hover table-sm ">
+    <table class="table table-sm table-hover">
         <thead>
         <tr>
-            <th class="align-middle">Id</th>
-            <th class="align-middle">Posisi</th>
-            <th class="align-middle">Hotel</th>
-            <th class="align-middle">Area</th>
-            <th class="align-middle">Tanggal</th>
-            <th class="align-middle">Waktu mulai</th>
-            <th class="align-middle">Waktu selesai</th>
-            <th class="align-middle">Tinggi minimal</th>
-            <th class="align-middle">Tinggi maksimal</th>
-            <th class="align-middle">Berat minimal</th>
-            <th class="align-middle">Berat Maksimal</th>
-            <th class="align-middle">Bayaran</th>
-            <th class="align-middle">Kuota</th>
-            <th class="align-middle text-md-center">Deskripsi</th>
-            <th class="align-middle">Status</th>
-            <th class="align-middle">Foto</th>
+            <th class="align-middle text-sm">Id</th>
+            <th class="align-middle text-sm">Posisi</th>
+            <th class="align-middle text-sm">Hotel</th>
+            <th class="align-middle text-sm">Area</th>
+            <th class="align-middle text-sm">Tanggal</th>
+            <th class="align-middle text-sm">Waktu mulai</th>
+            <th class="align-middle text-sm">Waktu selesai</th>
+            <th class="align-middle text-sm">Tinggi minimal</th>
+            <th class="align-middle text-sm">Tinggi maksimal</th>
+            <th class="align-middle text-sm">Berat minimal</th>
+            <th class="align-middle text-sm">Berat Maksimal</th>
+            <th class="align-middle text-sm">Bayaran</th>
+            <th class="align-middle text-sm">Kuota</th>
+{{--            <th class="align-middle text-sm text-md-center">Deskripsi</th>--}}
+            <th class="align-middle text-sm">Status</th>
+            <th class="align-middle text-sm">Foto</th>
             <th></th>
             <th></th>
         </tr>
@@ -64,39 +64,33 @@
         <tbody>
         @foreach($pekerjaan as $pekerjaan)
             <tr>
-            <td>{{$pekerjaan->id}}</td>
-            <td>{{$pekerjaan->posisi->nama_posisi}}</td>
-            <td>{{$pekerjaan->hotel->profile->nama}}</td>
-            <td>{{$pekerjaan->area}}</td>
-            <td>{{$pekerjaan->tanggal_mulai}}</td>
-            <td>{{$pekerjaan->waktu_mulai}}</td>
-            <td>{{$pekerjaan->waktu_selesai}}</td>
-            <td>{{$pekerjaan->tinggi_minimal ?? '-'}}</td>
-            <td>{{$pekerjaan->tinggi_maksimal ?? '-'}}</td>
-            <td>{{$pekerjaan->berat_minimal ?? '-'}}</td>
-            <td>{{$pekerjaan->berat_maksimal ?? '-'}}</td>
-            <td>Rp.{{$pekerjaan->bayaran}}</td>
-            <td>{{$pekerjaan->kuota}}</td>
-            <td class="text desc">{{$pekerjaan->deskripsi}}</td>
+            <td class="text-sm">{{$pekerjaan->id}}</td>
+            <td class="text-sm">{{$pekerjaan->posisi->nama_posisi}}</td>
+            <td class="text-sm">{{$pekerjaan->hotel->profile->nama}}</td>
+            <td class="text-sm">{{$pekerjaan->area}}</td>
+            <td class="text-sm">{{$pekerjaan->tanggal_mulai}}</td>
+            <td class="text-sm">{{$pekerjaan->waktu_mulai}}</td>
+            <td class="text-sm">{{$pekerjaan->waktu_selesai}}</td>
+            <td class="text-sm">{{$pekerjaan->tinggi_minimal ?? '-'}}</td>
+            <td class="text-sm">{{$pekerjaan->tinggi_maksimal ?? '-'}}</td>
+            <td class="text-sm">{{$pekerjaan->berat_minimal ?? '-'}}</td>
+            <td class="text-sm">{{$pekerjaan->berat_maksimal ?? '-'}}</td>
+            <td class="text-sm">Rp.{{$pekerjaan->bayaran}}</td>
+            <td class="text-sm">{{$pekerjaan->kuota}}</td>
+{{--            <td class="text desc text-sm">{{$pekerjaan->deskripsi}}</td>--}}
                 @if($pekerjaan->status == null)
-                    <td><button class="btn btn-dark fa fa-clock-o"></button></td>
-                    {{--                <td>Belum diverifikasi</td>--}}
+                    <td class="text-sm"><button class="btn btn-sm btn-dark fa fa-clock-o"></button></td>
+
                 @elseif($pekerjaan->status == '1')
-                    <td><button class="btn btn-success fa fa-check"></button></td>
-                    {{--                <td>Terverifikasi</td>--}}
+                    <td class="text-sm"><button class="btn btn-sm btn-success fa fa-check"></button></td>
+
                 @else
-                    <td><button class="btn btn-danger fa fa-close"></button></td>
+                    <td class="text-sm"><button class="btn btn-sm btn-danger fa fa-close"></button></td>
                 @endif
-            <td><img src="{{asset($pekerjaan->foto ?? $pekerjaan->hotel->profile->hotelPhoto())}}" class="w-100"></td>
-            <td><a href="{{url('/admin/pekerjaan/'.$pekerjaan->url_slug.'/delete')}}" class="btn btn-danger fa fa-trash"></a></td>
-            <td><a href="{{url('/admin/pekerjaan/'.$pekerjaan->url_slug.'/edit')}}" class="btn btn-info fa fa-pencil"></a></td>
-{{--               @if($pekerjaan->status == null)--}}
-                        <td><a href="{{url('admin/pekerjaan/'.$pekerjaan->url_slug.'/verify')}}" class="btn btn-outline-warning fa fa-eye"></a></td>
-{{--                   @elseif($pekerjaan->status == '1')--}}
-{{--                        <td><a href="{{url('admin/pekerjaan/'.$pekerjaan->url_slug.'/verify')}}" class="btn btn-success fa fa-check"></a></td>--}}
-{{--                   @else--}}
-{{--                        <td><a href="{{url('admin/pekerjaan/'.$pekerjaan->url_slug.'/verify')}}" class="btn btn-danger fa fa-close"></a></td>--}}
-{{--                   @endif--}}
+            <td class="text-sm"><img src="{{asset($pekerjaan->foto ?? $pekerjaan->hotel->profile->hotelPhoto())}}" class="w-100"></td>
+            <td class="text-sm"><a href="{{url('/admin/pekerjaan/'.$pekerjaan->url_slug.'/delete')}}" class="btn btn-sm btn-danger fa fa-trash"></a></td>
+            <td class="text-sm"><a href="{{url('/admin/pekerjaan/'.$pekerjaan->url_slug.'/edit')}}" class="btn btn-sm btn-info fa fa-pencil"></a></td>
+            <td class="text-sm"><a href="{{url('admin/pekerjaan/'.$pekerjaan->url_slug.'/verify')}}" class="btn btn-sm btn-outline-warning fa fa-eye"></a></td>
             </tr>
                 @endforeach
             </tbody>

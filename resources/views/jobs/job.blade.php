@@ -279,7 +279,7 @@ body{
                                         <tr>
                                             <th scope="col" style="width: 10%">No</th>
                                             <th scope="col" style="width: 80%">Nama</th>
-                                            <th scope="col"></th>
+                                            <th scope="col" style="width: 80%">Status</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -288,9 +288,25 @@ body{
                                             <tr>
                                                 <th scope="row">{{$loop->index + 1}}</th>
                                                 <td>{{$pelamarD->profile->nama}}</td>
-                                            <td>
-                                                <a href="{{url('/job/'.$pekerjaan->url_slug.'/cancel/'.$pelamarD->profile->url_slug)}}"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                            </td>
+                                            @if($pelamarD->pivot->status == '1')
+                                                <td>
+                                                    Belum Selesai
+                                                </td>
+                                                <td></td>
+                                                <td>
+                                                <a href="{{url('/job/'.$pekerjaan->url_slug.'/cancel/'.$pelamarD->profile->url_slug)}}"><i class="btn btn-danger btn-sm fa fa-times" aria-hidden="true"></i></a>
+                                                </td>
+                                                @elseif($pelamarD->pivot->status == '2')
+                                                <td>
+                                                    Menunggu konfirmasi
+                                                </td>
+                                                    <td>
+                                                        <a href="{{url('/job/'.$pekerjaan->url_slug.'/confirm/'.$pelamarD->profile->url_slug)}}"><i class="btn btn-sm btn-success fa fa-check" aria-hidden="true"></i></a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="{{url('/job/'.$pekerjaan->url_slug.'/reset/'.$pelamarD->profile->url_slug)}}"><i class="btn btn-sm btn-warning fa fa-undo" aria-hidden="true"></i></a>
+                                                    </td>
+                                                @endif
                                         </tr>
                                             @endforeach
                                         </tbody>

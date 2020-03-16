@@ -82,9 +82,9 @@ class PekerjaanController extends Controller
     public function show($url_slug){
         $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
         $pelamar = $pekerjaan->dikerjakan()->where('status', '0')->get();
-        $pelamarDiterima = $pekerjaan->dikerjakan()->where('status', '1')->get();
-//        dd($pelamar);
-        return view('jobs.job', compact('pekerjaan','pelamar', 'pelamarDiterima'));
+        $pelamarDiterima = $pekerjaan->dikerjakan()->where('status', '>=', '1')->get();
+        $pelamarSelesai = $pekerjaan->dikerjakan()->where('status', '2')->get();
+        return view('jobs.job', compact('pekerjaan','pelamar', 'pelamarDiterima', 'pelamarSelesai'));
     }
 
     public function edit($url_slug){
@@ -121,7 +121,6 @@ class PekerjaanController extends Controller
             return redirect('/hotel/'.auth()->user()->profile->url_slug)->with('success','Data Telah Dihapus');
         }else
             return back();
-
 
     }
 
@@ -165,10 +164,35 @@ class PekerjaanController extends Controller
         return redirect('/job/'.$slug);
     }
 
+    public function confirmDone($slug, $url_slug ){
+        $user = ProfileUser::where('url_slug', '=', $url_slug)->first();
+        $pekerjaan = Pekerjaan::where('url_slug','=', $slug)->first();
+        $statusPekerjaan = $pekerjaan->dikerjakan()->where('user_id', $user->id)->first()->pivot;
+        $statusPekerjaan->status = '3';
+        $statusPekerjaan->save();
+        return redirect('/job/'.$slug);
+    }
+
+    public function confirmFinish($slug, $url_slug ){
+        $user = ProfileUser::where('url_slug', '=', $url_slug)->first();
+        $pekerjaan = Pekerjaan::where('url_slug','=', $slug)->first();
+        $pekerjaan->dikerjakan()->updateExistingPivot($user->id, ['status' => '4']);
+        return redirect('/joblist');
+    }
+
+    public function resetJob($slug, $url_slug ){
+        $user = ProfileUser::where('url_slug', '=', $url_slug)->first();
+        $pekerjaan = Pekerjaan::where('url_slug','=', $slug)->first();
+        $statusPekerjaan = $pekerjaan->dikerjakan()->where('user_id', $user->id)->first()->pivot;
+        $todolistUser = TodolistUser::where('user_id', '=', $user->id)->delete();
+        $statusPekerjaan->status = '1';
+        $statusPekerjaan->save();
+        return redirect('/job/'.$slug);
+    }
+
     public function rejectApply($slug, $url_slug){
         $user = ProfileUser::where('url_slug', '=', $url_slug)->first();
         $pekerjaan = Pekerjaan::where('url_slug','=', $slug)->first();
-//        $statusPekerjaan = $pekerjaan->dikerjakan()->where('user_id', $user->id)->first();
         $pekerjaan->dikerjakan()->toggle($user);
         return redirect('/job/'.$slug);
 

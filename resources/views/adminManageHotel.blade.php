@@ -62,7 +62,7 @@
     <div class="card shadow-sm">
         <div class="card-body">
 
-    <table class="table table-responsive-md table-hover">
+    <table class="table table-sm table-hover">
         <thead>
         <tr>
             <th class="align-middle">Id</th>
@@ -72,7 +72,7 @@
             <th class="align-middle">Nomor Telepon</th>
             <th class="align-middle">Social Media</th>
             <th class="align-middle">Website</th>
-            <th class="align-middle">Status</th>
+            <th class="align-middle text-md-center">Status</th>
             <th class="align-middle text-md-center">Foto</th>
             <th></th>
             <th></th>
@@ -89,26 +89,16 @@
                 <td>{{$hotel->profile->social_media}}</td>
                 <td>{{$hotel->profile->weabsite}}</td>
                 @if($hotel->profile->status_verifikasi == null)
-                    <td><button class="btn btn-dark fa fa-clock-o"></button></td>
-                    {{--                <td>Belum diverifikasi</td>--}}
+                    <td class="text-md-center"><button class="btn btn-sm btn-dark fa fa-clock-o"></button></td>
                 @elseif($hotel->profile->status_verifikasi == '1')
-                <td><button class="btn btn-success fa fa-check"></button></td>
-                    {{--                <td>Terverifikasi</td>--}}
+                <td class="text-md-center"><button class="btn btn-sm btn-success fa fa-check"></button></td>
                 @else
-                    <td><button class="btn btn-danger fa fa-close"></button></td>
+                    <td class="text-md-center"><button class="btn btn-sm btn-danger fa fa-close"></button></td>
                 @endif
-
-{{--                <td>{{$hotel->profile->status_verifikasi}}</td>--}}
                 <td class="text-md-center"><img src="{{asset($hotel->profile->hotelPhoto())}}" class="h-25"></td>
-                <td><a href="{{url('/admin/hotel/'.$hotel->profile->url_slug.'/delete')}}" class="btn btn-danger fa fa-trash"></a> </td>
-                <td><a href="{{url('/admin/hotel/'.$hotel->profile->url_slug.'/edit')}}" class="btn btn-info fa fa-pencil"></a> </td>
-{{--                @if($hotel->profile->status_verifikasi == null)--}}
-                    <td><a href="{{url('admin/hotel/'.$hotel->profile->url_slug.'/verify')}}" class="btn btn-warning fa fa-eye"></a></td>
-{{--                @elseif($hotel->profile->status_verifikasi == '1')--}}
-{{--                    <td><a href="{{url('admin/hotel/'.$hotel->profile->url_slug.'/verify')}}" class="btn btn-success fa fa-check"></a></td>--}}
-{{--                @else--}}
-{{--                    <td><a href="{{url('admin/hotel/'.$hotel->profile->url_slug.'/verify')}}" class="btn btn-danger fa fa-close"></a></td>--}}
-{{--                @endif--}}
+                <td class="text-md-center"><a href="{{url('/admin/hotel/'.$hotel->profile->url_slug.'/delete')}}" class="btn btn-sm btn-danger fa fa-trash"></a> </td>
+                <td class="text-md-center"><a href="{{url('/admin/hotel/'.$hotel->profile->url_slug.'/edit')}}" class="btn btn-sm btn-info fa fa-pencil"></a> </td>
+                    <td class="text-md-center"><a href="{{url('admin/hotel/'.$hotel->profile->url_slug.'/verify')}}" class="btn btn-sm btn-warning fa fa-eye"></a></td>
             </tr>
         @endforeach
         </tbody>

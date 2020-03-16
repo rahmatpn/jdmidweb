@@ -198,6 +198,7 @@ Route::group([
     Route::post('/job/{url_slug}/apply', 'PekerjaanController@apply');
 
     Route::post('/job/{url_slug}/done', 'PekerjaanController@jobDone');
+    Route::get('/job/{slug}/finish/{url_slug}', 'PekerjaanController@confirmFinish');
 
 });
 
@@ -228,6 +229,8 @@ Route::group([
     Route::get('/job/{slug}/accept/{url_slug}', 'PekerjaanController@acceptApply');
     Route::get('/job/{slug}/reject/{url_slug}', 'PekerjaanController@rejectApply');
     Route::get('/job/{slug}/cancel/{url_slug}', 'PekerjaanController@rejectApply');
+    Route::get('/job/{slug}/confirm/{url_slug}', 'PekerjaanController@confirmDone');
+    Route::get('/job/{slug}/reset/{url_slug}', 'PekerjaanController@resetJob');
 
 
 

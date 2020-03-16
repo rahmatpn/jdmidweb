@@ -76,7 +76,7 @@
         <div class="container">
             <div class="card-body">
                 <form action="{{url('/job/'.$pekerjaan->url_slug.'/done')}}" enctype="multipart/form-data"  data-toggle="validator" method="post">
-                    @csrf
+                @csrf
                 <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">To-Do List</h3>
                 <hr class="w-header">
                 <div class="card shadow-sm">
@@ -86,43 +86,29 @@
                             {{$todo->nama_pekerjaan}}
                             @if($kerjakan->pivot->status == 1)
                                 <div class="form-check fa-pull-right fa-2x">
-                                <label>
-                                    <input type="checkbox"  id="todolist_user" name="todolist_user[]"  value="{{$todo->id}}" {{($todo->todo==1)?  "checked" : "" }}> <span class="label-text"></span>
-                                </label>
-                            </div>
-                                @else
+                                    <label>
+                                        <input type="checkbox"  id="todolist_user" name="todolist_user[]"  value="{{$todo->id}}" {{($todo->todo==1)?  "checked" : "" }} required> <span class="label-text"></span>
+                                    </label>
+                                </div>
+                            @else
                                <button class=" btn btn-success fa-pull-right fa-2x fa fa-check"> </button>
                             @endif
                             <hr>
-
                         </div>
-
                     @endforeach
                 </div>
-                    <button type="submit" class="btn btn-primary container-fluid shadow-sm">Selesai</button>
+                    @if($kerjakan->pivot->status == '4')
+                        <a href="#" class="btn btn-success container-fluid shadow-sm">Pekerjaan selesai</a>
+                    @elseif($kerjakan->pivot->status == '3')
+                        <br><p>Pekerjaan telah dikonfirmasi selesai oleh Hotel</p>
+                        <a href="{{url('/job/'.$pekerjaan->url_slug.'/finish/'.$user->profile->url_slug)}}" class="btn btn-success container-fluid shadow-sm">Konfirmasi</a>
+                    @elseif($kerjakan->pivot->status == '2')
+                        <div class="btn btn-grey container-fluid shadow-sm">Menunggu Konfirmasi Hotel</div>
+                    @else
+                        <button type="submit" class="btn btn-primary container-fluid shadow-sm">Selesai</button>
+                    @endif
                 </form>
-                {{--                <div class="list-group-flush ">--}}
-                {{--                    @foreach($todolist as $todo)--}}
-                {{--                        <div class="list-group-item">--}}
-                {{--                            <div class="d-flex align-items-center">--}}
-                {{--                                <i class="fab fa-2x mr-4 blue p-3 white-text rounded " aria-hidden="true">{{$loop->index + 1}}</i>--}}
-                {{--                               <!-- Joblist -->--}}
-                {{--                                {{$todo->nama_pekerjaan}}--}}
-
-                {{--                                <div class="custom-control custom-checkbox checkbox-lg">--}}
-                {{--                                    <input type="checkbox" class="custom-control-input" id="defaultUnchecked">--}}
-                {{--                                    <label class="custom-control-label" for="defaultUnchecked"></label>--}}
-                {{--                                </div>--}}
-                {{--                            </div>--}}
-                {{--                            <hr>--}}
-                {{--                        </div>--}}
-                {{--                    @endforeach--}}
-                {{--                </div>--}}
-
-
             </div>
-
-
         </div>
     </div>
 @endsection
