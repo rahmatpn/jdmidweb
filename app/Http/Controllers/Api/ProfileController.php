@@ -3,19 +3,18 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Posisi;
-use App\ProfileUser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
-use Intervention\Image\Facades\Image;
 use function auth;
 
 class ProfileController extends Controller
 {
     function getUserProfile($id)
     {
-        return response(["profile"=> ProfileUser::firstOrFail()->where('user_id', $id)->get()]);
+        if ($id != auth()->id())
+            return response(Response::HTTP_UNAUTHORIZED);
+        return response(['profile' => auth()->user()->profile]);
     }
 
     function updateProfile(Request $request, $id)
@@ -23,7 +22,7 @@ class ProfileController extends Controller
         if ($id != auth()->id())
             return response(Response::HTTP_UNAUTHORIZED);
 
-        $profile = ProfileUser::findOrFail(auth()->id());
+        $profile = auth()->user()->profile;
         $newProfile = Validator::make($request->all(),[
             'id' => 'required',
             'user_id' => 'required',
@@ -41,7 +40,7 @@ class ProfileController extends Controller
         if ($id != auth()->id())
             return response(Response::HTTP_UNAUTHORIZED);
 
-        $profile = ProfileUser::findOrFail(auth()->id());
+        $profile = auth()->user()->profile;
 
         if(!$request->hasFile('image')) {
             return response()->json(['upload_file_not_found'], 400);
@@ -60,14 +59,14 @@ class ProfileController extends Controller
         if (file_exists($oldImage))
             unlink($oldImage);
 
-        return response()->json(ProfileUser::findOrFail($id), Response::HTTP_OK);
+        return response()->json(['profile' => auth()->user()->profile], Response::HTTP_OK);
     }
 
     public function uploadCover(Request $request, $id) {
         if ($id != auth()->id())
             return response(Response::HTTP_UNAUTHORIZED);
 
-        $profile = ProfileUser::findOrFail(auth()->id());
+        $profile = auth()->user()->profile;
 
         if(!$request->hasFile('image')) {
             return response()->json(['upload_file_not_found'], 400);
@@ -86,14 +85,14 @@ class ProfileController extends Controller
         if (file_exists($oldImage))
             unlink($oldImage);
 
-        return response()->json(ProfileUser::findOrFail($id), Response::HTTP_OK);
+        return response()->json(['profile' => auth()->user()->profile], Response::HTTP_OK);
     }
 
     public function uploadKtp(Request $request, $id){
         if ($id != auth()->id())
             return response(Response::HTTP_UNAUTHORIZED);
 
-        $profile = ProfileUser::findOrFail(auth()->id());
+        $profile = auth()->user()->profile;
 
         if(!$request->hasFile('image')) {
             return response()->json(['upload_file_not_found'], 400);
@@ -107,14 +106,14 @@ class ProfileController extends Controller
 
         $profile->update(['ktp'=>$ktp, 'status_ktp'=>null]);
 
-        return response()->json(ProfileUser::findOrFail($id), Response::HTTP_OK);
+        return response()->json(['profile' => auth()->user()->profile], Response::HTTP_OK);
     }
 
     public function uploadSkck(Request $request, $id){
         if ($id != auth()->id())
             return response(Response::HTTP_UNAUTHORIZED);
 
-        $profile = ProfileUser::findOrFail(auth()->id());
+        $profile = auth()->user()->profile;
 
         if(!$request->hasFile('image')) {
             return response()->json(['upload_file_not_found'], 400);
@@ -128,14 +127,14 @@ class ProfileController extends Controller
 
         $profile->update(['skck'=>$skck, 'status_skck'=>null]);
 
-        return response()->json(ProfileUser::findOrFail($id), Response::HTTP_OK);
+        return response()->json(['profile' => auth()->user()->profile], Response::HTTP_OK);
     }
 
     public function uploadSertifikat(Request $request, $id){
         if ($id != auth()->id())
             return response(Response::HTTP_UNAUTHORIZED);
 
-        $profile = ProfileUser::findOrFail(auth()->id());
+        $profile = auth()->user()->profile;
 
         if(!$request->hasFile('image')) {
             return response()->json(['upload_file_not_found'], 400);
@@ -149,14 +148,14 @@ class ProfileController extends Controller
 
         $profile->update(['sertifikat'=>$sertif, 'status_sertifikat'=>null]);
 
-        return response()->json(ProfileUser::findOrFail($id), Response::HTTP_OK);
+        return response()->json(['profile' => auth()->user()->profile], Response::HTTP_OK);
     }
 
     public function uploadKartuSatpam(Request $request, $id){
         if ($id != auth()->id())
             return response(Response::HTTP_UNAUTHORIZED);
 
-        $profile = ProfileUser::findOrFail(auth()->id());
+        $profile = auth()->user()->profile;
 
         if(!$request->hasFile('image')) {
             return response()->json(['upload_file_not_found'], 400);
@@ -170,6 +169,6 @@ class ProfileController extends Controller
 
         $profile->update(['kartu_satpam'=>$kartu_satpam, 'status_kartu_satpam'=>null]);
 
-        return response()->json(ProfileUser::findOrFail($id), Response::HTTP_OK);
+        return response()->json(['profile' => auth()->user()->profile], Response::HTTP_OK);
     }
 }

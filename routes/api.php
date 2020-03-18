@@ -23,8 +23,6 @@ Route::post('login','Api\AuthController@login');
 
 Route::get('positions', 'Api\PositionController@getAllPositions');
 
-Route::get('profile/{id}','Api\ProfileController@getUserProfile');
-
 Route::get('profile/{id}/positions', 'Api\PositionController@getUserPositions');
 
 
@@ -36,6 +34,7 @@ Route::group([
     Route::get('auth/jobs/{query}','Api\JobController@getJobs');
     Route::get('auth/jobs/position/{position}','Api\JobController@getJobsWithPosition');
 
+    Route::get('profile/{id}','Api\ProfileController@getUserProfile');
     Route::put('profile/{id}/update', 'Api\ProfileController@updateProfile');
     Route::post('profile/{id}/upload/profile', 'Api\ProfileController@uploadImage');
     Route::post('profile/{id}/upload/cover', 'Api\ProfileController@uploadCover');
