@@ -150,6 +150,7 @@
                     <!-- Grid row -->
                     <div class="row">
                         <!--for each e kene-->
+
                         <!-- Grid column -->
                         <div class="col-md-12 col-lg-4">
 

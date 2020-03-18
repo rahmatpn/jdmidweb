@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+@extends('layouts.jobnav')
 @section('css')
     <style>
 body{
@@ -39,7 +39,35 @@ body{
     color: #555;
     border-color: #2b90d9;
 }
+.img-gradient {
+    position:relative;
+    display:inline-block;
+}
+.img-gradient:after {
+    content:'';
+    position:absolute;
+    left:0; top:0;
+    width:100%; height:100%;
+    display:inline-block;
+    background: -moz-linear-gradient(top, rgba(0,47,75,0.5) 0%, rgba(220, 66, 37, 0.5) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(220, 66, 37, 0.5)), color-stop(100%,rgba(0,47,75,0.5))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(0,47,75,0.5) 0%,rgba(220, 66, 37, 0.5) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(0,47,75,0.5) 0%,rgba(220, 66, 37, 0.5) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(0,47,75,0.5) 0%,rgba(220, 66, 37, 0.5) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(0,47,75,0.5) 0%,rgba(220, 66, 37, 0.5) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002f4b', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
+.img-gradient img{
+    display:block;
+}
 
+.img-gradient-overlay { /* FF3.6+ */ /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(rgba(0,47,75,0.5) 0%, rgba(220, 66, 37, 0.5) 100%);
+    background: -o-linear-gradient(rgba(0,47,75,0.5) 0%, rgba(220, 66, 37, 0.5) 100%);
+    background: linear-gradient(rgba(0,47,75,0.5) 0%, rgba(220, 66, 37, 0.5) 100%); /* Chrome10+,Safari5.1+ */ /* Opera 11.10+ */ /* IE10+ */ /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002f4b', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+    border-radius: .3rem;
+}
     </style>
 
 @endsection
@@ -155,20 +183,35 @@ body{
         </div>
     @endif
 
-            <div class="card card-image" style="background-image: url('https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=1260'); background-position: center; background-size: cover">
-                <div class="text-white text-center rgba-stylish-strong py-5 px-4">
+
+            <div class="card card-image view " style="background-image: url('https://images.pexels.com/photos/1062269/pexels-photo-1062269.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'); background-position: center; background-size: cover">
+{{--                <div class="text-white text-center rgba-stylish-strong py-5 px-4">--}}
+{{--                    <div class="py-5">--}}
+
+{{--                        <!-- Content -->--}}
+{{--                        <br/>--}}
+{{--                        <h5 class="h5 orange-text"><i class="fas fa-suitcase"></i>{{$pekerjaan->getNama()}}</h5>--}}
+{{--                        <h2 class="card-title h2 my-4 py-2">{{$pekerjaan->getPosisi()}}</h2>--}}
+{{--                        <p class="mb-4 pb-2 px-md-5 mx-md-5">{{$pekerjaan->getSocial()}}</p>--}}
+{{--                        <br/>--}}
+
+{{--                    </div>--}}
+{{--                </div>--}}
+                <div class="text-white text-center img-gradient-overlay py-5 px-4">
                     <div class="py-5">
-
-                        <!-- Content -->
-                        <br/>
-                            <h5 class="h5 orange-text"><i class="fas fa-suitcase"></i>{{$pekerjaan->getNama()}}</h5>
-                                        <h2 class="card-title h2 my-4 py-2">{{$pekerjaan->getPosisi()}}</h2>
-                                        <p class="mb-4 pb-2 px-md-5 mx-md-5">{{$pekerjaan->getSocial()}}</p>
-                        <br/>
-
+                        <h5 class="h5 orange-text"><i class="fas fa-suitcase"></i>{{$pekerjaan->getNama()}}</h5>
+                        <h3 class="card-title pt-2"><strong>{{$pekerjaan->getPosisi()}}</strong></h3>
+                        <p class="mb-4 pb-2 px-md-5 mx-md-5">{{$pekerjaan->getSocial()}}</p>
+                        @auth('hotel')
+                        <a class="btn btn-deep-orange waves-effect waves-light" href="{{url("/job/$pekerjaan->url_slug/postlist")}}"><i class="far fa-file left"></i>Todo List</a>
+                        @endauth
                     </div>
+
                 </div>
+
             </div>
+
+
 {{--    <div class="card card-image" style="background-image: url(https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">--}}
 {{--        <div class="text-white text-center rgba-stylish-strong py-5 px-4">--}}
 {{--            <div class="py-5">--}}
@@ -190,6 +233,7 @@ body{
             <div class="row">
                 <div class="col-sm-8 offset-sm-2">
                     <div class="container">
+                        @auth('hotel')
                         <ul id="myTab2" role="tablist" class="nav nav-tabs nav-pills with-arrow lined flex-column flex-sm-row text-center">
                             <li class="nav-item flex-sm-fill">
                                 <a id="home2-tab" data-toggle="tab" href="#home2" role="tab" aria-controls="home2" aria-selected="true" class="nav-link text-uppercase font-weight-bold mr-sm-3 rounded-0 active">Deskripsi</a>
@@ -315,11 +359,8 @@ body{
                             </div>
                         </div>
 
-
-
-
-
                     </div>
+                    @endauth
                     @auth('user')
                         <h4>Deskripsi Pekerjaan</h4>
                         <h5> {!!html_entity_decode($pekerjaan->deskripsi)!!}</h5>
