@@ -46,5 +46,51 @@ class HotelSeeder extends Seeder
             'created_at'=> Carbon::now()->toDateTimeString(),
             'updated_at'=> Carbon::now()->toDateTimeString()
         ]);
+        DB::table('hotels')->insert([
+            'name'=>'hotel3',
+            'email'=>'hotel3@hotel.com',
+            'password'=>bcrypt('12345678'),
+            'created_at'=> Carbon::now()->toDateTimeString(),
+            'updated_at'=> Carbon::now()->toDateTimeString()
+        ]);
+        DB::table('hotel_profiles')->insert([
+            'hotel_id'=>3,
+            'nama'=>'hotel3',
+            'email'=>'hotel3@hotel.com',
+            'url_slug'=>'hotel3',
+            'created_at'=> Carbon::now()->toDateTimeString(),
+            'updated_at'=> Carbon::now()->toDateTimeString()
+        ]);
+        DB::table('hotels')->insert([
+            'name'=>'hotel lentera',
+            'email'=>'hotellentera@hotel.com',
+            'password'=>bcrypt('12345678'),
+            'created_at'=> Carbon::now()->toDateTimeString(),
+            'updated_at'=> Carbon::now()->toDateTimeString()
+        ]);
+        DB::table('hotel_profiles')->insert([
+            'hotel_id'=>4,
+            'nama'=>'hotel lentera',
+            'email'=>'hotellentera@hotel.com',
+            'url_slug'=>'hotellentera',
+            'created_at'=> Carbon::now()->toDateTimeString(),
+            'updated_at'=> Carbon::now()->toDateTimeString()
+        ]);
+        DB::table('hotels')->insert([
+            'name'=>'tok dalang homestay',
+            'email'=>'tokdalang@hotel.com',
+            'password'=>bcrypt('12345678'),
+            'created_at'=> Carbon::now()->toDateTimeString(),
+            'updated_at'=> Carbon::now()->toDateTimeString()
+        ]);
+        DB::table('hotel_profiles')->insert([
+            'hotel_id'=>5,
+            'nama'=>'tok dalang homestay',
+            'email'=>'tokdalang@hotel.com',
+            'url_slug'=>'tokdalanghomestay',
+            'foto'=> "image/hotel/photo/sZUNIKmjB4Ao5FuILY14BOq6WVd1HAN8m7fn4J01.jpeg",
+            'created_at'=> Carbon::now()->toDateTimeString(),
+            'updated_at'=> Carbon::now()->toDateTimeString()
+        ]);
     }
 }
