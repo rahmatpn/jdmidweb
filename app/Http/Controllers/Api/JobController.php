@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Pekerjaan;
 use App\ProfileHotel;
-use App\User;
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +24,7 @@ class JobController extends Controller
                         ->orWhere('tanggal_mulai',$date)->where('waktu_mulai','>',$time);
                 })
                 ->orderBy('tanggal_mulai')
-                ->get()]);
+                ->paginate(5)]);
     }
 
     function getJobs($query){
@@ -51,7 +50,7 @@ class JobController extends Controller
                         ->orWhere('hotel_id', !empty($hotel_id) ? $hotel_id : "!@!@!@!");
                 })
                 ->orderBy('tanggal_mulai')
-                ->get()]);
+                ->paginate(5)]);
     }
 
     function getJobsWithPosition($position){
@@ -69,7 +68,7 @@ class JobController extends Controller
                         ->orWhere('tanggal_mulai',$date)->where('waktu_mulai','>',$time);
                 })
                 ->orderBy('tanggal_mulai')
-                ->get()]);
+                ->paginate(5)]);
     }
 
     function applyJob($job){
@@ -120,7 +119,7 @@ class JobController extends Controller
                     $q->where('pekerjaan_user.status', 1)->where('user_id', $id);
                 })
                 ->orderBy('tanggal_mulai')
-                ->get()]);
+                ->paginate(5)]);
     }
 
     function getUserAcceptedJob($id){
@@ -135,7 +134,7 @@ class JobController extends Controller
                     $q->where('pekerjaan_user.status', 2)->where('user_id', $id);
                 })
                 ->orderBy('tanggal_mulai')
-                ->get()]);
+                ->paginate(5)]);
     }
 
     function getUserJobHistory($id){
@@ -153,7 +152,7 @@ class JobController extends Controller
                     $q->where('pekerjaan_user.status', '>', 2)->where('user_id', $id);
                 })
                 ->orderBy('tanggal_mulai', 'desc')
-                ->get()]);
+                ->paginate(5)]);
     }
 
     function getActiveJobs($id){
