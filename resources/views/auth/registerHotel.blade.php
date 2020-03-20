@@ -33,7 +33,35 @@
         new WOW().init();
     });
 </script>
+<style>
+    .top-nav-collapse {
+        background-color: #FFFFFF !important;
+        text-decoration: white;
+
+    }
+
+    .navbar:not(.top-nav-collapse) {
+        background: white !important;
+        box-shadow: black;
+        text-emphasis-color: white;
+        text-decoration: white;
+
+
+
+    }
+</style>
 <body class="form-v8 ">
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="{{url('/')}}">
+            <img src="{{asset('/image/logo_head.png')}}" height="50" alt="logo">
+        </a>
+
+        <a class="navbar-link black-text mr-3" href="{{url('/')}}">Kembali</a>
+
+    </div>
+
+</nav>
 <div class="container wow fadeInUp">
 
 @if(session()->get('gagalLogin'))
