@@ -29,65 +29,48 @@
     }
     </style>
         <div class="container my-5 py-5">
-            <div class="modal fade" id="modalTodoList" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                 aria-hidden="true">
-
-                <!-- Change class .modal-sm to change the size of the modal -->
-                <div class="modal-dialog modal-lg" role="document">
-
-
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title w-100 text-md-center" id="myModalLabel">To-Do List</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <ul class="list-group">
-
-                                <!-- Ndoko For each e nek kene-->
-                                <ul class="list-group">
-
-                                    <li class="list-group-item d-flex justify-content-between align-items-center" style="font-size: 120%">
-                                        <p class="mb-0">
-                                        <span class="badge badge-primary">1</span>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a dui sit amet sapien accumsan blandit eget porttitor sapien. Mauris faucibus arcu eu facilisis aliquet.
-                                        Etiam nec iaculis arcu. Nullam euismod quam a ligula egestas, a dapibus ante consequat. Curabitur id consectetur leo.
-                                        Curabitur sodales eget urna ut dignissim. Pellentesque sodales neque a consectetur maximus.
-                                        <!-- Default unchecked -->
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                                            <label class="custom-control-label" for="defaultUnchecked"></label>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <!-- End For Each e nek kene -->
-                            </ul>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary btn-sm shadow-sm" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary btn-sm shadow-sm">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card ">
-                @foreach($kerjakan as $pekerjaan)
+            @foreach($kerjakan as $pekerjaan)
+            <div class="card my-3">
                 <div class="card-body parent">
                     <div class="card-title">
                         <div class="row">
-                            <div class="col-sm-4 align-items-center">
+                            <div class="col-sm-4 text-center">
+                                @if($pekerjaan->pivot->status == '1')
+                                    <p>Belum Dikerjakan</p>
+                                @elseif($pekerjaan->pivot->status == '2')
+                                    <p>Menunggu Konfirmasi</p>
+                                @elseif($pekerjaan->pivot->status == '3')
+                                    <p>Belum Selesai</p>
+                                @else
+                                    <p>Selesai</p>
+                                @endif
+                            </div>
+                            <div class="col-sm-8 fa-pull-right">
+{{--                                @if($pekerjaan->pivot->status == '1')--}}
+{{--                                    --}}{{--                                    <span><i class="far fa-times-circle fa-2x fa-fw red-text align-items-center"></i>--}}
+{{--                                    --}}{{--                                    test--}}
+{{--                                    --}}{{--                                    </span>--}}
+{{--                                    Belum Dikerjakan--}}
+
+{{--                                @elseif($pekerjaan->pivot->status == '2')--}}
+{{--                                    <span><i class="far fa-clock fa-2x fa-fw  align-items-center"></i>--}}
+{{--                                          test--}}
+{{--                                    </span>--}}
+{{--                                @elseif($pekerjaan->pivot->status == '3')--}}
+{{--                                    <span><i class="far fa fa-check-circle fa-2x fa-fw grey-text align-items-center"></i></span>--}}
+{{--                                @else--}}
+{{--                                    <span><i class="far fa fa-check-circle fa-2x fa-fw green-text align-items-center"></i></span>--}}
+{{--                                @endif--}}
+                            </div>
+                            <div class="col-sm-4 my-sm-auto ">
                                 <div class="avatar w-100 white d-flex justify-content-center align-items-center">
                                     <img src="{{asset($pekerjaan->foto ?? $pekerjaan->hotel->profile->hotelPhoto())}}"  class="img-fluid shadow-sm" style="width: 50%;">
                                 </div>
                             </div>
-                            <div class="col-sm-8">
+                            <div class="col-sm-8 my-sm-auto">
                                 <h4 class="card-title blue-text"><strong>{{$pekerjaan->hotel->profile->nama}}</strong></h4>
                                 <div class="row">
                                     <div class="col-sm-4">
-
                                         <div style="display: none">{{$pekerjaan->id}}</div>
                                         <div class="card-text">
                                             <span class="blue-text text"><strong>Posisi : </strong></span>
@@ -143,11 +126,11 @@
 
                                 </div>
                             <div class="child">
-
                                 @if($pekerjaan->pivot->status == '1')
-                                    <span><i class="far fa-times-circle fa-2x fa-fw red-text align-items-center"></i></span>
+                                    <span><i class="fas fa-briefcase fa-2x fa-fw red-text align-items-center"></i></span>
                                 @elseif($pekerjaan->pivot->status == '2')
-                                    <span><i class="far fa-clock fa-2x fa-fw  align-items-center"></i></span>
+                                    <span><i class="fas fa-business-time fa-2x fa-fw  align-items-center"></i>
+                                    </span>
                                 @elseif($pekerjaan->pivot->status == '3')
                                     <span><i class="far fa fa-check-circle fa-2x fa-fw grey-text align-items-center"></i></span>
                                 @else
@@ -167,8 +150,9 @@
 
 
                 </div>
-                @endforeach
+
             </div>
+            @endforeach
         </div>
 {{--    <div>{{$pekerjaan->id}}</div>--}}
 {{--    <div>{{$pekerjaan->area}}</div>--}}
