@@ -87,7 +87,7 @@
                             @if($kerjakan->pivot->status == 1)
                                 <div class="form-check fa-pull-right fa-2x">
                                     <label>
-                                        <input type="checkbox"  id="todolist_user" name="todolist_user[]"  value="{{$todo->id}}" {{($todo->todo==1)?  "checked" : "" }} required> <span class="label-text"></span>
+                                        <input type="checkbox"  id="todolist_user" name="todolist_user[]"  value="{{$todo->id}}" {{($todo->todo==1)?  "checked" : "" }}> <span class="label-text"></span>
                                     </label>
                                 </div>
                             @else
@@ -105,7 +105,7 @@
                     @elseif($kerjakan->pivot->status == '2')
                         <div class="btn btn-grey container-fluid shadow-sm">Menunggu Konfirmasi Hotel</div>
                     @else
-                        <button type="submit" class="btn btn-primary container-fluid shadow-sm">Selesai</button>
+                        <button type="submit" class="btn btn-primary container-fluid shadow-sm">Simpan</button>
                     @endif
                 </form>
             </div>

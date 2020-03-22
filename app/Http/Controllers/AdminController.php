@@ -33,37 +33,36 @@ class AdminController extends Controller
        return view('adminManageUser', compact('user'));
    }
 
-    public function verifyUser($url_slug){
+    public function viewVerifyUser($url_slug){
         $user = ProfileUser::where('url_slug', '=', $url_slug)->with('user')->first();
+        if ($user->status_ktp == "1")
+            $user->s_ktp = 1;
+        if ($user->status_skck == "1")
+            $user->s_skck = 1;
+        if ($user->status_sertifikat == "1")
+            $user->s_sertifikat = 1;
+        if ($user->status_kartu_satpam == "1")
+            $user->s_kartu_satpam = 1;
         return view('adminVerifyUser', compact('user'));
     }
 
-    public function verifyUserKtp($url_slug){
-        $profile = ProfileUser::where('url_slug', '=', $url_slug)->with('user')->first();
-        $profile->status_ktp = '1';
-        $profile->save();
-        return redirect('admin/user/'.$profile->url_slug.'/verify');
-    }
+    function verifyUser($url_slug, Request $req) {
 
-    public function rejectUserKtp($url_slug){
         $profile = ProfileUser::where('url_slug', '=', $url_slug)->with('user')->first();
-        $profile->status_ktp = '0';
+        $profile->status_ktp = null;
+        $profile->status_skck = null;
+        $profile->status_sertifikat= null;
+        $profile->status_kartu_satpam= null;
+        if($req->status_ktp)
+            $profile->status_ktp = '1';
+        if($req->status_skck)
+            $profile->status_skck = '1';
+        if($req->status_sertifikat)
+            $profile->status_sertifikat = '1';
+        if ($req->status_kartu_satpam)
+            $profile->status_kartu_satpam = '1';
         $profile->save();
-        return redirect('admin/user/'.$profile->url_slug.'/verify');
-    }
-
-    public function verifyUserSkck($url_slug){
-        $profile = ProfileUser::where('url_slug', '=', $url_slug)->with('user')->first();
-        $profile->status_skck = '1';
-        $profile->save();
-        return redirect('admin/user/'.$profile->url_slug.'/verify');
-    }
-
-    public function rejectUserSkck($url_slug){
-        $profile = ProfileUser::where('url_slug', '=', $url_slug)->with('user')->first();
-        $profile->status_skck = '0';
-        $profile->save();
-        return redirect('admin/user/'.$profile->url_slug.'/verify');
+        return redirect('/admin/user/manage');
     }
 
     public function indexHotel(){
