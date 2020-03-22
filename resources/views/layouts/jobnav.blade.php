@@ -6,7 +6,7 @@
     <title>Kolega Hotel</title>
     <link rel="icon" href="{{asset('/image/logo2.png')}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="{{ asset('css/freelancer.css') }}" />
+{{--    <link rel="stylesheet" href="{{ asset('css/freelancer.css') }}" />--}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
@@ -19,7 +19,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/16.1.0/smooth-scroll.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
 
 
     <script src="{{ asset('js/mdb.js') }}"></script>
@@ -51,7 +50,7 @@
 
         @media (max-width: 991px) {
             .navbar:not(.top-nav-collapse) {
-                background: #f8f8f8 !important;
+                background:#2b90d9 !important;
                 text-shadow: black;
             }
         }
@@ -169,7 +168,7 @@
 <nav class="navbar navbar-dark navbar-expand-lg fixed-top scrolling-navbar ">
     <div class="container">
         <a class="navbar-brand" href="{{url('/')}}">
-            <img src="{{asset('/image/logo_head.png')}}" height="50" alt="logo">
+            <img src="{{asset('/image/logo_head2.png')}}" height="50" alt="logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="dark-blue-text"><i

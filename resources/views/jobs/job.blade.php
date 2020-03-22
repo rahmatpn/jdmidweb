@@ -68,6 +68,16 @@ body{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002f4b', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
     border-radius: .3rem;
 }
+.text {
+    display: block;/* or inline-block */
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 3.6em;
+    line-height: 1.8em;
+    width: 100px;
+}
+
     </style>
 
 @endsection
@@ -104,7 +114,6 @@ body{
             });
         </script>
         @endif
-
 
 
         @if(session()->get('success'))
@@ -247,50 +256,118 @@ body{
                         </ul>
                         <div id="myTab2Content" class="tab-content">
                             <div id="home2" role="tabpanel" aria-labelledby="home-tab" class="tab-pane fade px-4 py-5 show active">
-                                <h4>Deskripsi Pekerjaan</h4>
-                                <h5> {!!html_entity_decode($pekerjaan->deskripsi)!!}</h5>
-                                <br/>
-                                <h4>Area Kerja</h4>
-                                <h5>{{$pekerjaan->area}}</h5>
-                                <br/>
-                                <h4>Upah</h4>
-                                <h4>{{"IDR: ".number_format($pekerjaan->bayaran)}},00</h4>
-                                <br/>
-                                <h4>Tanggal</h4>
-                                <h5>{{date('l, F jS, Y', strtotime($pekerjaan->tanggal_mulai))}}</h5>
-                                <br/>
-                                <h4>Waktu Mulai</h4>
-                                <h5>{{date("H:m", strtotime($pekerjaan->waktu_mulai))}}</h5>
-                                <br/>
-                                <h4>Waktu Selesai</h4>
-                                <h5>{{date("H:m", strtotime($pekerjaan->waktu_selesai))}}</h5>
-                                <br/>
-                                @if($pekerjaan->tinggi_minimal != null || $pekerjaan->tinggi_maksimal != null)
-                                    <h4>Tinggi Badan</h4>
-                                    @if($pekerjaan->tinggi_minimal !=null)
-                                        <h5>minimal: {{$pekerjaan->tinggi_minimal ?? '-'}}</h5>
-                                    @endif
-                                    @if($pekerjaan->tinggi_maksimal != null)
-                                        <h5>maksimal: {{$pekerjaan->tinggi_maksimal ?? '-' }} </h5>
-                                    @endif
-                                    <br>
-                                @endif
-                                @if($pekerjaan->berat_minimal !=null || $pekerjaan->berat_maksimal != null)
-                                    <h4>Berat Badan</h4>
-                                    @if($pekerjaan->berat_minimal !=null)
-                                        <h5>minimal: {{$pekerjaan->berat_minimal ?? '-'}}</h5>
-                                    @endif
-                                    @if($pekerjaan->berat_maksimal != null)
-                                        <h5>maksimal: {{$pekerjaan->berat_maksimal ?? '-' }} </h5>
-                                    @endif
-                                    <br/>
-                                @endif
-                                <h4>Kuota tersisa</h4>
-                                <h5>{{($pekerjaan->kuota)-($pekerjaan->dikerjakan()->count())}} Orang</h5>
-                                <br/>
+                                <div class="row mb-5 ">
+                                    <div class="col-lg-8 d-inline-flex align-items-center mb-2">
+                                        <img class="img-fluid img-thumbnail" style="max-width: 40%" src="{{asset($pekerjaan->foto ?? $pekerjaan->hotel->profile->hotelPhoto())}}">
+                                        <div class="col-sm-8 align-items-center flex-column align-content-lg-start">
+                                            <h3 class="font-weight-bold">{{$pekerjaan->getPosisi()}}</h3>
+                                            <span class="mr-2"><i class="fas fa-hotel mr-2 grey-text"></i>{{$pekerjaan->getNama()}}</span>
 
-                                <h4>Alamat Hotel</h4>
-                                <h5>{{$pekerjaan->getAlamat()}}</h5>
+                                            <span class="mr-2"><i class="fas fa-male mr-2 grey-text"></i>{{$pekerjaan->kuota}}</span>
+                                            <span class="mr-2"><i class="far fa-calendar-alt mr-2 grey-text"></i>{{date('l, F jS, Y', strtotime($pekerjaan->tanggal_mulai))}}</span>
+
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-sm-4 align-self-center ">
+                                        @auth('hotel')
+                                            <form id="apply_form" action="/job/{{$pekerjaan->url_slug}}/apply" method="post">
+                                                @csrf
+                                                <a href="javascript:{}" style="display: none" onclick="document.getElementById('apply_form').submit();" class="btn btn-block btn-primary btn-md">Apply</a>
+                                            </form>
+                                        @endauth
+                                        @auth('user')
+                                            <form id="apply_form" action="/job/{{$pekerjaan->url_slug}}/apply" method="post">
+                                                @csrf
+                                                <a href="javascript:{}" onclick="document.getElementById('apply_form').submit();" class="btn btn-block btn-primary btn-md shadow-sm" style="font-size: medium">Apply</a>
+                                            </form>
+                                        @endauth
+                                    </div>
+
+
+
+
+                                    <!--Grid column-->
+
+
+                                    <div class="col-lg-auto justify-content-end mb-0 mt-4">
+                                        <span><h4 class="font-weight-bold mb-4"><i class="fas fa-align-left mr-3 "></i>Deskripsi Pekerjaan</h4></span>
+                                        <p class="text-justify"> {!!html_entity_decode($pekerjaan->deskripsi)!!}</p>
+
+                                        <span><h4 class="font-weight-bold mb-4 mt-4"><i class="far fa-building mr-3"></i>Area Kerja</h4></span>
+                                        <p class="text-justify">{{$pekerjaan->area}}</p>
+
+
+
+                                        @if($pekerjaan->tinggi_minimal != null || $pekerjaan->tinggi_maksimal != null || $pekerjaan->berat_minimal !=null || $pekerjaan->berat_maksimal != null)
+                                            <span><h4 class="font-weight-bold mb-4 mt-4"><i class="fas fa-file-contract mr-3"></i>Kualifikasi</h4></span>
+                                            <div class="row row-cols-2">
+                                                @if($pekerjaan->tinggi_minimal !=null)
+                                                    <div class="col">
+                                                        <h5>Tinggi Badan</h5>
+                                                    </div>
+                                                @endif
+                                                @if($pekerjaan->berat_minimal !=null)
+                                                    <div class="col">
+                                                        <h5>Berat Badan</h5>
+                                                    </div>
+                                                @endif
+                                                <div class="col">
+                                                    @if($pekerjaan->tinggi_minimal !=null)
+                                                        <div>Minimal: {{$pekerjaan->tinggi_minimal ?? '-'}} Cm</div>
+                                                    @endif
+                                                    @if($pekerjaan->tinggi_maksimal != null)
+                                                        <div>Maksimal: {{$pekerjaan->tinggi_maksimal ?? '-' }} Cm </div>
+                                                    @endif
+                                                </div>
+                                                <div class="col">
+                                                    @if($pekerjaan->berat_minimal !=null)
+                                                        <div>Minimal: {{$pekerjaan->berat_minimal ?? '-'}} Kg</div>
+                                                    @endif
+                                                    @if($pekerjaan->berat_maksimal != null)
+                                                        <div>Maksimal: {{$pekerjaan->berat_maksimal ?? '-' }} Kg </div>
+                                                    @endif
+
+                                                </div>
+                                            </div>
+                                        @endif
+
+                                        <span><h4 class="font-weight-bold mb-4 mt-4"><i class="far fa-clock mr-3"></i>Waktu</h4></span>
+                                        <div class="row row-cols-2">
+
+                                            <div class="col">
+                                                <h5>Mulai</h5>
+                                            </div>
+
+
+                                            <div class="col">
+                                                <h5>Selesai</h5>
+                                            </div>
+
+                                            <div class="col">
+
+                                                <div>{{date("H:m A", strtotime($pekerjaan->waktu_mulai))}}</div>
+
+                                            </div>
+                                            <div class="col">
+                                                <div>{{date("H:m A", strtotime($pekerjaan->waktu_selesai))}}</div>
+                                            </div>
+                                        </div>
+
+
+                                        <span><h4 class="font-weight-bold mb-4 mt-4"><i class="fas fa-hand-holding-usd mr-3"></i>Upah</h4></span>
+                                        <p class="text-justify">{{"IDR: ".number_format($pekerjaan->bayaran)}},00</p>
+
+                                        <span><h4 class="font-weight-bold mb-4 mt-4"><i class="fas fa-map-marker-alt mr-3"></i>Alamat</h4></span>
+                                        <p class="text-justify">{{$pekerjaan->getAlamat()}}</p>
+
+
+
+                                    </div>
+
+                                </div>
                             </div>
                             <div id="profile2" role="tabpanel" aria-labelledby="profile-tab" class="tab-pane fade px-4 py-5">
                                 <div class="container-fluid table-responsive">
@@ -362,64 +439,122 @@ body{
                     </div>
                     @endauth
                     @auth('user')
-                        <h4>Deskripsi Pekerjaan</h4>
-                        <h5> {!!html_entity_decode($pekerjaan->deskripsi)!!}</h5>
-                        <br/>
-                        <h4>Area Kerja</h4>
-                        <h5>{{$pekerjaan->area}}</h5>
-                        <br/>
-                        <h4>Upah</h4>
-                        <h4>{{"IDR: ".number_format($pekerjaan->bayaran)}},00</h4>
-                        <br/>
-                        <h4>Tanggal</h4>
-                        <h5>{{date('l, F jS, Y', strtotime($pekerjaan->tanggal_mulai))}}</h5>
-                        <br/>
-                        <h4>Waktu Mulai</h4>
-                        <h5>{{date("H:m", strtotime($pekerjaan->waktu_mulai))}}</h5>
-                        <br/>
-                        <h4>Waktu Selesai</h4>
-                        <h5>{{date("H:m", strtotime($pekerjaan->waktu_selesai))}}</h5>
-                        <br/>
-                        @if($pekerjaan->tinggi_minimal != null || $pekerjaan->tinggi_maksimal != null)
-                            <h4>Tinggi Badan</h4>
-                            @if($pekerjaan->tinggi_minimal !=null)
-                                <h5>minimal: {{$pekerjaan->tinggi_minimal ?? '-'}}</h5>
-                            @endif
-                            @if($pekerjaan->tinggi_maksimal != null)
-                                <h5>maksimal: {{$pekerjaan->tinggi_maksimal ?? '-' }} </h5>
-                            @endif
-                            <br>
-                        @endif
-                        @if($pekerjaan->berat_minimal !=null || $pekerjaan->berat_maksimal != null)
-                            <h4>Berat Badan</h4>
-                            @if($pekerjaan->berat_minimal !=null)
-                                <h5>minimal: {{$pekerjaan->berat_minimal ?? '-'}}</h5>
-                            @endif
-                            @if($pekerjaan->berat_maksimal != null)
-                                <h5>maksimal: {{$pekerjaan->berat_maksimal ?? '-' }} </h5>
-                            @endif
-                            <br/>
-                        @endif
-                        <h4>Kuota tersisa</h4>
-                        <h5>{{($pekerjaan->kuota)-($pekerjaan->dikerjakan()->count())}} Orang</h5>
-                        <br/>
+                            <div class="card-body">
+                             <div class="row mb-5 ">
+                                 <div class="col-lg-8 d-inline-flex align-items-center mb-2">
+                                     <img class="img-fluid img-thumbnail" style="max-width: 40%" src="{{asset($pekerjaan->foto ?? $pekerjaan->hotel->profile->hotelPhoto())}}">
+                                     <div class="col-sm-8 align-items-center flex-column align-content-lg-start">
+                                         <h3 class="font-weight-bold">{{$pekerjaan->getPosisi()}}</h3>
+                                         <span class="mr-2"><i class="fas fa-hotel mr-2 grey-text"></i>{{$pekerjaan->getNama()}}</span>
 
-                        <h4>Alamat Hotel</h4>
-                        <h5>{{$pekerjaan->getAlamat()}}</h5>
-                        @endauth
-                    <br/>
-                    @auth('hotel')
-                    <form action="/job/{{$pekerjaan->url_slug}}/apply" method="post">
-                        @csrf
-                        <input type="hidden" class="btn aqua-gradient-rgba" value="Apply">
-                    </form>
+                                         <span class="mr-2"><i class="fas fa-male mr-2 grey-text"></i>{{$pekerjaan->kuota}}</span>
+                                         <span class="mr-2"><i class="far fa-calendar-alt mr-2 grey-text"></i>{{date('l, F jS, Y', strtotime($pekerjaan->tanggal_mulai))}}</span>
+
+
+                                     </div>
+
+                                 </div>
+
+                                 <div class="col-sm-4 align-self-center ">
+                                     @auth('hotel')
+                                         <form id="apply_form" action="/job/{{$pekerjaan->url_slug}}/apply" method="post">
+                                             @csrf
+                                             <a href="javascript:{}" style="display: none" onclick="document.getElementById('apply_form').submit();" class="btn btn-block btn-primary btn-md">Apply</a>
+                                         </form>
+                                     @endauth
+                                     @auth('user')
+                                             <form id="apply_form" action="/job/{{$pekerjaan->url_slug}}/apply" method="post">
+                                                 @csrf
+                                                 <a href="javascript:{}" onclick="document.getElementById('apply_form').submit();" class="btn btn-block btn-primary btn-md shadow-sm" style="font-size: medium">Apply</a>
+                                             </form>
+                                         @endauth
+                                 </div>
+
+
+
+
+                                 <!--Grid column-->
+
+
+                                 <div class="col-lg-auto justify-content-end mb-0 mt-4">
+                                     <span><h4 class="font-weight-bold mb-4"><i class="fas fa-align-left mr-3 "></i>Deskripsi Pekerjaan</h4></span>
+                                     <p class="text-justify"> {!!html_entity_decode($pekerjaan->deskripsi)!!}</p>
+
+                                     <span><h4 class="font-weight-bold mb-4 mt-4"><i class="far fa-building mr-3"></i>Area Kerja</h4></span>
+                                     <p class="text-justify">{{$pekerjaan->area}}</p>
+
+
+
+                                     @if($pekerjaan->tinggi_minimal != null || $pekerjaan->tinggi_maksimal != null || $pekerjaan->berat_minimal !=null || $pekerjaan->berat_maksimal != null)
+                                     <span><h4 class="font-weight-bold mb-4 mt-4"><i class="fas fa-file-contract mr-3"></i>Kualifikasi</h4></span>
+                                     <div class="row row-cols-2">
+                                         @if($pekerjaan->tinggi_minimal !=null)
+                                             <div class="col">
+                                                 <h5>Tinggi Badan</h5>
+                                             </div>
+                                         @endif
+                                             @if($pekerjaan->berat_minimal !=null)
+                                             <div class="col">
+                                                 <h5>Berat Badan</h5>
+                                             </div>
+                                             @endif
+                                         <div class="col">
+                                             @if($pekerjaan->tinggi_minimal !=null)
+                                                 <div>Minimal: {{$pekerjaan->tinggi_minimal ?? '-'}} Cm</div>
+                                             @endif
+                                                 @if($pekerjaan->tinggi_maksimal != null)
+                                                     <div>Maksimal: {{$pekerjaan->tinggi_maksimal ?? '-' }} Cm </div>
+                                                 @endif
+                                         </div>
+                                         <div class="col">
+                                                 @if($pekerjaan->berat_minimal !=null)
+                                                     <div>Minimal: {{$pekerjaan->berat_minimal ?? '-'}} Kg</div>
+                                                 @endif
+                                                 @if($pekerjaan->berat_maksimal != null)
+                                                     <div>Maksimal: {{$pekerjaan->berat_maksimal ?? '-' }} Kg </div>
+                                                 @endif
+
+                                         </div>
+                                     </div>
+                                     @endif
+
+                                     <span><h4 class="font-weight-bold mb-4 mt-4"><i class="far fa-clock mr-3"></i>Waktu</h4></span>
+                                     <div class="row row-cols-2">
+
+                                             <div class="col">
+                                                 <h5>Mulai</h5>
+                                             </div>
+
+
+                                             <div class="col">
+                                                 <h5>Selesai</h5>
+                                             </div>
+
+                                         <div class="col">
+
+                                                 <div>{{date("H:m A", strtotime($pekerjaan->waktu_mulai))}}</div>
+
+                                         </div>
+                                         <div class="col">
+                                                 <div>{{date("H:m A", strtotime($pekerjaan->waktu_selesai))}}</div>
+                                         </div>
+                                     </div>
+
+
+                                     <span><h4 class="font-weight-bold mb-4 mt-4"><i class="fas fa-hand-holding-usd mr-3"></i>Upah</h4></span>
+                                     <p class="text-justify">{{"IDR: ".number_format($pekerjaan->bayaran)}},00</p>
+
+                                     <span><h4 class="font-weight-bold mb-4 mt-4"><i class="fas fa-map-marker-alt mr-3"></i>Alamat</h4></span>
+                                     <p class="text-justify">{{$pekerjaan->getAlamat()}}</p>
+
+
+
+                                 </div>
+
+                             </div>
+                            </div>
                     @endauth
-                    @auth('user')
-                        <form action="/job/{{$pekerjaan->url_slug}}/apply" method="post">
-                            @csrf
-                            <input type="submit" class="btn aqua-gradient-rgba" value="Apply">
-                        </form>
-                        @endauth
+
                 </div>
             </div>
 
