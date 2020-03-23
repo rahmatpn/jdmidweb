@@ -81,9 +81,10 @@ class PekerjaanController extends Controller
 
     public function show($url_slug){
         $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
-        $pelamar = $pekerjaan->dikerjakan()->where('status', '0')->get();
+        $pelamar = $pekerjaan->dikerjakan()->get();
         $pelamarDiterima = $pekerjaan->dikerjakan()->where('status', '>=', '1')->get();
         $pelamarSelesai = $pekerjaan->dikerjakan()->where('status', '2')->get();
+
         return view('jobs.job', compact('pekerjaan','pelamar', 'pelamarDiterima', 'pelamarSelesai'));
     }
 

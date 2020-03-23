@@ -384,8 +384,11 @@ body{
                                         <tr>
                                             <th scope="row">{{$loop->index + 1}}</th>
                                             <td>{{$pelamar->profile->nama}}</td>
+                                         @if($pelamar->pivot->status < '1' )
                                             <td><a href="{{url('/job/'.$pekerjaan->url_slug.'/accept/'.$pelamar->profile->url_slug)}}" class="btn btn-success">Terima</a></td>
-                                            <td><a href="{{url('/job/'.$pekerjaan->url_slug.'/reject/'.$pelamar->profile->url_slug)}}" class="btn btn-danger">Tolak</a></td>
+                                         @else
+                                            <td>Diterima</td>
+                                          @endif
                                         </tr>
                                             @endforeach
                                         </tbody>
@@ -409,7 +412,7 @@ body{
                                             <tr>
                                                 <th scope="row">{{$loop->index + 1}}</th>
                                                 <td>{{$pelamarD->profile->nama}}</td>
-                                            @if($pelamarD->pivot->status == '1')
+                                                @if($pelamarD->pivot->status == '1')
                                                 <td>
                                                     Belum Selesai
                                                 </td>
@@ -418,14 +421,22 @@ body{
                                                 <a href="{{url('/job/'.$pekerjaan->url_slug.'/cancel/'.$pelamarD->profile->url_slug)}}"><i class="btn btn-danger btn-sm fa fa-times" aria-hidden="true"></i></a>
                                                 </td>
                                                 @elseif($pelamarD->pivot->status == '2')
-                                                <td>
-                                                    Menunggu konfirmasi
-                                                </td>
+                                                    <td>
+                                                        Menunggu konfirmasi
+                                                    </td>
                                                     <td>
                                                         <a href="{{url('/job/'.$pekerjaan->url_slug.'/confirm/'.$pelamarD->profile->url_slug)}}"><i class="btn btn-sm btn-success fa fa-check" aria-hidden="true"></i></a>
                                                     </td>
                                                     <td>
                                                         <a href="{{url('/job/'.$pekerjaan->url_slug.'/reset/'.$pelamarD->profile->url_slug)}}"><i class="btn btn-sm btn-warning fa fa-undo" aria-hidden="true"></i></a>
+                                                    </td>
+                                                @elseif($pelamarD->pivot->status == '3')
+                                                    <td>
+                                                        Menunggu konfirmasi user
+                                                    </td>
+                                                @elseif($pelamarD->pivot->status == '4')
+                                                    <td>
+                                                        Selesai
                                                     </td>
                                                 @endif
                                         </tr>
