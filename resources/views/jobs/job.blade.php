@@ -194,21 +194,9 @@ body{
 
 
             <div class="card card-image view " style="background-image: url('https://images.pexels.com/photos/1062269/pexels-photo-1062269.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'); background-position: center; background-size: cover">
-{{--                <div class="text-white text-center rgba-stylish-strong py-5 px-4">--}}
-{{--                    <div class="py-5">--}}
-
-{{--                        <!-- Content -->--}}
-{{--                        <br/>--}}
-{{--                        <h5 class="h5 orange-text"><i class="fas fa-suitcase"></i>{{$pekerjaan->getNama()}}</h5>--}}
-{{--                        <h2 class="card-title h2 my-4 py-2">{{$pekerjaan->getPosisi()}}</h2>--}}
-{{--                        <p class="mb-4 pb-2 px-md-5 mx-md-5">{{$pekerjaan->getSocial()}}</p>--}}
-{{--                        <br/>--}}
-
-{{--                    </div>--}}
-{{--                </div>--}}
                 <div class="text-white text-center img-gradient-overlay py-5 px-4">
                     <div class="py-5">
-                        <h5 class="h5 orange-text"><i class="fas fa-suitcase"></i>{{$pekerjaan->getNama()}}</h5>
+                        <h5 class="h5 yellow-text"><i class="fas fa-suitcase mr-2"></i>{{$pekerjaan->getNama()}}</h5>
                         <h3 class="card-title pt-2"><strong>{{$pekerjaan->getPosisi()}}</strong></h3>
                         <p class="mb-4 pb-2 px-md-5 mx-md-5">{{$pekerjaan->getSocial()}}</p>
                         @auth('hotel')
