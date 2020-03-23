@@ -176,13 +176,23 @@ class JobController extends Controller
 
     function jobDone($id) { //id = jobId
         $job = Pekerjaan::find($id);
-        if ($job->dikerjakan->first()->pivot->status == 1) {
+        if ($job->dikerjakan->first()->pivot->status == '1') {
             if (\auth()->user()->todolist->count() == $job->todolist->count()) {
                 $job->dikerjakan()->updateExistingPivot(\auth()->id(), ['status' => '2']);
                 return \response()->json(['message' => 'success']);
             } else {
                 return \response()->json(['message' => 'not success'], Response::HTTP_FORBIDDEN);
             }
+        } else {
+            return \response()->json(['message' => 'not success'], Response::HTTP_FORBIDDEN);
+        }
+    }
+
+    function jobPaid($id) {
+        $job = Pekerjaan::find($id);
+        if ($job->dikerjakan->first()->pivot->status == '3') {
+            $job->dikerjakan()->updateExistingPivot(\auth()->id(), ['status' => '4']);
+            return \response()->json(['message' => 'success']);
         } else {
             return \response()->json(['message' => 'not success'], Response::HTTP_FORBIDDEN);
         }
