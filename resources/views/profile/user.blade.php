@@ -149,7 +149,7 @@
 
                     <!-- Grid row -->
                     <div class="row">
-                        <!--for each e kene-->
+                        @foreach($pekerjaanSelesai as $pekerjaan)<!--for each e kene-->
 
                         <!-- Grid column -->
                         <div class="col-md-12 col-lg-4">
@@ -158,13 +158,13 @@
                             <a class="card hoverable mb-4" >
                             <!--photo ne diganti foto job -->
                                 <!-- Card image -->
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img3.jpg" alt="Card image cap">
+                                <img class="card-img-top" src="{{asset($pekerjaan->foto ?? $pekerjaan->hotel->profile->hotelPhoto())}}" alt="Card image cap">
 
                                 <!-- Card content -->
                                 <div class="card-body">
                             <!-- jeneng pekerjaan -->
-                                    <h5 class="my-3">Phone Bag</h5>
-                                    <p class="card-text text-uppercase mb-3">Bag, Box</p> <!-- Jeneng Hotel e -->
+                                    <h5 class="my-3">{{$pekerjaan->getPosisi()}}</h5>
+                                    <p class="card-text text-uppercase mb-3">{{$pekerjaan->deskripsi}}</p> <!-- Jeneng Hotel e -->
 
                                 </div>
 
@@ -174,7 +174,7 @@
 
 
                         </div>
-                        <!--end for each e kene-->
+                        @endforeach                        <!--end for each e kene-->
 
                         <!-- Grid column -->
 

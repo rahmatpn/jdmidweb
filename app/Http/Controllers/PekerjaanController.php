@@ -81,9 +81,10 @@ class PekerjaanController extends Controller
 
     public function show($url_slug){
         $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
-        $pelamar = $pekerjaan->dikerjakan()->where('status', '0')->get();
+        $pelamar = $pekerjaan->dikerjakan()->get();
         $pelamarDiterima = $pekerjaan->dikerjakan()->where('status', '>=', '1')->get();
         $pelamarSelesai = $pekerjaan->dikerjakan()->where('status', '2')->get();
+
         return view('jobs.job', compact('pekerjaan','pelamar', 'pelamarDiterima', 'pelamarSelesai'));
     }
 
@@ -256,7 +257,7 @@ class PekerjaanController extends Controller
 
     }
 
-    function jobDone($url_slug, Request $req) { //id = jobId
+    function updateJobProgress($url_slug, Request $req) { //id = jobId
         $user = \auth()->guard('user')->user();
         $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
         if ($req->todolist_user) {
@@ -273,11 +274,9 @@ class PekerjaanController extends Controller
         }
         if (\auth()->user()->todolist->count() == $pekerjaan->todolist->count()) {
             $pekerjaan->dikerjakan()->updateExistingPivot(\auth()->id(), ['status' => '2']);
-            return redirect('/home');
+            return redirect('/joblist');
             } else {
-            return back();
+            return redirect('/joblist/'.$pekerjaan->url_slug.'todolist');
             }
-
     }
-
 }

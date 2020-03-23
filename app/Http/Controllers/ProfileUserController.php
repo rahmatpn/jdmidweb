@@ -15,9 +15,11 @@ class ProfileUserController extends Controller {
 
     public function indexUser($url_slug) {
         $profil = ProfileUser::where('url_slug', '=', $url_slug)->first();
+        $user = $profil->user;
+        $pekerjaanSelesai = $user->mengerjakan()->where('pekerjaan_user.status', '>=', '3')->get();
         if ($profil != null) {
             $user = User::findOrFail($profil->user_id);
-            return view('profile.user', compact('user'));
+            return view('profile.user', compact('user','pekerjaanSelesai'));
         } else {
             abort(404);
         }

@@ -96,15 +96,9 @@ Route::group([
 
     Route::get('/admin/user/{url_slug}/delete', 'ProfileUserController@destroy');
 
-    Route::get('/admin/user/{url_slug}/verify', 'AdminController@verifyUser');
+    Route::get('/admin/user/{url_slug}/verify', 'AdminController@viewVerifyUser');
 
-    Route::get('/admin/user/{url_slug}/verifyKtp', 'AdminController@verifyUserKtp');
-
-    Route::get('/admin/user/{url_slug}/rejectKtp', 'AdminController@rejectUserKtp');
-
-    Route::get('/admin/user/{url_slug}/verifySkck', 'AdminController@verifyUserSkck');
-
-    Route::get('/admin/user/{url_slug}/rejectSkck', 'AdminController@rejectUserSkck');
+    Route::post('/admin/user/{url_slug}/verify', 'AdminController@verifyUser');
 
     Route::patch('/admin/user/{url_slug}', 'ProfileUserController@update');
 
@@ -197,9 +191,8 @@ Route::group([
 
     Route::post('/job/{url_slug}/apply', 'PekerjaanController@apply');
 
-    Route::post('/job/{url_slug}/done', 'PekerjaanController@jobDone');
+    Route::post('/job/{url_slug}/done', 'PekerjaanController@updateJobProgress');
     Route::get('/job/{slug}/finish/{url_slug}', 'PekerjaanController@confirmFinish');
-
 });
 
 
@@ -227,7 +220,6 @@ Route::group([
     Route::get('/job/{url_slug}/delete/{id}','PekerjaanController@deleteList');
     Route::patch('/job/{url_slug}/updatelist', 'PekerjaanController@updateList');
     Route::get('/job/{slug}/accept/{url_slug}', 'PekerjaanController@acceptApply');
-    Route::get('/job/{slug}/reject/{url_slug}', 'PekerjaanController@rejectApply');
     Route::get('/job/{slug}/cancel/{url_slug}', 'PekerjaanController@rejectApply');
     Route::get('/job/{slug}/confirm/{url_slug}', 'PekerjaanController@confirmDone');
     Route::get('/job/{slug}/reset/{url_slug}', 'PekerjaanController@resetJob');
