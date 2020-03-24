@@ -59,7 +59,7 @@ class ProfileController extends Controller
         if (file_exists($oldImage))
             unlink($oldImage);
 
-        return response()->json(['profile' => auth()->user()->profile], Response::HTTP_OK);
+        return response()->json(['success'], Response::HTTP_OK);
     }
 
     public function uploadCover(Request $request, $id) {
@@ -85,7 +85,7 @@ class ProfileController extends Controller
         if (file_exists($oldImage))
             unlink($oldImage);
 
-        return response()->json(['profile' => auth()->user()->profile], Response::HTTP_OK);
+        return response()->json(['success'], Response::HTTP_OK);
     }
 
     public function uploadKtp(Request $request, $id){
@@ -106,7 +106,7 @@ class ProfileController extends Controller
 
         $profile->update(['ktp'=>$ktp, 'status_ktp'=>null]);
 
-        return response()->json(['profile' => auth()->user()->profile], Response::HTTP_OK);
+        return response()->json(['success'], Response::HTTP_OK);
     }
 
     public function uploadSkck(Request $request, $id){
@@ -127,7 +127,7 @@ class ProfileController extends Controller
 
         $profile->update(['skck'=>$skck, 'status_skck'=>null]);
 
-        return response()->json(['profile' => auth()->user()->profile], Response::HTTP_OK);
+        return response()->json(['success'], Response::HTTP_OK);
     }
 
     public function uploadSertifikat(Request $request, $id){
@@ -148,7 +148,7 @@ class ProfileController extends Controller
 
         $profile->update(['sertifikat'=>$sertif, 'status_sertifikat'=>null]);
 
-        return response()->json(['profile' => auth()->user()->profile], Response::HTTP_OK);
+        return response()->json(['success'], Response::HTTP_OK);
     }
 
     public function uploadKartuSatpam(Request $request, $id){
@@ -169,6 +169,6 @@ class ProfileController extends Controller
 
         $profile->update(['kartu_satpam'=>$kartu_satpam, 'status_kartu_satpam'=>null]);
 
-        return response()->json(['profile' => auth()->user()->profile], Response::HTTP_OK);
+        return response()->json(['success'], Response::HTTP_OK);
     }
 }
