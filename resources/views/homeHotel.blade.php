@@ -45,27 +45,28 @@
     </style>
     <div class="container py-5">
         <div class="row my-5">
+
             <div class="col-md-8">
 
                 @foreach($pekerjaan as $pkerja)
                     <a  class="card hoverable mb-1" href="{{url("/job/$pkerja->url_slug")}}">
                         <div  class="card-body wow fadeIn">
-                            {{--                    <div class="avatar w-100 white d-flex justify-content-center align-items-center">--}}
-                            {{--                        <img src="{{asset($pkerja->hotel->profile->hotelPhoto())}}"  class="img-fluid z-depth-1">--}}
-                            {{--                    </div>--}}
                             <div class="row">
                                 <div class="col-8">
                                     <h5 class="card-title">{{$pkerja->getPosisi()}}</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">{{$pkerja->hotel->profile->nama}}</h6>
-                                    <div class="card-text text">{!!html_entity_decode($pkerja->deskripsi)!!}</div>
+                                    <div class="card-text text mb-3">{!!html_entity_decode($pkerja->deskripsi)!!}</div>
 {{--                                    <a href="{{url("/job/$pkerja->url_slug")}}" class="btn btn-md blue-gradient">Selengkapnya</a>--}}
                                     <table class="table">
+                                        <a href="{{url("/job/$pkerja->url_slug")}}" class="btn btn-md blue-gradient btn-block btn-sm">Selengkapnya</a>
+
                                         <thead class="black white-text">
                                         <tr>
                                             <th scope="col">Applyer</th>
                                         </tr>
                                         </thead>
                                     </table>
+
                                     <table class="table">
                                         <thead class="grey lighten-2">
                                         <tr>
@@ -78,13 +79,19 @@
                                             <th scope="row">{{$pkerja->dikerjakan()->where('status', '1')->count()}}</th>
                                             <td>{{$pkerja->dikerjakan->count()}}</td>
                                         </tr>
+
+
                                         </tbody>
                                     </table>
+
+
                                 </div>
                                 <div class="col-4 align-items-center">
                                     <div class="avatar w-100 white d-flex justify-content-center align-items-center">
                                         <img src="{{asset(!empty($pkerja->foto) ? $pkerja->foto : $hotel->profile->hotelPhoto())}}"  class="img-fluid z-depth-1">
                                     </div>
+
+
                                 </div>
 
                             </div>
@@ -103,9 +110,8 @@
 
             </div>
 
-            <div class="col-md-4">
-                <div class="card">
-
+            <div class="col-md-4 order-first">
+                <div class="card mb-3">
                     <div class="card-body">
                         <table class="table">
                             <thead>
@@ -122,16 +128,9 @@
                             </tbody>
                         </table>
                         <div class="card-text">
-{{--                            <a href="#!" class="card-title">Pekerjaan {{\App\Pekerjaan::where('hotel_id', $hotel->id)->count()}}</a>--}}
-{{--                            <a href="#!" class="card-title">Contact Us</a>--}}
+
                             <a href="#!" class="card-title">© 2020 Kolega Hotel, Inc.</a>
                         </div>
-
-                        {{--<h6 class="card-subtitle mb-2 text-muted">Contact User</h6>--}}
-
-                        {{-- <p class="card-text">Some quick example text to build on the panel title and make up the bulk of the panel's content.</p>
-                         <a href="#!" class="card-link mr-3">Card link</a>
-                         <a href="#!" class="card-link ml-0">Another link</a>--}}
                     </div>
                 </div>
             </div>
