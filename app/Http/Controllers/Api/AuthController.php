@@ -11,15 +11,16 @@ class AuthController extends Controller
 {
     public function register(Request $request){
         $data = $request->validate([
-           'name'=>'required|max:55',
+           'name'=>'required|min:4|max:55|unique:users',
             'email'=>'email|required|unique:users',
-            'password'=>'required|confirmed',
+            'password'=>'required|confirmed|min:8',
         ]);
 
         $data['password'] = bcrypt($request->password);
-        User::create($data);
+        $user = User::create($data);
 
-        return $this->login($request);
+        $accessToken = $user->createToken('authToken')->accessToken;
+        return response(['login'=>['user' => $user, 'access_token' => $accessToken]]);
     }
 
     public function login(Request $request)
