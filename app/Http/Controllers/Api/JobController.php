@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Pekerjaan;
+use App\Posisi;
 use App\ProfileHotel;
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
@@ -31,6 +32,13 @@ class JobController extends Controller
         $hotel_id = ProfileHotel::where('nama','like','%'.$query.'%')
                 ->pluck('hotel_id')
                 ->toArray();
+        if (empty($hotel_id))
+            $hotel_id = -1;
+        $posisi_id = Posisi::where('nama_posisi','like','%'.$query.'%')
+            ->pluck('id')
+            ->toArray();
+        if (empty($posisi_id))
+            $posisi_id = -1;
 
         $date = Carbon::now()->setTimezone('Asia/Phnom_Penh')->toDateString();
         $time = Carbon::now()->setTimezone('Asia/Phnom_Penh')->toTimeString();
@@ -44,10 +52,11 @@ class JobController extends Controller
                     $q->where('tanggal_mulai','>',$date)
                         ->orWhere('tanggal_mulai',$date)->where('waktu_mulai','>',$time);
                 })
-                ->where(function ($q) use ($query, $hotel_id){
+                ->where(function ($q) use ($query, $hotel_id, $posisi_id){
                     $q->where('deskripsi','like','%'.$query.'%')
                         ->orWhere('area','like','%'.$query.'%')
-                        ->orWhere('hotel_id', !empty($hotel_id) ? $hotel_id : "!@!@!@!");
+                        ->orWhere('hotel_id', $hotel_id)
+                        ->orWhere('posisi_id', $posisi_id);
                 })
                 ->orderBy('tanggal_mulai')
                 ->paginate(5)]);
