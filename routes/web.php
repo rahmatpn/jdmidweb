@@ -43,6 +43,14 @@ Route::get('jobvacancy',function (){
 });
 
 
+Route::get('/search',function (){
+
+    return view('search');
+
+});
+
+
+
 
 
 
