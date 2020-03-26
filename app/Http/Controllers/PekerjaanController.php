@@ -10,6 +10,8 @@ use App\ProfileUser;
 use App\ToDoList;
 use App\TodolistUser;
 use App\User;
+use Illuminate\Support\Carbon;
+use Laravel\Scout\Searchable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -72,7 +74,6 @@ class PekerjaanController extends Controller
 
         auth()->user()->pekerjaan()->create(
             $data
-//            'foto' => !empty($foto) ? $foto : $data->foto,
         );
 
 
@@ -278,5 +279,40 @@ class PekerjaanController extends Controller
             } else {
             return redirect('/joblist/'.$pekerjaan->url_slug.'todolist');
             }
+    }
+
+    public function searchs(Request $req){
+        $searchTerm = $req->searchTerm;
+        $hotel_id = ProfileHotel::where('nama','like','%'.$searchTerm.'%')
+            ->pluck('hotel_id')
+            ->toArray();
+        if (empty($hotel_id))
+            $hotel_id = -1;
+        $posisi_id = Posisi::where('nama_posisi','like','%'.$searchTerm.'%')
+            ->pluck('id')
+            ->toArray();
+        if (empty($posisi_id))
+            $posisi_id = -1;
+
+        $date = Carbon::now()->setTimezone('Asia/Phnom_Penh')->toDateString();
+        $time = Carbon::now()->setTimezone('Asia/Phnom_Penh')->toTimeString();
+
+        $pekerjaan = Pekerjaan::with('hotel.profile')
+            ->with('posisi')
+            ->withCount('dikerjakan')
+            ->where('status', '1')
+            ->where(function ($q) use($date, $time){
+                $q->where('tanggal_mulai','>',$date)
+                    ->orWhere('tanggal_mulai',$date)->where('waktu_mulai','>',$time);
+            })
+            ->where(function ($q) use ($searchTerm, $hotel_id, $posisi_id){
+                $q->Where('hotel_id', $hotel_id)
+                    ->orwhere('deskripsi','like','%'.$searchTerm.'%')
+                    ->orWhere('area','like','%'.$searchTerm.'%')
+                    ->orWhere('posisi_id', $posisi_id);
+            })->orderBy('tanggal_mulai')->get();
+
+
+        return view('/search', compact('pekerjaan', 'searchTerm'));
     }
 }

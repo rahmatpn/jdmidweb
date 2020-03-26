@@ -43,15 +43,7 @@ Route::get('jobvacancy',function (){
 });
 
 
-Route::get('/search',function (){
-
-    return view('search');
-
-});
-
-
-
-
+Route::get('/search', 'PekerjaanController@searchs');
 
 
 Auth::routes();
