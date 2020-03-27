@@ -177,14 +177,10 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-                <!-- Search form -->
-                <form class="form-inline active-cyan-4">
-                    <input class="form-control form-contro l-sm mr-3 w-75" type="text" placeholder="Search"
-                           aria-label="Search">
-                    <i class="fas fa-search text-light" aria-hidden="true"></i>
-                </form>
-            </ul>
+            <form class="form-inline mr-auto" action="{{url('/search')}}">
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-elegant btn-rounded btn-sm my-0 ml-sm-2" type="submit">Search</button>
+            </form>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">

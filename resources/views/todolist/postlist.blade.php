@@ -3,7 +3,8 @@
 @section('content')
     <style>
         body{
-            background: linear-gradient(45deg, rgba(85, 131, 238, 0.6), rgba(65, 216, 221, 0.69) 100%);
+            /*background: linear-gradient(45deg, rgba(85, 131, 238, 0.6), rgba(65, 216, 221, 0.69) 100%);*/
+            background: white;
         }
         .rgba-gradient {
             background: linear-gradient(45deg, rgba(213, 15, 61, 0.6), rgba(13, 17, 198, 0.69) 100%);
@@ -12,7 +13,6 @@
 {{--    <head>--}}
 {{--        <meta name="csrf-token" content="{{ csrf_token() }}">--}}
 {{--    </head>--}}
-
                 <form action="{{url('/job/'.$pekerjaan->url_slug.'/todolist')}}" enctype="multipart/form-data"  data-toggle="validator" method="post">
                     <a href="{{url('/hotel/'.auth()->user()->profile->url_slug)}}" style="display: none" class="btn btn-info" role="button"> Kembali</a>
                     <br/>
@@ -39,7 +39,7 @@
 
                     <div class="container my-5">
                         <section>
-                            <div class="jumbotron">
+                            <div class="jumbotron shadow-none">
 
                             <!-- Section heading -->
                             <h2 class="h1-responsive font-weight-bold text-center my-5">Post To-Do List</h2>
@@ -49,13 +49,15 @@
                                 qui officia deserunt mollit id laborum.</p>
 
                             <div class="card bg-info mb-3 ">
+
                                 <div class="card-header white-text text-center text-uppercase">
                                     Todo List {{$pekerjaan->getPosisi()}}
                                     <a href="#" class="fa-pull-right" id="addNew" data-toggle="modal" data-target="#basicExampleModal">
-                                        <i class="fa fa-plus" aria-hidden="true"></i></a>
+                                        <i class="fa fa-plus white-text" aria-hidden="true"></i></a>
                                 </div>
+                                <input class="form-control" id="listSearch" type="text" placeholder="Type something to search list items">
                                 @foreach($pekerjaan->todolist as $todolist)
-                                <ul class="list-group list-group-flush">
+                                <ul class="list-group list-group-flush" id="myList">
                                         <li class="list-group-item" data-toggle="modal" data-target="#editModal">{{$todolist->nama_pekerjaan}}</li>
                                     <div style="border-bottom: 1px solid;"></div>
                                 </ul>
@@ -203,6 +205,12 @@
 
                 });
 
+            });
+            $("#listSearch").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myList li").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
             });
             $('#addNew').click(function(event) {
                     $('#title').text('Add New Item');

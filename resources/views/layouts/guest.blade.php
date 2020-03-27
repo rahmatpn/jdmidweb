@@ -100,12 +100,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-                <form action ="#" method="GET" class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-primary btn-rounded" type="submit">Search</button>
-                </form>
-            </ul>
+            <form class="form-inline mr-auto" action="{{url('/search')}}">
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-elegant btn-rounded btn-sm my-0 ml-sm-2" type="submit">Search</button>
+            </form>
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
