@@ -100,8 +100,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <!-- Left Side Of Navbar -->
-            <form class="form-inline mr-auto" action="{{url('/search')}}">
-                <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+            <!-- Search form -->
+
+{{--                <form action="{{url('/search')}}" class="form-inline active-cyan-4 mr-auto" method="GET">--}}
+{{--                    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" name="searchTerm"--}}
+{{--                           aria-label="Search">--}}
+{{--                    <i class="fas fa-search text-light" aria-hidden="true"></i>--}}
+{{--                    <button type="submit" class="btn fa fa-search text-light" aria-hidden="true"></button>--}}
+{{--                </form>--}}
+
+            <form class="form-inline mr-auto" action="{{url('/search')}}" method="GET">
+                <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="searchTerm">
                 <button class="btn btn-elegant btn-rounded btn-sm my-0 ml-sm-2" type="submit">Search</button>
             </form>
 
@@ -153,30 +162,30 @@
                     </a>
                 </li>
                     @endauth
-                    <li class="nav-item">
-                        <a class="nav-link" type="button" id="dropdownMenu3" data-toggle="dropdown" href="#">
-                            <i class="fa fa-whatsapp "></i>
-                            Notifikasi
-                            <span class="badge badge-danger">11</span>
-                        </a>
-                        <div class="dropdown">
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" type="button" id="dropdownMenu3" data-toggle="dropdown" href="#">--}}
+{{--                            <i class="fa fa-whatsapp "></i>--}}
+{{--                            Notifikasi--}}
+{{--                            <span class="badge badge-danger">11</span>--}}
+{{--                        </a>--}}
+{{--                        <div class="dropdown">--}}
+{{--                            <div class="dropdown-menu" aria-labelledby="dropdownMenu3">--}}
 
-                                <div class="card-body">
-                                    <h5 class="card-title">Judul Notifikasi</h5>
-                                    <p class="card-text">isi notifikasi</p>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Judul Notifikasi</h5>
-                                    <p class="card-text">isi notifikasi</p>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Judul Notifikasi</h5>
-                                    <p class="card-text">isi notifikasi</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+{{--                                <div class="card-body">--}}
+{{--                                    <h5 class="card-title">Judul Notifikasi</h5>--}}
+{{--                                    <p class="card-text">isi notifikasi</p>--}}
+{{--                                </div>--}}
+{{--                                <div class="card-body">--}}
+{{--                                    <h5 class="card-title">Judul Notifikasi</h5>--}}
+{{--                                    <p class="card-text">isi notifikasi</p>--}}
+{{--                                </div>--}}
+{{--                                <div class="card-body">--}}
+{{--                                    <h5 class="card-title">Judul Notifikasi</h5>--}}
+{{--                                    <p class="card-text">isi notifikasi</p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </li>--}}
                     @auth('hotel')
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"

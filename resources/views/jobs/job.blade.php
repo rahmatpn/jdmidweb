@@ -371,9 +371,11 @@ body{
                                         @foreach($pelamar as $pelamar)
                                         <tr>
                                             <th scope="row">{{$loop->index + 1}}</th>
-                                            <td>{{$pelamar->profile->nama}}</td>
+                                            <td><a href="{{url('user/'.$pelamar->profile->url_slug)}}">{{$pelamar->profile->nama}}</a></td>
                                          @if($pelamar->pivot->status < '1' )
-                                            <td><a href="{{url('/job/'.$pekerjaan->url_slug.'/accept/'.$pelamar->profile->url_slug)}}" class="btn btn-success">Terima</a></td>
+                                            <td><a href="{{url('/job/'.$pekerjaan->url_slug.'/accept/'.$pelamar->profile->url_slug)}}" class="btn btn-success btn-md">Terima</a></td>
+                                                <td><a href="{{url('user/'.$pelamar->profile->url_slug)}}" class="btn btn-info btn-md">Kunjungi Profil</a></td>
+
                                          @else
                                             <td>Diterima</td>
                                           @endif

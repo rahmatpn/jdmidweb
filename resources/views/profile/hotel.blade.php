@@ -105,8 +105,7 @@
         @endif
         @if (session()->get('gagalVerifikasi'))
             <!-- Central Modal Medium Warning -->
-            <div class="modal fade" id="modalGagalVerifikasi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                 aria-hidden="true">
+            <div class="modal fade" id="modalGagalVerifikasi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-notify modal-warning" role="document">
                     <!--Content-->
                     <div class="modal-content">

@@ -272,22 +272,22 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
-                    </li>
+{{--                    <li class="nav-item active">--}}
+{{--                        <a class="nav-link" href="#">Home--}}
+{{--                            <span class="sr-only">(current)</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" href="#">Link</a>--}}
+{{--                    </li>--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" href="#">Profile</a>--}}
+{{--                    </li>--}}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @guest('hotel') @guest('user')
-                    <a href="{{url('/masuk/hotel')}}" class="btn btn-amber">Hotel</a>
-                    <a href="{{url('/masuk/user')}}" class="btn btn-deep-purple">Part Timer</a>
+                    <a href="{{url('/masuk/hotel')}}" class="btn btn-amber shadow-sm">Hotel</a>
+                    <a href="{{url('/masuk/user')}}" class="btn btn-deep-purple shadow-sm">Part Timer</a>
                     @endguest @endguest
                                     @auth('hotel')
                             <li class="nav-item dropdown">
@@ -315,7 +315,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-default"
                                      aria-labelledby="navbarDropdownMenuLink-333">
-                                    <a class="dropdown-item" href="#">Profil</a>
+                                    <a class="dropdown-item" href="{{url('/user/'.\Illuminate\Support\Str::slug(auth()->guard('user')->user()->name))}}">Profil</a>
                                     <a class="dropdown-item" href="{{url(route('logout'))}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Log Out</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
@@ -506,7 +506,7 @@
                     termasuk menyiapkan pesanan tamu, melayani tamu, danmelakukan clear up kamar tamu serta menyampaikan tagihan pelayanan kamar (bill).
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInDown" data-wow-delay="1.2s">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInDown" data-wow-delay="1s">
                 <h4 class="font-weight-bold mb-3">
                     <i class="fas fa-user yellow-text pr-2"></i> Waiter/Waitress
                 </h4>
@@ -514,7 +514,7 @@
                    Waiter/Waitress mempunyai tugas dan tanggung jawab untuk melayani kebutuhan makanan dan minuman bagi para pelanggan hotel secara professional.
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInRight" data-wow-delay="1.3s">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInRight" data-wow-delay="1.1s">
                 <h4 class="font-weight-bold mb-3">
                     <i class="fas fa-fish blue-text pr-2"></i> Crew Restaurant
                 </h4>
@@ -522,7 +522,7 @@
                     Mempersiapkan bahan-bahan makanan yang akan diolah.
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInLeft" data-wow-delay="1.3s">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInLeft" data-wow-delay="1s">
                 <h4 class="font-weight-bold mb-3">
                     <i class="fas fa-coffee brown-text pr-2"></i> Barista / Bartender
                 </h4>
@@ -530,7 +530,7 @@
                     Membuat minuman sesuai dengan order tamu dan harus sesuai denganstandard Perusahaan serta memberikan kepuasan kepada tamu semaksimal mungkin.
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInUp" data-wow-delay="1.4s">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInUp" data-wow-delay="1.2s">
                 <h4 class="font-weight-bold mb-3">
                     <i class="fas fa-camera black-text pr-2"></i> Photographer
                 </h4>
@@ -538,7 +538,7 @@
                     Fotografer memiliki tugas untuk mengambil foto guna mengabadikan berbagai momen dalam suatu gambar.
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInRight" data-wow-delay="1.5s">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInRight" data-wow-delay="1.2s">
                 <h4 class="font-weight-bold mb-3">
                     <i class="fas fa-broom pink-text pr-2"></i> Cleaning Service
                 </h4>

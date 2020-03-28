@@ -250,30 +250,30 @@
                                </a>
                            </li>
                            @endauth
-                    <li class="nav-item">
-                        <a class="nav-link" type="button" id="dropdownMenu3" data-toggle="dropdown" href="#">
-                            <i class="fa fa-whatsapp "></i>
-                            Notifikasi
-                            <span class="badge badge-danger">11</span>
-                        </a>
-                        <div class="dropdown">
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu3">
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link" type="button" id="dropdownMenu3" data-toggle="dropdown" href="#">--}}
+{{--                            <i class="fa fa-whatsapp "></i>--}}
+{{--                            Notifikasi--}}
+{{--                            <span class="badge badge-danger">11</span>--}}
+{{--                        </a>--}}
+{{--                        <div class="dropdown">--}}
+{{--                            <div class="dropdown-menu" aria-labelledby="dropdownMenu3">--}}
 
-                                    <div class="card-body">
-                                        <h5 class="card-title">Judul Notifikasi</h5>
-                                        <p class="card-text">isi notifikasi</p>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Judul Notifikasi</h5>
-                                    <p class="card-text">isi notifikasi</p>
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Judul Notifikasi</h5>
-                                    <p class="card-text">isi notifikasi</p>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+{{--                                    <div class="card-body">--}}
+{{--                                        <h5 class="card-title">Judul Notifikasi</h5>--}}
+{{--                                        <p class="card-text">isi notifikasi</p>--}}
+{{--                                </div>--}}
+{{--                                <div class="card-body">--}}
+{{--                                    <h5 class="card-title">Judul Notifikasi</h5>--}}
+{{--                                    <p class="card-text">isi notifikasi</p>--}}
+{{--                                </div>--}}
+{{--                                <div class="card-body">--}}
+{{--                                    <h5 class="card-title">Judul Notifikasi</h5>--}}
+{{--                                    <p class="card-text">isi notifikasi</p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </li>--}}
                        @auth('hotel')
                            <li class="nav-item dropdown">
                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
