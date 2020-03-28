@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Halaman Masuk Part Timer</title>
-
+    <link rel="icon" href="{{asset("/image/logo2.png")}}">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -32,6 +32,7 @@
     $( document ).ready(function() {
         new WOW().init();
     });
+
 </script>
 <style>
     .top-nav-collapse {
@@ -62,7 +63,7 @@
     </div>
 
 </nav>
-<div class="container wow fadeInUp">
+<div class="container">
 
 
 @if(session()->get('gagalLoginuser'))
@@ -208,9 +209,9 @@
     @endif
 </div>
 <div class="page-content">
-    <div class="form-v8-content  shadow-lg">
+    <div class="form-v8-content  shadow-md ">
         <div class="form-left ">
-            <img src="{{asset('/image/user.jpg')}}"  class="img-fluid" style="padding-top: 50px"  alt="form">
+            <img src="{{asset('/image/user.jpg')}}"  class="img-fluid mr-auto mt-auto mb-auto" style="padding-top: 50px"  alt="form">
         </div>
 
         <div class="form-right">

@@ -187,10 +187,10 @@
                 <!-- Left Side Of Navbar -->
 
                     <!-- Search form -->
-                    <form class="form-inline mr-auto" action="{{url('/search')}}">
-                        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-elegant btn-rounded btn-sm my-0 ml-sm-2" type="submit">Search</button>
-                    </form>
+                <form class="form-inline mr-auto" action="{{url('/search')}}" method="GET">
+                    <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="searchTerm">
+                    <button class="btn btn-elegant btn-rounded btn-sm my-0 ml-sm-2" type="submit">Search</button>
+                </form>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
