@@ -18,6 +18,23 @@ class ProfileUser extends Model
         return ($this -> cover) ? str_replace('\\', '/', $this->cover) : 'image/user/cover/qj8MLkgRDV8E8WFk86txcFQ9guFZOZyEfRafS77D.webp';
     }
 
+    public function userKTP(){
+        return ($this->ktp) ? $this->ktp : 'image/user/ktp/1595392496.jpg';
+    }
+
+    public function userSKCK(){
+        return ($this->skck) ? $this->skck : 'image/user/skck/1595392496.jpg';
+    }
+
+    public function userSertifikat(){
+        return ($this->sertifikat) ? $this->sertifikat : 'image/user/sertifikat/1595392496.jpg';
+    }
+
+    public function userKartuSatpam(){
+        return ($this->kartu_satpam) ? $this->kartu_satpam : 'image/user/satpam/1595392496.jpg';
+    }
+
+
     public function user(){
         return $this->belongsTo(User::class);
     }

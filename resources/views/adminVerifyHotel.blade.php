@@ -20,9 +20,9 @@
 @section('content')
     <div class="row my-9">
         <div class="card">
-            <div class="card-body">
+            <th class="card-body">
                 <div class="d-flex my-5">
-                    <table class="table table-responsive-md">
+                    <table class="table table-md">
                         <tr>
                             <th><h5> Nama Hotel: </h5></th>
                             <td class="text-md-center">{{$hotel->nama}}</td>
@@ -57,17 +57,30 @@
                             <th><h5> Website: </h5></th>
                             <td class="text-md-center"><a href="{{$hotel->website}}">{{$hotel->website}}</a> </td>
                         </tr>
+
+                        <tr>
+                            <td>
+                                <div><a href="{{url('admin/hotel/'.$hotel->url_slug.'/verifyHotel')}}" class="btn btn-success fa fa-check ml-5"> Verify</a> </div></td>
+                                <hr>
+                            <td>
+                                <div><a href="{{url('admin/hotel/'.$hotel->url_slug.'/rejectHotel')}}" class="btn btn-danger fa fa-close ml-5"> Reject</a> </div>
+                            </td>
+                        </tr>
                     </table>
 
                     <div class="ml-4">
                         <img src="{{asset($hotel->hotelPhoto())}}" class="w-100">
                     </div>
+
                 </div>
+
             </div>
-            <td><a href="{{url('admin/hotel/'.$hotel->url_slug.'/verifyHotel')}}" class="btn btn-success"> Verify</a> </td>
-            <td><a href="{{url('admin/hotel/'.$hotel->url_slug.'/rejectHotel')}}" class="btn btn-danger"> Reject</a> </td>
         </div>
     </div>
+
+
+
+
 @stop
 
 @section('css')

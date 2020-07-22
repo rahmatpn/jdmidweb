@@ -57,8 +57,7 @@
 {{--            <th class="align-middle text-sm text-md-center">Deskripsi</th>--}}
             <th class="align-middle text-sm">Status</th>
             <th class="align-middle text-sm">Foto</th>
-            <th></th>
-            <th></th>
+            <th> Action </th>
         </tr>
         </thead>
         <tbody>
@@ -88,9 +87,10 @@
                     <td class="text-sm"><button class="btn btn-sm btn-danger fa fa-close"></button></td>
                 @endif
             <td class="text-sm"><img src="{{asset($pekerjaan->foto ?? $pekerjaan->hotel->profile->hotelPhoto())}}" class="w-100"></td>
-            <td class="text-sm"><a href="{{url('/admin/pekerjaan/'.$pekerjaan->url_slug.'/delete')}}" class="btn btn-sm btn-danger fa fa-trash"></a></td>
-            <td class="text-sm"><a href="{{url('/admin/pekerjaan/'.$pekerjaan->url_slug.'/edit')}}" class="btn btn-sm btn-info fa fa-pencil"></a></td>
-            <td class="text-sm"><a href="{{url('admin/pekerjaan/'.$pekerjaan->url_slug.'/verify')}}" class="btn btn-sm btn-outline-warning fa fa-eye"></a></td>
+            <td class="text-sm"><a style="margin-bottom: 5px;" href="{{url('/admin/pekerjaan/'.$pekerjaan->url_slug.'/delete')}}" class="btn btn-sm btn-danger fa fa-trash"></a>
+                <a style="margin-bottom: 5px;" href="{{url('/admin/pekerjaan/'.$pekerjaan->url_slug.'/edit')}}" class="btn btn-sm btn-info fa fa-pencil"></a>
+                <a style="margin-bottom: 5px;" href="{{url('admin/pekerjaan/'.$pekerjaan->url_slug.'/verify')}}" class="btn btn-sm btn-outline-warning fa fa-eye"></a></td>
+
             </tr>
                 @endforeach
             </tbody>

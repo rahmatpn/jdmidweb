@@ -74,10 +74,10 @@
             <th class="align-middle">Social Media</th>
             <th class="align-middle">Pendidikan Terakhir</th>
             <th class="align-middle">Status KTP</th>
-            <th class="align-middle">Status SKCk</th>
-            <th class="align-middle text-md-center">foto</th>
-            <th class="align-middle text-md-center">cover</th>
-            <th></th>
+            <th class="align-middle">Status SKCK</th>
+            <th class="align-middle text-md-center">Foto</th>
+            <th class="align-middle text-md-center">Cover</th>
+            <th class="align-middle text-md-center">Action</th>
             <th></th>
         </tr>
         </thead>
@@ -110,9 +110,9 @@
                 @endif
                 <td> <img src="{{asset($user->profile->profileFoto())}}" class="w-100"></td>
                 <td> <img src="{{asset($user->profile->profileCover())}}" class="w-100"></td>
-                <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/delete')}}" class="btn btn-sm btn-danger fa fa-trash"></a></td>
-                <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/edit')}}" class="btn btn-sm btn-info fa fa-pencil"></a></td>
-                <td><a href="{{url('/admin/user/'.$user->profile->url_slug.'/verify')}}" class="btn btn-sm btn-outline-warning  fa fa-eye"></a> </td>
+                <td class="text-sm"><a style="margin-bottom: 5px;" href="{{url('/admin/user/'.$user->profile->url_slug.'/delete')}}" class="btn btn-sm btn-danger fa fa-trash"></a>
+                <a style="margin-bottom: 5px;" href="{{url('/admin/user/'.$user->profile->url_slug.'/edit')}}" class="btn btn-sm btn-info fa fa-pencil"></a>
+                <a style="margin-bottom: 5px;" href="{{url('/admin/user/'.$user->profile->url_slug.'/verify')}}" class="btn btn-sm btn-outline-warning fa fa-eye"></a> </td>
             </tr>
         @endforeach
         </tbody>

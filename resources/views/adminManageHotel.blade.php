@@ -74,8 +74,11 @@
             <th class="align-middle">Website</th>
             <th class="align-middle text-md-center">Status</th>
             <th class="align-middle text-md-center">Foto</th>
+            <th class="align-middle text-md-center">Action</th>
             <th></th>
-            <th></th>
+
+
+
         </tr>
         </thead>
         <tbody>
@@ -91,14 +94,14 @@
                 @if($hotel->profile->status_verifikasi == null)
                     <td class="text-md-center"><button class="btn btn-sm btn-dark fa fa-clock-o"></button></td>
                 @elseif($hotel->profile->status_verifikasi == '1')
-                <td class="text-md-center"><button class="btn btn-sm btn-success fa fa-check"></button></td>
+                    <td class="text-md-center"><button class="btn btn-sm btn-success fa fa-check"></button></td>
                 @else
                     <td class="text-md-center"><button class="btn btn-sm btn-danger fa fa-close"></button></td>
                 @endif
-                <td class="text-md-center"><img src="{{asset($hotel->profile->hotelPhoto())}}" class="h-25"></td>
-                <td class="text-md-center"><a href="{{url('/admin/hotel/'.$hotel->profile->url_slug.'/delete')}}" class="btn btn-sm btn-danger fa fa-trash"></a> </td>
-                <td class="text-md-center"><a href="{{url('/admin/hotel/'.$hotel->profile->url_slug.'/edit')}}" class="btn btn-sm btn-info fa fa-pencil"></a> </td>
-                    <td class="text-md-center"><a href="{{url('admin/hotel/'.$hotel->profile->url_slug.'/verify')}}" class="btn btn-sm btn-warning fa fa-eye"></a></td>
+                <td><img src="{{asset($hotel->profile->hotelPhoto())}}" class="w-100"></td>
+                <td class="text-sm"><a style="margin-bottom: 5px;" href="{{url('/admin/hotel/'.$hotel->profile->url_slug.'/delete')}}" class="btn btn-sm btn-danger fa fa-trash"></a>
+                <a style="margin-bottom: 5px;" href="{{url('/admin/hotel/'.$hotel->profile->url_slug.'/edit')}}" class="btn btn-sm btn-info fa fa-pencil"></a>
+                <a style="margin-bottom: 5px;" href="{{url('/admin/hotel/'.$hotel->profile->url_slug.'/verify')}}" class="btn btn-sm btn-outline-warning fa fa-eye"></a> </td>
             </tr>
         @endforeach
         </tbody>

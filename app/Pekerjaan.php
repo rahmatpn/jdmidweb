@@ -5,9 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Scout\Searchable;
+use Laravel\Scout\SearchableScope;
 
 class Pekerjaan extends Model
 {
+    use searchable;
     protected $table = "pekerjaan";
     protected $guarded = [];
     protected $appends = array('isApplied', 'isExpired');
@@ -41,6 +44,12 @@ class Pekerjaan extends Model
         return $todolist->nama_pekerjaan;
     }
 
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+
+        return array('area' => $array['area'],'deskripsi' => $array['deskripsi']);
+    }
 
     public function hotel(){
         return $this->belongsTo(Hotel::class);

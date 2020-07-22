@@ -257,8 +257,13 @@
 {{--                        <form action="{{url('admin/user/'.$user->profile->url_slug)}}" enctype="multipart/form-data"  data-toggle="validator" method="post">--}}
 {{--            @endauth--}}
                             <div class="container my-5">
+                                @auth('user')
                                 <form action="/user/{{$user->profile->url_slug}}/berkas" enctype="multipart/form-data"  data-toggle="validator" method="post">
-                                    @csrf
+                                    @endauth
+                                    @auth('admin')
+                                        <form action="{{url('admin/user/'.$user->profile->url_slug)}}/berkas" enctype="multipart/form-data"  data-toggle="validator" method="post">
+                                            @endauth
+                                            @csrf
                                     @method('PATCH')
                                 <section>
                                     <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Foto KTP</h3>

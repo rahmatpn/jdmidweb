@@ -104,7 +104,7 @@ Route::group([
 
     Route::post('/admin/user/create', 'AdminController@adminCreateUser');;
 
-
+    Route::patch('/admin/user/{profileUser}/berkas', 'ProfileUserController@updateBerkas');
 
 
 
