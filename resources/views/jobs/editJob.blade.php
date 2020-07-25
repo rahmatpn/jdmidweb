@@ -138,9 +138,29 @@
                     </div>
                     <textarea id="my-summernote" name="deskripsi"  type="text">{{$pekerjaan->deskripsi}}</textarea>
                 </div>
+                <section>
+                    <!-- Section heading -->
+                    <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Foto</h3>
+                        <hr class="w-header">
+                        <!-- Section description -->
+                        <div class="row py-4">
+                            <div class="col-lg-6 mx-auto">
 
+                                <div class="input-group">
+            <span class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+                <label id="upload-label" for="upload" class="font-weight-light text-muted">Pilih File</label>
+                    <input type="file" id="imgInp" class="upload form-control border-0"  name="foto">
+            </span>
+                                </div>
+                                <p class="font-italic text-muted text-center">The image uploaded will be rendered inside the box below.</p>
+                                <img id='img-upload' class="img-fluid rounded shadow-sm mx-auto d-block"/>
+
+                            </div>
+                        </div>
+                </section>
                 <input type="submit" class="btn btn-primary" value="Simpan Data">
             </section>
+    
         </form>
                 </form>
     </div>

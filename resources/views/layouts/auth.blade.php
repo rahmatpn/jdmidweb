@@ -48,7 +48,7 @@
 
         .navbar:not(.top-nav-collapse) {
             background: transparent !important;
-            box-shadow: none;
+            box-shadow: #0d0d0d;
             text-emphasis-color: white;
             text-decoration: white;
 
@@ -173,7 +173,7 @@
 </script>
 <body>
 
-    <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar ">
+    <nav class="navbar navbar-expand-lg  fixed-top scrolling-navbar ">
         <div class="container">
             <a class="navbar-brand" href="{{url('/')}}">
                 <img src="{{asset('/image/logo_head.png')}}" height="50" alt="logo">
