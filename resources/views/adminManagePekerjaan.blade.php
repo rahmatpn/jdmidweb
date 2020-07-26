@@ -14,7 +14,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
     </head>
-    <h1>Pekerjaan</h1>
+    <h1>PEKERJAAN</h1>
     <style>
         .desc {
             white-space: nowrap;

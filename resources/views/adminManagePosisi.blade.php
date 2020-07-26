@@ -27,28 +27,26 @@
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title float-left">Modal Header</h4>
+                    <h4 class="modal-title float-left">Add Posisi</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <form method="POST" class="form-detail" action="{{url('/admin/posisi/add')}}" >
                     @csrf
-                <div class="form-col">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="form-control-label">Nama Posisi</label>
+                            <input type="text" name="nama_posisi" id="nama_posisi" class="form-control" required>
+                    </div>
 
-                         <label class="justify-content-sm-center form-row">
-                            <input type="text" name="nama_posisi" id="nama_posisi" class="input-text" required>
-
-                        </label>
-                        <label class="justify-content-sm-center form-row">
-                            <textarea rows="5" cols="30" name="deskripsi" ></textarea>
-                            {{--                            <input type="text" name="deskripsi" id="deskripsi" class="input-text" required>--}}
-
-                        </label>
-
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-default">Submit</button>
+                        <div class="form-group">
+                            <label class="form-control-label input-group-prepend">Deskripsi</label>
+                            <textarea rows="5" cols="30" name="deskripsi" class="form-control input-group-append"></textarea>
                         </div>
-
                 </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
                 </form>
             </div>
         </div>

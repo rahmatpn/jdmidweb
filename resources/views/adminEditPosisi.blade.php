@@ -33,25 +33,22 @@
             <th class="align-middle">Deskripsi</th>
         </tr>
         </thead>
-
         <tbody>
             <tr>
                 <td>{{$posisi->id}}</td>
                 <td>
-                    <label class="justify-content-sm-center">
-                        <input type="text" name="nama_posisi" id="nama_posisi" class="input-text"  value="{{$posisi->nama_posisi}}" required>
-                        <span class="border"></span>
-                    </label>
+                    <input type="text" name="nama_posisi" id="nama_posisi" class="form-control"  value="{{$posisi->nama_posisi}}" required/>
                 </td>
                 <td>
-                    <textarea rows="5" cols="130" name="deskripsi" >{{$posisi->deskripsi}}</textarea>
+                    <textarea rows="5" cols="130" name="deskripsi" class="form-control">{{$posisi->deskripsi}}</textarea>
                 </td>
                 <td>
-                    <button class="btn rounded btn-primary" type="submit">Save Changes</button>
+                    <button class="btn btn-primary" type="submit">Save Changes</button>
                 </td>
             </tr>
         </tbody>
-        </form></table>
+        </form>
+    </table>
         </div>
     </div>
 

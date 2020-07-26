@@ -174,9 +174,9 @@ return [
 
     'menu' => [
         [
-            'text' => 'search',
-            'search' => true,
-            'topnav' => true,
+            'text' => '',
+            'search' => false,
+            'topnav' => false,
         ],
         [
             'text' => 'blog',

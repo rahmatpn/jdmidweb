@@ -184,7 +184,7 @@
                             <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default" for="alamat">Alamat</span>
                         </div>
                         <textarea id="alamat" name="alamat" class="md-textarea form-control" rows="3">
-                    {{ old('alamat') ?? $user->profile->alamat}}
+{{ old('alamat') ?? $user->profile->alamat}}
                 </textarea>
                     </div>
 

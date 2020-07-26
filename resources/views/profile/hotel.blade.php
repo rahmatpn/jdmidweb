@@ -305,6 +305,7 @@
                                         <a type="button" href="{{url("/job/$pekerjaan->url_slug")}}" class="btn btn-blue btn-md">Read more</a>
 
                                     </div>
+                                    @auth('hotel')
                                     <div class="child dropdown dropleft">
                                         <a class="material-icons" data-toggle="dropdown"
                                            aria-haspopup="true" aria-expanded="false">more_vert</a>
@@ -312,11 +313,10 @@
                                             <a class="dropdown-item" href="{{url("/job/$pekerjaan->url_slug/edit")}}">Edit</a>
                                             <a class="dropdown-item" data-target="#centralModalWarning" data-toggle="modal" href="#">Delete</a>
                                             <a class="dropdown-item" href="{{url("/job/$pekerjaan->url_slug/postlist")}}">Todo List</a>
-
-
                                         </div>
                                         <!-- Basic dropdown -->
                                     </div>
+                                    @endauth
 
                                 </div>
                                 <div class="modal fade" id="centralModalWarning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -350,6 +350,7 @@
                                     </div>
                                 </div>
                             <br/>
+
 {{--                                <a class="card hoverable mb-4 waves-effect waves-light rgba-white-slight">--}}
 {{--                                    <!-- Card image -->--}}
 

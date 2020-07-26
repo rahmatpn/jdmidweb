@@ -31,30 +31,31 @@
                 </div>
                 <form method="POST" class="form-detail" action="{{url('/admin/hotel/create')}}" >
                     @csrf
-                    <div class="form-col">
-
-                        <label class="form-row">
-                            Nama    <input type="text" name="name" id="name" class="input-text" required>
-                        </label>
-                        <label class=" form-row">
-                            Email   <input type="text" name="email" id="email" class="input-text" required>
-                        </label>
-                        <label class=" form-row">
-                            Password <input type="password" name="password" id="password" class="input-text" required>
-                        </label>
-                        <label class=" form-row">
-                            Confirm password <input type="password" name="password_confirmation" id="password-confirm" class="input-text" required autocomplete="new-password">
-                        </label>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-default">Submit</button>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="form-control-label">Nama</label>
+                            <input type="text" name="name" id="name" class="form-control input-group-lg" required>
                         </div>
-
+                        <div class="form-group">
+                            <label class="form-control-label">Email</label>
+                            <input type="text" name="email" id="email" class="form-control input-group-lg" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">Password</label>
+                            <input type="password" name="password" id="password" class="form-control input-group-lg" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label">Confirm Password</label>
+                            <input type="password" name="password_confirmation" id="password-confirm" class="form-control input-group-lg" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-
 @stop
 
 
