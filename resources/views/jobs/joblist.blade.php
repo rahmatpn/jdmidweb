@@ -35,7 +35,11 @@
                     <div class="card-title">
                         <div class="row">
                             <div class="col-sm-4 text-center">
-                                @if($pekerjaan->pivot->status == '1')
+{{--                                @if($pekerjaan->pivot->status == '1')--}}
+{{--                                    <p>Belum Dikerjakan</p>--}}
+                                @if($pekerjaan->pivot->status == '1' & $pekerjaan->isExpired == true)
+                                    <p>Pekerjaan Kadaluarsa</p>
+                                @elseif($pekerjaan->pivot->status == '1')
                                     <p>Belum Dikerjakan</p>
                                 @elseif($pekerjaan->pivot->status == '2')
                                     <p>Menunggu Konfirmasi</p>
@@ -121,7 +125,11 @@
                                             {{date('l, F jS, Y', strtotime($pekerjaan->tanggal_mulai))}}
                                         </div>
                                     </div>
+                                        @if($pekerjaan->isExpired == true)
+                                        <p></p>
+                                        @else
                                         <a class="btn btn-success rounded shadow-sm" type="button" href="{{url("/joblist/$pekerjaan->url_slug/todolist")}}">To-do list</a>
+                                            @endif
                                 </div>
 
                                 </div>

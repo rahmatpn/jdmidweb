@@ -190,6 +190,8 @@ Route::group([
     Route::patch('/user/{profileUser}', 'ProfileUserController@update');
 
     Route::post('/job/{url_slug}/apply', 'PekerjaanController@apply');
+    Route::get('/viewJob/{url_slug}', 'PekerjaanController@show');
+    Route::get('/job/{slug}/cancelApply/{url_slug}', 'PekerjaanController@cancelApply');
 
     Route::post('/job/{url_slug}/done', 'PekerjaanController@updateJobProgress');
 

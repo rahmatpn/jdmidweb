@@ -464,10 +464,15 @@ body{
                                          </form>
                                      @endauth
                                      @auth('user')
-                                             <form id="apply_form" action="/job/{{$pekerjaan->url_slug}}/apply" method="post">
+                                            @if($pekerjaan->isApplied == true)
+                                                 <a href="{{url('/job/'.$pekerjaan->url_slug.'/cancelApply/'.$user->profile->url_slug)}}"><i class="btn btn-sm btn-warning">KANSELLLLL!!!</i></a>
+                                             @elseif($pekerjaan->isApplied == false)
+                                                 <form id="apply_form" action="/job/{{$pekerjaan->url_slug}}/apply" method="post">
                                                  @csrf
                                                  <a href="javascript:{}" onclick="document.getElementById('apply_form').submit();" class="btn btn-block btn-primary btn-md shadow-sm" style="font-size: medium">Apply</a>
-                                             </form>
+                                                 </form>
+                                                @endif
+
                                          @endauth
                                  </div>
 

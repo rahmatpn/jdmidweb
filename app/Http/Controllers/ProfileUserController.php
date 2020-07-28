@@ -23,7 +23,7 @@ class ProfileUserController extends Controller {
         } else {
             abort(404);
         }
-        //            return view('profile.user', compact('user'));
+
     }
 
     public function edit($url_slug) {

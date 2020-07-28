@@ -85,8 +85,9 @@ class PekerjaanController extends Controller
         $pelamar = $pekerjaan->dikerjakan()->get();
         $pelamarDiterima = $pekerjaan->dikerjakan()->where('status', '>=', '1')->get();
         $pelamarSelesai = $pekerjaan->dikerjakan()->where('status', '2')->get();
-
-        return view('jobs.job', compact('pekerjaan','pelamar', 'pelamarDiterima', 'pelamarSelesai'));
+        $user = Auth::guard('user')->user();
+//        dd($pekerjaan->getIsAppliedAttribute());
+        return view('jobs.job', compact('pekerjaan','pelamar', 'pelamarDiterima', 'pelamarSelesai','user'));
     }
 
     public function edit($url_slug){
@@ -197,6 +198,14 @@ class PekerjaanController extends Controller
         $pekerjaan = Pekerjaan::where('url_slug','=', $slug)->first();
         $pekerjaan->dikerjakan()->toggle($user);
         return redirect('/job/'.$slug);
+
+    }
+
+    public function cancelApply($slug, $url_slug){
+        $user = Auth::guard('user')->user()->profile;
+        $pekerjaan = Pekerjaan::where('url_slug','=', $slug)->first();
+        $pekerjaan->dikerjakan()->toggle($user);
+        return redirect('/viewJob/'.$slug);
 
     }
 

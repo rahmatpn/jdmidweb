@@ -15,11 +15,7 @@ class KerjakanController extends Controller
 
     public function index(){
         $user = Auth::guard('user')->user();
-//        $kerjakan = $user->mengerjakan()->get();
         $kerjakan = $user->mengerjakan()->where('pekerjaan_user.status', '>=', '1')->get();
-//        dd($kerjakan);
-
-
         return view('jobs.joblist', compact('kerjakan','user'));
     }
 

@@ -129,7 +129,7 @@
                             <h5 class="card-title">{{$pekerjaan->getPosisi()}}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">{{$pekerjaan->hotel->profile->nama}}</h6>
                             <p class="card-text desc">{!!html_entity_decode($pekerjaan->deskripsi)!!}</p>
-                            <a href="{{url("/job/$pekerjaan->url_slug")}}" class="btn btn-md blue">Selengkapnya</a>
+                            <a href="{{url("/viewJob/$pekerjaan->url_slug")}}" class="btn btn-md blue">Selengkapnya</a>
                         </div>
 
                         <div class="col-4 align-items-center">
