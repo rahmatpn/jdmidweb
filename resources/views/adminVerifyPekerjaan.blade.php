@@ -22,7 +22,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex my-5">
-                    <table class="table table-md">
+                    <table class="table">
                         <tr>
                             <th><h5> Nama Hotel: </h5></th>
                             <td class="text-md-left">{{$pekerjaan->hotel->profile->nama}}</td>
@@ -73,15 +73,22 @@
                             <th><h5> Deskripsi: </h5></th>
                             <td>{{$pekerjaan->deskripsi}}</td>
                         </tr>
+                        <tr>
+                            <td>
+                                <a href="{{url('admin/pekerjaan/'.$pekerjaan->url_slug.'/verifyPekerjaan')}}" class="btn btn-success btn-block btn-lg fa fa-check ml-5"> Verify</a>
+
+                            </td>
+                            <td>
+                              <a href="{{url('admin/pekerjaan/'.$pekerjaan->url_slug.'/rejectPekerjaan')}}" class="btn btn-danger btn-lg  fa fa-close ml-5"> Reject</a>
+                            </td>
+                        </tr>
                     </table>
 
                     <div class="ml-4">
                         <img src="{{asset($pekerjaan->foto ?? $pekerjaan->hotel->profile->hotelPhoto())}}" class="w-100">
                     </div>
                 </div>
-                <div><a href="{{url('admin/pekerjaan/'.$pekerjaan->url_slug.'/verifyPekerjaan')}}" class="btn btn-success fa fa-check ml-5"> Verify</a> </div>
-                <hr>
-                <div><a href="{{url('admin/pekerjaan/'.$pekerjaan->url_slug.'/rejectPekerjaan')}}" class="btn btn-danger fa fa-close ml-5"> Reject</a> </div>
+
             </div>
 
         </div>

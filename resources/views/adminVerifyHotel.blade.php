@@ -18,14 +18,16 @@
 @stop
 
 @section('content')
-    <div class="row my-9">
+    <div class="container-fluid">
         <div class="card">
-            <th class="card-body">
+            <div class="card-body">
                 <div class="d-flex my-5">
-                    <table class="table table-md">
+                    <table class="table">
                         <tr>
                             <th><h5> Nama Hotel: </h5></th>
+
                             <td class="text-md-center">{{$hotel->nama}}</td>
+
                         </tr>
 
                         <tr>
@@ -60,12 +62,13 @@
 
                         <tr>
                             <td>
-                                <div><a href="{{url('admin/hotel/'.$hotel->url_slug.'/verifyHotel')}}" class="btn btn-success fa fa-check ml-5"> Verify</a> </div></td>
+                                <a href="{{url('admin/hotel/'.$hotel->url_slug.'/verifyHotel')}}" class="btn btn-success btn-block btn-lg fa fa-check "> Verify</a></td>
                                 <hr>
                             <td>
-                                <div><a href="{{url('admin/hotel/'.$hotel->url_slug.'/rejectHotel')}}" class="btn btn-danger fa fa-close ml-5"> Reject</a> </div>
+                                <div><a href="{{url('admin/hotel/'.$hotel->url_slug.'/rejectHotel')}}" class="btn btn-danger btn-block btn-lg fa fa-close "> Reject</a> </div>
                             </td>
                         </tr>
+
                     </table>
 
                     <div class="ml-4">
