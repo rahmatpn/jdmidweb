@@ -173,22 +173,6 @@ return [
     */
 
     'menu' => [
-        [
-            'text' => '',
-            'search' => false,
-            'topnav' => false,
-        ],
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'Home',
-            'url'         => '/home',
-            'icon'        => 'fas fa-fw fa-home',
-            'label_color' => 'success',
-        ],
         ['header' => 'Manage'],
         [
             'text' => 'User',
