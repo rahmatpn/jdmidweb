@@ -75,7 +75,7 @@
             <th class="align-middle">Website</th>
             <th class="align-middle text-md-center">Status</th>
             <th class="align-middle text-md-center">Foto</th>
-            <th class="align-middle text-md-center">Action</th>
+            <th class="align-middle text-md-center"></th>
             <th></th>
 
 

@@ -57,7 +57,7 @@
 {{--            <th class="align-middle text-sm text-md-center">Deskripsi</th>--}}
             <th class="align-middle text-sm">Status</th>
             <th class="align-middle text-sm">Foto</th>
-            <th> Action </th>
+            <th> </th>
         </tr>
         </thead>
         <tbody>

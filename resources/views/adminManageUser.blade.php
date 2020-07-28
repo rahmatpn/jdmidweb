@@ -86,7 +86,8 @@
             <th class="align-middle">Status SKCK</th>
             <th class="align-middle text-md-center">Foto</th>
             <th class="align-middle text-md-center">Cover</th>
-            <th class="align-middle text-md-center">Action</th>
+            
+            <th></th>
             <th></th>
         </tr>
         </thead>
@@ -94,7 +95,7 @@
         @foreach($user as $user)
             <tr>
                 <td>{{$user->id}}</td>
-                <td><a href="{{url('admin/user/'.$user->profile->url_slug.'/verifikasi')}}">{{$user->profile->nama}}</a></td>
+                <td><a href="{{url('admin/user/'.$user->profile->url_slug.'/verify')}}">{{$user->profile->nama}}</a></td>
                 <td>{{$user->profile->email}}</td>
                 <td>{{$user->profile->tanggal_lahir}}</td>
                 <td>{{$user->profile->jenis_kelamin}}</td>

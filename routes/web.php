@@ -192,6 +192,7 @@ Route::group([
     Route::post('/job/{url_slug}/apply', 'PekerjaanController@apply');
 
     Route::post('/job/{url_slug}/done', 'PekerjaanController@updateJobProgress');
+
     Route::get('/job/{slug}/finish/{url_slug}', 'PekerjaanController@confirmFinish');
 });
 
