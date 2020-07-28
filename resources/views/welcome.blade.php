@@ -33,7 +33,7 @@
         body,
         header,
         .view {
-            height: 1000px;
+            height: 900px;
         }
     }
     @media (min-width: 800px) and (max-width: 850px) {
@@ -41,7 +41,7 @@
         body,
         header,
         .view {
-            height: 600px;
+            height: 500px;
         }
     }
 
@@ -100,7 +100,7 @@
         box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
     }
     #what-we-do .card .card-block{
-        padding-left: 50px;
+        padding-left: 80px;
         position: relative;
     }
     #what-we-do .card .card-block a{
@@ -202,6 +202,8 @@
 
     }
 
+
+
 </style>
 <script>
     (function ($){
@@ -255,11 +257,10 @@
         keepImg: true,
     });
 
+
 </script>
 <body>
 
-<!-- Main navigation -->
-<header>
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar">
         <div class="container">
@@ -272,22 +273,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
                 <ul class="navbar-nav mr-auto">
-{{--                    <li class="nav-item active">--}}
-{{--                        <a class="nav-link" href="#">Home--}}
-{{--                            <span class="sr-only">(current)</span>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link" href="#">Link</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link" href="#">Profile</a>--}}
-{{--                    </li>--}}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @guest('hotel') @guest('user')
-                    <a href="{{url('/masuk/hotel')}}" class="btn btn-amber shadow-sm">Hotel</a>
-                    <a href="{{url('/masuk/user')}}" class="btn btn-deep-purple shadow-sm">Part Timer</a>
+                    <a href="{{url('/masuk/hotel')}}" class="btn btn-amber shadow-none rounded-pill">Hotel</a>
+                    <a href="{{url('/masuk/user')}}" class="btn btn-deep-purple shadow-none rounded-pill">Part Timer</a>
                     @endguest @endguest
                                     @auth('hotel')
                             <li class="nav-item dropdown">
@@ -336,15 +326,14 @@
                 <!--Grid row-->
                 <div class="row">
                     <!--Grid column-->
-                    <div class="col-md-6 black-text text-center text-md-left mt-xl-5 mb-5" data-wow-delay="0.3s">
-                        <h5 class="mb-3 font-weight-bold wow fadeInDownBig">Tersedia <span style="color: orangered">{{\App\Pekerjaan::all()->count()}} </span>Lowongan sampingan untuk anda
-                        </h5>
-                        <h1 class="h1-responsive font-weight-bold mt-sm-5 wow bounceIn">Kolega Hotel </h1>
+                    <div class="col-md-6 black-text text-center text-md-left mt-xl-5 mb-5 justify-content-around" data-wow-delay="0.3s">
+                        <h5 class="mb-3 font-weight-bold wow fadeInDownBig">Tersedia <span style="color: orangered">{{\App\Pekerjaan::all()->count()}}</span>Lowongan sampingan untuk anda</h5>
+                        <h1 class="h1-responsive font-weight-bold mt-sm-5 wow bounceIn">Kolega Hotel</h1>
                         <hr class="hr-dark wow bounceInDown">
-                        <h6 class="mb-4 wow fadeInDownBig">Job Portal </h6>
+                        <h6 class="mb-3 wow fadeInDownBig">Kami adalah pintu utama bagi anda yang ingin bekerja paruh waktu di layanan perhotelan</h6>
                         @guest('hotel') @guest('user')
-                        <a class="btn btn-black wow fadeInLeftBig" href="{{url('/masuk/hotel')}}"><strong>Post a Job</strong></a>
-                            <a class="btn btn-outline-blue wow fadeInRightBig" href="{{url('/masuk/user')}}"><strong>Cari Lowongan</strong></a>
+                        <a class="btn btn-black  wow fadeInLeftBig rounded-pill" href="{{url('/masuk/hotel')}}"><strong>Post a Job</strong></a>
+                            <a class="btn btn-outline-blue wow fadeInRightBig rounded-pill" href="{{url('/masuk/user')}}"><strong>Cari Lowongan</strong></a>
                         @endguest @endguest
                         @auth('hotel')
                             <a class="btn btn-black wow fadeInLeftBig" href="{{url('/job/postjob')}}"><strong>Post a Job</strong></a>
@@ -352,7 +341,6 @@
                         @auth('user')
                             <a class="btn btn-outline-blue wow fadeInRightBig" href="{{url('/home')}}"><strong>Cari Lowongan</strong></a>
                         @endauth
-
                     </div>
                     <!--Grid column-->
                     <!--Grid column-->
@@ -368,7 +356,7 @@
         <!-- Mask & flexbox options-->
     </div>
     <!-- Full Page Intro -->
-</header>
+
 <!-- Main navigation -->
 <!--Main Layout-->
 <!-- Services section -->
@@ -378,7 +366,7 @@
         <p class="text-center text-muted h5">Cari Kerja anda, atur lowongan anda, bangun karir anda dengan satu sistem.</p>
         <div class="row mt-5">
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 wow fadeInLeft">
-                <div class="card">
+                <div class="card shadow-none">
                     <div class="card-block block-1">
                         <h3 class="card-title">Permudah Cari Pekerjaan</h3>
                         <p class="card-text">Anda dapat mencari pekerjaan sesuai kemampuan anda.</p>
@@ -387,7 +375,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 wow fadeInUp">
-                <div class="card">
+                <div class="card shadow-none">
                     <div class="card-block block-2">
                         <h3 class="card-title">Managing Job</h3>
                         <p class="card-text">Hotel dapat mengatur dan membuat lowongan pekerjaan dengan mudah.</p>
@@ -396,7 +384,7 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 wow fadeInRight">
-                <div class="card">
+                <div class="card shadow-none">
                     <div class="card-block block-3">
                         <h3 class="card-title">Building Career</h3>
                         <p class="card-text">Dengan sistem ini anda dapat membangun jenjang karir anda.</p>
@@ -413,9 +401,7 @@
     <br/>
         <div class="container flex-center text-center">
             <div class="row mt-lg-5">
-                <div class="col-md-12 col-xl-9 mx-auto wow fadeIn">
-                    <br/>
-                    <br/>
+                <div class="col-md-12 col-xl-9 mx-auto wow fadeIn ">
                     <br/>
                     <h1 class="display-3 font-weight-bold mb-2 wow fadeInDown" style="color: white" data-wow-delay="0.3s">Tersedia Berbagai Jenis Posisi</h1>
                 </div>
@@ -424,8 +410,8 @@
 </div>
 </div>
 
-<div class="container pt-5 my-5 z-depth-1 bg-white wow fadeIn">
-    <section class="p-md-3 mx-md-5">
+<div class="container pt-5 my-5  bg-white wow fadeIn">
+    <section class="p-md-3 mx-md-5 ">
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-5 wow fadeInLeft" data-wow-delay="0.2s">
                 <h4 class="font-weight-bold mb-3">
@@ -578,7 +564,7 @@
     <section class="dark-grey-text">
 
         <!-- Section heading -->
-        <h2 class="text-center font-weight-bold mb-4 pb-2 wow fadeInUp">Why is it so great?</h2>
+        <h2 class="text-center font-weight-bold mb-4 pb-2 section-title wow fadeInUp">Why is it so great?</h2>
         <!-- Section description -->
         <p class="text-center lead grey-text mx-auto mb-5 wow fadeInDown">Dengan aplikasi yang sudah tersedia untuk mobile, sekarang semakin mudah untuk melakukan pekerjaan</p>
 
@@ -730,7 +716,7 @@
     <!--Section: Content-->
     <section id="what-we-do">
 
-        <h3 class="text-center font-weight-bold mb-5">Our Beloved Things</h3>
+        <h3 class="text-center font-weight-bold mb-5 section-title">Our Beloved Things</h3>
 
         <div class="row d-flex justify-content-center">
 
@@ -768,9 +754,7 @@
 </div>
 <div class="container my-5">
     <!--Section: Content-->
-    <section>
-
-        <h6 class="font-weight-normal text-uppercase font-small grey-text mb-4 text-center">FAQ</h6>
+    <section id="faq">
         <!-- Section heading -->
         <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Frequently Asked Questions</h3>
         <hr class="w-header">
@@ -908,7 +892,7 @@
     <div class="container py-5">
         <div class="row py-4">
             <div class="col-lg-4 col-md-6 mb-4 mb-lg-0"><img src="{{asset('/image/logo2.png')}}" alt="" width="180" class="mb-3">
-                <p class="font-italic text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                <p class="font-italic text-muted">Raih kesempatanmu untuk menjadi pekerja paruh waktu perhotelan disini.</p>
             </div>
             <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                 <h6 class="text-uppercase font-weight-bold mb-4">Hotel</h6>

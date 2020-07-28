@@ -58,7 +58,6 @@
                         <span aria-hidden="true" class="white-text">&times;</span>
                     </button>
                 </div>
-
                 <!--Body-->
                 <div class="modal-body">
                     <div class="text-center">
@@ -66,7 +65,6 @@
                         <p>{{session()->get('expired')}}</p>
                     </div>
                 </div>
-
                 <!--Footer-->
                 <div class="modal-footer justify-content-center">
                     <a type="button" class="btn btn-outline-danger waves-effect" data-dismiss="modal">Ok, Siap</a>
@@ -78,7 +76,7 @@
     @endif
 <div class="container py-5">
     <div class="row my-5">
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-6 mb-4">
             @auth('hotel')
                 <div class="card">
                     <div class="card-body">
@@ -99,34 +97,25 @@
                 </div>
             @endauth
             @auth('user')
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-lg-4 mb-2 align-items-center">
-                            <div class="avatar w-100 white d-flex justify-content-center align-items-center">
-                            <img src="{{asset($user->profile->profileFoto())}}"  class="img-fluid z-depth-1">
-                            </div>
+                    <div class="card">
+                        <div class="avatar white d-flex justify-content-center align-items-center">
+                            <img src="{{asset($user->profile->profileFoto())}}" class="img-fluid"/>
                         </div>
-                        <div class="col-lg-8 text-muted d-flex flex-column justify-content-start pt-1">
-                            <p class="mb-2"><strong>{{$user->profile->nama}}</strong></p>
+                        <div class="card-body">
+                            <p class="font-weight-bold">{{$user->profile->nama}}</p>
+                            @if(is_array($user->posisi) || is_object($user->posisi))
+                                <hr>
+                                @foreach($user->posisi as $posisi)
+                            <div class="text-muted">{{$posisi->nama_posisi}}</div>
+                                @endforeach
+                            @endif
                         </div>
-
                     </div>
-                    <hr/>
-                    <p class="mb-2"><strong>Posisi</strong></p>
-
-
-                        @if(is_array($user->posisi) || is_object($user->posisi))
-                            @foreach($user->posisi as $posisi)
-                        <p class="text-muted card-text mt-2 px-4 mb-2">{{$posisi->nama_posisi}}</p>
-                        @endforeach
-                    @endif
-
-                </div>
-            </div>
                 @endauth
         </div>
-        <div class="col-md-6">
+        <div class="col-lg-6">
+            <div class="card-group">
+
 
             <div class="card">
                 @foreach($kerja as $pekerjaan)
@@ -134,14 +123,15 @@
 {{--                    <div class="avatar w-100 white d-flex justify-content-center align-items-center">--}}
 {{--                        <img src="{{asset($pekerjaan->hotel->profile->hotelPhoto())}}"  class="img-fluid z-depth-1">--}}
 {{--                    </div>--}}
+
                     <div class="row">
                         <div class="col-8">
                             <h5 class="card-title">{{$pekerjaan->getPosisi()}}</h5>
                             <h6 class="card-subtitle mb-2 text-muted">{{$pekerjaan->hotel->profile->nama}}</h6>
                             <p class="card-text desc">{!!html_entity_decode($pekerjaan->deskripsi)!!}</p>
                             <a href="{{url("/job/$pekerjaan->url_slug")}}" class="btn btn-md blue">Selengkapnya</a>
-
                         </div>
+
                         <div class="col-4 align-items-center">
                             <div class="avatar w-100 white d-flex justify-content-center align-items-center">
                                 <img src="{{asset($pekerjaan->foto ?? $pekerjaan->hotel->profile->hotelPhoto())}}"  class="img-fluid z-depth-1">
@@ -153,7 +143,7 @@
                     <hr>
                 @endforeach
             </div>
-        <br/>
+            </div>
 
                 <nav aria-label="Page navigation example">
                     <ul class="pagination pagination-circle pg-blue">
@@ -164,25 +154,21 @@
 {{--                {!! $kerja->render() !!}--}}
         </div>
 
-{{--        <div class="col-md-3">--}}
-{{--            <div class="card">--}}
+        <div class="col-lg-3">
 
-{{--                <div class="card-body">--}}
-{{--                    <div class="card-text">--}}
-{{--                        <a href="#!" class="card-title">About us</a>--}}
-{{--                        <a href="#!" class="card-title">Contact Us</a>--}}
-{{--                        <a href="#!" class="card-title">Privacy Policy</a>--}}
-{{--                        <a href="#!" class="card-title">© 2020 Kolega Hotel, Inc.</a>--}}
-{{--                    </div>--}}
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-text">
+                            <a href="#!" class="card-title">About us</a>
+                            <a href="#!" class="card-title">Contact Us</a>
+                            <a href="#!" class="card-title">Privacy Policy</a>
+                            <a href="#!" class="card-title">© 2020 Kolega Hotel, Inc.</a>
+                        </div>
+                    </div>
+                </div>
 
-{{--                    <h6 class="card-subtitle mb-2 text-muted">Contact User</h6>--}}
 
-{{--                   --}}{{-- <p class="card-text">Some quick example text to build on the panel title and make up the bulk of the panel's content.</p>--}}
-{{--                    <a href="#!" class="card-link mr-3">Card link</a>--}}
-{{--                    <a href="#!" class="card-link ml-0">Another link</a>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
+        </div>
     </div>
 </div>
     <!-- Footer -->
@@ -198,7 +184,7 @@
                 <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
 
                     <!-- Content -->
-                    <h6 class="text-uppercase font-weight-bold">Hotel name</h6>
+                    <h6 class="text-uppercase font-weight-bold">We are</h6>
                     <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
 
                     <div class="row">

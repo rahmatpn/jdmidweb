@@ -11,19 +11,20 @@
     <link rel="icon" href="{{asset("/image/logo2.png")}}">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" type="text/css" href="css/roboto-font.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login.css') }}" rel="stylesheet">
     <script src="{{ asset('js/loginhotel.js') }}" defer></script>
     <script src="{{ asset('js/mdb.js') }}"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/roboto.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-{{--    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-5/css/fontawesome-all.min.css">--}}
+
 
 
 
@@ -45,9 +46,10 @@
         box-shadow: black;
         text-emphasis-color: white;
         text-decoration: white;
+    }
 
-
-
+    label ,p{
+        font-family: "Roboto", sans-serif;
     }
 </style>
 <body class="form-v8 ">
@@ -56,7 +58,6 @@
         <a class="navbar-brand" href="{{url('/')}}">
             <img src="{{asset('/image/logo_head.png')}}" height="50" alt="logo">
         </a>
-
         <a class="navbar-link black-text mr-3" href="{{url('/')}}">Kembali</a>
 
     </div>
@@ -169,7 +170,7 @@
 
                             <p class="pt-3 pr-2">{{session()->get('success')}}</p>
 
-                            <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Ok, thanks</a>
+                            <a type="button" class="btn btn-outline-primary waves-effect rounded-pill" data-dismiss="modal">Ok, thanks</a>
                         </div>
                     </div>
                 </div>
@@ -245,7 +246,7 @@
                     </div>
 
                     <div class="form-row-last">
-                        <input type="submit" name="register" class="register" value="Sign In">
+                        <input type="submit" name="register" class="register rounded-pill" value="Sign In">
                     </div>
                     <p style="font-size: 14px">Tidak Punya Akun? Silahkan Registrasi Terlebih Dahulu</p>
                 </div>
@@ -287,7 +288,7 @@
                                         </label>
                                     </div>
                                     <div class="form-row-last">
-                                        <input type="submit" name="register" class="register" value="Register">
+                                        <input type="submit" name="register" class="register rounded-pill" value="Register">
                                     </div>
                                 </div>
                             </form>

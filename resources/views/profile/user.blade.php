@@ -16,17 +16,35 @@
             background-position: center center;
             background-repeat: no-repeat;
         }
+
+        #header{
+            background-image: url({{asset($user->profile->profileCover())}}); background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+
+
+        }
+        .overlay{
+            height: 100%;
+            width: 100%;
+            background: rgba(39,62,84,0.82);
+            position: absolute;
+
+
+        }
     </style>
 
-    <header class="masthead text-white text-center " style="background-image: url({{asset($user->profile->profileCover())}}); background-repeat: no-repeat;
-        background-size: cover;">
+    <header class="masthead text-white text-center" id="header">
+
         <div class="container d-flex align-items-center flex-column">
 
             <!-- Masthead Avatar Image -->
             <img class="masthead-avatar rounded-circle z-depth-1 mb-5 "  src="{{asset($user->profile->profileFoto())}}" alt="">
 
             <!-- Masthead Heading -->
-            <h1 class="masthead-heading  text-uppercase mb-0">{{$user->profile->nama_lengkap}}</h1>
+            <h1 class="masthead-heading  mb-0">{{$user->profile->nama_lengkap}}</h1>
 
             <!-- Icon Divider -->
             <div class="divider-custom divider-light">
@@ -37,16 +55,18 @@
                 <div class="divider-custom-line"></div>
             </div>
             <h5 class="masthead-subheading"></h5>
-
             <!-- Masthead Subheading -->
             @if(is_array($user->posisi) || is_object($user->posisi))
                 @foreach($user->posisi as $posisi)
-                <p class="masthead-subheading font-weight-light mb-0">{{$posisi->nama_posisi}}</p>
+                <div class="masthead-subheading font-weight-light mb-0">{{$posisi->nama_posisi}}</div>
                 @endforeach
             @endif
+
         </div>
 
+
     </header>
+
 
     <div class="container my-5">
 

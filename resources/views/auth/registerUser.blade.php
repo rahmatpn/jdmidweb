@@ -46,9 +46,10 @@
         box-shadow: black;
         text-emphasis-color: white;
         text-decoration: white;
+    }
 
-
-
+    label ,p{
+        font-family: "Roboto", sans-serif;
     }
 </style>
 <body class="form-v8 ">
@@ -76,7 +77,6 @@
                     <!--Header-->
                     <div class="modal-header">
                         <p class="heading lead">Login Gagal</p>
-
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true" class="white-text">&times;</span>
                         </button>
@@ -86,7 +86,7 @@
                     <div class="modal-body">
                         <div class="text-center">
                             <i class="fas fa-frown fa-4x mb-3 animated rotateIn"></i>
-                            <p>{{session()->get('gagalLoginuser')}}</p>
+                            <div>{{session()->get('gagalLoginuser')}}</div>
                         </div>
                     </div>
 
@@ -117,7 +117,7 @@
                         <div class="text-center">
                             <i class="fas fa-times fa-4x mb-3 animated rotateIn"></i>
                             @foreach ($errors->all() as $error)
-                            <p>{{ $error }}</p>
+                            <div>{{ $error }}</div>
                                 @endforeach
                         </div>
                     </div>
@@ -171,7 +171,7 @@
 
                             <p class="pt-3 pr-2">{{session()->get('success')}}</p>
 
-                            <a type="button" class="btn btn-outline-primary waves-effect" data-dismiss="modal">Ok, thanks</a>
+                            <a type="button" class="btn btn-outline-primary waves-effect rounded-pill" data-dismiss="modal">Ok, thanks</a>
                         </div>
                     </div>
                 </div>
@@ -217,7 +217,7 @@
         <div class="form-right">
             <div class="tab">
                 <div class="tab-inner">
-                    <button class="tablinks" onclick="openCity(event, 'sign-in')" id="defaultOpen"  >Sign In</button>
+                    <button class="tablinks" onclick="openCity(event, 'sign-in')" id="defaultOpen">Sign In</button>
                 </div>
                 <div class="tab-inner">
                     <button class="tablinks" onclick="openCity(event, 'sign-up')">Sign Up</button>
@@ -247,7 +247,7 @@
                                 </div>
 
                                 <div class="form-row-last">
-                                    <input type="submit" name="register" class="register" value="Sign In">
+                                    <input type="submit" name="register" class="register rounded-pill" value="Sign In">
                                 </div>
                                 <p style="font-size: 14px">Tidak Punya Akun? Silahkan Registrasi Terlebih Dahulu</p>
                             </div>
@@ -289,7 +289,7 @@
                                         </label>
                                     </div>
                                     <div class="form-row-last">
-                                        <input type="submit" name="register" class="register" value="Register">
+                                        <input type="submit" name="register" class="register rounded-pill" value="Register">
                                     </div>
                                 </div>
                             </form>
