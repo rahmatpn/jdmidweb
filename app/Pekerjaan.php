@@ -10,7 +10,6 @@ use Laravel\Scout\SearchableScope;
 
 class Pekerjaan extends Model
 {
-    use searchable;
     protected $table = "pekerjaan";
     protected $guarded = [];
     protected $appends = array('isApplied', 'isExpired');

@@ -52,8 +52,7 @@
                         </div>
                         <div class="form-group">
                             <label class="form-control-label">Confirm Password</label>
-
-                                <input type="password" name="password_confirmation" id="password-confirm" class="form-control input-lg" required autocomplete="new-password">
+                                <input type="password" name="password_confirmation" id="password-confirm" class="form-control input-lg" required autoco mplete="new-password">
 
                         </div>
                     </div>

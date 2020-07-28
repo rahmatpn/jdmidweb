@@ -305,8 +305,8 @@
                                     </form>
                                 </div>
                             </li>
-                                        @endauth
-                                    @auth('user')
+                        @endauth
+                        @auth('user')
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
                                    aria-haspopup="true" aria-expanded="false">
@@ -322,9 +322,8 @@
                                     </form>
                                 </div>
                             </li>
-                                    @endauth
-
-                                </ul>
+                        @endauth
+                </ul>
             </div>
         </div>
     </nav>
@@ -342,11 +341,18 @@
                         </h5>
                         <h1 class="h1-responsive font-weight-bold mt-sm-5 wow bounceIn">Kolega Hotel </h1>
                         <hr class="hr-dark wow bounceInDown">
-                        <h6 class="mb-4 wow fadeInDownBig">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor malesuada metus. Ut pellentesque,
-                            purus non mollis sodales, arcu massa ornare sem, nec blandit ante lorem in sapien. Quisque tincidunt urna tortor, sed dignissim leo tristique non.
-                            Nunc facilisis scelerisque massa et lacinia.</h6>
+                        <h6 class="mb-4 wow fadeInDownBig">Job Portal </h6>
+                        @guest('hotel') @guest('user')
                         <a class="btn btn-black wow fadeInLeftBig" href="{{url('/masuk/hotel')}}"><strong>Post a Job</strong></a>
-                        <a class="btn btn-outline-blue wow fadeInRightBig" href="{{url('/masuk/user')}}"><strong>Cari Lowongan</strong></a>
+                            <a class="btn btn-outline-blue wow fadeInRightBig" href="{{url('/masuk/user')}}"><strong>Cari Lowongan</strong></a>
+                        @endguest @endguest
+                        @auth('hotel')
+                            <a class="btn btn-black wow fadeInLeftBig" href="{{url('/job/postjob')}}"><strong>Post a Job</strong></a>
+                        @endauth
+                        @auth('user')
+                            <a class="btn btn-outline-blue wow fadeInRightBig" href="{{url('/home')}}"><strong>Cari Lowongan</strong></a>
+                        @endauth
+
                     </div>
                     <!--Grid column-->
                     <!--Grid column-->
@@ -530,7 +536,7 @@
                     Membuat minuman sesuai dengan order tamu dan harus sesuai denganstandard Perusahaan serta memberikan kepuasan kepada tamu semaksimal mungkin.
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInUp" data-wow-delay="1.2s">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInUp" data-wow-delay="1s">
                 <h4 class="font-weight-bold mb-3">
                     <i class="fas fa-camera black-text pr-2"></i> Photographer
                 </h4>
@@ -538,7 +544,7 @@
                     Fotografer memiliki tugas untuk mengambil foto guna mengabadikan berbagai momen dalam suatu gambar.
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInRight" data-wow-delay="1.2s">
+            <div class="col-lg-4 col-md-6 mb-5 wow fadeInRight" data-wow-delay="1s">
                 <h4 class="font-weight-bold mb-3">
                     <i class="fas fa-broom pink-text pr-2"></i> Cleaning Service
                 </h4>
