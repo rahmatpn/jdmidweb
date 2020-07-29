@@ -15,12 +15,14 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
 
     </head>
+
     <div class="row">
         <h1 class="text-uppercase col-md-8">User</h1>
         <div class="justify-content-end d-flex col-md-4" >
             <button  data-toggle="modal" data-target="#myModal"  class="btn btn-success justify-content-end fa fa-plus"> Tambah User</button>
         </div>
     </div>
+
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
@@ -67,6 +69,45 @@
 @stop
 
 @section('content')
+
+    @if(Session::has('gagaluser'))
+        <script>
+            $(function() {
+                $('#modaluser').modal('show');
+            });
+        </script>
+    @endif
+    @if (session()->get('gagaluser'))
+        <!-- Central Modal Medium Warning -->
+        <div class="modal fade" id="modaluser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-warning" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                        <p class="heading lead">Gagal</p>
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                    </div>
+
+                    <!--Body-->
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <i class="fas fa-times fa-4x mb-3 animated rotateIn"></i>
+                            <p>{{session()->get('gagaluser')}}</p>
+                        </div>
+                    </div>
+
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+        <!-- Central Modal Medium Warning-->
+    @endif
+
+
     <div class="card shadow-sm">
         <div class="card-body">
     <table class="table table-sm table-hover">
@@ -86,7 +127,7 @@
             <th class="align-middle">Status SKCK</th>
             <th class="align-middle text-md-center">Foto</th>
             <th class="align-middle text-md-center">Cover</th>
-            
+
             <th></th>
             <th></th>
         </tr>

@@ -145,7 +145,7 @@
 
                                 <p class="pt-3 pr-2">{{session()->get('success')}}</p>
 
-                                <a type="button" class="btn blue-gradient rounded waves-effect" data-dismiss="modal">Ok, thanks</a>
+                                <a type="button" class="btn blue-gradient rounded waves-effect rounded-pill" data-dismiss="modal">Ok, thanks</a>
                             </div>
                         </div>
                     </div>
@@ -176,7 +176,7 @@
                             <h5 class="subheading font-weight-bold wow fadeInRight font-small" data-wow-delay="0.7s">{{$hotel->profile->deskripsi}}</h5>
 
                             <div class="mr-4">
-                                <a href="{{url('/job/postjob')}}" type="button" class="btn btn-lily btn-margin rounded wow fadeIn" style="margin-top: 10px" data-wow-delay="1s">Post A Job<i class="fas fa-caret-right ml-3"></i></a>
+                                <a href="{{url('/job/postjob')}}" type="button" class="btn btn-lily btn-margin rounded wow fadeIn rounded-pill" style="margin-top: 10px" data-wow-delay="1s">Post A Job<i class="fas fa-caret-right ml-3"></i></a>
                             </div>
                         </div>
 
@@ -301,8 +301,8 @@
                                         <!--Title-->
                                         <h4 class="card-title">{{$pekerjaan->getPosisi()}}</h4>
                                         <!--Text-->
-                                        <div class="card-text card-text-short">{!!html_entity_decode($pekerjaan->deskripsi)!!}</div>
-                                        <a type="button" href="{{url("/job/$pekerjaan->url_slug")}}" class="btn btn-blue btn-md">Read more</a>
+                                            <div class="card-text card-text-short">{!!html_entity_decode($pekerjaan->deskripsi)!!}</div>
+                                        <a type="button" href="{{url("/job/$pekerjaan->url_slug")}}" class="btn btn-blue btn-md rounded-pill">Read more</a>
 
                                     </div>
                                     @auth('hotel')
@@ -343,7 +343,7 @@
 
                                             <!--Footer-->
                                             <div class="modal-footer justify-content-center">
-                                                <a type="button" class="btn btn-warning" href="{{url("/job/$pekerjaan->url_slug/delete")}}">Yakin</a>
+                                                <a type="button" class="btn btn-warning rounded-pill" href="{{url("/job/$pekerjaan->url_slug/delete")}}">Yakin</a>
                                             </div>
                                         </div>
                                         <!--/.Content-->

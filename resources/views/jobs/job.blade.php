@@ -124,7 +124,7 @@ body{
                         <div class="modal-body">
                             <div class="row d-flex justify-content-center align-items-center">
                                 <p class="pt-3 pr-2">{{session()->get('success')}}</p>
-                                <a type="button" class="btn blue-gradient rounded waves-effect" data-dismiss="modal">Yay</a>
+                                <a type="button" class="btn blue-gradient rounded waves-effect rounded-pill" data-dismiss="modal">Yay</a>
                             </div>
                         </div>
                     </div>
@@ -139,7 +139,7 @@ body{
                         <div class="modal-body">
                             <div class="row d-flex justify-content-center align-items-center">
                                 <p class="pt-3 pr-2">{{session()->get('gagalProfile')}}</p>
-                                <a type="button" class="btn blue-gradient rounded waves-effect" data-dismiss="modal">:(</a>
+                                <a type="button" class="btn blue-gradient rounded waves-effect rounded-pill" data-dismiss="modal">:(</a>
                             </div>
                         </div>
                     </div>
@@ -154,7 +154,7 @@ body{
                     <div class="modal-body">
                         <div class="row d-flex justify-content-center align-items-center">
                             <p class="pt-3 pr-2">{{session()->get('gagalTinggi')}}</p>
-                            <a type="button" class="btn blue-gradient rounded waves-effect" data-dismiss="modal">Oke :(</a>
+                            <a type="button" class="btn blue-gradient rounded waves-effect rounded-pill" data-dismiss="modal">Oke :(</a>
                         </div>
                     </div>
                 </div>
@@ -169,7 +169,7 @@ body{
                     <div class="modal-body">
                         <div class="row d-flex justify-content-center align-items-center">
                             <p class="pt-3 pr-2">{{session()->get('gagalBerat')}}</p>
-                            <a type="button" class="btn blue-gradient rounded waves-effect" data-dismiss="modal">Oke :(</a>
+                            <a type="button" class="btn blue-gradient rounded waves-effect rounded-pill" data-dismiss="modal">Oke :(</a>
                         </div>
                     </div>
                 </div>
@@ -184,7 +184,7 @@ body{
                     <div class="modal-body">
                         <div class="row d-flex justify-content-center align-items-center">
                             <p class="pt-3 pr-2">{{session()->get('kuotaPenuh')}}</p>
-                            <a type="button" class="btn blue-gradient rounded waves-effect" data-dismiss="modal">Silahkan Coba Lagi di lain waktu</a>
+                            <a type="button" class="btn blue-gradient rounded waves-effect rounded-pill" data-dismiss="modal">Silahkan Coba Lagi di lain waktu</a>
                         </div>
                     </div>
                 </div>
@@ -200,7 +200,7 @@ body{
                         <h3 class="card-title pt-2"><strong>{{$pekerjaan->getPosisi()}}</strong></h3>
                         <p class="mb-4 pb-2 px-md-5 mx-md-5">{{$pekerjaan->getSocial()}}</p>
                         @auth('hotel')
-                        <a class="btn btn-deep-orange waves-effect waves-light" href="{{url("/job/$pekerjaan->url_slug/postlist")}}"><i class="far fa-file left"></i>Todo List</a>
+                        <a class="btn btn-deep-orange waves-effect waves-light rounded-pill" href="{{url("/job/$pekerjaan->url_slug/postlist")}}"><i class="far fa-file left"></i>Todo List</a>
                         @endauth
                     </div>
 
@@ -263,13 +263,13 @@ body{
                                         @auth('hotel')
                                             <form id="apply_form" action="/job/{{$pekerjaan->url_slug}}/apply" method="post">
                                                 @csrf
-                                                <a href="javascript:{}" style="display: none" onclick="document.getElementById('apply_form').submit();" class="btn btn-block btn-primary btn-md">Apply</a>
+                                                <a href="javascript:{}" style="display: none" onclick="document.getElementById('apply_form').submit();" class="btn btn-block btn-primary btn-md rounded-pill">Apply</a>
                                             </form>
                                         @endauth
                                         @auth('user')
                                             <form id="apply_form" action="/job/{{$pekerjaan->url_slug}}/apply" method="post">
                                                 @csrf
-                                                <a href="javascript:{}" onclick="document.getElementById('apply_form').submit();" class="btn btn-block btn-primary btn-md shadow-sm" style="font-size: medium">Apply</a>
+                                                <a href="javascript:{}" onclick="document.getElementById('apply_form').submit();" class="btn btn-block btn-primary btn-md shadow-sm rounded-pill" style="font-size: medium">Apply</a>
                                             </form>
                                         @endauth
                                     </div>
@@ -465,7 +465,7 @@ body{
                                      @endauth
                                      @auth('user')
                                             @if($pekerjaan->isApplied == true)
-                                                 <a href="{{url('/job/'.$pekerjaan->url_slug.'/cancelApply/'.$user->profile->url_slug)}}"><i class="btn btn-sm btn-warning">KANSELLLLL!!!</i></a>
+                                                 <a href="{{url('/job/'.$pekerjaan->url_slug.'/cancelApply/'.$user->profile->url_slug)}}"  class="btn btn-block btn-sm btn-warning">Cancel</a>
                                              @elseif($pekerjaan->isApplied == false)
                                                  <form id="apply_form" action="/job/{{$pekerjaan->url_slug}}/apply" method="post">
                                                  @csrf

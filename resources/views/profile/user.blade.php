@@ -184,7 +184,7 @@
                                 <div class="card-body">
                             <!-- jeneng pekerjaan -->
                                     <h5 class="my-3">{{$pekerjaan->getPosisi()}}</h5>
-                                    <p class="card-text text-uppercase mb-3">{{$pekerjaan->deskripsi}}</p> <!-- Jeneng Hotel e -->
+                                    <p class="card-text text-uppercase mb-3">{!!html_entity_decode($pekerjaan->deskripsi) !!}</p> <!-- Jeneng Hotel e -->
 
                                 </div>
 

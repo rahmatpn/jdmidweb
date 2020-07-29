@@ -149,7 +149,7 @@
                         <h5 class="mb-1">Buat lowongan pekerjaan sekarang</h5>
                     </li>
                     <li class="list-inline-item">
-                        <a href="{{url('/job/postjob')}}" class="btn btn-outline-white rounded">Post it!</a>
+                        <a href="{{url('/job/postjob')}}" class="btn btn-outline-white rounded-pill">Post it!</a>
                     </li>
                 </ul>
 

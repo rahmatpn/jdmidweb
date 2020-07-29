@@ -44,9 +44,7 @@
                             <!-- Section heading -->
                             <h2 class="h1-responsive font-weight-bold text-center my-5">Post To-Do List</h2>
                             <!-- Section description -->
-                            <p class="text-center w-responsive mx-auto mb-5">Duis aute irure dolor in reprehenderit in voluptate velit
-                                esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                                qui officia deserunt mollit id laborum.</p>
+                            <p class="text-center w-responsive mx-auto mb-5">Masukkan list kerja yang akan dikerjakan oleh part-timer</p>
 
                             <div class="card bg-info mb-3 ">
 
@@ -88,12 +86,12 @@
                                         </button>
                                     </div>
                                     <div class="modal-body md-form">
-                                        <p><input type="text" class="form-control" name="nama_pekerjaan" placeholder="Write Item Here" id="input_text" maxlength="20"></p>
+                                        <p><input type="text" class="form-control" name="nama_pekerjaan" placeholder="Write Item Here" id="input_text" maxlength="50"></p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-warning" id="delete" data-dismiss="modal" style="display: none">Delete</button>
                                         <button type="button" class="btn btn-primary" id="saveChanges" style="display: none">Save changes</button>
-                                        <input type="submit" class="btn btn-info" value="Submit"/>
+                                        <input type="submit" class="btn btn-info rounded-pill" value="Submit"/>
 
                                     </div>
                                 </div>
@@ -113,7 +111,7 @@
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="title">Edit Item</h5>
+                                        <h5 class="modal-title" id="title">Edit List</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -138,7 +136,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-warning" id="delete" data-dismiss="modal" style="display: none">Delete</button>
                                         <button type="button" class="btn btn-primary" id="saveChanges" style="display: none">Save changes</button>
-                                        <input type="submit" class="btn btn-info" value="Submit"/>
+                                        <input type="submit" class="btn btn-info rounded-pill" value="Submit"/>
 
                                     </div>
                                 </div>
@@ -196,7 +194,7 @@
             $('.ourItem').each(function(){
                 $(this).click(function(event) {
                     var text = $(this).text();
-                    $('#title').text('Edit Item');
+                    $('#title').text('Edit To-Do List');
                     $('#addItem').val(text);
                     $('#delete').show('400');
                     $('#saveChanges').show('400');
@@ -213,7 +211,7 @@
                 });
             });
             $('#addNew').click(function(event) {
-                    $('#title').text('Add New Item');
+                    $('#title').text('Tambah To-Do List');
                     $('#addItem').val("");
                     $('#delete').hide('400');
                     $('#saveChanges').hide('400');
