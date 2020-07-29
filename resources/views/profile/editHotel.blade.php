@@ -151,7 +151,7 @@
             </section>
 
 
-            <button class="btn rounded btn-primary" type="submit">Save Changes</button>
+            <button class="btn rounded btn-primary rounded-pill" type="submit">Save Changes</button>
         </div>
     </form>
 </form>
