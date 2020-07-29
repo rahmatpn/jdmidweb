@@ -100,7 +100,7 @@
                     @if($kerjakan->pivot->status == '4')
                         <a href="#" class="btn btn-success container-fluid shadow-sm">Pekerjaan selesai</a>
                     @elseif($kerjakan->pivot->status == '3')
-                        <br><p>Pekerjaan telah dikonfirmasi selesai oleh Hotel</p>
+                        <br><p>Pekerjaan telah dikonfirmasi selesai oleh Hotel, silakan lakukan konfirmasi jika sudah dibayar</p>
                         <a href="{{url('/job/'.$pekerjaan->url_slug.'/finish/'.$user->profile->url_slug)}}" class="btn btn-success container-fluid shadow-sm">Konfirmasi</a>
                     @elseif($kerjakan->pivot->status == '2')
                         <div class="btn btn-grey container-fluid shadow-sm">Menunggu Konfirmasi Hotel</div>

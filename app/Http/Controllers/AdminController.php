@@ -156,9 +156,9 @@ class AdminController extends Controller
             $errorCode = $e->errorInfo[2];
             $str = strval($errorCode);
             if (strpos($str, 'users_name_unique')) {
-                return redirect()->intended('masuk/user')->with("gagal", "Nama telah terdaftar, masukan nama yang berbeda");
+                return redirect()->intended('admin/user/manage')->with("gagal", "Nama telah terdaftar, masukan nama yang berbeda");
             } elseif (strpos($str,'users_email_unique')) {
-                return redirect()->intended('masuk/user')->with("gagal", "Email telah terdaftar");
+                return redirect()->intended('admin/user/manage')->with("gagal", "Email telah terdaftar");
             }
 
         }
@@ -178,9 +178,9 @@ class AdminController extends Controller
             $errorCode = $e->errorInfo[2];
             $str = strval($errorCode);
             if (strpos($str, 'hotels_name_unique')) {
-                return redirect()->intended('masuk/hotel')->with("gagal", "Nama Hotel telah terdaftar, masukan nama yang berbeda");
+                return redirect()->intended('admin/hotel/manage')->with("gagal", "Nama Hotel telah terdaftar, masukan nama yang berbeda");
             } elseif (strpos($str,'hotels_email_unique')) {
-                return redirect()->intended('masuk/hotel')->with("gagal", "Email telah terdaftar");
+                return redirect()->intended('admin/hotel/manage')->with("gagal", "Email telah terdaftar");
             }
         }
         return redirect('/admin/hotel/manage');

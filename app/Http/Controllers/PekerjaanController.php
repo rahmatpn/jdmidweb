@@ -286,7 +286,7 @@ class PekerjaanController extends Controller
             $pekerjaan->dikerjakan()->updateExistingPivot(\auth()->id(), ['status' => '2']);
             return redirect('/joblist');
             } else {
-            return redirect('/joblist/'.$pekerjaan->url_slug.'todolist');
+            return redirect('/joblist/'.$pekerjaan->url_slug.'/todolist');
             }
     }
 

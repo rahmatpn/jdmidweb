@@ -35,16 +35,14 @@
                     <div class="card-title">
                         <div class="row">
                             <div class="col-sm-4 text-center">
-{{--                                @if($pekerjaan->pivot->status == '1')--}}
-{{--                                    <p>Belum Dikerjakan</p>--}}
                                 @if($pekerjaan->pivot->status == '1' & $pekerjaan->isExpired == true)
                                     <p>Pekerjaan Kadaluarsa</p>
                                 @elseif($pekerjaan->pivot->status == '1')
                                     <p>Belum Dikerjakan</p>
                                 @elseif($pekerjaan->pivot->status == '2')
-                                    <p>Menunggu Konfirmasi</p>
+                                    <p>Menunggu Konfirmasi Hotel & Pembayaran </p>
                                 @elseif($pekerjaan->pivot->status == '3')
-                                    <p>Belum Selesai</p>
+                                    <p>Menunggu Konfirmasi User</p>
                                 @else
                                     <p>Selesai</p>
                                 @endif
@@ -126,10 +124,12 @@
                                         </div>
                                     </div>
                                         @if($pekerjaan->isExpired == true)
-                                        <p></p>
+                                            <p></p>
+                                        @elseif($pekerjaan->pivot->status == '1')
+                                            <a class="btn btn-success rounded shadow-sm" type="button" href="{{url("/joblist/$pekerjaan->url_slug/todolist")}}">To-do list</a>
                                         @else
-                                        <a class="btn btn-success rounded shadow-sm" type="button" href="{{url("/joblist/$pekerjaan->url_slug/todolist")}}">To-do list</a>
-                                            @endif
+                                            <a class="btn btn-success rounded shadow-sm" type="button" href="{{url("/joblist/$pekerjaan->url_slug/todolist")}}">Detail</a>
+                                        @endif
                                 </div>
 
                                 </div>
