@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{url('/')}}">
-                    <img src="{{asset('/image/logo_head.png')}}" height="50" alt="logo">
+                    <img src="{{asset('/image/jdmid_logo.png')}}" height="50" alt="logo">
                 </a>
                 <a class="navbar-link black-text mr-3" href="{{url('/')}}">Kembali</a>
 

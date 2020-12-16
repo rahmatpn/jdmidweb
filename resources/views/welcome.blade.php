@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kolega Hotel</title>
-    <link rel="icon" href="{{asset("/image/logo2.png")}}">
+    <title>JDM.id</title>
+    <link rel="icon" href="{{asset('/image/jdmid_logo.png')}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -265,7 +265,7 @@
     <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="{{asset('/image/logo_head.png')}}" height="50" alt="logo">
+                <img src="{{asset('/image/jdmid_logo.png')}}" height="50" alt="logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
                  <span class="dark-blue-text"><i
@@ -276,15 +276,15 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @guest('hotel') @guest('user')
-                    <a href="{{url('/masuk/hotel')}}" class="btn btn-amber shadow-none rounded-pill">Hotel</a>
-                    <a href="{{url('/masuk/user')}}" class="btn btn-deep-purple shadow-none rounded-pill">Part Timer</a>
+                    <a href="{{url('/masuk/hotel')}}" class="btn btn-amber shadow-none rounded-pill">Jual</a>
+                    <a href="{{url('/masuk/user')}}" class="btn btn-deep-purple shadow-none rounded-pill">Beli</a>
                     @endguest @endguest
                                     @auth('hotel')
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
                                    aria-haspopup="true" aria-expanded="false">
                                     <img src="{{asset(\Illuminate\Support\Facades\Auth::guard('hotel')->user()->profile->foto)}}" class="rounded-circle z-depth-0"
-                                         alt="avatar image" height="35">
+                                         alt="avatar image" height="3">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-default"
                                      aria-labelledby="navbarDropdownMenuLink-333">
@@ -327,13 +327,13 @@
                 <div class="row">
                     <!--Grid column-->
                     <div class="col-md-6 black-text text-center text-md-left mt-xl-5 mb-5 justify-content-around" data-wow-delay="0.3s">
-                        <h5 class="mb-3 font-weight-bold wow fadeInDownBig">Tersedia <span style="color: orangered">{{\App\Pekerjaan::all()->count()}}</span>Lowongan sampingan untuk anda</h5>
-                        <h1 class="h1-responsive font-weight-bold mt-sm-5 wow bounceIn">Kolega Hotel</h1>
+                        <h5 class="mb-3 font-weight-bold wow fadeInDownBig">Tersedia <span style="color: orangered">{{\App\Pekerjaan::all()->count()}}</span>Jumlah Mobil Tersedia</h5>
+                        <h1 class="h1-responsive font-weight-bold mt-sm-5 wow bounceIn">JDM.id</h1>
                         <hr class="hr-dark wow bounceInDown">
-                        <h6 class="mb-3 wow fadeInDownBig">Kami adalah pintu utama bagi anda yang ingin bekerja paruh waktu di layanan perhotelan</h6>
+                        <h6 class="mb-3 wow fadeInDownBig">Kami adalah pintu utama bagi anda yang ingin membeli mobil pabrikan Jepang</h6>
                         @guest('hotel') @guest('user')
-                        <a class="btn btn-black  wow fadeInLeftBig rounded-pill" href="{{url('/masuk/hotel')}}"><strong>Post a Job</strong></a>
-                            <a class="btn btn-outline-blue wow fadeInRightBig rounded-pill" href="{{url('/masuk/user')}}"><strong>Cari Lowongan</strong></a>
+                        <a class="btn btn-black  wow fadeInLeftBig rounded-pill" href="{{url('/masuk/hotel')}}"><strong>Jual</strong></a>
+                            <a class="btn btn-outline-blue wow fadeInRightBig rounded-pill" href="{{url('/masuk/user')}}"><strong>Cari Mobil</strong></a>
                         @endguest @endguest
                         @auth('hotel')
                             <a class="btn btn-black wow fadeInLeftBig" href="{{url('/job/postjob')}}"><strong>Post a Job</strong></a>
@@ -345,7 +345,7 @@
                     <!--Grid column-->
                     <!--Grid column-->
                     <div class="col-md-6 col-xl-6 mt-xl-5 wow fadeInRight" data-wow-delay="0.3s">
-                        <img src="{{asset('/image/login.jpg')}}" alt="foto_pekerja" class="img-fluid">
+                        <img src="{{asset('/image/cover_nissan.webp')}}" alt="foto_pekerja" class="img-fluid">
                     </div>
                     <!--Grid column-->
                 </div>
@@ -360,356 +360,161 @@
 <!-- Main navigation -->
 <!--Main Layout-->
 <!-- Services section -->
-<section id="what-we-do">
-    <div class="container-fluid">
-        <h2 class="section-title mb-2 h1">What you can do</h2>
-        <p class="text-center text-muted h5">Cari Kerja anda, atur lowongan anda, bangun karir anda dengan satu sistem.</p>
-        <div class="row mt-5">
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 wow fadeInLeft">
-                <div class="card shadow-none">
-                    <div class="card-block block-1">
-                        <h3 class="card-title">Permudah Cari Pekerjaan</h3>
-                        <p class="card-text">Anda dapat mencari pekerjaan sesuai kemampuan anda.</p>
+   <div class="container mt-5">
 
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 wow fadeInUp">
-                <div class="card shadow-none">
-                    <div class="card-block block-2">
-                        <h3 class="card-title">Managing Job</h3>
-                        <p class="card-text">Hotel dapat mengatur dan membuat lowongan pekerjaan dengan mudah.</p>
 
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4 wow fadeInRight">
-                <div class="card shadow-none">
-                    <div class="card-block block-3">
-                        <h3 class="card-title">Building Career</h3>
-                        <p class="card-text">Dengan sistem ini anda dapat membangun jenjang karir anda.</p>
+  <!--Section: Content-->
+  <section class="">
 
-                    </div>
-                </div>
-            </div>
+  	<!-- Grid row -->
+    <div class="row">
+
+      <!-- Grid column -->
+      <div class="col-lg-5 col-md-12 mb-lg-0 mb-4">
+
+				<!-- Featured image -->
+        <div class="view overlay rounded  mb-lg-0 mb-4">
+          <img class="img-fluid wow fadeInLeft" src="{{asset('/image/rx7.webp')}}" alt="Sample image">
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
         </div>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-lg-7 col-md-6 mb-md-0 mb-4 mt-xl-4">
+
+      	 <h3 class="font-weight-normal mb-4">Lorem Ipsum</h3>
+         <p class="text-muted">Option as can distributors. And to suppliers, given a copy the horrible arrange yes, we had hundreds leave was more which a I the king's had the so soon throughout in necessary which at way did phase a young written, descriptions, late uninspired, to times owner themselves them. Get sported uninspired, the a box to an to but on been the succeed have couldn't set.</p>
+   
+
+      </div>
+      <!-- Grid column -->
+
     </div>
+    <!-- Grid row -->
+
+  </section>
+  <!--Section: Content-->
+
+
+</div>
+
+<!--Carousel Wrapper-->
+<div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+  <!--Indicators-->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-2" data-slide-to="1"></li>
+    <li data-target="#carousel-example-2" data-slide-to="2"></li>
+  </ol>
+  <!--/.Indicators-->
+  <!--Slides-->
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+      <div class="view">
+        <img class="d-block w-100" src="https://c4.wallpaperflare.com/wallpaper/324/828/920/toyota-sprinter-trueno-ae86-gt-apex-toyota-jdm-japanese-cars-sports-car-hd-wallpaper-preview.jpg"
+          alt="First slide">
+        <div class="mask rgba-black-light"></div>
+      </div>
+
+    </div>
+    <div class="carousel-item">
+      <!--Mask color-->
+      <div class="view">
+        <img class="d-block w-100" src="https://wallpapercave.com/wp/wp3082128.jpg"
+          alt="Second slide">
+        <div class="mask rgba-black-light"></div>
+      </div>
+     
+    </div>
+    <div class="carousel-item">
+      <!--Mask color-->
+      <div class="view">
+        <img class="d-block w-100" src="https://wallpapercave.com/wp/yc4MME0.jpg"
+          alt="Third slide">
+        <div class="mask rgba-black-light"></div>
+      </div>
+     
+    </div>
+  </div>
+  <!--/.Slides-->
+  <!--Controls-->
+  <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  <!--/.Controls-->
+</div>
+<!--/.Carousel Wrapper-->
+
+<div class="container my-5  bg-white wow fadeIn">
+   
+  <!-- Section: Block Content -->
+  <section class="dark-grey-text">
+
+<h3 class="text-center font-weight-bold mb-4 pb-2">Our best projects</h3>
+<p class="text-center text-muted w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
+
+<!-- Grid row -->
+<div class="row">
+
+  <!-- Grid column -->
+  <div class="col-lg-7">
+
+    <ul class="list-unstyled fa-ul mb-lg-0 mb-5">
+      <li class="d-flex justify-content-center pl-4">
+        <span class="fa-li"><i class="far fa-chart-bar fa-2x indigo-text"></i></span>
+        <div>
+          <h5 class="font-weight-bold mb-3">Marketing</h5>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing. Reprehenderit maiores nam, aperiam minima elit assumenda voluptate velit.</p>
+        </div>
+      </li>
+      <li class="d-flex justify-content-center pl-4">
+        <span class="fa-li"><i class="fas fa-music fa-2x pink-text"></i></span>
+        <div>
+          <h5 class="font-weight-bold mb-3">Entertainment</h5>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing. Reprehenderit maiores nam, aperiam minima elit assumenda voluptate velit.</p>
+        </div>
+      </li>
+      <li class="d-flex justify-content-center pl-4">
+        <span class="fa-li"><i class="far fa-grin fa-2x blue-text"></i></span>
+        <div>
+          <h5 class="font-weight-bold mb-3">Communication</h5>
+          <p class="text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing. Reprehenderit maiores nam, aperiam minima elit assumenda voluptate velit.</p>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+  <!-- Grid column -->
+
+  <!-- Grid column -->
+  <div class="col-lg-5">
+
+      <img src="https://mdbootstrap.com/img/Photos/Others/images/82.jpg" class="img-fluid rounded z-depth-1" alt="Sample project image">
+
+    </div>
+    <!-- Grid column -->
+
+</div>
+<!-- Grid row -->
+
+<hr class="my-5"> 
+
 </section>
-
-<div class="mask rgba-blue-slight">
-<div data-jarallax data-speed="0.2" class="parallax wow fadeIn">
-    <br/>
-        <div class="container flex-center text-center">
-            <div class="row mt-lg-5">
-                <div class="col-md-12 col-xl-9 mx-auto wow fadeIn ">
-                    <br/>
-                    <h1 class="display-3 font-weight-bold mb-2 wow fadeInDown" style="color: white" data-wow-delay="0.3s">Tersedia Berbagai Jenis Posisi</h1>
-                </div>
-            </div>
-        </div>
-</div>
+<!-- Section: Block Content -->
 </div>
 
-<div class="container pt-5 my-5  bg-white wow fadeIn">
-    <section class="p-md-3 mx-md-5 ">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInLeft" data-wow-delay="0.2s">
-                <h4 class="font-weight-bold mb-3">
-                    <i class="far fa-user indigo-text pr-2"></i> Laundry
-                </h4>
-                <p class="text-muted pt-3">
-                    Laundry adalah bagian dari housekeeping yang bertanggung jawab atas pencucian semua linen, baik itu house laundry maupun guest laundry.
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInUp" data-wow-delay="0.3s">
-                <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-water blue-text pr-2"></i> Pool Maintenance
-                </h4>
-                <p class="text-muted pt-3">
-                    Pool Maintenance adalah bagian yang bertugas dan bertanggung jawab menjaga kebersihan kolam renang.
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInRight" data-wow-delay="0.4s">
-                <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-tools orange-text pr-2"></i> Equipment Maintenance
-                </h4>
-                <p class="text-muted pt-3">
-                    Staff Maintenance adalah bagian yang bertugas dan bertanggung jawab menjaga alat - alat yang ada di hotel.
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInLeft" data-wow-delay="0.6s">
-                <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-user-plus red-text pr-2"></i> Receptionist
-                </h4>
-                <p class="text-muted pt-3">
-                    Resepsionis adalah pegawai yang memiliki tugas untuk menyapa, melayani, memberikan informasi kepada pengunjung,
-                    pelanggan atau pihak yang berkepentingan terkait tujuan yang diinginkan.
-                </p>
-
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInDown" data-wow-delay="0.8s">
-                <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-suitcase brown-text pr-2"></i> Porter
-                </h4>
-                <p class="text-muted pt-3">
-                   Porter adalah orang yang membawa barang bawaan atau mengurus bagian bagasi di hotel.
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInRight" data-wow-delay="0.9s">
-                <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-user-secret black-text pr-2"></i> Security
-                </h4>
-                <p class="text-muted pt-3">
-                    departemen keamanan (Security Departement) yang memiliki fungsi dan peran penting untuk menjaga serta memberi kenyamanan kepada setiap tamu yang ingin berkunjung ataupun menginap di hotel.
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInLeft" data-wow-delay="1s">
-                <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-user-circle orange-text pr-2"></i> Valet
-                </h4>
-                <p class="text-muted pt-3">
-                    Yang bertugas untuk melayani pelayanan personal dan spesifik kepada tamu selama masa inap mereka.
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInUp" data-wow-delay="1.2s">
-                <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-car lime-text pr-2"></i> Concierge
-                </h4>
-                <p class="text-muted pt-3">
-                    Yang bertugas untuk membukakan pintu mobil, pintu hotel, dan membawa pengunjung ke receptionist.
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInRight" data-wow-delay="1.3s">
-                <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-home purple-text pr-2"></i> Housekeeping
-                </h4>
-                <p class="text-muted pt-3">
-                    Housekeeping adalah salah satu bagain  atau department yang ada di hotel yang bertugas menjaga, merawat,
-                    dan membersihkan serta memelihara rooms atau kamar kamar hotel maupun area diluar kamar hotel atau area yang tergolong kedalam area umum (public areas) di hotel agar tetap nyaman,
-                    indah, dan aman.
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInLeft" data-wow-delay="1s">
-                <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-utensils red-text pr-2"></i> Room Service
-                </h4>
-                <p class="text-muted pt-3">
-                    room service adalah untuk menyajikan makanandan minuman dikamar tamu,
-                    termasuk menyiapkan pesanan tamu, melayani tamu, danmelakukan clear up kamar tamu serta menyampaikan tagihan pelayanan kamar (bill).
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInDown" data-wow-delay="1s">
-                <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-user yellow-text pr-2"></i> Waiter/Waitress
-                </h4>
-                <p class="text-muted pt-3">
-                   Waiter/Waitress mempunyai tugas dan tanggung jawab untuk melayani kebutuhan makanan dan minuman bagi para pelanggan hotel secara professional.
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInRight" data-wow-delay="1.1s">
-                <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-fish blue-text pr-2"></i> Crew Restaurant
-                </h4>
-                <p class="text-muted pt-3">
-                    Mempersiapkan bahan-bahan makanan yang akan diolah.
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInLeft" data-wow-delay="1s">
-                <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-coffee brown-text pr-2"></i> Barista / Bartender
-                </h4>
-                <p class="text-muted pt-3">
-                    Membuat minuman sesuai dengan order tamu dan harus sesuai denganstandard Perusahaan serta memberikan kepuasan kepada tamu semaksimal mungkin.
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInUp" data-wow-delay="1s">
-                <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-camera black-text pr-2"></i> Photographer
-                </h4>
-                <p class="text-muted pt-3">
-                    Fotografer memiliki tugas untuk mengambil foto guna mengabadikan berbagai momen dalam suatu gambar.
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-5 wow fadeInRight" data-wow-delay="1s">
-                <h4 class="font-weight-bold mb-3">
-                    <i class="fas fa-broom pink-text pr-2"></i> Cleaning Service
-                </h4>
-                <p class="text-muted pt-3">
-                    Cleaning Housekeeping sendiri merupakan salah satu lembaga departemen yang ada di hotel, yang bertugas menjaga, merawat, dan membersihkan serta memelihara rooms atau kamar-kamar hotel maupun area di luar kamar hotel atau area yang tergolong kedalam area umum.
-                </p>
-            </div>
-        </div>
-    </section>
-</div>
-
-<div class="mask rgba-blue-slight">
-    <div data-jarallax data-speed="0.2" class="parallaxx wow fadeIn">
-        <br/>
-        <div class="container flex-center text-center">
-            <div class="row mt-lg-5">
-                <div class="col-md-12 col-xl-9 mx-auto wow fadeIn">
-                    <br/>
-                    <br/>
-                    <br/>
-                    <h1 class="display-3 font-weight-bold mb-2 wow fadeInDown" style="color: white" data-wow-delay="0.3s">Tersedia Aplikasi Android</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="container" >
 
 
-    <!--Section: Content-->
-    <section class="dark-grey-text">
-
-        <!-- Section heading -->
-        <h2 class="text-center font-weight-bold mb-4 pb-2 section-title wow fadeInUp">Why is it so great?</h2>
-        <!-- Section description -->
-        <p class="text-center lead grey-text mx-auto mb-5 wow fadeInDown">Dengan aplikasi yang sudah tersedia untuk mobile, sekarang semakin mudah untuk melakukan pekerjaan</p>
-
-        <!-- Grid row -->
-        <div class="row">
-
-            <!-- Grid column -->
-            <div class="col-md-4">
-
-                <!-- Grid row -->
-                <div class="row mb-3 wow fadeInLeft">
-
-                    <!-- Grid column -->
-                    <div class="col-2">
-                        <i class="fas fa-2x fa-flag-checkered orange-text"></i>
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-10">
-                        <h5 class="font-weight-bold mb-3">International</h5>
-                        <p class="grey-text">Dapat juga diakses di luar negeri.</p>
-                    </div>
-                    <!-- Grid column -->
-
-                </div>
-                <!-- Grid row -->
-
-                <!-- Grid row -->
-                <div class="row mb-3 wow fadeInLeft" data-wow-delay="0.2s">
-
-                    <!-- Grid column -->
-                    <div class="col-2">
-                        <i class="fas fa-2x fa-flask orange-text"></i>
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-10">
-                        <h5 class="font-weight-bold mb-3">Efisien</h5>
-                        <p class="grey-text">Dengan sekali klik bisa menjalankan apa saja</p>
-                    </div>
-                    <!-- Grid column -->
-
-                </div>
-                <!-- Grid row -->
-
-                <!-- Grid row -->
-                <div class="row mb-md-0 mb-3 wow fadeInLeft" data-wow-delay="0.3s">
-
-                    <!-- Grid column -->
-                    <div class="col-2">
-                        <i class="fas fa-2x fa-glass-martini orange-text"></i>
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-10">
-                        <h5 class="font-weight-bold mb-3">Simple</h5>
-                        <p class="grey-text mb-md-0">Tidak perlu membuka desktop untuk membuka sistem atau website.</p>
-                    </div>
-                    <!-- Grid column -->
-
-                </div>
-                <!-- Grid row -->
-
-            </div>
-            <!-- Grid column -->
-
-            <!-- Grid column -->
-            <div class="col-md-4 text-center wow bounceInDown">
-                <img class="img-fluid" src="{{asset('/image/phone.png')}}"
-                     alt="Sample image">
-            </div>
-            <!-- Grid column -->
-
-            <!-- Grid column -->
-            <div class="col-md-4">
-
-                <!-- Grid row -->
-                <div class="row mb-3 wow fadeInRight">
-
-                    <!-- Grid column -->
-                    <div class="col-2">
-                        <i class="far fa-2x fa-heart orange-text"></i>
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-10">
-                        <h5 class="font-weight-bold mb-3">Pas</h5>
-                        <p class="grey-text">Mudah dan pas karena bisa di akses dimana saja.</p>
-                    </div>
-                    <!-- Grid column -->
-
-                </div>
-                <!-- Grid row -->
-
-                <!-- Grid row -->
-                <div class="row mb-3 wow fadeInRight" data-wow-delay="0.2s">
-
-                    <!-- Grid column -->
-                    <div class="col-2">
-                        <i class="fas fa-2x fa-bolt orange-text"></i>
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-10">
-                        <h5 class="font-weight-bold mb-3">Rapid</h5>
-                        <p class="grey-text">Dengan tampilan dan data yang dibutuhkan sedikit, dapat memuat konten secara cepat. </p>
-                    </div>
-                    <!-- Grid column -->
-
-                </div>
-                <!-- Grid row -->
-
-                <!-- Grid row -->
-                <div class="row wow fadeInRight"data-wow-delay="0.3s">
-
-                    <!-- Grid column -->
-                    <div class="col-2">
-                        <i class="fas fa-2x fa-magic orange-text" ></i>
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-10">
-                        <h5 class="font-weight-bold mb-3">All in One</h5>
-                        <p class="grey-text mb-0">User dapat membuat akun atau memonitoring pekerjaan dengan menggunakan satu sentuhan.</p>
-                    </div>
-                    <!-- Grid column -->
-
-                </div>
-                <!-- Grid row -->
-
-            </div>
-            <!-- Grid column -->
-
-        </div>
-        <!-- Grid row -->
-
-    </section>
-    <!--Section: Content-->
-</div>
 <div class="container my-5">
 
 
@@ -722,10 +527,10 @@
 
             <div class="col-md-6 col-lg-3 mb-4 text-center">
                 <h4 class="h1 font-weight-normal mb-3">
-                    <i class="fas fa-file-alt indigo-text"></i>
+                    <i class="fas fa-cars indigo-text"></i>
                     <span class="d-inline-block count-up" data-from="0" data-to="{{\App\Pekerjaan::all()->count()}}" data-time="2000">{{\App\Pekerjaan::all()->count()}}</span>
                 </h4>
-                <p class="font-weight-normal text-muted">Total Jobs</p>
+                <p class="font-weight-normal text-muted">Total Cars</p>
             </div>
 
             <div class="col-md-6 col-lg-3 mb-4 text-center">
@@ -733,7 +538,7 @@
                     <i class="fas fa-user indigo-text"></i>
                     <span class="d-inline-block count1" data-from="0" data-to="{{\App\User::all()->count()}}" data-time="2000">{{\App\User::all()->count()}}</span>
                 </h4>
-                <p class="font-weight-normal text-muted">Our User</p>
+                <p class="font-weight-normal text-muted">Buyer</p>
             </div>
 
             <div class="col-md-6 col-lg-3 mb-4 text-center">
@@ -741,7 +546,7 @@
                     <i class="fas fa-home indigo-text"></i>
                     <span class="d-inline-block count2" data-from="0" data-to="{{\App\Hotel::all()->count()}}" data-time="2000">{{\App\Hotel::all()->count()}}</span>
                 </h4>
-                <p class="font-weight-normal text-muted">The Great Hotels</p>
+                <p class="font-weight-normal text-muted">Seller</p>
             </div>
 
 
@@ -775,7 +580,7 @@
                             <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="true"
                                aria-controls="collapseOne1">
                                 <h5 class="black-text font-weight-normal mb-0">
-                                    Apakah sistem ini cocok untuk mencari pekerjaan sampingan? <i class="fas fa-angle-down rotate-icon"></i>
+                                    Apakah sistem ini cocok untuk mencari Mobil Pabrikan Jepang? <i class="fas fa-angle-down rotate-icon"></i>
                                 </h5>
                             </a>
                         </div>
@@ -784,7 +589,7 @@
                         <div id="collapseOne1" class="collapse show" role="tabpanel" aria-labelledby="headingOne1"
                              data-parent="#accordionEx">
                             <div class="card-body">
-                                 Sangat cocok bagi yang ingin mencari pekerjaan sampingan terutama di hotel.
+                                 Sangat cocok bagi yang ingin mencari Mobil Pabrikan Jepang.
                             </div>
                         </div>
 
@@ -823,7 +628,7 @@
                             <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree3"
                                aria-expanded="false" aria-controls="collapseThree3">
                                 <h5 class="black-text font-weight-normal mb-0">
-                                   Apakah saya dapat menghapus akun saya? <i class="fas fa-angle-down rotate-icon"></i>
+                                   Apakah saya dapat membooking mobil pesanan saya? <i class="fas fa-angle-down rotate-icon"></i>
                                 </h5>
                             </a>
                         </div>
@@ -832,7 +637,7 @@
                         <div id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree3"
                              data-parent="#accordionEx">
                             <div class="card-body">
-                                Jika ingin menghapus akun anda, silahkan hubungi support centre untuk penanganan lebih lanjut.
+                                Bisa jika anda sudah memilih.
                             </div>
                         </div>
 
@@ -847,7 +652,7 @@
                             <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree4"
                                aria-expanded="false" aria-controls="collapseThree4">
                                 <h5 class="black-text font-weight-normal mb-0">
-                                   Apakah saya dapat memanage akun hotel saya sendiri? <i class="fas fa-angle-down rotate-icon"></i>
+                                   Apakah saya dapat memanage akun penjual saya sendiri? <i class="fas fa-angle-down rotate-icon"></i>
                                 </h5>
                             </a>
                         </div>
@@ -855,7 +660,7 @@
                         <!-- Card body -->
                         <div id="collapseThree4" class="collapse" role="tabpanel" aria-labelledby="headingThree4" data-parent="#accordionEx">
                             <div class="card-body">
-                               Bisa, bagi anda yang memiliki wewenang untuk mengatur dari pihak hotel yang bersangkutan.
+                               Bisa, bagi anda yang memiliki wewenang untuk mengatur.
                             </div>
                         </div>
 
@@ -891,24 +696,24 @@
 <footer class="bg-white">
     <div class="container py-5">
         <div class="row py-4">
-            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0"><img src="{{asset('/image/logo2.png')}}" alt="" width="180" class="mb-3">
-                <p class="font-italic text-muted">Raih kesempatanmu untuk menjadi pekerja paruh waktu perhotelan disini.</p>
+            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0"><img src="{{asset('/image/jdmid_logo.png')}}" alt="" width="180" class="mb-3">
+                <p class="font-italic text-muted">Raih kesempatanmu untuk mendapatkan mobil impian mu.</p>
             </div>
             <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-                <h6 class="text-uppercase font-weight-bold mb-4">Hotel</h6>
+                <h6 class="text-uppercase font-weight-bold mb-4">Penjual</h6>
                 <ul class="list-unstyled mb-0">
                     <li class="mb-2"><a href="{{url('/home')}}" class="text-muted">Home</a></li>
                     <li class="mb-2"><a href="#" class="text-muted">Profil</a></li>
-                    <li class="mb-2"><a href="#" class="text-muted">Job</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted">Mobil</a></li>
 
                 </ul>
             </div>
             <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-                <h6 class="text-uppercase font-weight-bold mb-4">Part-Timer</h6>
+                <h6 class="text-uppercase font-weight-bold mb-4">Pembeli</h6>
                 <ul class="list-unstyled mb-0">
                     <li class="mb-2"><a href="{{url('/home')}}" class="text-muted">Home</a></li>
                     <li class="mb-2"><a href="#" class="text-muted">Profil</a></li>
-                    <li class="mb-2"><a href="#" class="text-muted">Job</a></li>
+                    <li class="mb-2"><a href="#" class="text-muted">Mobil</a></li>
                 </ul>
             </div>
             <div class="col-lg-4 col-md-6 mb-lg-0">
@@ -930,7 +735,7 @@
     <!-- Copyrights -->
     <div class="bg-light py-4">
         <div class="container text-center">
-            <p class="text-muted mb-0 py-2">© 2020 Kolega Hotel All rights reserved.</p>
+            <p class="text-muted mb-0 py-2">© 2020 JDM.id All rights reserved.</p>
         </div>
     </div>
 </footer>

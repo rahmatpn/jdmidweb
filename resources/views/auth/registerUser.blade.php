@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Halaman Masuk Part Timer</title>
-    <link rel="icon" href="{{asset("/image/logo2.png")}}">
+    <link rel="icon" href="{{asset('/image/jdmid_logo.png')}}">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -53,10 +53,10 @@
     }
 </style>
 <body class="form-v8 ">
-<nav class="navbar navbar-expand-lg fixed-top">
+<nav class="navbar navbar-expand-lg shadow-none fixed-top">
     <div class="container">
         <a class="navbar-brand" href="{{url('/')}}">
-            <img src="{{asset('/image/logo_head.png')}}" height="50" alt="logo">
+            <img src="{{asset('/image/jdmid_logo.png')}}" height="50" alt="logo">
         </a>
 
         <a class="navbar-link black-text mr-3" href="{{url('/')}}">Kembali</a>
