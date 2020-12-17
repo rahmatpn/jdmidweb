@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Halaman Masuk Hotel</title>
-    <link rel="icon" href="{{asset("/image/logo2.png")}}">
+    <link rel="icon" href="{{asset("/image/jdmid_logo.png")}}">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -56,7 +56,7 @@
 <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
         <a class="navbar-brand" href="{{url('/')}}">
-            <img src="{{asset('/image/logo_head.png')}}" height="50" alt="logo">
+            <img src="{{asset('/image/jdmid_logo.png')}}" height="50" alt="logo">
         </a>
         <a class="navbar-link black-text mr-3" href="{{url('/')}}">Kembali</a>
 
@@ -262,7 +262,7 @@
                                     <div class="form-row">
                                         <label class="form-row-inner">
                                             <input type="text" name="name" id="name" class="input-text" required>
-                                            <span class="label">Nama Hotel</span>
+                                            <span class="label">Nama</span>
                                             <span class="border"></span>
                                         </label>
                                     </div>
