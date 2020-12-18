@@ -1,6 +1,6 @@
-@extends('layouts.jobnav')
+
 @section('css')
-    <style>
+<style>
 body{
     margin: 0 auto;
     background: #f8f8f8;
@@ -192,40 +192,120 @@ body{
         </div>
     @endif
 
-
-            <div class="card card-image view " style="background-image: url('https://images.pexels.com/photos/1062269/pexels-photo-1062269.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260'); background-position: center; background-size: cover">
-                <div class="text-white text-center img-gradient-overlay py-5 px-4">
-                    <div class="py-5">
-                        <h5 class="h5 yellow-text"><i class="fas fa-suitcase mr-2"></i>{{$pekerjaan->getNama()}}</h5>
-                        <h3 class="card-title pt-2"><strong>{{$pekerjaan->getPosisi()}}</strong></h3>
-                        <p class="mb-4 pb-2 px-md-5 mx-md-5">{{$pekerjaan->getSocial()}}</p>
-                        @auth('hotel')
-                        <a class="btn btn-deep-orange waves-effect waves-light rounded-pill" href="{{url("/job/$pekerjaan->url_slug/postlist")}}"><i class="far fa-file left"></i>Todo List</a>
-                        @endauth
-                    </div>
-
-                </div>
-
-            </div>
+<!-- Jumbotron -->
 
 
-{{--    <div class="card card-image" style="background-image: url(https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">--}}
-{{--        <div class="text-white text-center rgba-stylish-strong py-5 px-4">--}}
-{{--            <div class="py-5">--}}
+<body>  
+@extends('layouts.jobnav') 
+<section id="productDetails" class="pb-5 pt-3 container">
+<!--News card-->
+<div class="card mt-5 hoverable">
+  <div class="row mt-5">
+    <div class="col-lg-6">
 
-{{--                <!-- Content -->--}}
-{{--                <h5 class="h5 orange-text"><i class="fas fa-suitcase"></i>{{$pekerjaan->getNama()}}</h5>--}}
-{{--                <h2 class="card-title h2 my-4 py-2">{{$pekerjaan->getPosisi()}}</h2>--}}
-{{--                <p class="mb-4 pb-2 px-md-5 mx-md-5">{{$pekerjaan->getSocial()}}</p>--}}
+      <!--Carousel Wrapper-->
+      <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails" data-ride="carousel">
 
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <!-- Jumbotron -->--}}
+        <!--Slides-->
+        <div class="carousel-inner text-center text-md-left" role="listbox">
+          <div class="carousel-item active">
+            <img src="{{asset($pekerjaan->foto ?? $pekerjaan->hotel->profile->hotelPhoto())}}" alt="First slide" class="img-fluid p-5">
+          </div>
+        </div>
+        <!--/.Slides-->
 
+      </div>
+      <!--/.Carousel Wrapper-->
+    </div>
+    <div class="col-lg-5 mr-3 text-center text-md-left">
+      <h2 class="h2-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-1 ml-xl-0 ml-4">
+        <strong>{{$pekerjaan->area}}</strong>
+      </h2>
+      <span class="badge badge-danger product mb-4 ml-xl-0 ml-4">{{$pekerjaan->getPosisi()}}</span>
+      <h3 class="h3-responsive text-center text-md-left mb-5 ml-xl-0 ml-4">
+        <span class="red-text font-weight-bold">
+          <strong>{{"IDR: ".number_format($pekerjaan->bayaran)}},00</strong>
+        </span>
+      </h3>
 
+<div class="accordion md-accordion" id="accordionEx" role="tablist" aria-multiselectable="true">
+<!-- Accordion card -->
+<div class="card shadow-none">
 
-    <div class="card shadow-none">
+  <!-- Card header -->
+  <div class="card-header" role="tab" id="headingOne1">
+    <a data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne1" aria-expanded="false" aria-controls="collapseOne1" class="collapsed">
+      <h5 class="mb-0">
+        Tahun
+        <i class="fas fa-angle-down rotate-icon"></i>
+      </h5>
+    </a>
+  </div>
+
+  <!-- Card body -->
+  <div id="collapseOne1" class="collapse" role="tabpanel" aria-labelledby="headingOne1" data-parent="#accordionEx" style="">
+    <div class="card-body">
+      {{$pekerjaan->kuota}}
+    </div>
+  </div>
+</div>
+<!-- Accordion card -->
+
+<!-- Accordion card -->
+<div class="card shadow-none">
+
+  <!-- Card header -->
+  <div class="card-header" role="tab" id="headingTwo2">
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo2">
+      <h5 class="mb-0">
+        Mesin
+        <i class="fas fa-angle-down rotate-icon"></i>
+      </h5>
+    </a>
+  </div>
+
+  <!-- Card body -->
+  <div id="collapseTwo2" class="collapse" role="tabpanel" aria-labelledby="headingTwo2" data-parent="#accordionEx" style="">
+    <div class="card-body">
+        <p>1250cc</p>
+
+        <a>Manual</a>
+        
+    </div>
+  </div>
+</div>
+<!-- Accordion card -->
+
+<!-- Accordion card -->
+<div class="card shadow-none">
+
+  <!-- Card header -->
+  <div class="card-header" role="tab" id="headingThree3">
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree3" aria-expanded="false" aria-controls="collapseThree3">
+      <h5 class="mb-0">
+        Alamat
+        <i class="fas fa-angle-down rotate-icon"></i>
+      </h5>
+    </a>
+  </div>
+
+  <!-- Card body -->
+  <div id="collapseThree3" class="collapse" role="tabpanel" aria-labelledby="headingThree3" data-parent="#accordionEx" style="">
+    <div class="card-body">
+        {{$pekerjaan->getAlamat()}}
+    </div>
+  </div>
+</div>
+<!-- Accordion card -->
+</div>
+      <button class="btn btn-primary btn-rounded waves-effect waves-light">
+                <i class="fas fa-cart-plus mr-2" aria-hidden="true"></i> Add to cart</button>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- <div class="card shadow-none">
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-8 offset-sm-2">
@@ -277,7 +357,7 @@ body{
 
 
 
-                                    <!--Grid column-->
+                                  
 
 
                                     <div class="col-lg-auto justify-content-end mb-0 mt-4">
@@ -479,7 +559,7 @@ body{
 
 
 
-                                 <!--Grid column-->
+                             
 
 
                                  <div class="col-lg-auto justify-content-end mb-0 mt-4">
@@ -562,11 +642,12 @@ body{
                     @endauth
 
                 </div>
+  
             </div>
 
-        </div>
+        </div> -->
 
     </div>
-
+</body>
 
 @endsection

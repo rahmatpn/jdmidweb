@@ -7,8 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Halaman Masuk Hotel</title>
-    <link rel="icon" href="{{asset("/image/jdmid_logo.png")}}">
+    <title>Halaman Masuk Penjual</title>
+    <link rel="icon" href="{{asset('/image/jdmid_logo.png')}}">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -210,7 +210,7 @@
 <div class="page-content">
     <div class="form-v8-content  shadow-lg">
         <div class="form-left ">
-            <img src="{{asset('/image/hotel1.jpg')}}"  alt="form">
+            <img src="{{url('https://groupeparkavenue.com/sites/default/files/styles/scale_1200/https/images.swift.fuseinteractive.ca/chrome/media/ChromeImageGallery/ColorMatched_01/Transparent/1280/cc_2019HOC17_01_1280/cc_2019HOC170002_01_1280_NH0.png?itok=-SijIKWe')}}" class="img-fluid mb-auto my-5" alt="form">
         </div>
 
         <div class="form-right">

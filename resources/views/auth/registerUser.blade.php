@@ -249,7 +249,7 @@
                                 <div class="form-row-last">
                                     <input type="submit" name="register" class="register rounded-pill" value="Sign In">
                                 </div>
-                                <p style="font-size: 14px">Tidak Punya Akun? Silahkan Registrasi Terlebih Dahulu</p>
+                                <p class="text-black"style="font-size: 14px">Tidak Punya Akun? Silahkan Registrasi Terlebih Dahulu</p>
                             </div>
                         </form>
                 </form>
