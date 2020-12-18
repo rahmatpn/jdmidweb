@@ -211,7 +211,7 @@
 <div class="page-content">
     <div class="form-v8-content  shadow-md ">
         <div class="form-left ">
-            <img src="{{asset('/image/user.jpg')}}"  class="img-fluid mr-auto mt-auto mb-auto" style="padding-top: 50px"  alt="form">
+            <img src="{{asset('/image/ae86.webp')}}"  class="img-fluid mt-auto mb-auto" style="padding-top: 50px"  alt="form">
         </div>
 
         <div class="form-right">
@@ -249,7 +249,7 @@
                                 <div class="form-row-last">
                                     <input type="submit" name="register" class="register rounded-pill" value="Sign In">
                                 </div>
-                                <p style="font-size: 14px">Tidak Punya Akun? Silahkan Registrasi Terlebih Dahulu</p>
+                                <p class="text-black"style="font-size: 14px">Tidak Punya Akun? Silahkan Registrasi Terlebih Dahulu</p>
                             </div>
                         </form>
                 </form>
