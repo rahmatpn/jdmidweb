@@ -7,120 +7,86 @@
                     {{ csrf_field() }}
                 <section>
                     <!-- Section heading -->
-                    <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Post a Job</h3>
+                    <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Post a Car</h3>
                     <hr class="w-header">
                     <div class="row">
                         <div class="md-form input-group mb-3 col-xl">
                             <div class="input-group-prepend">
-                                <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Area <span class="text-danger">*</span></span>
+                                <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Nama Mobil <span class="text-danger">*</span></span>
                             </div>
-                            <input type="text" class="form-control" id="area" name="area" placeholder="Ex. Main Hall" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default" data-error="Silahkan Masukkan Area Kerja">
+                            <input type="text" class="form-control" id="area" name="area" placeholder="Ex. Main Hall" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default" data-error="Silahkan Masukkan nama mobil">
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="md-form input-group mb-3 col-xl">
                             <div class="input-group-prepend">
-                                <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Tanggal Mulai <span class="text-danger">*</span></span>
+                                <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Transmisi <span class="text-danger">*</span></span>
                             </div>
-                            <input type="date" class="form-control validate" id="tanggal_mulai" name="tanggal_mulai" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default" required>
+                            <input type ="text" class="form-control" id="transmisi" name="transmisi" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default" required>
                         </div>
 
                     </div>
 
                     <div class="md-form input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Posisi  <span class="text-danger">*</span></span>
+                            <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Merk  <span class="text-danger">*</span></span>
                         </div>
                         <select class="browser-default custom-select rounded" required id="posisi_id" name="posisi_id">
-                            <option selected>Pilih Posisi</option>
-                            <option value="1">Laundry</option>
-                            <option value="2">Pool Maintenance</option>
-                            <option value="3">Equipment Maintenance</option>
-                            <option value="4">Receptionist</option>
-                            <option value="5">Porter</option>
-                            <option value="6">Security</option>
-                            <option value="7">Valet</option>
-                            <option value="8">Concierge</option>
-                            <option value="9">House Keeping</option>
-                            <option value="10">Room Service</option>
-                            <option value="11">Waiter/Waitress</option>
-                            <option value="12">Crew Restaurant</option>
-                            <option value="13">Barista</option>
-                            <option value="14">Photographer</option>
-                            <option value="15">Cleaning Service</option>
+                            <option selected>Pilih Merk</option>
+                            <option value="1">Honda</option>
+                            <option value="2">Nissan</option>
+                            <option value="3">Yamaha</option>
+                            <option value="4">Suzuki</option>
+                            <option value="5">Mitsubishi</option>
+                            <option value="6">Mazda</option>
+                            <option value="7">Hino</option>
+                            <option value="8">Acura</option>
                         </select>
                     </div>
 
                     <div class="row">
                         <div class="md-form input-group mb-3 col-xl">
                             <div class="input-group-prepend">
-                                <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Waktu Mulai  <span class="text-danger">*</span></span>
+                                <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Mesin  <span class="text-danger">*</span></span>
                             </div>
-                            <input type="time" class="form-control validate" id="waktu_mulai" name="waktu_mulai"  aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default" required>
+                            <input type="text" class="form-control validate" id="mesin" name="mesin"  aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
                         </div>
                         <div class="md-form input-group mb-3 col-xl">
                             <div class="input-group-prepend">
-                                <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Waktu Selesai  <span class="text-danger">*</span></span>
+                                <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Dimensi  <span class="text-danger">*</span></span>
                             </div>
-                            <input type="time" class="form-control validate" id="waktu_selesai" name="waktu_selesai" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default" required>
+                            <input type="text" class="form-control validate" id="dimensi" name="dimensi" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
                         </div>
                     </div>
                 </section>
                 <section>
-                    <hr class="w-header my-3">
-                    <div class="row">
-                        <div class="md-form input-group mb-3 col-xl">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Tinggi Minimal</span>
-                            </div>
-                            <input type="number" class="form-control validate" id="tinggi_minimal" name="tinggi_minimal" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
-                            <div class="input-group-append">
-                                <span class="input-group-text md-addon" id="material-addon2">Cm</span>
-                            </div>
-                        </div>
-                        <div class="md-form input-group mb-3 col-xl">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Tinggi Maksimal</span>
-                            </div>
-                            <input type="number" class="form-control validate" id="tinggi_maksimal" name="tinggi_maksimal" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
-                            <div class="input-group-append">
-                                <span class="input-group-text md-addon" id="material-addon2">Cm</span>
-                            </div>
-                        </div>
+                <div class="custom-radio mb-3 col-xl">
+                        <label class="form-check-label" for="kondisi">
+                            <input type="radio"  id="Baru" name="kondisi" value="Baru"> Baru
+                        </label>
                     </div>
-
-                    <div class="row">
-                        <div class="md-form input-group mb-3 col-xl">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Berat Minimal</span>
-                            </div>
-                            <input type="number" class="form-control validate" id="berat_minimal" name="berat_minimal" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
-                            <div class="input-group-append">
-                                <span class="input-group-text md-addon" id="material-addon2">Kg</span>
-                            </div>
-                        </div>
-                        <div class="md-form input-group mb-3 col-xl">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Berat Maksimal</span>
-                            </div>
-                            <input type="number" class="form-control validate" id="berat_maksimal" name="berat_maksimal"  aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default">
-                            <div class="input-group-append">
-                                <span class="input-group-text md-addon" id="material-addon2">Kg</span>
-                            </div>
-                        </div>
+                    <div class="custom-radio mb-3 col-xl">
+                        <label class="form-check-label" for="kondisi">
+                            <input type="radio"  id="Lama" name="kondisi" value="Lama" > Lama
+                        </label>
                     </div>
-                </section>
-                <section>
                     <hr class="w-header my-3">
                     <div class="md-form input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Kuota  <span class="text-danger">*</span></span>
+                            <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Warna <span class="text-danger">*</span></span>
+                        </div>
+                        <input type="text" class="form-control validate" id="warna" name="warna"  aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default" required>
+                    </div>
+
+                    <div class="md-form input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Tahun  <span class="text-danger">*</span></span>
                         </div>
                         <input type="number" class="form-control validate" id="kuota" name="kuota"  aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default" required>
                     </div>
 
                     <div class="md-form input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Bayaran  <span class="text-danger">*</span></span>
+                            <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Harga <span class="text-danger">*</span></span>
                             <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Rp:</span>
                         </div>
                         <input type="number" class="form-control validate" id="bayaran" name="bayaran"  aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default" required>

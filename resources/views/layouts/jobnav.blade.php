@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Job Detail</title>
-    <link rel="icon" href="{{asset('/image/logo2.png')}}">
+    <link rel="icon" href="{{asset('/image/jdmid_logo2.png')}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 {{--    <link rel="stylesheet" href="{{ asset('css/freelancer.css') }}" />--}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css">
@@ -31,7 +31,7 @@
         header,
         .view {
             height: 100%;
-            background-color: white;
+            background-color: #ffffff;
         }
 
 
@@ -40,11 +40,14 @@
         }
 
         .top-nav-collapse {
-            background-color: #2b90d9 !important;
+            background-color: black !important;
         }
 
         .navbar:not(.top-nav-collapse) {
-            background: transparent !important;
+            background: black !important;
+            text-shadow: black;
+            background-color: black;
+           
         }
 
 
@@ -164,10 +167,10 @@
     });
 </script>
 <body>
-<nav class="navbar navbar-dark navbar-expand-lg fixed-top scrolling-navbar ">
+<nav class="navbar navbar-dark navbar-expand-lg fixed-top ">
     <div class="container">
         <a class="navbar-brand" href="{{url('/')}}">
-            <img src="{{asset('/image/jdmid_logo.png')}}" height="50" alt="logo">
+            <img src="{{asset('/image/jdmid_logo2.png')}}" height="50" alt="logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="dark-blue-text"><i
@@ -176,10 +179,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <form class="form-inline mr-auto" action="{{url('/search')}}" method="GET">
-                <input class="form-control" type="text" placeholder="Search" aria-label="Search" name="searchTerm">
-                <button class="btn btn-elegant btn-rounded btn-sm my-0 ml-sm-2" type="submit">Search</button>
-            </form>
+        
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
@@ -326,7 +326,7 @@
 
 <main class="pt-5">
     @yield('content')
-    </br>
+
 
 </main>
 <script>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kolega Hotel</title>
-    <link rel="icon" href="{{asset('/image/logo2.png')}}">
+    <title>Post a Car</title>
+    <link rel="icon" href="{{asset('/image/jdmid_logo.png')}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="{{ asset('css/freelancer.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css">
@@ -272,7 +272,7 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="{{url('/')}}">
-                <img src="{{asset('/image/logo_head.png')}}" height="50" alt="logo">
+                <img src="{{asset('/image/jdmid_logo.png')}}" height="50" alt="logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i></span>
