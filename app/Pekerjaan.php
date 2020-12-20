@@ -23,6 +23,10 @@ class Pekerjaan extends Model
         $hotel = ProfileHotel::whereId($this->hotel_id)->first();
         return $hotel->alamat;
     }
+    public function getHP(){
+        $hotel = ProfileHotel::whereId($this->hotel_id)->first();
+        return $hotel->nomor_telepon;
+    }
 
     public function getNama(){
         $profil = ProfileHotel::whereId($this->hotel_id)->first();

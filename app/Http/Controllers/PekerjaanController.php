@@ -41,16 +41,19 @@ class PekerjaanController extends Controller
         $data = request()->validate([
             'area' => 'required',
             'posisi_id'=>'required',
-            'tanggal_mulai' => 'required',
-            'waktu_mulai' => 'required',
-            'waktu_selesai' => 'required',
+            'tanggal_mulai' => '',
+            'mesin' => '',
+            'dimensi' => '',
             'tinggi_minimal' => '',
             'tinggi_maksimal' => '',
             'berat_minimal' => '',
             'berat_maksimal' => '',
-            'kuota' => 'required',
-            'bayaran' => 'required',
-            'deskripsi' => 'required',
+            'kuota' => '',
+            'warna' => '',
+            'transmisi' => '',
+            'kondisi' => '',
+            'bayaran' => '',
+            'deskripsi' => '',
             'foto' => ''
         ]);
 
@@ -102,14 +105,17 @@ class PekerjaanController extends Controller
             'area' => $request->area,
             'posisi_id'=>$request->posisi_id,
             'tanggal_mulai' => $request->tanggal_mulai,
-            'waktu_mulai' => $request->waktu_mulai,
-            'waktu_selesai' => $request->waktu_selesai,
+            'mesin' => $request->mesin,
+            'dimensi' => $request->dimensi,
             'tinggi_minimal' => $request->tinggi_minimal,
             'tinggi_maksimal' => $request ->tinggi_maksimal,
             'berat_minimal' => $request ->berat_minimal,
             'berat_maksimal' => $request ->berat_maksimal,
             'kuota' => $request->kuota,
             'bayaran' => $request->bayaran,
+            'warna' => $request->warna,
+            'transmisi' => $request->transmisi,
+            'kondisi' => $request->kondisi,
             'deskripsi' => $request->deskripsi
         ]);
         if(Auth::guard('hotel')->user() != null){
@@ -310,10 +316,6 @@ class PekerjaanController extends Controller
             ->with('posisi')
             ->withCount('dikerjakan')
             ->where('status', '1')
-            ->where(function ($q) use($date, $time){
-                $q->where('tanggal_mulai','>',$date)
-                    ->orWhere('tanggal_mulai',$date)->where('waktu_mulai','>',$time);
-            })
             ->where(function ($q) use ($searchTerm, $hotel_id, $posisi_id){
                 $q->Where('hotel_id', $hotel_id)
                     ->orwhere('deskripsi','like','%'.$searchTerm.'%')
