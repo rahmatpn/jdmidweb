@@ -3,10 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kolega Hotel</title>
-    <link rel="icon" href="{{asset('/image/logo2.png')}}">
+    <title>Profile</title>
+    <link rel="icon" href="{{asset('/image/jdmid_logo2.png')}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="{{ asset('css/freelancer.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
@@ -176,7 +175,7 @@
     <nav class="navbar navbar-expand-lg  fixed-top scrolling-navbar ">
         <div class="container">
             <a class="navbar-brand" href="{{url('/')}}">
-                <img src="{{asset('/image/logo_head.png')}}" height="50" alt="logo">
+                <img src="{{asset('/image/jdmid_logo.png')}}" height="50" alt="logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="dark-blue-text"><i
@@ -241,15 +240,6 @@
                                </a>
                            </li>
                        @endauth
-                       @auth('user')
-                           <li class="nav-item">
-                               <a class="nav-link" href="{{url('/joblist')}}">
-                                   <i class="fa fa-angellist"></i>
-                                   Job-List
-                                   <span class="sr-only">(current)</span>
-                               </a>
-                           </li>
-                           @endauth
 {{--                    <li class="nav-item">--}}
 {{--                        <a class="nav-link" type="button" id="dropdownMenu3" data-toggle="dropdown" href="#">--}}
 {{--                            <i class="fa fa-whatsapp "></i>--}}

@@ -38,6 +38,7 @@ class Pekerjaan extends Model
         return $pekerjaan;
     }
 
+
     public function getSocial(){
         $hotel = ProfileHotel::whereId($this->hotel_id)->first();
         return $hotel->social_media;
