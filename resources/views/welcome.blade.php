@@ -305,6 +305,13 @@
                             </li>
                         @endauth
                         @auth('user')
+                         <li class="nav-item">
+                           <a class="nav-link" href="{{url('/home/')}}">
+                               <i class="fa fa-heart"></i>
+                               Wishlist
+                               <span class="sr-only">(current)</span>
+                           </a>
+                       </li>
                         <li class="nav-item">
                            <a class="nav-link" href="{{url('/home/')}}">
                                <i class="fa fa-home"></i>
@@ -343,7 +350,7 @@
                 <div class="row">
                     <!--Grid column-->
                     <div class="col-md-6 black-text text-center text-md-left mt-xl-5 mb-5 justify-content-around" data-wow-delay="0.3s">
-                        <h5 class="mb-3 font-weight-bold wow fadeInDownBig">Tersedia <span style="color: orangered">{{\App\Pekerjaan::all()->count()}}</span>Jumlah Mobil Tersedia</h5>
+                        <h5 class="mb-3 font-weight-bold wow fadeInDownBig">Tersedia <span style="color: orangered">{{\App\Pekerjaan::all()->count()}}</span> Jumlah Mobil</h5>
                         <h1 class="h1-responsive font-weight-bold mt-sm-5 wow bounceIn">JDM.id</h1>
                         <hr class="hr-dark wow bounceInDown">
                         <h6 class="mb-3 wow fadeInDownBig">Kami adalah pintu utama bagi anda yang ingin membeli mobil pabrikan Jepang</h6>
@@ -402,8 +409,8 @@
       <!-- Grid column -->
       <div class="col-lg-7 col-md-6 mb-md-0 mb-4 mt-xl-4">
 
-      	 <h3 class="font-weight-normal mb-4">Lorem Ipsum</h3>
-         <p class="text-muted">Option as can distributors. And to suppliers, given a copy the horrible arrange yes, we had hundreds leave was more which a I the king's had the so soon throughout in necessary which at way did phase a young written, descriptions, late uninspired, to times owner themselves them. Get sported uninspired, the a box to an to but on been the succeed have couldn't set.</p>
+      	 <h3 class="font-weight-normal mb-4">Apa itu JDM.id?</h3>
+         <p class="text-muted">Sebuah layanan e-commerce yang ditujukan untuk menyediakan produk berupa mobil buatan Jepang, baik baru masupun second. JDM.id sarana pendukung seorang JDM car-enthusiast mencari mobil domestik Jepang yang diproduksi pabrikan Jepang ataupun pabrikan Amerika.</p>
 
 
       </div>
@@ -475,8 +482,17 @@
   <!-- Section: Block Content -->
   <section class="dark-grey-text">
 
-<h3 class="text-center font-weight-bold mb-4 pb-2">Our best projects</h3>
-<p class="text-center text-muted w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur veniam.</p>
+<h3 class="text-center font-weight-bold mb-4 pb-2">Our Vehicle</h3>
+
+
+</div>
+
+<div class="container my-5  bg-white wow fadeIn">
+
+  <!-- Section: Block Content -->
+  <section class="dark-grey-text">
+<!-- Grid row -->
+<h3 class="text-center font-weight-bold mb-4 pb-2">Our Best Projects</h3>
 
 <!-- Grid row -->
 <div class="row">
@@ -488,39 +504,33 @@
       <li class="d-flex justify-content-center pl-4">
         <span class="fa-li"><i class="far fa-chart-bar fa-2x indigo-text"></i></span>
         <div>
-          <h5 class="font-weight-bold mb-3">Marketing</h5>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing. Reprehenderit maiores nam, aperiam minima elit assumenda voluptate velit.</p>
+          <h5 class="font-weight-bold mb-3">Kualitas Terbaik</h5>
+          <p class="text-muted">Mobil kami selalu dalam kondisi terbaik dan penilaian setiap mobil berada pada tangan yang tepat sehingga hampir selalu akurat.</p>
         </div>
       </li>
       <li class="d-flex justify-content-center pl-4">
         <span class="fa-li"><i class="fas fa-music fa-2x pink-text"></i></span>
         <div>
-          <h5 class="font-weight-bold mb-3">Entertainment</h5>
-          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing. Reprehenderit maiores nam, aperiam minima elit assumenda voluptate velit.</p>
+          <h5 class="font-weight-bold mb-3">Pelayanan 24/7</h5>
+          <p class="text-muted">Pelayanan yang akan selalu tersedia kapanpun anda mau! Namun tidak hanya kuantitas, kami juga menawarkan kualitas.</p>
         </div>
       </li>
       <li class="d-flex justify-content-center pl-4">
         <span class="fa-li"><i class="far fa-grin fa-2x blue-text"></i></span>
         <div>
-          <h5 class="font-weight-bold mb-3">Communication</h5>
-          <p class="text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing. Reprehenderit maiores nam, aperiam minima elit assumenda voluptate velit.</p>
+          <h5 class="font-weight-bold mb-3">Surat Kendaraan Lengkap</h5>
+          <p class="text-muted mb-0">Surat kendaraan selalu lengkap dan telah diverifikasi oleh pihak yang terjamin.</p>
         </div>
       </li>
     </ul>
 
   </div>
-  <!-- Grid column -->
-
-  <!-- Grid column -->
-  <div class="col-lg-5">
+   <div class="col-lg-5">
 
       <img src="https://mdbootstrap.com/img/Photos/Others/images/82.jpg" class="img-fluid rounded z-depth-1" alt="Sample project image">
 
     </div>
     <!-- Grid column -->
-
-</div>
-<!-- Grid row -->
 
 <hr class="my-5">
 
