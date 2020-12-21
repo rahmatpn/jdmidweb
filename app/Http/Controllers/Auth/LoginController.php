@@ -51,7 +51,7 @@ class LoginController extends Controller
 
     public function showHotelLoginForm()
     {
-        return view('auth.loginHotel', ['url' => 'hotel']);
+        return view('auth.loginHotel', ['url' => 'seller']);
     }
 
     public function hotelLogin(Request $request)

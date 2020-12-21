@@ -97,7 +97,7 @@ class RegisterController extends Controller
 //    }
     public function showHotelRegisterForm()
     {
-        return view('auth.registerHotel', ['url' => 'hotel']);
+        return view('auth.registerHotel', ['url' => 'seller']);
     }
 
     public function showUserRegisterForm()
