@@ -47,7 +47,7 @@
             background: black !important;
             text-shadow: black;
             background-color: black;
-           
+
         }
 
 
@@ -179,7 +179,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-        
+
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
@@ -332,7 +332,7 @@
 <script>
     $('#my-summernote').summernote({
         minHeight: 200,
-        placeholder: 'Tulis Deskripsi Pekerjaan...',
+        placeholder: 'Tulis Deskripsi Produk yang dijual...',
         focus: false,
         airMode: false,
         fontNames: ['Roboto', 'Calibri', 'Times New Roman', 'Arial'],

@@ -138,19 +138,19 @@
                     </li>
                 @endauth
                     @auth('user')
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="{{url('/home')}}">
                         <i class="fa fa-home"></i>
-                        Home
+                        Catalogue
                         <span class="sr-only">(current)</span>
                     </a>
-                </li>
+                </li>  !-->
                     @endauth
                     @auth('hotel')
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/home/hotel')}}">
                                 <i class="fa fa-home"></i>
-                                Home
+                                List Product
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>

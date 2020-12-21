@@ -276,10 +276,17 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @guest('hotel') @guest('user')
-                    <a href="{{url('/masuk/hotel')}}" class="btn btn-amber shadow-none rounded-pill">Jual</a>
+                    <a href="{{url('/masuk/seller')}}" class="btn btn-amber shadow-none rounded-pill">Jual</a>
                     <a href="{{url('/masuk/user')}}" class="btn btn-deep-purple shadow-none rounded-pill">Beli</a>
                     @endguest @endguest
                                     @auth('hotel')
+                             <li class="nav-item">
+                           <a class="nav-link" href="{{url('/home/')}}">
+                               <i class="fa fa-home"></i>
+                               Catalogue
+                               <span class="sr-only">(current)</span>
+                           </a>
+                       </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
                                    aria-haspopup="true" aria-expanded="false">
@@ -288,6 +295,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-default"
                                      aria-labelledby="navbarDropdownMenuLink-333">
+
                                     <a class="dropdown-item" href="{{url('/hotel/'.\Illuminate\Support\Str::slug(auth()->guard('hotel')->user()->name))}}">Profil</a>
                                     <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Log Out</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -297,6 +305,13 @@
                             </li>
                         @endauth
                         @auth('user')
+                        <li class="nav-item">
+                           <a class="nav-link" href="{{url('/home/')}}">
+                               <i class="fa fa-home"></i>
+                               Catalogue
+                               <span class="sr-only">(current)</span>
+                           </a>
+                       </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
                                    aria-haspopup="true" aria-expanded="false">
@@ -305,6 +320,7 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-default"
                                      aria-labelledby="navbarDropdownMenuLink-333">
+
                                     <a class="dropdown-item" href="{{url('/user/'.\Illuminate\Support\Str::slug(auth()->guard('user')->user()->name))}}">Profil</a>
                                     <a class="dropdown-item" href="{{url(route('logout'))}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Log Out</a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -332,14 +348,14 @@
                         <hr class="hr-dark wow bounceInDown">
                         <h6 class="mb-3 wow fadeInDownBig">Kami adalah pintu utama bagi anda yang ingin membeli mobil pabrikan Jepang</h6>
                         @guest('hotel') @guest('user')
-                        <a class="btn btn-black  wow fadeInLeftBig rounded-pill" href="{{url('/masuk/hotel')}}"><strong>Jual</strong></a>
+                        <a class="btn btn-black  wow fadeInLeftBig rounded-pill" href="{{url('/masuk/seller')}}"><strong>Jual</strong></a>
                             <a class="btn btn-outline-blue wow fadeInRightBig rounded-pill" href="{{url('/masuk/user')}}"><strong>Cari Mobil</strong></a>
                         @endguest @endguest
                         @auth('hotel')
-                            <a class="btn btn-black wow fadeInLeftBig" href="{{url('/job/postjob')}}"><strong>Post a Job</strong></a>
+                            <a class="btn btn-black wow fadeInLeftBig" href="{{url('/job/postjob')}}"><strong>Post a Car</strong></a>
                         @endauth
                         @auth('user')
-                            <a class="btn btn-outline-blue wow fadeInRightBig" href="{{url('/home')}}"><strong>Cari Lowongan</strong></a>
+                            <a class="btn btn-outline-blue wow fadeInRightBig" href="{{url('/home')}}"><strong>Cari Mobil</strong></a>
                         @endauth
                     </div>
                     <!--Grid column-->
@@ -388,7 +404,7 @@
 
       	 <h3 class="font-weight-normal mb-4">Lorem Ipsum</h3>
          <p class="text-muted">Option as can distributors. And to suppliers, given a copy the horrible arrange yes, we had hundreds leave was more which a I the king's had the so soon throughout in necessary which at way did phase a young written, descriptions, late uninspired, to times owner themselves them. Get sported uninspired, the a box to an to but on been the succeed have couldn't set.</p>
-   
+
 
       </div>
       <!-- Grid column -->
@@ -428,7 +444,7 @@
           alt="Second slide">
         <div class="mask rgba-black-light"></div>
       </div>
-     
+
     </div>
     <div class="carousel-item">
       <!--Mask color-->
@@ -437,7 +453,7 @@
           alt="Third slide">
         <div class="mask rgba-black-light"></div>
       </div>
-     
+
     </div>
   </div>
   <!--/.Slides-->
@@ -455,7 +471,7 @@
 <!--/.Carousel Wrapper-->
 
 <div class="container my-5  bg-white wow fadeIn">
-   
+
   <!-- Section: Block Content -->
   <section class="dark-grey-text">
 
@@ -506,7 +522,7 @@
 </div>
 <!-- Grid row -->
 
-<hr class="my-5"> 
+<hr class="my-5">
 
 </section>
 <!-- Section: Block Content -->
@@ -700,21 +716,14 @@
                 <p class="font-italic text-muted">Raih kesempatanmu untuk mendapatkan mobil impian mu.</p>
             </div>
             <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-                <h6 class="text-uppercase font-weight-bold mb-4">Penjual</h6>
-                <ul class="list-unstyled mb-0">
-                    <li class="mb-2"><a href="{{url('/home')}}" class="text-muted">Home</a></li>
-                    <li class="mb-2"><a href="#" class="text-muted">Profil</a></li>
-                    <li class="mb-2"><a href="#" class="text-muted">Mobil</a></li>
-
-                </ul>
-            </div>
-            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-                <h6 class="text-uppercase font-weight-bold mb-4">Pembeli</h6>
-                <ul class="list-unstyled mb-0">
-                    <li class="mb-2"><a href="{{url('/home')}}" class="text-muted">Home</a></li>
-                    <li class="mb-2"><a href="#" class="text-muted">Profil</a></li>
-                    <li class="mb-2"><a href="#" class="text-muted">Mobil</a></li>
-                </ul>
+               <h6 class="text-uppercase font-weight-bold">Contact us</h6>
+                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>
+                        <i class="fas fa-home mr-3"></i>Lorem Ipsum</p>
+                    <p>
+                        <i class="fas fa-envelope mr-3"></i>info@jdmid.com</p>
+                    <p>
+                        <i class="fas fa-phone mr-3"></i>123125346</p>
             </div>
             <div class="col-lg-4 col-md-6 mb-lg-0">
                 <h6 class="text-uppercase font-weight-bold mb-4">Notification</h6>

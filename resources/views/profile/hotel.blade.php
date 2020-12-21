@@ -260,9 +260,12 @@
 
                 <!--Section heading-->
                 <h2 class="text-center h2 my-5 pt-4">Postingan</h2>
+
                 <!--Section description-->
                 <p class="text-center dark-grey-text w-responsive mx-auto mb-5">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
                     sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                <h3 class="text-center font-weight-bold mb-5 section-title"><a class="btn btn-outline-blue wow fadeInRightBig" href="{{url('/job/postjob')}}"><strong>Post a Car</strong></a></h3>
 
                 <!--Grid row-->
                 <div class="row text-center mb-2">
@@ -296,7 +299,7 @@
                                         <div class="dropdown-menu dropdown-menu-left">
                                             <a class="dropdown-item" href="{{url("/job/$pekerjaan->url_slug/edit")}}">Edit</a>
                                             <a class="dropdown-item" data-target="#centralModalWarning" data-toggle="modal" href="#">Delete</a>
-                                            <a class="dropdown-item" href="{{url("/job/$pekerjaan->url_slug/postlist")}}">Todo List</a>
+
                                         </div>
                                         <!-- Basic dropdown -->
                                     </div>
@@ -321,7 +324,7 @@
                                             <div class="modal-body">
                                                 <div class="text-center">
                                                     <i class="fas fa-times fa-4x mb-3 animated rotateIn"></i>
-                                                    <p>Apakah anda berniat untuk menghapus job ini?</p>
+                                                    <p>Apakah anda berniat untuk menghapus produk ini?</p>
                                                 </div>
                                             </div>
 
@@ -347,211 +350,6 @@
         <!--Blog section-->
 
         <!--Latest posts-->
-        <section>
-            <div class="container-fluid grey lighten-3 mb-0 pb-0">
-                <div class="container">
-                    <!--Grid row-->
-                    <div class="row">
-
-                        <!--Grid column-->
-                        <div class="col-lg-4 col-md-12">
-                            <h6 class="font-weight-bold mt-5 mb-3">ABOUT</h6>
-                            <hr class="mb-5">
-                            <img src="{{asset($hotel->profile->hotelPhoto())}}" alt="sample image" class="img-fluid z-depth-1">
-                            <p class="mt-4 mb-5">Sed ut in perspiciatis unde omnis iste natus error sit on i tatem accusantium doloremque laudantium,
-                                totam rem aperiam, eaque ipsa quae.</p>
-                        </div>
-                        <!--Grid column-->
-
-                        <!--Grid column-->
-                        <div class="col-lg-4 col-md-6">
-                            <h6 class="font-weight-bold mt-5 mb-3">Biodata</h6>
-                            <hr class="mb-5">
-                            <!--Grid row-->
-                            <div class="row mt-4">
-
-                                <!--Grid column-->
-                                <div class="col-4">
-
-              
-
-                                </div>
-                                <!--Grid column-->
-
-                                <!--Second column-->
-                                <div class="col-8 mb-1">
-
-                                    <!--Post data-->
-                                    <div class="">
-                                        <p class="mb-1">
-                                            <a href="#!" class="text-hover font-weight-bold">Nama</a>
-                                        </p>
-                                        <p class="font-small grey-text">
-                                            <em>{{$hotel->profile->nama}}</em>
-                                        </p>
-                                    </div>
-
-                                </div>
-                                <!--Second column-->
-
-                            </div>
-                            <!--Grid row-->
-
-                            <!--Grid row-->
-                            <div class="row">
-
-                                <!--Grid column-->
-                                <div class="col-4">
-
-                                    <!--Image-->
-                                   
-
-                                </div>
-                                <!--Grid column-->
-
-                                <!--Second column-->
-                                <div class="col-7 mb-1">
-
-                                    <!--Post data-->
-                                    <div class="">
-                                        <p class="mb-1">
-                                            <a href="#!" class="text-hover font-weight-bold">Nomor Telepon </a>
-                                        </p>
-                                        <p class="font-small grey-text">
-                                            <em>{{$hotel->profile->nomort_telepon}}</em>
-                                        </p>
-                                    </div>
-
-                                </div>
-                                <!--Second column-->
-
-                            </div>
-                            <!--Grid row-->
-
-                            <!--Grid row-->
-                            <div class="row">
-
-                                <!--Grid column-->
-                                <div class="col-4">
-
-                                   
-                                </div>
-                                <!--Grid column-->
-
-                                <!--Second column-->
-                                <div class="col-7 mb-1">
-
-                                    <!--Post data-->
-                                    <div class="">
-                                        <p class="mb-1">
-                                            <a href="#!" class="text-hover font-weight-bold">Alamat</a>
-                                        </p>
-                                        <p class="font-small grey-text">
-                                            <em>{{$hotel->profile->alamat}}</em>
-                                        </p>
-                                    </div>
-
-                                </div>
-                                <!--Second column-->
-
-                            </div>
-                            <!--Grid row-->
-
-                        </div>
-                        <!--Grid column-->
-
-                        <!--Grid column-->
-                        <div class="col-lg-4 col-md-6">
-                            <h6 class="font-weight-bold mt-5 mb-3">Biodata</h6>
-                            <hr class="mb-5">
-                            <!--Grid row-->
-                            <div class="row mt-4">
-
-                                <!--Grid column-->
-                                <div class="col-4">
-
-                                    <!--Image-->
-
-
-                                </div>
-                                <!--Grid column-->
-
-                                <!--Second column-->
-                                <div class="col-8 mb-1">
-
-                                    <!--Post data-->
-                                    <div class="">
-                                        <p class="mb-1">
-                                            <a href="#!" class="text-hover font-weight-bold">Social Media </a>
-                                        </p>
-                                        <p class="font-small grey-text">
-                                            <em>{{$hotel->profile->social_media}}</em>
-                                        </p>
-                                    </div>
-
-                                </div>
-                                <!--Second column-->
-
-                            </div>
-                            <!--Grid row-->
-
-                            <!--Grid row-->
-                            <div class="row">
-                            <a href="{{url('/job/postjob')}}" type="button" class="btn btn-lily btn-margin rounded wow fadeIn rounded-pill" style="margin-top: 10px" data-wow-delay="1s">Post A Job<i class="fas fa-caret-right ml-3"></i></a>
-                                <!--Grid column-->
-                                <div class="col-4">
-
-                      
-                                </div>
-                                <!--Grid column-->
-
-                                <!--Second column-->
-                                <div class="col-7 mb-1">
-
-                          
-
-                                </div>
-                                <!--Second column-->
-
-                            </div>
-                            <!--Grid row-->
-
-                            <!--Grid row-->
-                            <div class="row">
-
-                                <!--Grid column-->
-                                <div class="col-4">
-
-                               
-                                </div>
-                                <!--Grid column-->
-
-                                <!--Second column-->
-                                <div class="col-7 mb-1">
-
-                                    <!--Post data-->
-                                
-
-                                </div>
-                                <!--Second column-->
-
-                            </div>
-                            <!--Grid row-->
-
-                        </div>
-                        <!--Grid column-->
-
-                    </div>
-                    <!--Grid row-->
-
-                </div>
-            </div>
-
-        </section>
-        <!--/Latest posts-->
-
-    </main>
-   
 
         <!-- Footer -->
         <footer class="page-footer font-small indigo darken-4 py-4">
@@ -562,8 +360,8 @@
                 <div class="row">
                     <div class="col-md-6 d-flex justify-content-start">
                         <!-- Copyright -->
-                        <div class="footer-copyright text-center bg-transparent">© 2020 Copyright:
-                            <a href="#"> kolegahotel.com</a>
+                        <div class="footer-copyright text-center bg-transparent">© 2020 JDM.id All rights reserved.
+                            <a href="#"> JDM.id</a>
                         </div>
                         <!-- Copyright -->
                     </div>

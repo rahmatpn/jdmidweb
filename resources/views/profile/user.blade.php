@@ -1,8 +1,8 @@
 @extends('layouts.auth')
 
 @section('content')
-    
-    
+
+
 <section>
         <div class="container-fluid white">
             <hr class="mb-5 mt-0">
@@ -45,8 +45,8 @@
                             @if(is_array($user->posisi) || is_object($user->posisi))
 @foreach($user->posisi as $posisi)
                             <p class="dark-grey-text">
-                            
-                            <strong>Minat Mobil : </strong> 
+
+                            <strong>Minat Mobil : </strong>
 
                             {{$posisi->nama_posisi}}</p>
                             @endforeach
@@ -79,7 +79,7 @@
                 <div class="col-md-6 d-flex justify-content-start">
                     <!-- Copyright -->
                     <div class="footer-copyright text-center bg-transparent">© 2020 Copyright:
-                        <a href="https://mdbootstrap.com/education/bootstrap/"> kolegahotel.com</a>
+                        <a href="https://mdbootstrap.com/education/bootstrap/"> JDM.id</a>
                     </div>
                     <!-- Copyright -->
                 </div>

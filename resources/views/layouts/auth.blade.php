@@ -226,7 +226,7 @@
                        <li class="nav-item">
                            <a class="nav-link" href="{{url('/home/hotel')}}">
                                <i class="fa fa-home"></i>
-                               Home
+                               List Product
                                <span class="sr-only">(current)</span>
                            </a>
                        </li>
@@ -235,7 +235,7 @@
                            <li class="nav-item">
                                <a class="nav-link" href="{{url('/home')}}">
                                    <i class="fa fa-home"></i>
-                                   Home
+                                   Catalogue
                                    <span class="sr-only">(current)</span>
                                </a>
                            </li>
@@ -331,7 +331,7 @@
 <script>
     $('#my-summernote').summernote({
         minHeight: 200,
-        placeholder: 'Tulis Deskripsi Pekerjaan...',
+        placeholder: 'Tulis Deskripsi Produk yang dijual...',
         focus: false,
         airMode: false,
         fontNames: ['Roboto', 'Calibri', 'Times New Roman', 'Arial'],

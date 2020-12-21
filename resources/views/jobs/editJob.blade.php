@@ -12,7 +12,7 @@
             {{ csrf_field() }}
             <section>
                 <!-- Section heading -->
-                <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Edit Job</h3>
+                <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Edit Product</h3>
                 <hr class="w-header">
                 <div class="row">
                     <input type="hidden" name="id" value="{{$pekerjaan->id}}">
@@ -160,7 +160,7 @@
                 </section>
                 <input type="submit" class="btn btn-primary" value="Simpan Data">
             </section>
-    
+
         </form>
                 </form>
     </div>

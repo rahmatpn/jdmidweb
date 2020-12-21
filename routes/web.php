@@ -50,7 +50,7 @@ Auth::routes();
 
 
 
-Route::get('/masuk/hotel', 'Auth\RegisterController@showHotelRegisterForm');
+Route::get('/masuk/seller', 'Auth\RegisterController@showHotelRegisterForm');
 
 Route::get('/masuk/user', 'Auth\RegisterController@showUserRegisterForm');
 
@@ -68,7 +68,7 @@ Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 
 
 
-Route::post('/masuk/hotel', 'Auth\RegisterController@createHotel');
+Route::post('/masuk/seller', 'Auth\RegisterController@createHotel');
 
 Route::post('/masuk/user', 'Auth\RegisterController@createUser');
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Post a Car</title>
+    <title>Edit Profile</title>
     <link rel="icon" href="{{asset('/image/jdmid_logo.png')}}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="{{ asset('css/freelancer.css') }}" />
@@ -310,7 +310,7 @@
                        <li class="nav-item">
                            <a class="nav-link" href="{{url('/home/hotel')}}">
                                <i class="fa fa-home"></i>
-                               Home
+                               List Product
                                <span class="sr-only">(current)</span>
                            </a>
                        </li>
@@ -393,7 +393,7 @@
 <script>
     $('#my-summernote').summernote({
         minHeight: 200,
-        placeholder: 'Tulis Deskripsi Pekerjaan...',
+        placeholder: 'Tulis Deskripsi Produk yang dijual...',
         focus: false,
         airMode: false,
         fontNames: ['Roboto', 'Calibri', 'Times New Roman', 'Arial'],

@@ -66,7 +66,7 @@ class LoginController extends Controller
             return redirect('/hotel/'.$profile->url_slug);
 
         }
-        return redirect()->intended('masuk/hotel')->with('gagalLogin','Password atau Email salah');
+        return redirect()->intended('masuk/seller')->with('gagalLogin','Password atau Email salah');
     }
 
     public function showUserLoginForm()

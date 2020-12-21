@@ -116,8 +116,8 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th scope="col"><i class="fas fa-user mr-2 blue-text" aria-hidden="true"></i>Total Applyer</th>
-                                <th scope="col"><i class="fas fa-briefcase mr-2 blue-text" aria-hidden="true"></i>Pekerjaan</th>
+                                <th scope="col"><i class="fas fa-user mr-2 blue-text" aria-hidden="true"></i>Total Booked</th>
+                                <th scope="col"><i class="fas fa-briefcase mr-2 blue-text" aria-hidden="true"></i>Product</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -129,7 +129,7 @@
                         </table>
                         <div class="card-text">
 
-                            <a href="#!" class="card-title">© 2020 Kolega Hotel, Inc.</a>
+                            <a href="#!" class="card-title">© 2020 JDM.id All rights reserved.</a>
                         </div>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
                 <!-- Grid row-->
                 <ul class="list-unstyled list-inline text-center py-2">
                     <li class="list-inline-item">
-                        <h5 class="mb-1">Buat lowongan pekerjaan sekarang</h5>
+                        <h5 class="mb-1">Post mobil sekarang</h5>
                     </li>
                     <li class="list-inline-item">
                         <a href="{{url('/job/postjob')}}" class="btn btn-outline-white rounded-pill">Post it!</a>
@@ -166,7 +166,7 @@
                 <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
 
                     <!-- Content -->
-                    <h6 class="text-uppercase font-weight-bold">Hotel name</h6>
+                    <h6 class="text-uppercase font-weight-bold">Seller name</h6>
                     <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <h1>{{$hotel->profile->nama}}</h1>
 
@@ -177,7 +177,7 @@
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 
                     <!-- Links -->
-                    <h6 class="text-uppercase font-weight-bold">Hotel Brief</h6>
+                    <h6 class="text-uppercase font-weight-bold">Seller Brief</h6>
                     <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <p>{{$hotel->profile->deskripsi}}</p>
 
@@ -191,7 +191,7 @@
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 
                     <!-- Links -->
-                    <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                    <h6 class="text-uppercase font-weight-bold">Contact Seller</h6>
                     <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <p>
                         <i class="fas fa-home mr-3"></i>{{$hotel->profile->alamat}}</p>
@@ -212,7 +212,7 @@
         <!-- Footer Links -->
 
         <!-- Copyright -->
-        <div class="footer-copyright text-center text-black-50 py-3">© 2020 Kolega Hotel, Inc.
+        <div class="footer-copyright text-center text-black-50 py-3">© 2020 JDM.id All rights reserved.
         </div>
         <!-- Copyright -->
 
