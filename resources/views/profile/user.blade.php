@@ -1,382 +1,74 @@
 @extends('layouts.auth')
 
 @section('content')
-    <style>
-        /*.rgba-gradient {*/
-        /*    background: -moz-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);*/
-        /*    background: -webkit-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);*/
-        /*    background: -webkit-gradient(linear, 45deg, from(rgba(42, 27, 161, 0.7)), to(rgba(29, 210, 177, 0.7)));*/
-        /*    background: -o-linear-gradient(45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);*/
-        /*    background: linear-gradient(to 45deg, rgba(42, 27, 161, 0.7), rgba(29, 210, 177, 0.7) 100%);*/
-        /*}*/
+    
+    
+<section>
+        <div class="container-fluid white">
+            <hr class="mb-5 mt-0">
+            <div class="container">
 
-        .center-cropped {
-            width: 100px;
-            height: 100px;
-            background-position: center center;
-            background-repeat: no-repeat;
-        }
+                <!--Section: Blog v.3-->
+                <section class="section extra-margins mt-5 py-5 text-center text-lg-left">
 
-        #header{
-            background-image: url({{asset($user->profile->profileCover())}}); background-repeat: no-repeat;
-            background-size: cover;
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
+                    <!--Grid row-->
+                    <div class="row my-xl-5 py-xl-4">
 
+                        <!--Grid column-->
+                        <div class="col-sm-12 col-md-5 col-xl-5 mb-4">
 
-        }
-        .overlay{
-            height: 100%;
-            width: 100%;
-            background: rgba(39,62,84,0.82);
-            position: absolute;
+                            <!--Image-->
+                            <div class="view overlay">
+                                <img src="{{asset($user->profile->profileFoto())}}" class="img-fluid z-depth-1" alt="">
+                                <div class="mask rgba-white-slight"></div>
+                            </div>
+                            <!--/.Image-->
 
+                        </div>
+                        <!--Grid column-->
 
-        }
-    </style>
+                        <!--Grid column-->
+                        <div class="col-sm-12 col-md-6 col-xl-6 ml-3">
 
-    <header class="masthead text-white text-center" id="header">
+                            <h3 class="dark-grey-text pb-2 font-weight-bold">
+                                <strong>{{$user->profile->nama_lengkap}}</strong>
+                            </h3>
+                            <p class="gold-text mb-4 text-uppercase font-weight-bold">Biodata</p>
+                            <hr>
 
-        <div class="container d-flex align-items-center flex-column">
+                            <p class="dark-grey-text mt-4 text-justify"><strong>Nama : </strong>{{$user->profile->nama_lengkap}} </p>
+                            <p class="dark-grey-text mt-4 text-justify"><strong>Jenis Kelamin :</strong> {{$user->profile->jenis_kelamin}} </p>
+                            <p class="dark-grey-text text-justify"><strong>Tanggal Lahir :</strong> {{$user->profile->tanggal_lahir}}</p>
+                            <p class="dark-grey-text text-justify"><strong>Alamat :</strong> {{$user->profile->alamat}}</p>
+                            <p class="dark-grey-text text-justify"><strong>Nomor Telepon :</strong> {{$user->profile->nomor_telepon}}</p>
+                            <p class="dark-grey-text text-justify"><strong>Sosial Media :</strong> {{$user->profile->social_media}}</p>
+                            @if(is_array($user->posisi) || is_object($user->posisi))
+@foreach($user->posisi as $posisi)
+                            <p class="dark-grey-text">
+                            
+                            <strong>Minat Mobil : </strong> 
 
-            <!-- Masthead Avatar Image -->
-            <img class="masthead-avatar rounded-circle z-depth-1 mb-5 "  src="{{asset($user->profile->profileFoto())}}" alt="">
-
-            <!-- Masthead Heading -->
-            <h1 class="masthead-heading  mb-0">{{$user->profile->nama_lengkap}}</h1>
-
-            <!-- Icon Divider -->
-            <div class="divider-custom divider-light">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon">
-                    <i class="fas fa-user"></i>
-                </div>
-                <div class="divider-custom-line"></div>
-            </div>
-            <h5 class="masthead-subheading"></h5>
-            <!-- Masthead Subheading -->
-            @if(is_array($user->posisi) || is_object($user->posisi))
-                @foreach($user->posisi as $posisi)
-                <div class="masthead-subheading font-weight-light mb-0">{{$posisi->nama_posisi}}</div>
-                @endforeach
+                            {{$posisi->nama_posisi}}</p>
+                            @endforeach
             @endif
+                            <h5 class="text-right font-weight-bold dark-grey-text mt-5">
+                                <em>{{$user->profile->nama}}</em>
+                            </h5>
+                        </div>
+                        <!--Grid column-->
+
+                    </div>
+                    <!--/Grid row-->
+
+                </section>
+                <!--/Section: Blog v.3-->
+
+            </div>
 
         </div>
 
+    </section>
 
-    </header>
-
-
-    <div class="container my-5">
-
-        <!--Section: Content-->
-        <section>
-
-            <!-- Section heading -->
-            <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Biodata</h3>
-            <hr class="w-header">
-            <!-- Section description -->
-
-
-
-            <div class="row text-center text-md-left">
-                <div class="col-md-6 mb-4">
-                    <h5 class="font-weight-normal mb-3">Nama</h5>
-                    <p class="text-muted">{{$user->profile->nama}}</p>
-                </div>
-
-                <div class="col-md-6 mb-4">
-                    <h5 class="font-weight-normal mb-3">Nama Lengkap</h5>
-                    <p class="text-muted">{{$user->profile->nama_lengkap}}</p>
-                </div>
-
-                <div class="col-md-6 mb-4">
-                    <h5 class="font-weight-normal mb-3">Nomor Telepon</h5>
-                    <p class="text-muted">
-                        {{$user->profile->nomor_telepon}}</p>
-                </div>
-
-                <div class="col-md-6 mb-4">
-                    <h5 class="font-weight-normal mb-3">Tanggal Lahir</h5>
-                    <p class="text-muted"> {{$user->profile->tanggal_lahir}}</p>
-                </div>
-
-                <div class="col-md-6 mb-4">
-                    <h5 class="font-weight-normal mb-3">Jenis Kelamin</h5>
-                    <p class="text-muted"> {{$user->profile->jenis_kelamin}}</p>
-                </div>
-
-                <div class="col-md-6 mb-4">
-                    <h5 class="font-weight-normal mb-3">Alamat</h5>
-                    <p class="text-muted"> {{$user->profile->alamat}}</p>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <h5 class="font-weight-normal mb-3">Berat Badan</h5>
-                    <p class="text-muted"> {{$user->profile->berat_badan}}</p>
-                </div>
-
-                <div class="col-md-6 mb-4">
-                    <h5 class="font-weight-normal mb-3">Tinggi Badan</h5>
-                    <p class="text-muted"> {{$user->profile->tinggi_badan}}</p>
-                </div>
-
-                <div class="col-md-6 mb-4">
-                    <h5 class="font-weight-normal mb-3">Pendidikan Terakhir</h5>
-                    <p class="text-muted"> {{$user->profile->pendidikan_terakhir}}</p>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <h5 class="font-weight-normal mb-3">Social Media</h5>
-                    <p class="text-muted"> {{$user->profile->social_media}}</p>
-                </div>
-            </div>
-
-        </section>
-
-
-        <!-- Section -->
-        <section>
-
-            <style>
-                .md-pills .nav-link.active {
-                    color: #fff;
-                    background-color: #616161;
-                }
-                button.close {
-                    position: absolute;
-                    right: 0;
-                    z-index: 2;
-                    padding-right: 1rem;
-                    padding-top: .6rem;
-                }
-            </style>
-
-
-
-            <h6 class="font-weight-bold text-center grey-text text-uppercase small mb-4">portfolio</h6>
-            <h3 class="font-weight-bold text-center dark-grey-text pb-2">Pengalaman Bekerja</h3>
-            <hr class="w-header my-4">
-            <p class="lead text-center text-muted pt-2 mb-5">Semua jenis pekerjaan yang telah dilakukan oleh {{$user->profile->nama_lengkap}}</p>
-
-
-            <!--First row-->
-
-            <!--Tab panels-->
-            <div class="tab-content mb-5">
-
-                <!--Panel 1-->
-                <div class="tab-pane fade show in active" id="panel31" role="tabpanel">
-
-                    <!-- Grid row -->
-                    <div class="row">
-                        @foreach($pekerjaanSelesai as $pekerjaan)<!--for each e kene-->
-
-                        <!-- Grid column -->
-                        <div class="col-md-12 col-lg-4">
-
-                            <!-- Card -->
-                            <a class="card hoverable mb-4" >
-                            <!--photo ne diganti foto job -->
-                                <!-- Card image -->
-                                <img class="card-img-top" src="{{asset($pekerjaan->foto ?? $pekerjaan->hotel->profile->hotelPhoto())}}" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-                            <!-- jeneng pekerjaan -->
-                                    <h5 class="my-3">{{$pekerjaan->getPosisi()}}</h5>
-                                    <p class="card-text text-uppercase mb-3">{!!html_entity_decode($pekerjaan->deskripsi) !!}</p> <!-- Jeneng Hotel e -->
-
-                                </div>
-
-                            </a>
-                            <!-- Card -->
-
-
-
-                        </div>
-                        @endforeach                        <!--end for each e kene-->
-
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-
-                    </div>
-                    <!-- Grid row -->
-
-                </div>
-                <!--Panel 1-->
-
-                <!--Panel 2-->
-                <div class="tab-pane fade" id="panel32" role="tabpanel">
-
-                    <!-- Grid row -->
-                    <div class="row">
-
-                        <!-- Grid column -->
-                        <div class="col-md-12 col-lg-4">
-
-                            <!-- Card -->
-                            <a class="card hoverable mb-4" data-toggle="modal" data-target="#basicExampleModal">
-
-                                <!-- Card image -->
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img9.jpg" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <h5 class="my-3">Paper Bag</h5>
-                                    <p class="card-text text-uppercase mb-3">Bag</p>
-
-                                </div>
-
-                            </a>
-                            <!-- Card -->
-
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-6 col-lg-4">
-
-                            <!-- Card -->
-                            <a class="card hoverable mb-4" data-toggle="modal" data-target="#basicExampleModal">
-
-                                <!-- Card image -->
-                                <img class="card-img-top" src=" https://mdbootstrap.com/img/Photos/Others/img4.jpg" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <h5 class="my-3">Book</h5>
-                                    <p class="card-text text-uppercase mb-3">Book</p>
-
-                                </div>
-
-                            </a>
-                            <!-- Card -->
-
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-6 col-lg-4">
-
-                            <!-- Card -->
-                            <a class="card hoverable mb-4" data-toggle="modal" data-target="#basicExampleModal">
-
-                                <!-- Card image -->
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img8.jpg" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <h5 class="my-3">Magazine</h5>
-                                    <p class="card-text text-uppercase mb-3">Book</p>
-
-                                </div>
-
-                            </a>
-                            <!-- Card -->
-
-                        </div>
-                        <!-- Grid column -->
-
-                    </div>
-                    <!-- Grid row -->
-
-                </div>
-                <!--Panel 2-->
-
-                <!--Panel 3-->
-                <div class="tab-pane fade" id="panel33" role="tabpanel">
-
-                    <!-- Grid row -->
-                    <div class="row">
-
-                        <!-- Grid column -->
-                        <div class="col-md-12 col-lg-4">
-
-                            <!-- Card -->
-                            <div class="card hoverable mb-4" data-toggle="modal" data-target="#basicExampleModal">
-
-                                <!-- Card image -->
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img3.jpg" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <h5 class="my-3">Phone Bag</h5>
-                                    <p class="card-text text-uppercase mb-3">Bag, Box</p>
-
-                                </div>
-
-                            </div>
-                            <!-- Card -->
-
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-6 col-lg-4">
-
-                            <!-- Card -->
-                            <a class="card hoverable mb-4" data-toggle="modal" data-target="#basicExampleModal">
-
-                                <!-- Card image -->
-                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img5.jpg" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <h5 class="my-3">Notes</h5>
-                                    <p class="card-text text-uppercase mb-3">Note</p>
-
-                                </div>
-
-                            </a>
-                            <!-- Card -->
-
-                        </div>
-                        <!-- Grid column -->
-
-                        <!-- Grid column -->
-                        <div class="col-md-6 col-lg-4">
-
-                            <!-- Card -->
-                            <a class="card hoverable mb-4" data-toggle="modal" data-target="#basicExampleModal">
-
-                                <!-- Card image -->
-                                <img class="card-img-top" src=" https://mdbootstrap.com/img/Photos/Others/img10.jpg" alt="Card image cap">
-
-                                <!-- Card content -->
-                                <div class="card-body">
-
-                                    <h5 class="my-3">T-shirt</h5>
-                                    <p class="card-text text-uppercase mb-3">Box</p>
-
-                                </div>
-
-                            </a>
-                            <!-- Card -->
-
-                        </div>
-                        <!-- Grid column -->
-
-                    </div>
-                    <!-- Grid row -->
-
-                </div>
-                <!--Panel 3-->
-
-            </div>
-            <!--Tab panels-->
-
-        </section>
-        <!-- Section -->
-
-    </div>
     <!-- Footer -->
     <footer class="page-footer font-small indigo darken-4 py-4">
 

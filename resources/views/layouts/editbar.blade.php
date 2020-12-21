@@ -316,13 +316,13 @@
                        </li>
                        @endauth
                        @auth('user')
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="{{url('/joblist')}}">
                             <i class="fa fa-angellist"></i>
                             Job-List
                             <span class="sr-only">(current)</span>
                         </a>
-                    </li>
+                    </li> -->
                        @endauth
 {{--                       <li class="nav-item">--}}
 {{--                           <a class="nav-link" type="button" id="dropdownMenu3" data-toggle="dropdown" href="#">--}}

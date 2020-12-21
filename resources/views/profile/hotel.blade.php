@@ -24,29 +24,6 @@
 
             }
 
-            .paral {
-
-                /* Set a specific height */
-                min-height: 400px;
-
-                /* Create the parallax scrolling effect */
-                background-attachment: fixed;
-                background-position: 50% 50%;
-                background-size: cover;
-
-
-            }
-            .parallax{
-                /* The image used */
-                background-image: url("https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
-            }
-            .paral h1{
-                color: rgba(255, 255, 255, 0.8);
-                font-size: 60px;
-                text-align: center;
-                padding-top: 60px;
-                line-height: 100px;
-            }
             .hm-gradient {
                 background: linear-gradient(40deg, rgba(72, 198, 239, 0.3), rgba(111, 134, 214, 0.3));
             }
@@ -85,7 +62,32 @@
                 height: 1.2em; /* exactly 2 lines */
                 text-overflow: -o-ellipsis-lastline;
             }
+            .md-pills .nav-link.active {
+                        color: #fff;
+                        background-color: #616161;
+                    }
+                    button.close {
+                        position: absolute;
+                        right: 0;
+                        z-index: 2;
+                        padding-right: 1rem;
+                        padding-top: .6rem;
+                    }
 
+                    .parent {
+                        position: relative;
+                    }
+                    .child {
+                        position: absolute;
+                        font-family: Arial;
+                        display:flex;
+                        justify-content:center;
+                        align-items:center;
+                        position: absolute;
+                        right: 10px;
+                        top:10px;
+                        color: white;
+                    }
         </style>
 
         @if(Session::has('success'))
@@ -154,140 +156,122 @@
             </div>
         @endif
         <!-- Main navigation -->
-        <header>
-            <!-- Intro -->
-            <section class="view">
-                <div class="row">
-                    <div class="col-md-6">
+        <main>
 
-                        <div class="view wow fadeInLeft">
-                            <img src="{{asset($hotel->profile->hotelPhoto())}}" style="background-size: cover; width: 110%;" class="d-flex " alt="Foto Profile Hotel">
-                            <div class="mask flex-center hm-gradient">
+        <!--Intro-->
+        <section>
+
+            <!--Carousel Wrapper-->
+            <div id="carousel-example-1z" class="carousel slide carousel-fade carousel-half" data-ride="carousel">
+                <!--Indicators-->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-1z" data-slide-to="0" class=""></li>
+                    <li data-target="#carousel-example-1z" data-slide-to="1" class=""></li>
+                    <li data-target="#carousel-example-1z" data-slide-to="2" class="active"></li>
+                </ol>
+                <!--/.Indicators-->
+                <!--Slides-->
+                <div class="carousel-inner" role="listbox">
+                    <!--First slide-->
+                    <div class="carousel-item">
+                        <div class="view h-100">
+                            <img class="d-block h-100 w-lg-100" src="{{asset('/image/post_car1.jpg')}}" alt="First slide">
+                            <div class="mask rgba-indigo-light">
+                                <!-- Caption -->
+                                <div class="full-bg-img flex-center white-text">
+                                    <ul class="animated fadeIn col-10 list-unstyled">
+                                        <li>
+                                            <h1 class="h1-responsive font-weight-bold">JDM.id</h1>
+                                        </li>
+                                        <li>
+                                            <p>Anda di page profile penjual</p>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <!-- /.Caption -->
                             </div>
                         </div>
-
                     </div>
-
-                    <div class="col-md-6">
-
-                        <div class="d-flex flex-column justify-content-center align-items-baseline h-100 " >
-                            <h4 class="subheading font-weight-bold wow fadeInRight" data-wow-delay="0.4s">Hello We Are</h4>
-                            <h1 class="heading wow fadeInRight" data-wow-delay="0.6s">{{$hotel->profile->nama}}</h1>
-                            <h5 class="subheading font-weight-bold wow fadeInRight font-small" data-wow-delay="0.7s">{{$hotel->profile->deskripsi}}</h5>
-
-                            <div class="mr-4">
-                                <a href="{{url('/job/postjob')}}" type="button" class="btn btn-lily btn-margin rounded wow fadeIn rounded-pill" style="margin-top: 10px" data-wow-delay="1s">Post A Job<i class="fas fa-caret-right ml-3"></i></a>
+                    <!--/First slide-->
+                    <!--Second slide-->
+                    <div class="carousel-item h-100">
+                        <div class="view h-100">
+                            <img class="d-block h-100 w-lg-100" src="{{asset('/image/post_car2.jpg')}}" alt="Second slide">
+                            <div class="mask rgba-stylish-light">
+                                <!-- Caption -->
+                                <div class="full-bg-img flex-center white-text">
+                                    <ul class="animated fadeIn col-10 list-unstyled">
+                                        <li>
+                                            <h1 class="h1-responsive font-weight-bold">Nemo enim ipsam voluptatem quia voluptas sit </h1>
+                                        </li>
+                                        <li>
+                                            <p>Nemo enim ipsamvoluptatem quia veritatis et quasi architecto beatae</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- /.Caption -->
                             </div>
                         </div>
-
                     </div>
+                    <!--/Second slide-->
+                    <!--Third slide-->
+                    <div class="carousel-item active">
+                        <div class="view h-100">
+                            <img class="d-block h-100 w-lg-100" src="{{asset('/image/post_car3.jpg')}}" alt="Third slide">
+                            <div class="mask rgba-black-light">
+                                <!-- Caption -->
+                                <div class="full-bg-img flex-center white-text">
+                                    <ul class="animated fadeIn col-10 list-unstyled">
+                                        <li>
+                                            <h1 class="h1-responsive font-weight-bold">Sed ut perspiciatis unde omnis iste natus sit voluptatem</h1>
+                                        </li>
+                                        <li>
+                                            <p>Unde omnis iste natus sit voluptatem veritatis et quasi architecto beatae</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- /.Caption -->
+                            </div>
+                        </div>
+                    </div>
+                    <!--/Third slide-->
                 </div>
+                <!--/.Slides-->
+                <!--Controls-->
+                <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                <!--/.Controls-->
+            </div>
+            <!--/.Carousel Wrapper-->
 
-            </section>
-            <!-- Intro -->
+        </section>
+        <!--/Intro-->
 
-        </header>
+        <!--Blog section-->
+        <section>
+            <div class="container">
 
-        <div class="jumbotron paral parallax ">
-            <h1 class="display-3 wow fadeIn">About Us</h1>
+                <!--Section heading-->
+                <h2 class="text-center h2 my-5 pt-4">Postingan</h2>
+                <!--Section description-->
+                <p class="text-center dark-grey-text w-responsive mx-auto mb-5">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-        </div>
+                <!--Grid row-->
+                <div class="row text-center mb-2">
 
-        <div class="container my-5">
-            <section>
-                <!-- Section heading -->
-                <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Our Profile</h3>
-                <hr class="w-header">
-                <!-- Section description -->
-
-
-
-                <div class="row text-center text-md-left wow fadeInUp">
-                    <div class="col-md-6 mb-4">
-                        <h5 class="font-weight-normal mb-3">Nama</h5>
-                        <p class="text-muted">{{$hotel->profile->nama}}</p>
-                    </div>
-
-
-                    <div class="col-md-6 mb-4">
-                        <h5 class="font-weight-normal mb-3">Nomor Telepon</h5>
-                        <p class="text-muted">
-                            {{$hotel->profile->nomor_telepon}}</p>
-                    </div>
-
-                    <div class="col-md-6 mb-4">
-                        <h5 class="font-weight-normal mb-3">Website</h5>
-                        <p class="text-muted">{{$hotel->profile->website}}</p>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <h5 class="font-weight-normal mb-3">Social Media</h5>
-                        <p class="text-muted"> {{$hotel->profile->social_media}}</p>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                        <h5 class="font-weight-normal mb-3">Alamat</h5>
-                        <p class="text-muted"> {{$hotel->profile->alamat}}</p>
-                    </div>
-
-                </div>
-
-            </section>
-
-            <!-- Section -->
-            <section>
-
-                <style>
-                    .md-pills .nav-link.active {
-                        color: #fff;
-                        background-color: #616161;
-                    }
-                    button.close {
-                        position: absolute;
-                        right: 0;
-                        z-index: 2;
-                        padding-right: 1rem;
-                        padding-top: .6rem;
-                    }
-
-                    .parent {
-                        position: relative;
-                    }
-                    .child {
-                        position: absolute;
-                        font-family: Arial;
-                        display:flex;
-                        justify-content:center;
-                        align-items:center;
-                        position: absolute;
-                        right: 10px;
-                        top:10px;
-                        color: white;
-                    }
-
-                </style>
-
-
-
-                <h6 class="font-weight-bold text-center grey-text text-uppercase small mb-4">Job Vacancy</h6>
-                <h3 class="font-weight-bold text-center dark-grey-text pb-2">Pekerjaan</h3>
-                <hr class="w-header my-4">
-                <p class="lead text-center text-muted pt-2 mb-5">Semua jenis pekerjaan </p>
-
-
-                <!--First row-->
-
-                <!--Tab panels-->
-                <div class="tab-content mb-5">
-                    <!--Panel 1-->
-                    <div class="tab-pane fade show in active" id="panel31" role="tabpanel">
-                        <!-- Grid row -->
-                        <div class="row">
-                            <!-- Grid column -->
-                            @foreach($hotel->pekerjaan as $pekerjaan)
-
-                            <div class="col-md-12 col-lg-4">
-                                <!-- Card -->
-
-                                <div class="card parent wow fadeInUp">
+                    <!--Grid column-->
+                    @foreach($hotel->pekerjaan as $pekerjaan)
+                    <div class="col-lg-4 col-md-12 mb-4">
+                        <!--Featured image-->
+                        <div class="card parent wow fadeInUp">
                                     <!--Card image-->
                                     <div class="view overlay zoom">
 
@@ -351,36 +335,223 @@
                                 </div>
                             <br/>
 
-{{--                                <a class="card hoverable mb-4 waves-effect waves-light rgba-white-slight">--}}
-{{--                                    <!-- Card image -->--}}
+                    </div>
+                    @endforeach
+                </div>
+                <!--Grid row-->
 
-{{--                                    <img class="card-img-top" src="{{asset($hotel->profile->hotelPhoto())}}" alt="Card image cap">--}}
 
+            </div>
 
+        </section>
+        <!--Blog section-->
 
-{{--                                    <!-- Card content -->--}}
-{{--                                    <div class="card-body">--}}
-{{--                                        <h5 class="my-3">{{$pekerjaan->getPosisi()}}</h5>--}}
-{{--                                        <p class="card-text desc mb-3">{!!html_entity_decode($pekerjaan->deskripsi)!!}</p>--}}
-{{--                                        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->--}}
-{{--                                        <a href="{{url("/job/$pekerjaan->url_slug")}}"class="btn btn-primary btn-md" >Read more</a>--}}
-{{--                                    </div>--}}
-{{--                                </a>--}}
-                                <!-- Card -->
+        <!--Latest posts-->
+        <section>
+            <div class="container-fluid grey lighten-3 mb-0 pb-0">
+                <div class="container">
+                    <!--Grid row-->
+                    <div class="row">
+
+                        <!--Grid column-->
+                        <div class="col-lg-4 col-md-12">
+                            <h6 class="font-weight-bold mt-5 mb-3">ABOUT</h6>
+                            <hr class="mb-5">
+                            <img src="{{asset($hotel->profile->hotelPhoto())}}" alt="sample image" class="img-fluid z-depth-1">
+                            <p class="mt-4 mb-5">Sed ut in perspiciatis unde omnis iste natus error sit on i tatem accusantium doloremque laudantium,
+                                totam rem aperiam, eaque ipsa quae.</p>
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-lg-4 col-md-6">
+                            <h6 class="font-weight-bold mt-5 mb-3">Biodata</h6>
+                            <hr class="mb-5">
+                            <!--Grid row-->
+                            <div class="row mt-4">
+
+                                <!--Grid column-->
+                                <div class="col-4">
+
+              
+
+                                </div>
+                                <!--Grid column-->
+
+                                <!--Second column-->
+                                <div class="col-8 mb-1">
+
+                                    <!--Post data-->
+                                    <div class="">
+                                        <p class="mb-1">
+                                            <a href="#!" class="text-hover font-weight-bold">Nama</a>
+                                        </p>
+                                        <p class="font-small grey-text">
+                                            <em>{{$hotel->profile->nama}}</em>
+                                        </p>
+                                    </div>
+
+                                </div>
+                                <!--Second column-->
 
                             </div>
-                        @endforeach
-                            <!-- Grid column -->
+                            <!--Grid row-->
+
+                            <!--Grid row-->
+                            <div class="row">
+
+                                <!--Grid column-->
+                                <div class="col-4">
+
+                                    <!--Image-->
+                                   
+
+                                </div>
+                                <!--Grid column-->
+
+                                <!--Second column-->
+                                <div class="col-7 mb-1">
+
+                                    <!--Post data-->
+                                    <div class="">
+                                        <p class="mb-1">
+                                            <a href="#!" class="text-hover font-weight-bold">Nomor Telepon </a>
+                                        </p>
+                                        <p class="font-small grey-text">
+                                            <em>{{$hotel->profile->nomort_telepon}}</em>
+                                        </p>
+                                    </div>
+
+                                </div>
+                                <!--Second column-->
+
+                            </div>
+                            <!--Grid row-->
+
+                            <!--Grid row-->
+                            <div class="row">
+
+                                <!--Grid column-->
+                                <div class="col-4">
+
+                                   
+                                </div>
+                                <!--Grid column-->
+
+                                <!--Second column-->
+                                <div class="col-7 mb-1">
+
+                                    <!--Post data-->
+                                    <div class="">
+                                        <p class="mb-1">
+                                            <a href="#!" class="text-hover font-weight-bold">Alamat</a>
+                                        </p>
+                                        <p class="font-small grey-text">
+                                            <em>{{$hotel->profile->alamat}}</em>
+                                        </p>
+                                    </div>
+
+                                </div>
+                                <!--Second column-->
+
+                            </div>
+                            <!--Grid row-->
+
                         </div>
-                        <!-- Grid row -->
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-lg-4 col-md-6">
+                            <h6 class="font-weight-bold mt-5 mb-3">Biodata</h6>
+                            <hr class="mb-5">
+                            <!--Grid row-->
+                            <div class="row mt-4">
+
+                                <!--Grid column-->
+                                <div class="col-4">
+
+                                    <!--Image-->
+
+
+                                </div>
+                                <!--Grid column-->
+
+                                <!--Second column-->
+                                <div class="col-8 mb-1">
+
+                                    <!--Post data-->
+                                    <div class="">
+                                        <p class="mb-1">
+                                            <a href="#!" class="text-hover font-weight-bold">Social Media </a>
+                                        </p>
+                                        <p class="font-small grey-text">
+                                            <em>{{$hotel->profile->social_media}}</em>
+                                        </p>
+                                    </div>
+
+                                </div>
+                                <!--Second column-->
+
+                            </div>
+                            <!--Grid row-->
+
+                            <!--Grid row-->
+                            <div class="row">
+                            <a href="{{url('/job/postjob')}}" type="button" class="btn btn-lily btn-margin rounded wow fadeIn rounded-pill" style="margin-top: 10px" data-wow-delay="1s">Post A Job<i class="fas fa-caret-right ml-3"></i></a>
+                                <!--Grid column-->
+                                <div class="col-4">
+
+                      
+                                </div>
+                                <!--Grid column-->
+
+                                <!--Second column-->
+                                <div class="col-7 mb-1">
+
+                          
+
+                                </div>
+                                <!--Second column-->
+
+                            </div>
+                            <!--Grid row-->
+
+                            <!--Grid row-->
+                            <div class="row">
+
+                                <!--Grid column-->
+                                <div class="col-4">
+
+                               
+                                </div>
+                                <!--Grid column-->
+
+                                <!--Second column-->
+                                <div class="col-7 mb-1">
+
+                                    <!--Post data-->
+                                
+
+                                </div>
+                                <!--Second column-->
+
+                            </div>
+                            <!--Grid row-->
+
+                        </div>
+                        <!--Grid column-->
+
                     </div>
-                    <!--Panel 1-->
+                    <!--Grid row-->
+
                 </div>
-                <!--Tab panels-->
-            </section>
-            <!-- Section -->
-        </div>
-        <!-- Central Modal Medium Warning -->
+            </div>
+
+        </section>
+        <!--/Latest posts-->
+
+    </main>
+   
 
         <!-- Footer -->
         <footer class="page-footer font-small indigo darken-4 py-4">
@@ -419,182 +590,4 @@
 
         </footer>
         <!-- Footer -->
-
-
-
-
-{{--        <div class="row">--}}
-{{--            <div class="col-sm-4">--}}
-{{--                <div class="card shadow" style="width: 20rem">--}}
-{{--                <img class="card-img-top img-fluid" src="{{asset($hotel->profile->hotelPhoto())}}" alt="card hotel image">--}}
-{{--                            <div class="card-body">--}}
-{{--                                <h4 title="card-title">{{$hotel->profile->nama}}</h4>--}}
-{{--                                <span class="fa fa-home d-flex">--}}
-{{--                                <div class="pl-2">--}}
-{{--                                     <p class="card-text">--}}
-{{--                                    {{$hotel->profile->alamat}}--}}
-{{--                                      </p>--}}
-{{--                                </div>--}}
-{{--                            </span>--}}
-{{--                            </div>--}}
-{{--                            <ul class="list-group list-group-flush">--}}
-{{--                                <li class="list-group-item fa fa-envelope d-flex">--}}
-{{--                                    <div class="pl-2">--}}
-{{--                                        {{ $hotel->profile->email}}--}}
-{{--                                    </div>--}}
-{{--                                </li>--}}
-{{--                                <li class="list-group-item fa fa-whatsapp d-flex">--}}
-{{--                                    <div class="pl-2">--}}
-{{--                                        {{$hotel->profile->nomor_telepon}}--}}
-{{--                                    </div>--}}
-{{--                                </li>--}}
-{{--                                <li class="list-group-item fa fa-instagram d-flex">--}}
-{{--                                    <div class="pl-2">--}}
-{{--                                        {{$hotel->profile->social_media}}--}}
-{{--                                    </div>--}}
-{{--                                </li>--}}
-{{--                                <li class="list-group-item fa fa-globe d-flex">--}}
-
-{{--                                    <div href="{{url('http:'.$hotel->profile->website)}}" class="pl-2">{{$hotel->profile->website}}</div>--}}
-
-{{--                                </li>--}}
-
-{{--                            </ul>--}}
-{{--                            <a href="{{url('/hotel/'.$hotel->profile->url_slug.'/edit')}}" class="btn btn-info">Edit Profile</a>--}}
-
-{{--                        </div>--}}
-
-{{--                        <a href={{url('/job/postjob')}} type="button" class="btn aqua-gradient">Post A Job</a>--}}
-{{--            </div>--}}
-
-{{--            <div class="col-sm-8">--}}
-{{--                @foreach($hotel->pekerjaan as $pekerjaan)--}}
-{{--                    <div class="col mb-3">--}}
-
-{{--                    <div class="card shadow">--}}
-
-
-{{--                        <div class="card-body">--}}
-{{--                            <h4>{{$pekerjaan->getPosisi()}}</h4>--}}
-{{--                            <h2>{{$hotel->profile->nama}}</h2>--}}
-{{--                            <h5>@currency($pekerjaan->bayaran)</h5>--}}
-{{--                            <p>{{$pekerjaan->waktu_mulai}}</p>--}}
-
-{{--                         <div class="desc">  {!!html_entity_decode($pekerjaan->deskripsi)!!}</div>--}}
-
-{{--                            <a href="{{url("/job/$pekerjaan->url_slug")}}" class="btn aqua-gradient">Selengkapnya</a>--}}
-{{--                            <a href="{{url("/job/$pekerjaan->url_slug/delete")}}" class="btn aqua-gradient">Hapus</a>--}}
-{{--                            <a href="{{url("/job/$pekerjaan->url_slug/edit")}}" class="btn aqua-gradient">Edit</a>--}}
-{{--                        </div>--}}
-
-{{--                    </div>--}}
-
-{{--                    </div>--}}
-
-{{--                @endforeach--}}
-{{--        </div>--}}
-
-{{--    </div>--}}
-{{--</div>--}}
-{{--    <div class="container" style="margin-left:50px">--}}
-{{--        <div class="card shadow" style="width: 20rem">--}}
-{{--            <img class="card-img-top img-fluid" src="{{$hotel->profile->hotelPhoto()}}" alt="card hotel image">--}}
-{{--            <div class="card-body">--}}
-{{--                <h4 title="card-title" >{{$hotel->profile->nama}}</h4>--}}
-
-{{--                <span class="fa fa-home d-flex">--}}
-{{--                <div class="pl-2">--}}
-{{--                     <p class="card-text">--}}
-{{--                    {{$hotel->profile->alamat}}--}}
-{{--                      </p>--}}
-{{--                </div>--}}
-{{--            </span>--}}
-{{--            </div>--}}
-{{--            <ul class="list-group list-group-flush">--}}
-{{--                <li class="list-group-item fa fa-envelope d-flex">--}}
-{{--                    <div class="pl-2">--}}
-{{--                        {{ $hotel->profile->email}}--}}
-{{--                    </div>--}}
-{{--                </li>--}}
-{{--                <li class="list-group-item fa fa-whatsapp d-flex">--}}
-{{--                    <div class="pl-2">--}}
-{{--                        {{$hotel->profile->nomor_telepon}}--}}
-{{--                    </div>--}}
-{{--                </li>--}}
-{{--                <li class="list-group-item fa fa-instagram d-flex">--}}
-{{--                    <div class="pl-2">--}}
-{{--                        {{$hotel->profile->social_media}}--}}
-{{--                    </div>--}}
-{{--                </li>--}}
-{{--                <li class="list-group-item fa fa-globe d-flex">--}}
-{{--                    <div class="pl-2">{{$hotel->profile->website}}</div>--}}
-{{--                </li>--}}
-
-{{--            </ul>--}}
-{{--            <a href="/hotel/{{$hotel->id}}/edit" class="btn btn-info">Edit Profile</a>--}}
-
-{{--        </div>--}}
-
-{{--        <a href="/job/postjob" type="button" class="btn-danger">Post A Job</a>--}}
-{{--        --}}
-{{--    </div>--}}
-{{--    <div class="container flex-lg-nowrap col-lg-auto">--}}
-{{--        @foreach($hotel->pekerjaan as $pekerjaan)--}}
-{{--            <div class="row">--}}
-{{--                <div class="tab-content pt-1">--}}
-
-{{--                    <div class="col mb-3">--}}
-{{--                        <div class="card shadow-sm" style="margin-right: 10px">--}}
-{{--                            <h4>{{$pekerjaan->nama_posisi}}</h4>--}}
-{{--                            <div class="card-body">--}}
-{{--                                <h4>{{$hotel->profile->nama}}</h4>--}}
-{{--                                <h6>{{$hotel->profile->alamat}}</h6>--}}
-{{--                                <p>{{$pekerjaan->deskripsi}}</p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-{{--            </div>--}}
-{{--        @endforeach--}}
-{{--    </div>--}}
-
-
-
-
-
-
-
-{{--    --}}
-{{--    <div class="row">--}}
-{{--        <div class="col-3 p-5">--}}
-{{--            <img src="https://steamcdn-a.akamaihd.net/apps/570/icons/econ/voicepack/juggernaut_arcana_voicepack_large.38f2a62f17b0593d02edd7adad28e1d960ed5ddf.png" class="rounded-circle w-100">--}}
-{{--        </div>--}}
-{{--        <div class="col-9 pt-5">--}}
-{{--            <div class="d-flex justify-content-between align-items-baseline">--}}
-
-{{--                <div class="d-flex align-items-center pb-3">--}}
-{{--                    <div class="h4">{{$hotel->name}}</div>--}}
-
-
-{{--                </div>--}}
-
-
-{{--            </div>--}}
-
-
-{{--            <div class="d-flex">--}}
-{{--                <div class="pr-4"><strong>1111</strong> posts</div>--}}
-{{--                <div class="pr-4"><strong>2222</strong> followers</div>--}}
-{{--                <div class="pr-4"><strong>3333</strong> following</div>--}}
-{{--            </div>--}}
-{{--            <div class="pt-4 font-weight-bold" >{{$hotel->email}}</div>--}}
-{{--            <div class="text-justify">BBBB</div>--}}
-{{--            <div><a href="#">CCCC</a> </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
-
-
-
 @endsection

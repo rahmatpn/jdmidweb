@@ -41,11 +41,7 @@ class HomeController extends Controller
 
 
         $pekerjaan = Pekerjaan::where('status', '1')
-            ->where(function ($q) use($date, $time){
-                $q->where('tanggal_mulai','>',$date)
-                    ->orWhere('tanggal_mulai',$date)->where('waktu_mulai','>',$time);
-            })
-            ->orderBy('tanggal_mulai')
+
             ->paginate(10);
 
         $user = \auth()->guard('user')->user();

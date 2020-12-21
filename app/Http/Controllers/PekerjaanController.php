@@ -139,29 +139,10 @@ class PekerjaanController extends Controller
         $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
         $currentJob = Pekerjaan::where('url_slug','=', $url_slug)->first();
 
-        $currentJob->tinggi_minimal = $currentJob->tinggi_minimal == null ? PHP_INT_MIN : $currentJob->tinggi_minimal;
-        $currentJob->tinggi_maksimal = $currentJob->tinggi_maksimal == null ? PHP_INT_MAX : $currentJob->tinggi_maksimal;
-        $currentJob->berat_minimal = $currentJob->berat_minimal == null ? PHP_INT_MIN : $currentJob->berat_minimal;
-        $currentJob->berat_maksimal = $currentJob->berat_maksimal == null ? PHP_INT_MAX : $currentJob->berat_maksimal;
-
-        if (!$profile->isCompleted)
-            return redirect('/user/'.$profile->url_slug.'/edit')->with('gagalProfile','Profile belum lengkap');
-        else
-            if ($currentJob->isExpired){
-            return redirect('/home')->with('expired','Job sudah expired');
-        }
-        elseif ($currentJob->tinggi_minimal > $profile->tinggi_badan || $currentJob->tinggi_maksimal < $profile->tinggi_badan){
-            return back()->with('gagalTinggi', 'Tinggi badan anda tidak sesuai kriteria');
-        }
-        elseif($currentJob->berat_minimal > $profile->berat_badan || $currentJob->berat_maksimal < $profile->berat_badan) {
-            return back()->with('gagalBerat', 'Berat badan anda tidak seusai Kriteria');
-        }
-        elseif($currentJob->dikerjakan->count() >= $currentJob->kuota)
-            return back()->with('kuotaPenuh', 'Kuota Penuh');
-        else {
+     
             $user->mengerjakan()->toggle($pekerjaan);
             return back()->with('success','Berhasil apply pekerjaan di '.$pekerjaan->hotel->profile->nama);
-        }
+        
     }
 
     public function acceptApply($slug, $url_slug ){
