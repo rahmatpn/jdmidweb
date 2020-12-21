@@ -60,7 +60,7 @@ Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
 
 
 
-Route::post('/login/hotel', 'Auth\LoginController@hotelLogin');
+Route::post('/login/seller', 'Auth\LoginController@hotelLogin');
 
 Route::post('/login/user', 'Auth\LoginController@userLogin');
 
