@@ -33,19 +33,27 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-    public function index()
+    public function index(Request $request)
     {
         $date = Carbon::now()->setTimezone('Asia/Phnom_Penh')->toDateString();
         $time = Carbon::now()->setTimezone('Asia/Phnom_Penh')->toTimeString();
 
+        $pekerjaan = null;
+        if ($request->input('filter_category')) {
+            $pekerjaan = Pekerjaan::where('posisi_id', $request->input('filter_category'))->paginate(12);
+        } else {
+            $pekerjaan = Pekerjaan::paginate(12);
+        }
 
+        $array_with_value = [1, 2, 3, 4, 5, 6, 7, 8];
+        $array_values = [0, 0, 0, 0, 0, 0, 0, 0];
 
-        $pekerjaan = Pekerjaan::where('status', '1')
-
-            ->paginate(10);
+        for ($i = 0; $i < 8; $i++) {
+            $array_values[$i] = Pekerjaan::where('posisi_id', $array_with_value[$i])->count();
+        }
 
         $user = \auth()->guard('user')->user();
-        return view('home', array('kerja' => $pekerjaan), compact( 'user','time','date'));
+        return view('home', array('kerja' => $pekerjaan), compact( 'user','time','date', 'array_values'));
 
     }
 

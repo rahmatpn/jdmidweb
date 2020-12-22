@@ -401,7 +401,7 @@ body{
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($pelamar as $pelamar)
+                                        @foreach($pelamars as $pelamar)
                                         <tr>
                                             <th scope="row">{{$loop->index + 1}}</th>
                                             <td><a href="{{url('user/'.$pelamar->profile->url_slug)}}">{{$pelamar->profile->nama}}</a></td>
@@ -699,7 +699,7 @@ body{
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($pelamar as $pelamar)
+                                        @foreach($pelamars as $pelamar)
                                         <tr>
                                             <th scope="row">{{$loop->index + 1}}</th>
                                             <td><a href="{{url('user/'.$pelamar->profile->url_slug)}}">{{$pelamar->profile->nama}}</a></td>

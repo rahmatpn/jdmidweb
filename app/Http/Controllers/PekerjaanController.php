@@ -29,10 +29,10 @@ class PekerjaanController extends Controller
     public function create()
     {
         $hotel = auth()->guard('hotel')->user()->profile;
-        if($hotel->status_verifikasi != 1)
-            return redirect('/hotel/'.$hotel->url_slug)->with('gagalVerifikasi', 'Profile belum diverifikasi, silakan hubungi admin');
-        else
-            return view('jobs.postjob');
+        // if($hotel->status_verifikasi != 1)
+        //     return redirect('/hotel/'.$hotel->url_slug)->with('gagalVerifikasi', 'Profile belum diverifikasi, silakan hubungi admin');
+        // else
+        return view('jobs.postjob');
     }
 
     public function store()
@@ -85,12 +85,12 @@ class PekerjaanController extends Controller
 
     public function show($url_slug){
         $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
-        $pelamar = $pekerjaan->dikerjakan()->get();
+        $pelamars = $pekerjaan->dikerjakan()->with('profile')->get();
         $pelamarDiterima = $pekerjaan->dikerjakan()->where('status', '>=', '1')->get();
         $pelamarSelesai = $pekerjaan->dikerjakan()->where('status', '2')->get();
         $user = Auth::guard('user')->user();
 //        dd($pekerjaan->getIsAppliedAttribute());
-        return view('jobs.job', compact('pekerjaan','pelamar', 'pelamarDiterima', 'pelamarSelesai','user'));
+        return view('jobs.job', compact('pekerjaan','pelamars', 'pelamarDiterima', 'pelamarSelesai','user'));
     }
 
     public function edit($url_slug){

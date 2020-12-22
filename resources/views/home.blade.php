@@ -30,7 +30,7 @@
                                     </p>
                                 </li>
                                 <li>
-                                    <h5 class="h5-responsive dark-grey-text font-weight-bold mb-5">Tempora incidunt ut labore et dolore veritatis et quasi architecto beatae</h5>
+                                    <h5 class="h5-responsive white-text font-weight-bold mb-5">Tempora incidunt ut labore et dolore veritatis et quasi architecto beatae</h5>
                                 </li>
                                 <li>
                                    
@@ -82,7 +82,7 @@
                                     </p>
                                 </li>
                                 <li>
-                                    <h5 class="h5-responsive dark-grey-text font-weight-bold mb-5 pr-lg-5">Tempora incidunt ut labore et dolore veritatis et quasi</h5>
+                                    <h5 class="h5-responsive white-text font-weight-bold mb-5 pr-lg-5">Tempora incidunt ut labore et dolore veritatis et quasi</h5>
                                 </li>
                             </ul>
                         </div>
@@ -126,41 +126,45 @@
                                 <ul class="list-group z-depth-1">
 
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <a class="dark-grey-text font-small">
-                                            <i class="fas fa fa-car dark-grey-text mr-2" aria-hidden="true"></i>Nissan</a>
-                                        <a href=""></a>
-                                        <span class="badge badge-danger badge-pill">43</span>
+                                        <a class="dark-grey-text font-small" href="?filter_category=1">
+                                            <i class="fas fa fa-car dark-grey-text mr-3" aria-hidden="true"></i>Honda</a>
+                                        <span class="badge badge-danger badge-pill">{{ $array_values[0] }}</span>
                                         
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <a class="dark-grey-text font-small">
-                                            <i class="fas fa fa-car dark-grey-text mr-3" aria-hidden="true"></i>Mitsubishi</a>
-                                        <span class="badge badge-danger badge-pill">32</span>
+                                        <a class="dark-grey-text font-small" href="?filter_category=2">
+                                            <i class="fas fa fa-car dark-grey-text mr-3" aria-hidden="true"></i>Nissan</a>
+                                        <span class="badge badge-danger badge-pill">{{ $array_values[1] }}</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <a class="dark-grey-text font-small">
-                                            <i class="fas fa fa-car dark-grey-text mr-3" aria-hidden="true"></i>Honda</a>
-                                        <span class="badge badge-danger badge-pill">18</span>
+                                        <a class="dark-grey-text font-small" href="?filter_category=3">
+                                            <i class="fas fa fa-car dark-grey-text mr-3" aria-hidden="true"></i>Yamaha</a>
+                                        <span class="badge badge-danger badge-pill">{{ $array_values[2] }}</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <a class="dark-grey-text font-small">
+                                        <a class="dark-grey-text font-small" href="?filter_category=4">
                                             <i class="fas fa fa-car dark-grey-text mr-3" aria-hidden="true"></i>Suzuki</a>
-                                        <span class="badge badge-danger badge-pill">37</span>
+                                        <span class="badge badge-danger badge-pill">{{ $array_values[3] }}</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <a class="dark-grey-text font-small">
-                                            <i class="fas fa fa-car dark-grey-text mr-3" aria-hidden="true"></i>Daihatsu</a>
-                                        <span class="badge badge-danger badge-pill">15</span>
+                                        <a class="dark-grey-text font-small" href="?filter_category=5">
+                                            <i class="fas fa fa-car dark-grey-text mr-3" aria-hidden="true"></i>Mitsubishi</a>
+                                        <span class="badge badge-danger badge-pill">{{ $array_values[4] }}</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <a class="dark-grey-text font-small">
+                                        <a class="dark-grey-text font-small" href="?filter_category=6">
                                             <i class="fas fa fa-car dark-grey-text mr-3" aria-hidden="true"></i>Mazda</a>
-                                        <span class="badge badge-danger badge-pill">64</span>
+                                        <span class="badge badge-danger badge-pill">{{ $array_values[5] }}</span>
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <a class="dark-grey-text font-small">
-                                            <i class="fas fa fa-car dark-grey-text mr-3" aria-hidden="true"></i>Toyota</a>
-                                        <span class="badge badge-danger badge-pill">2</span>
+                                        <a class="dark-grey-text font-small" href="?filter_category=7">
+                                            <i class="fas fa fa-car dark-grey-text mr-3" aria-hidden="true"></i>Hino</a>
+                                        <span class="badge badge-danger badge-pill">{{ $array_values[6] }}</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <a class="dark-grey-text font-small" href="?filter_category=8">
+                                            <i class="fas fa fa-car dark-grey-text mr-3" aria-hidden="true"></i>Acura</a>
+                                        <span class="badge badge-danger badge-pill">{{ $array_values[7] }}</span>
                                     </li>
                                 </ul>
                             </section>
@@ -184,7 +188,7 @@
                                             <h2 class="card-title text-white font-weight-bold pt-2">
                                                 <strong>Honda Civic Type R</strong>
                                             </h2>
-                                            <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+                                            <p class="white-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
                                             <a class="btn btn-danger btn-sm btn-rounded clearfix d-none d-md-inline-block waves-effect waves-light">Read more</a>
                                         </div>
                                     </div>
@@ -306,6 +310,8 @@
 
                     </div>
                     <!--Grid row-->
+
+                    {{ $kerja->appends(request()->except('page'))->links() }}
                 </section>
                 <!-- /.Section: Last items -->
 
