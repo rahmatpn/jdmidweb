@@ -83,6 +83,12 @@ class PekerjaanController extends Controller
         return redirect('/hotel/'.auth()->user()->profile->url_slug)->with('success','Hore, Lowongan anda berhasil di post');
     }
 
+    public function wishlist() {
+        $user = \auth()->guard('user')->user()->mengerjakan()->get();
+
+       return view('jobs.wishlist', compact('user'));
+    }
+
     public function show($url_slug){
         $pekerjaan = Pekerjaan::where('url_slug','=', $url_slug)->first();
         $pelamars = $pekerjaan->dikerjakan()->with('profile')->get();

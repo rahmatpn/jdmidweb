@@ -183,6 +183,8 @@ Route::group([
 
 ], function (){
 
+    Route::get('/wishlist', 'PekerjaanController@wishlist');
+
     Route::get('/user/{profileUser}/edit', 'ProfileUserController@edit');
 
     Route::patch('/user/{profileUser}/berkas', 'ProfileUserController@updateBerkas');
