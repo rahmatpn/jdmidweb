@@ -30,10 +30,10 @@
                                     </p>
                                 </li>
                                 <li>
-                                    <h5 class="h5-responsive white-text font-weight-bold mb-5">Tempora incidunt ut labore et dolore veritatis et quasi architecto beatae</h5>
+                                    <h5 class="h5-responsive white-text font-weight-bold mb-5">Kami adalah pintu utama bagi anda yang ingin membeli mobil pabrikan Jepang</h5>
                                 </li>
                                 <li>
-                                   
+
                                 </li>
                             </ul>
                         </div>
@@ -56,10 +56,10 @@
                                     </p>
                                 </li>
                                 <li>
-                                    <h5 class="h5-responsive white-text font-weight-bold mb-5">Tempora incidunt ut labore et dolore veritatis et quasi architecto beatae</h5>
+                                    <h5 class="h5-responsive white-text font-weight-bold mb-5">Kami adalah pintu utama bagi anda yang ingin membeli mobil pabrikan Jepang</h5>
                                 </li>
                                 <li>
-                
+
                                 </li>
                             </ul>
                         </div>
@@ -82,7 +82,7 @@
                                     </p>
                                 </li>
                                 <li>
-                                    <h5 class="h5-responsive white-text font-weight-bold mb-5 pr-lg-5">Tempora incidunt ut labore et dolore veritatis et quasi</h5>
+                                    <h5 class="h5-responsive white-text font-weight-bold mb-5 pr-lg-5">Kami adalah pintu utama bagi anda yang ingin membeli mobil pabrikan Jepang</h5>
                                 </li>
                             </ul>
                         </div>
@@ -129,7 +129,7 @@
                                         <a class="dark-grey-text font-small" href="?filter_category=1">
                                             <i class="fas fa fa-car dark-grey-text mr-3" aria-hidden="true"></i>Honda</a>
                                         <span class="badge badge-danger badge-pill">{{ $array_values[0] }}</span>
-                                        
+
                                     </li>
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         <a class="dark-grey-text font-small" href="?filter_category=2">
@@ -206,7 +206,7 @@
                 <!-- Categories & Adv -->
 
                 <!--Section: Bestsellers & offers-->
-            
+
                 <!--Section: Advertising-->
                 <section>
 
@@ -226,7 +226,7 @@
                                                 <span class="badge badge-primary">SALE</span>
                                             </a>
                                             <h2 class="card-title text-white font-weight-bold pt-md-3 pt-1">
-                                                <strong>Jual nissan skyline 
+                                                <strong>Jual nissan skyline
                                                 </strong>
                                             </h2>
                                             <p class="pb-lg-3 pb-md-1 clearfix d-none d-md-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
@@ -293,7 +293,7 @@
                                             </span>
                                             <span class="float-right">
 
-            
+
                                             </span>
                                         </div>
                                     </div>

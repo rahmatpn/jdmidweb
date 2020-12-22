@@ -481,16 +481,6 @@
 
   <!-- Section: Block Content -->
   <section class="dark-grey-text">
-
-<h3 class="text-center font-weight-bold mb-4 pb-2">Our Vehicle</h3>
-
-
-</div>
-
-<div class="container my-5  bg-white wow fadeIn">
-
-  <!-- Section: Block Content -->
-  <section class="dark-grey-text">
 <!-- Grid row -->
 <h3 class="text-center font-weight-bold mb-4 pb-2">Our Best Projects</h3>
 
