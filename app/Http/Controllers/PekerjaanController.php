@@ -80,7 +80,7 @@ class PekerjaanController extends Controller
         );
 
 
-        return redirect('/hotel/'.auth()->user()->profile->url_slug)->with('success','Hore, Lowongan anda berhasil di post');
+        return redirect('/hotel/'.auth()->user()->profile->url_slug)->with('success','Hore, Postingan anda berhasil di post');
     }
 
     public function wishlist() {
@@ -147,7 +147,7 @@ class PekerjaanController extends Controller
 
      
             $user->mengerjakan()->toggle($pekerjaan);
-            return back()->with('success','Berhasil apply pekerjaan di '.$pekerjaan->hotel->profile->nama);
+            return back()->with('success','Berhasil booking mobil di '.$pekerjaan->hotel->profile->nama);
         
     }
 

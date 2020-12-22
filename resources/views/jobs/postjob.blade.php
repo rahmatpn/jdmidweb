@@ -14,7 +14,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text md-addon" id="inputGroupMaterial-sizing-default">Nama Mobil <span class="text-danger">*</span></span>
                             </div>
-                            <input type="text" class="form-control" id="area" name="area" placeholder="Ex. Main Hall" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default" data-error="Silahkan Masukkan nama mobil">
+                            <input type="text" class="form-control" id="area" name="area" placeholder="Avanza" aria-label="Sizing example input" aria-describedby="inputGroupMaterial-sizing-default" data-error="Silahkan Masukkan nama mobil">
                             <div class="help-block with-errors"></div>
                         </div>
                         <div class="md-form input-group mb-3 col-xl">
@@ -34,7 +34,7 @@
                             <option selected>Pilih Merk</option>
                             <option value="1">Honda</option>
                             <option value="2">Nissan</option>
-                            <option value="3">Yamaha</option>
+                            <option value="3">Toyota</option>
                             <option value="4">Suzuki</option>
                             <option value="5">Mitsubishi</option>
                             <option value="6">Mazda</option>

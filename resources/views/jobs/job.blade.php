@@ -680,10 +680,10 @@ body{
                                 <a id="home2-tab" data-toggle="tab" href="#home2" role="tab" aria-controls="home2" aria-selected="true" class="nav-link text-uppercase font-weight-bold mr-sm-3 rounded-0 active">Deskripsi</a>
                             </li>
                             <li class="nav-item flex-sm-fill">
-                                <a id="profile2-tab" data-toggle="tab" href="#profile2" role="tab" aria-controls="profile2" aria-selected="false" class="nav-link text-uppercase font-weight-bold mr-sm-3 rounded-0">Pendaftar</a>
+                                <a id="profile2-tab" data-toggle="tab" href="#profile2" role="tab" aria-controls="profile2" aria-selected="false" class="nav-link text-uppercase font-weight-bold mr-sm-3 rounded-0">Peminat</a>
                             </li>
                             <li class="nav-item flex-sm-fill">
-                                <a id="contact2-tab" data-toggle="tab" href="#contact2" role="tab" aria-controls="contact2" aria-selected="false" class="nav-link text-uppercase font-weight-bold rounded-0">Lolos</a>
+                                <a id="contact2-tab" data-toggle="tab" href="#contact2" role="tab" aria-controls="contact2" aria-selected="false" class="nav-link text-uppercase font-weight-bold rounded-0">Deal</a>
                             </li>
                         </ul>
                         <div id="myTab2Content" class="tab-content">
@@ -735,7 +735,7 @@ body{
                                                 <td>{{$pelamarD->profile->nama}}</td>
                                                 @if($pelamarD->pivot->status == '1')
                                                 <td>
-                                                    Belum Selesai
+                                                    COD 
                                                 </td>
                                                 <td></td>
                                                 <td>
