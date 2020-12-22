@@ -306,7 +306,7 @@
                         @endauth
                         @auth('user')
                          <li class="nav-item">
-                           <a class="nav-link" href="{{url('/home/')}}">
+                           <a class="nav-link" href="{{url('/wishlist')}}">
                                <i class="fa fa-heart"></i>
                                Wishlist
                                <span class="sr-only">(current)</span>
