@@ -279,6 +279,7 @@
                                     <h5 class="card-title mb-1">
                                         <strong>
                                             <a href="" class="dark-grey-text">{{$pekerjaan->getPosisi()}}</a>
+
                                         </strong>
                                     </h5>
                                     <span class="badge badge-danger mb-2">{{$pekerjaan->kondisi}}</span>
