@@ -282,6 +282,7 @@
                                         </strong>
                                     </h5>
                                     <span class="badge badge-danger mb-2">{{$pekerjaan->kondisi}}</span>
+                                    <span class="badge badge-secondary mb-2">{{$pekerjaan->bayaran}}</span>
                                     <!-- Rating -->
 
 
