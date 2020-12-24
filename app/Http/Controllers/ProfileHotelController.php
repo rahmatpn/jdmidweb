@@ -66,15 +66,15 @@ class ProfileHotelController extends Controller {
         ]);
 
         if(auth()->guard('hotel')->user() != null) {
-            return redirect("/hotel/{$profile->url_slug}")->with("success", "Data Has Been Updated Successfully");
+            return redirect("/seller/{$profile->url_slug}")->with("success", "Data Has Been Updated Successfully");
         }else
-            return redirect('/admin/hotel/manage');
+            return redirect('/admin/seller/manage');
     }
 
     public function destroy($url_slug){
         $profile = ProfileHotel::where('url_slug', '=', $url_slug)->with('hotel')->first();
         $hotel = Hotel::find($profile->hotel_id);
         $hotel->delete();
-        return redirect('/admin/hotel/manage');
+        return redirect('/admin/seller/manage');
     }
 }

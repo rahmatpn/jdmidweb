@@ -62,10 +62,10 @@
 
                         <tr>
                             <td>
-                                <a href="{{url('admin/hotel/'.$hotel->url_slug.'/verifyHotel')}}" class="btn btn-success btn-block btn-lg fa fa-check "> Verify</a></td>
+                                <a href="{{url('admin/seller/'.$hotel->url_slug.'/verifyHotel')}}" class="btn btn-success btn-block btn-lg fa fa-check "> Verify</a></td>
                                 <hr>
                             <td>
-                                <div><a href="{{url('admin/hotel/'.$hotel->url_slug.'/rejectHotel')}}" class="btn btn-danger btn-block btn-lg fa fa-close "> Reject</a> </div>
+                                <div><a href="{{url('admin/seller/'.$hotel->url_slug.'/rejectHotel')}}" class="btn btn-danger btn-block btn-lg fa fa-close "> Reject</a> </div>
                             </td>
                         </tr>
 

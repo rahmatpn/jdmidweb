@@ -19,7 +19,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if ($guard == "hotel" && Auth::guard($guard)->check()) {
-            return redirect('/hotel');
+            return redirect('/home/seller');
         }
         if ($guard == "user" && Auth::guard($guard)->check()) {
             return redirect('/user');
