@@ -283,7 +283,7 @@
                                         </strong>
                                     </h5>
                                     <span class="badge badge-danger mb-2">{{$pekerjaan->kondisi}}</span>
-                                    <span class="badge badge-secondary mb-2">{{$pekerjaan->bayaran}}</span>
+                                    <span class="badge badge-secondary mb-2">{{"IDR: ".number_format($pekerjaan->bayaran)}},00</span>
                                     <!-- Rating -->
 
 

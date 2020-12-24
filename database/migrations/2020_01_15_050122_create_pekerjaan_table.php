@@ -19,8 +19,8 @@ class CreatePekerjaanTable extends Migration
             $table->unsignedBigInteger('posisi_id');
             $table->string('area');
             $table->date('tanggal_mulai');
-            $table->time('waktu_mulai');
-            $table->time('waktu_selesai');
+            $table->text('mesin')->nullable();
+            $table->text('dimensi')->nullable();
             $table->integer('tinggi_minimal')->nullable();
             $table->integer('tinggi_maksimal')->nullable();
             $table->integer('berat_minimal')->nullable();
@@ -29,6 +29,9 @@ class CreatePekerjaanTable extends Migration
             $table->integer('kuota');
             $table->bigInteger('bayaran');
             $table->text('deskripsi');
+            $table->text('warna')->nullable();
+            $table->text('transmisi')->nullable();
+            $table->enum('kondisi', [0,1])->nullable();
             $table->string('url_slug')->unique();
             $table->enum('status', [0,1])->nullable(); //null = pending, 0 = ditolak, 1 = accepted
             $table->timestamps();

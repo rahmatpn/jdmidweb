@@ -28,7 +28,7 @@
         </li>
         <li class="nav-item">
             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-               aria-selected="false">Berkas</a>
+               aria-selected="false"></a>
         </li>
     </ul>
     <div class="tab-content" id="myTabContent">
@@ -193,7 +193,7 @@
                 </section>
                 <section class="my-5">
 
-                    <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Posisi</h3>
+                    <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Minat Mobil</h3>
                     <hr class="w-header">
                     <!-- Section description -->
 
@@ -227,133 +227,32 @@
                 </section>
 
 
-                <section>
-                    <!-- Section heading -->
-                    <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Cover</h3>
-                    <hr class="w-header">
-                    <!-- Section description -->
-                    <div class="row py-4">
-                        <div class="col-lg-6 mx-auto">
+{{--                <section>--}}
+{{--                    <!-- Section heading -->--}}
+{{--                    <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Cover</h3>--}}
+{{--                    <hr class="w-header">--}}
+{{--                    <!-- Section description -->--}}
+{{--                    <div class="row py-4">--}}
+{{--                        <div class="col-lg-6 mx-auto">--}}
 
-                            <div class="input-group">
-            <span class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
-                <label id="upload-label" for="upload" class="font-weight-light text-muted">Pilih File</label>
-                    <input type="file" id="imgInp" class="upload form-control border-0"  name="cover">
-            </span>
-                            </div>
-                            <p class="font-italic text-muted text-center">The image uploaded will be rendered inside the box below.</p>
-                            <img id='img-upload' class="img-fluid rounded shadow-sm mx-auto d-block"/>
+{{--                            <div class="input-group">--}}
+{{--            <span class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">--}}
+{{--                <label id="upload-label" for="upload" class="font-weight-light text-muted">Pilih File</label>--}}
+{{--                    <input type="file" id="imgInp" class="upload form-control border-0"  name="cover">--}}
+{{--            </span>--}}
+{{--                            </div>--}}
+{{--                            <p class="font-italic text-muted text-center">The image uploaded will be rendered inside the box below.</p>--}}
+{{--                            <img id='img-upload' class="img-fluid rounded shadow-sm mx-auto d-block"/>--}}
 
-                        </div>
-                    </div>
-                </section>
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </section>--}}
                 <button class="btn rounded btn-primary rounded-pill" type="submit">Save Changes</button>
             </div>
                         </form>
                 </form>
         </div>
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-{{--                    @auth('admin')--}}
-{{--                        <form action="{{url('admin/user/'.$user->profile->url_slug)}}" enctype="multipart/form-data"  data-toggle="validator" method="post">--}}
-{{--            @endauth--}}
-                            <div class="container my-5">
-                                @auth('user')
-                                <form action="/user/{{$user->profile->url_slug}}/berkas" enctype="multipart/form-data"  data-toggle="validator" method="post">
-                                    @endauth
-                                    @auth('admin')
-                                        <form action="{{url('admin/user/'.$user->profile->url_slug)}}/berkas" enctype="multipart/form-data"  data-toggle="validator" method="post">
-                                            @endauth
-                                            @csrf
-                                    @method('PATCH')
-                                <section>
-                                    <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Foto KTP</h3>
-                                    <hr class="w-header">
-                                    <!-- Section description -->
-                                    <div class="row py-4">
-                                        <div class="col-lg-6 mx-auto">
-                                            <div class="input-group">
-            <span class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
-                <label id="upload-label" for="upload" class="font-weight-light text-muted">Pilih File</label>
-                    <input type="file" id="imgKTP" class="upload form-control border-0"  name="ktp">
-            </span>
-                                            </div>
-                                            <p class="font-italic text-muted text-center">The image uploaded will be rendered inside the box below.</p>
-                                            <img id='img-ktp' class="img-fluid rounded shadow-sm mx-auto d-block"/>
 
-                                        </div>
-                                    </div>
-                                </section>
-
-
-                                <section>
-                                    <!-- Section heading -->
-                                    <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Foto SKCK</h3>
-                                    <hr class="w-header">
-                                    <!-- Section description -->
-                                    <div class="row py-4">
-                                        <div class="col-lg-6 mx-auto">
-
-                                            <div class="input-group">
-            <span class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
-                <label id="upload-label" for="upload" class="font-weight-light text-muted">Pilih File</label>
-                    <input type="file" id="imgSKCK" class="upload form-control border-0"  name="skck">
-            </span>
-                                            </div>
-                                            <p class="font-italic text-muted text-center">The image uploaded will be rendered inside the box below.</p>
-                                            <img id='img-skck' class="img-fluid rounded shadow-sm mx-auto d-block"/>
-
-                                        </div>
-                                    </div>
-                                </section>
-
-                                <section>
-                                    <!-- Section heading -->
-                                    <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Foto Sertifikat Uji Kompetensi</h3>
-                                    <hr class="w-header">
-                                    <!-- Section description -->
-                                    <div class="row py-4">
-                                        <div class="col-lg-6 mx-auto">
-
-                                            <div class="input-group">
-            <span class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
-                <label id="upload-label" for="upload" class="font-weight-light text-muted">Pilih File</label>
-                    <input type="file" id="imgSertif" class="upload form-control border-0"  name="sertifikat">
-            </span>
-                                            </div>
-                                            <p class="font-italic text-muted text-center">The image uploaded will be rendered inside the box below.</p>
-                                            <img id='img-sertif' class="img-fluid rounded shadow-sm mx-auto d-block"/>
-
-                                        </div>
-                                    </div>
-                                </section>
-
-                                <section>
-                                    <!-- Section heading -->
-                                    <h3 class="font-weight-bold black-text mb-4 pb-2 text-center">Foto Kartu Garda Pratama</h3>
-                                    <hr class="w-header">
-                                    <!-- Section description -->
-                                    <div class="row py-4">
-                                        <div class="col-lg-6 mx-auto">
-
-                                            <div class="input-group">
-            <span class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
-                <label id="upload-label" for="upload" class="font-weight-light text-muted">Pilih File</label>
-                    <input type="file" id="imgSatpam" class="upload form-control border-0"  name="kartu_satpam">
-            </span>
-                                            </div>
-                                            <p class="font-italic text-muted text-center">The image uploaded will be rendered inside the box below.</p>
-                                            <img id='img-satpam' class="img-fluid rounded shadow-sm mx-auto d-block"/>
-                                        </div>
-                                    </div>
-                                </section>
-                                <button class="btn rounded btn-primary rounded-pill" type="submit">Save Changes</button>
-                                </form>
-                                </form>
-                            </div>
-
-
-
-        </div>
     </div>
 
 </div>
