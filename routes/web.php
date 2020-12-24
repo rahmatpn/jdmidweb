@@ -110,21 +110,21 @@ Route::group([
 
     //Hotel
 
-    Route::get('/admin/hotel/manage', 'AdminController@indexHotel');
+    Route::get('/admin/seller/manage', 'AdminController@indexHotel');
 
-    Route::get('/admin/hotel/{url_slug}/edit','ProfileHotelController@edit');
+    Route::get('/admin/seller/{url_slug}/edit','ProfileHotelController@edit');
 
-    Route::get('/admin/hotel/{url_slug}/delete', 'ProfileHotelController@destroy');
+    Route::get('/admin/seller/{url_slug}/delete', 'ProfileHotelController@destroy');
 
-    Route::get('/admin/hotel/{url_slug}/verify', 'AdminController@viewVerifyHotel');
+    Route::get('/admin/seller/{url_slug}/verify', 'AdminController@viewVerifyHotel');
 
-    Route::get('/admin/hotel/{url_slug}/verifyHotel', 'AdminController@verifyHotel');
+    Route::get('/admin/seller/{url_slug}/verifyHotel', 'AdminController@verifyHotel');
 
-    Route::get('/admin/hotel/{url_slug}/rejectHotel', 'AdminController@rejectHotel');
+    Route::get('/admin/seller/{url_slug}/rejectHotel', 'AdminController@rejectHotel');
 
-    Route::patch('/admin/hotel/{url_slug}', 'ProfileHotelController@update');
+    Route::patch('/admin/seller/{url_slug}', 'ProfileHotelController@update');
 
-    Route::post('/admin/hotel/create', 'AdminController@adminCreateHotel');
+    Route::post('/admin/seller/create', 'AdminController@adminCreateHotel');
 
 
 
@@ -166,12 +166,12 @@ Route::group([
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/home/hotel', 'HomeController@indexHotel');
+Route::get('/home/seller', 'HomeController@indexHotel');
 
 Route::get('/joblist', 'KerjakanController@index');
 Route::get('/joblist/{url_slug}/todolist', 'PekerjaanController@detailList');
 
-Route::get('/hotel/{profile}', 'ProfileHotelController@indexHotel')->name('hotel.show');
+Route::get('/seller/{profile}', 'ProfileHotelController@indexHotel')->name('hotel.show');
 
 Route::get('/user/{profile}', 'ProfileUserController@indexUser')->name('user.show');
 
@@ -238,9 +238,9 @@ Route::group([
 
     Route::get('/job/{url_slug}/delete','PekerjaanController@delete');
 
-    Route::patch('/hotel/{profile}', 'ProfileHotelController@update');
+    Route::patch('/seller/{profile}', 'ProfileHotelController@update');
 
-    Route::get('/hotel/{profile}/edit', 'ProfileHotelController@edit');
+    Route::get('/seller/{profile}/edit', 'ProfileHotelController@edit');
 
 });
 

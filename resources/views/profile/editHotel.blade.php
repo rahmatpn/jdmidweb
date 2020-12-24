@@ -16,10 +16,10 @@
     </div>
 
     @auth('hotel')
-        <form action="{{url('/hotel/'.$hotel->profile->url_slug)}}" enctype="multipart/form-data"  data-toggle="validator" method="post">
+        <form action="{{url('/seller/'.$hotel->profile->url_slug)}}" enctype="multipart/form-data"  data-toggle="validator" method="post">
             @endauth
             @auth('admin')
-                <form action="{{url('admin/hotel/'.$hotel->profile->url_slug)}}" enctype="multipart/form-data"  data-toggle="validator" method="post">
+                <form action="{{url('admin/seller/'.$hotel->profile->url_slug)}}" enctype="multipart/form-data"  data-toggle="validator" method="post">
                 @endauth
     @csrf
     @method('PATCH')
@@ -156,7 +156,7 @@
     </form>
 </form>
         {{--        <div class="container">--}}
-{{--        <form action="/hotel/{{$hotel->profile->url_slug}}" enctype="multipart/form-data" method="post">--}}
+{{--        <form action="/seller/{{$hotel->profile->url_slug}}" enctype="multipart/form-data" method="post">--}}
 {{--            @csrf--}}
 {{--            @method('PATCH')--}}
 {{--            <div class="container">--}}

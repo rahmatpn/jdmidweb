@@ -79,14 +79,14 @@ class AdminController extends Controller
         $profile = ProfileHotel::where('url_slug', '=', $url_slug)->with('hotel')->first();
         $profile->status_verifikasi = '1';
         $profile->save();
-        return redirect('admin/hotel/manage');
+        return redirect('admin/seller/manage');
     }
 
     public function rejectHotel($url_slug){
         $profile = ProfileHotel::where('url_slug', '=', $url_slug)->with('hotel')->first();
         $profile->status_verifikasi = '0';
         $profile->save();
-        return redirect('admin/hotel/manage');
+        return redirect('admin/seller/manage');
     }
 
     public function indexPekerjaan(){
@@ -178,12 +178,12 @@ class AdminController extends Controller
             $errorCode = $e->errorInfo[2];
             $str = strval($errorCode);
             if (strpos($str, 'hotels_name_unique')) {
-                return redirect()->intended('admin/hotel/manage')->with("gagalhotel", "Nama Hotel telah terdaftar, masukan nama yang berbeda");
+                return redirect()->intended('admin/seller/manage')->with("gagalhotel", "Nama Hotel telah terdaftar, masukan nama yang berbeda");
             } elseif (strpos($str,'hotels_email_unique')) {
-                return redirect()->intended('admin/hotel/manage')->with("gagalhotel", "Email telah terdaftar");
+                return redirect()->intended('admin/seller/manage')->with("gagalhotel", "Email telah terdaftar");
             }
         }
-        return redirect('/admin/hotel/manage');
+        return redirect('/admin/seller/manage');
     }
 
     protected function createPosisi(Request $request)

@@ -63,7 +63,7 @@ class LoginController extends Controller
 
         if (Auth::guard('hotel')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
             $profile = ProfileHotel::where('hotel_id',Auth::guard('hotel')->user()->id)->first();
-            return redirect('/hotel/'.$profile->url_slug);
+            return redirect('/seller/'.$profile->url_slug);
 
         }
         return redirect()->intended('masuk/seller')->with('gagalLogin','Password atau Email salah');

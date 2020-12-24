@@ -29,7 +29,7 @@
                     <h4 class="modal-title float-left">Add Hotel</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <form method="POST" class="form-detail" action="{{url('/admin/hotel/create')}}" >
+                <form method="POST" class="form-detail" action="{{url('/admin/seller/create')}}" >
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
@@ -100,9 +100,9 @@
                     <td class="text-md-center"><button class="btn btn-sm btn-danger fa fa-close"></button></td>
                 @endif
                 <td><img src="{{asset($hotel->profile->hotelPhoto())}}" class="w-100"></td>
-                <td class="text-sm"><a style="margin-bottom: 5px;" href="{{url('/admin/hotel/'.$hotel->profile->url_slug.'/delete')}}" class="btn btn-sm btn-danger fa fa-trash"></a>
-                <a style="margin-bottom: 5px;" href="{{url('/admin/hotel/'.$hotel->profile->url_slug.'/edit')}}" class="btn btn-sm btn-info fa fa-pencil"></a>
-                <a style="margin-bottom: 5px;" href="{{url('/admin/hotel/'.$hotel->profile->url_slug.'/verify')}}" class="btn btn-sm btn-outline-warning fa fa-eye"></a> </td>
+                <td class="text-sm"><a style="margin-bottom: 5px;" href="{{url('/admin/seller/'.$hotel->profile->url_slug.'/delete')}}" class="btn btn-sm btn-danger fa fa-trash"></a>
+                <a style="margin-bottom: 5px;" href="{{url('/admin/seller/'.$hotel->profile->url_slug.'/edit')}}" class="btn btn-sm btn-info fa fa-pencil"></a>
+                <a style="margin-bottom: 5px;" href="{{url('/admin/seller/'.$hotel->profile->url_slug.'/verify')}}" class="btn btn-sm btn-outline-warning fa fa-eye"></a> </td>
             </tr>
         @endforeach
         </tbody>

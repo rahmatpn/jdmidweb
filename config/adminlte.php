@@ -181,7 +181,7 @@ return [
         ],
         [
             'text' => 'Hotel',
-            'url'  => 'admin/hotel/manage',
+            'url'  => 'admin/seller/manage',
             'icon' => 'fas fa-fw fa-building',
         ],
         [
@@ -240,7 +240,7 @@ return [
 //        ],
 //        [
 //            'text' => 'Hotel',
-//            'url'  => 'admin/hotel/add',
+//            'url'  => 'admin/seller/add',
 //            'icon' => 'fas fa-fw fa-building',
 //        ],
 

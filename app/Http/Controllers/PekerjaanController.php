@@ -30,7 +30,7 @@ class PekerjaanController extends Controller
     {
         $hotel = auth()->guard('hotel')->user()->profile;
         // if($hotel->status_verifikasi != 1)
-        //     return redirect('/hotel/'.$hotel->url_slug)->with('gagalVerifikasi', 'Profile belum diverifikasi, silakan hubungi admin');
+        //     return redirect('/seller/'.$hotel->url_slug)->with('gagalVerifikasi', 'Profile belum diverifikasi, silakan hubungi admin');
         // else
         return view('jobs.postjob');
     }
@@ -80,7 +80,7 @@ class PekerjaanController extends Controller
         );
 
 
-        return redirect('/hotel/'.auth()->user()->profile->url_slug)->with('success','Hore, Postingan anda berhasil di post');
+        return redirect('/seller/'.auth()->user()->profile->url_slug)->with('success','Hore, Postingan anda berhasil di post');
     }
 
     public function wishlist() {
@@ -125,7 +125,7 @@ class PekerjaanController extends Controller
             'deskripsi' => $request->deskripsi
         ]);
         if(Auth::guard('hotel')->user() != null){
-            return redirect('/hotel/'.auth()->user()->profile->url_slug)->with('success','Data Telah Diupdate!');
+            return redirect('/seller/'.auth()->user()->profile->url_slug)->with('success','Data Telah Diupdate!');
         }else
             return redirect('/admin/pekerjaan/manage');
     }
@@ -133,7 +133,7 @@ class PekerjaanController extends Controller
     public function delete($url_slug){
         DB::table('pekerjaan')->where('url_slug', $url_slug)->delete();
         if(Auth::guard('hotel')->user() != null){
-            return redirect('/hotel/'.auth()->user()->profile->url_slug)->with('success','Data Telah Dihapus');
+            return redirect('/seller/'.auth()->user()->profile->url_slug)->with('success','Data Telah Dihapus');
         }else
             return back();
 

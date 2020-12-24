@@ -14,7 +14,7 @@
 {{--        <meta name="csrf-token" content="{{ csrf_token() }}">--}}
 {{--    </head>--}}
                 <form action="{{url('/job/'.$pekerjaan->url_slug.'/todolist')}}" enctype="multipart/form-data"  data-toggle="validator" method="post">
-                    <a href="{{url('/hotel/'.auth()->user()->profile->url_slug)}}" style="display: none" class="btn btn-info" role="button"> Kembali</a>
+                    <a href="{{url('/seller/'.auth()->user()->profile->url_slug)}}" style="display: none" class="btn btn-info" role="button"> Kembali</a>
                     <br/>
                     <br/>
                     {{ csrf_field() }}

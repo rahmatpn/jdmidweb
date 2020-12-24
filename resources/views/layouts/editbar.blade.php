@@ -299,7 +299,7 @@
                        @endauth
                      @auth('hotel')
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/hotel/'.\Illuminate\Support\Str::slug(auth()->guard('hotel')->user()->name))}}">
+                            <a class="nav-link" href="{{url('/seller/'.\Illuminate\Support\Str::slug(auth()->guard('hotel')->user()->name))}}">
                                 <i class="fa fa-user-circle"></i>
                                 Profil
                                 <span class="sr-only">(current)</span>
@@ -308,7 +308,7 @@
                     @endauth
                        @auth('hotel')
                        <li class="nav-item">
-                           <a class="nav-link" href="{{url('/home/hotel')}}">
+                           <a class="nav-link" href="{{url('/home/seller')}}">
                                <i class="fa fa-home"></i>
                                List Product
                                <span class="sr-only">(current)</span>
@@ -357,7 +357,7 @@
                                </a>
                                <div class="dropdown-menu dropdown-menu-right dropdown-default"
                                     aria-labelledby="navbarDropdownMenuLink-333">
-                                   <a class="dropdown-item" href="{{url('/hotel/'.auth()->guard('hotel')->user()->profile->url_slug.'/edit')}}">Edit Profil</a>
+                                   <a class="dropdown-item" href="{{url('/seller/'.auth()->guard('hotel')->user()->profile->url_slug.'/edit')}}">Edit Profil</a>
                                    <a class="dropdown-item" href="{{route('logout')}}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Log Out</a>
                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                        @csrf
